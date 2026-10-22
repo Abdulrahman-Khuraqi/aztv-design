@@ -159,5 +159,23 @@ else:
 if 'data-go="files"' not in t.split('</nav>')[0]:
     t = t.replace('    <button type="button" class="tab" role="tab" data-go="log">السجل</button>',
                   '    <button type="button" class="tab" role="tab" data-go="files">ملفات التسليم</button>\n    <button type="button" class="tab" role="tab" data-go="log">السجل</button>', 1)
+# «قائمة المهام» tab from 05-design/todo.json (also writes 05-design/TODO.md); placed right after the overview tab
+import sys
+sys.path.insert(0, os.path.dirname(__file__))
+import todo_panel
+TODO_PANEL, TODO_STYLE = todo_panel.build(ROOT)
+if '<!-- TODO:START' in t:
+    t = re.sub(r'<!-- TODO:START.*?<!-- TODO:END -->\n', lambda m: TODO_PANEL, t, flags=re.S)
+else:
+    i = t.find('<section class="panel" id="plan"')
+    j = t.rfind('<!--', 0, i)
+    t = t[:j] + TODO_PANEL + '\n' + t[j:]
+if '/* TODO-STYLE:START */' in t:
+    t = re.sub(r'/\* TODO-STYLE:START \*/.*?/\* TODO-STYLE:END \*/\n', lambda m: TODO_STYLE, t, flags=re.S)
+else:
+    t = t.replace('</style>', TODO_STYLE + '</style>', 1)
+if 'data-go="todo"' not in t.split('</nav>')[0]:
+    t = t.replace('    <button type="button" class="tab" role="tab" data-go="plan">الخطة</button>',
+                  '    <button type="button" class="tab" role="tab" data-go="todo">قائمة المهام</button>\n    <button type="button" class="tab" role="tab" data-go="plan">الخطة</button>', 1)
 open(WS, 'w', encoding='utf-8').write(t)
 print('workspace', len(t) // 1024, 'KB')

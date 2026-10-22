@@ -1,7 +1,7 @@
 # AZ TV Store — New Store Design
 
 Single source of truth for the redesign of [aztvstore.com](https://aztvstore.com/).
-The visual version of this file is **Our Workspace**: [our workspace.html](our%20workspace.html). Keep the two in sync. Its tab «ملفات التسليم» embeds every deliverable (refresh with `python3 05-design/new-design/build/sync_workspace.py`).
+The visual version of this file is **Our Workspace**: [our workspace.html](our%20workspace.html). Keep the two in sync. Its tab «قائمة المهام» is the image to-do list (`05-design/todo.json`), and «ملفات التسليم» embeds every deliverable (refresh with `python3 05-design/new-design/build/sync_workspace.py`).
 
 Last updated: 2026-10-22
 
@@ -196,6 +196,7 @@ new store design/
 
 ## 10. Log
 
+- 2026-10-22: Image to-do list. `05-design/todo.json` lists the 23 old or placeholder images still in the new page, grouped: 10 product cards (I compose them from the section 03 3D renders, with the duration in Arabic; two still say «اليوم الوطني»), beIN world (4K and PVR receivers, قمة and تميز packages, renewal), the AZ TV Box card, the second-store banner, the three old GIF title icons, an optional 3D upgrade of the flat icons, and the hero video. Each has the image used today, the new file name, who makes it and a ready prompt in the section 03 style. `sync_workspace.py` (with `build/todo_panel.py`) turns it into the workspace tab «قائمة المهام» and `05-design/TODO.md`.
 - 2026-10-22: Section 03, AZ TV card: black-and-white version of the 3D render (`cat-aztv-3d-bw.png/.webp`, silver frame, white logo) so the regular package reads black and white and Plus stays gold, as on the store's product cards. The gold original is kept.
 - 2026-10-22: Full review of the new page, section by section, with the next edit for each and the top five priorities: stale «اليوم الوطني» product images (06, 07, 11), the beIN section (04), the AZ TV Box image (05), a shorter page by merging 08 and 12 (page is 10,826 px vs about 9,500 today), and renewal prices showing «-» (15). In `05-design/REVIEW.md`, full-page screenshots in `05-design/review/`.
 - 2026-10-22: Section 03 uses the five 3D renders (transparent PNG, `cat-*-3d.png`, WebP copies for the page). CSS for the first categories block only (`section:nth-child(1 of .s-block--categories)`): the card is drawn behind the lower two thirds of the tile so the object rises out of it, floats gently and lifts with a gold glow on hover. The theme's own dark background on category links is removed for all category blocks.
