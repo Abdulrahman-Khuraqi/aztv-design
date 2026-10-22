@@ -1,6 +1,6 @@
 # قائمة المهام: الصور التي تُعاد
 
-مولّدة من `05-design/todo.json` (لا تُعدَّل هنا). تم 0 من 23.
+مولّدة من `05-design/todo.json` (لا تُعدَّل هنا). تم 10 من 23.
 
 طريقة التوليد: أرفق مع كل نص صورة المرجع `05-design/new-design/assets/img/cat-aztv-3d.png` (أو `cat-aztv-plus-3d.png`)، واحفظ الناتج باسم «الملف الجديد».
 
@@ -8,18 +8,18 @@
 
 - **أين:** الأقسام 06، 07، 11، 15، وصفحات المنتجات نفسها
 - **لماذا:** صور قديمة بأساليب مختلفة، واثنتان منها ما زالتا «عرض اليوم الوطني». الخطة: صورة واحدة بنظام واحد لكل باقة: العادية بالأبيض والأسود، البلس بالذهبي.
-- **كيف:** لا تحتاج توليدًا جديدًا: أركّبها أنا من صور القسم 03 الثلاثية الأبعاد (بطاقة AZ TV بالأبيض والأسود، بطاقة البلس بالذهبي، وسهم التجديد) على خلفية سوداء، ومعها مدة الاشتراك بالعربي بخط المتجر. المقاس 1000×1000. ثم تُرفع كصورة لكل منتج في سلة.
+- **كيف:** تم: ركّبتها من صور القسم 03 الثلاثية الأبعاد (العادية بالأبيض والأسود، البلس بالذهبي مع شارة 4K، وسهم التجديد) ومدة الاشتراك بالعربي بخط المتجر، 1000×1000. الملفات في new-design/assets/img/products/ (PNG للرفع في سلة، WebP للصفحة). السكربت build/make_products.js. المتبقي: رفعها على كل منتج في سلة.
 
-- [ ] **عز تي في سنة + ٣ شهور** · Claude يركّبها · عاجل: صورة «اليوم الوطني» · الآن: `3749112-500x500-jALOT8PWhFqMydBaPXNuQ0Q93IRepaG523qElILR-ad8ae7f8.jpg` ← الجديد: `prod-aztv-15m.png` · أبيض وأسود · «سنة + ٣ شهور»
-- [ ] **اشتراك عز تي في 6 شهور** · Claude يركّبها · الآن: `24a3c88-500x500-CnDzPvtHcrccqG4U3hjijJC1PjRB6eNgo0yQbebl-a838ae66.png` ← الجديد: `prod-aztv-6m.png` · أبيض وأسود · «٦ شهور»
-- [ ] **اشتراك عز تي في 3 شهور** · Claude يركّبها · الآن: `d9206bc-500x500-Pdq4qFNfyMqdl4t1NifigcGjTWetPoTMx8CrLzJk-22de4025.png` ← الجديد: `prod-aztv-3m.png` · أبيض وأسود · «٣ شهور»
-- [ ] **اشتراك عز تي في شهر** · Claude يركّبها · الآن: `6e336c0-500x500-LIOe2U9NnpSU0ZiQxWe6McRhZdPWXuCg52kFYQk9-c55544a3.png` ← الجديد: `prod-aztv-1m.png` · أبيض وأسود · «شهر»
-- [ ] **اشتراك عز تي في بلس سنة** · Claude يركّبها · عاجل: صورة «اليوم الوطني» · الآن: `022d3d6-500x500-NFc1bIYqaWt27iJChQiLr5qvf0S2wMbcH5JJTDW6-28f11ae7.jpg` ← الجديد: `prod-plus-12m.png` · ذهبي · «سنة»
-- [ ] **عز تي في بلس سنة (جهازين)** · Claude يركّبها · الآن: `b86e1ef-500x500-1XzgT1KgFRTUDFBSo5M3zlDXu9CWk5QZEQwXsQiI-c7821b77.png` ← الجديد: `prod-plus-12m-2dev.png` · ذهبي · «سنة · جهازين»
-- [ ] **اشتراك عز تي في بلس 6 شهور** · Claude يركّبها · الآن: `603594c-500x500-BJo68nE5iCjLjE7ygy0YilBvKNwUNvzVX9JAGSJU-40df055e.png` ← الجديد: `prod-plus-6m.png` · ذهبي · «٦ شهور»
-- [ ] **اشتراك عز تي في بلس 3 شهور** · Claude يركّبها · الآن: `2a34a15-500x500-OtAKd64tOXddtIp3XtlCzaNkObz6Rb6j3w99lt03-113b12d2.png` ← الجديد: `prod-plus-3m.png` · ذهبي · «٣ شهور»
-- [ ] **تجديد اشتراك عز تي في العادي** · Claude يركّبها · الآن: `75b791b-500x500-HGwrvjICWoLePFOaDdpCm1gKSorTGEA2EUBSqgHv-adbe7116.png` ← الجديد: `prod-renew-aztv.png` · سهم التجديد بالأبيض والأسود · «تجديد»
-- [ ] **تجديد اشتراك عز تي في بلس** · Claude يركّبها · الآن: `f754e7b-500x500-9jf2ocR3CjOLW3sPvXYdAMYVnLmnrqN1cg81nSpA-1f7cd92e.png` ← الجديد: `prod-renew-plus.png` · سهم التجديد بالذهبي · «تجديد البلس»
+- [x] **عز تي في سنة + ٣ شهور** · Claude يركّبها · الآن: `3749112-500x500-jALOT8PWhFqMydBaPXNuQ0Q93IRepaG523qElILR-ad8ae7f8.jpg` ← الجديد: `prod-aztv-15m.png` · أبيض وأسود · «سنة + ٣ شهور»
+- [x] **اشتراك عز تي في 6 شهور** · Claude يركّبها · الآن: `24a3c88-500x500-CnDzPvtHcrccqG4U3hjijJC1PjRB6eNgo0yQbebl-a838ae66.png` ← الجديد: `prod-aztv-6m.png` · أبيض وأسود · «٦ شهور»
+- [x] **اشتراك عز تي في 3 شهور** · Claude يركّبها · الآن: `d9206bc-500x500-Pdq4qFNfyMqdl4t1NifigcGjTWetPoTMx8CrLzJk-22de4025.png` ← الجديد: `prod-aztv-3m.png` · أبيض وأسود · «٣ شهور»
+- [x] **اشتراك عز تي في شهر** · Claude يركّبها · الآن: `6e336c0-500x500-LIOe2U9NnpSU0ZiQxWe6McRhZdPWXuCg52kFYQk9-c55544a3.png` ← الجديد: `prod-aztv-1m.png` · أبيض وأسود · «شهر»
+- [x] **اشتراك عز تي في بلس سنة** · Claude يركّبها · الآن: `022d3d6-500x500-NFc1bIYqaWt27iJChQiLr5qvf0S2wMbcH5JJTDW6-28f11ae7.jpg` ← الجديد: `prod-plus-12m.png` · ذهبي · «سنة»
+- [x] **عز تي في بلس سنة (جهازين)** · Claude يركّبها · الآن: `b86e1ef-500x500-1XzgT1KgFRTUDFBSo5M3zlDXu9CWk5QZEQwXsQiI-c7821b77.png` ← الجديد: `prod-plus-12m-2dev.png` · ذهبي · «سنة · جهازين»
+- [x] **اشتراك عز تي في بلس 6 شهور** · Claude يركّبها · الآن: `603594c-500x500-BJo68nE5iCjLjE7ygy0YilBvKNwUNvzVX9JAGSJU-40df055e.png` ← الجديد: `prod-plus-6m.png` · ذهبي · «٦ شهور»
+- [x] **اشتراك عز تي في بلس 3 شهور** · Claude يركّبها · الآن: `2a34a15-500x500-OtAKd64tOXddtIp3XtlCzaNkObz6Rb6j3w99lt03-113b12d2.png` ← الجديد: `prod-plus-3m.png` · ذهبي · «٣ شهور»
+- [x] **تجديد اشتراك عز تي في العادي** · Claude يركّبها · الآن: `75b791b-500x500-HGwrvjICWoLePFOaDdpCm1gKSorTGEA2EUBSqgHv-adbe7116.png` ← الجديد: `prod-renew-aztv.png` · سهم التجديد بالأبيض والأسود · «تجديد»
+- [x] **تجديد اشتراك عز تي في بلس** · Claude يركّبها · الآن: `f754e7b-500x500-9jf2ocR3CjOLW3sPvXYdAMYVnLmnrqN1cg81nSpA-1f7cd92e.png` ← الجديد: `prod-renew-plus.png` · سهم التجديد بالذهبي · «تجديد البلس»
 
 ## عالم beIN (القسم 04)
 

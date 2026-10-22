@@ -7,18 +7,108 @@
       "title": "بطاقات المنتجات (صور المنتجات في سلة)",
       "where": "الأقسام 06، 07، 11، 15، وصفحات المنتجات نفسها",
       "why": "صور قديمة بأساليب مختلفة، واثنتان منها ما زالتا «عرض اليوم الوطني». الخطة: صورة واحدة بنظام واحد لكل باقة: العادية بالأبيض والأسود، البلس بالذهبي.",
-      "how": "لا تحتاج توليدًا جديدًا: أركّبها أنا من صور القسم 03 الثلاثية الأبعاد (بطاقة AZ TV بالأبيض والأسود، بطاقة البلس بالذهبي، وسهم التجديد) على خلفية سوداء، ومعها مدة الاشتراك بالعربي بخط المتجر. المقاس 1000×1000. ثم تُرفع كصورة لكل منتج في سلة.",
+      "how": "تم: ركّبتها من صور القسم 03 الثلاثية الأبعاد (العادية بالأبيض والأسود، البلس بالذهبي مع شارة 4K، وسهم التجديد) ومدة الاشتراك بالعربي بخط المتجر، 1000×1000. الملفات في new-design/assets/img/products/ (PNG للرفع في سلة، WebP للصفحة). السكربت build/make_products.js. المتبقي: رفعها على كل منتج في سلة.",
       "items": [
-        {"id": "p-aztv-15m", "title": "عز تي في سنة + ٣ شهور", "link": "p930436127", "now": "3749112-500x500-jALOT8PWhFqMydBaPXNuQ0Q93IRepaG523qElILR-ad8ae7f8.jpg", "new": "prod-aztv-15m.png", "spec": "أبيض وأسود · «سنة + ٣ شهور»", "who": "me", "priority": "عاجل: صورة «اليوم الوطني»", "status": "todo"},
-        {"id": "p-aztv-6m", "title": "اشتراك عز تي في 6 شهور", "link": "p1133679038", "now": "24a3c88-500x500-CnDzPvtHcrccqG4U3hjijJC1PjRB6eNgo0yQbebl-a838ae66.png", "new": "prod-aztv-6m.png", "spec": "أبيض وأسود · «٦ شهور»", "who": "me", "status": "todo"},
-        {"id": "p-aztv-3m", "title": "اشتراك عز تي في 3 شهور", "link": "p527896233", "now": "d9206bc-500x500-Pdq4qFNfyMqdl4t1NifigcGjTWetPoTMx8CrLzJk-22de4025.png", "new": "prod-aztv-3m.png", "spec": "أبيض وأسود · «٣ شهور»", "who": "me", "status": "todo"},
-        {"id": "p-aztv-1m", "title": "اشتراك عز تي في شهر", "link": "p264351896", "now": "6e336c0-500x500-LIOe2U9NnpSU0ZiQxWe6McRhZdPWXuCg52kFYQk9-c55544a3.png", "new": "prod-aztv-1m.png", "spec": "أبيض وأسود · «شهر»", "who": "me", "status": "todo"},
-        {"id": "p-plus-12m", "title": "اشتراك عز تي في بلس سنة", "link": "p331255752", "now": "022d3d6-500x500-NFc1bIYqaWt27iJChQiLr5qvf0S2wMbcH5JJTDW6-28f11ae7.jpg", "new": "prod-plus-12m.png", "spec": "ذهبي · «سنة»", "who": "me", "priority": "عاجل: صورة «اليوم الوطني»", "status": "todo"},
-        {"id": "p-plus-12m-2d", "title": "عز تي في بلس سنة (جهازين)", "link": "p1669484767", "now": "b86e1ef-500x500-1XzgT1KgFRTUDFBSo5M3zlDXu9CWk5QZEQwXsQiI-c7821b77.png", "new": "prod-plus-12m-2dev.png", "spec": "ذهبي · «سنة · جهازين»", "who": "me", "status": "todo"},
-        {"id": "p-plus-6m", "title": "اشتراك عز تي في بلس 6 شهور", "link": "p1879371242", "now": "603594c-500x500-BJo68nE5iCjLjE7ygy0YilBvKNwUNvzVX9JAGSJU-40df055e.png", "new": "prod-plus-6m.png", "spec": "ذهبي · «٦ شهور»", "who": "me", "status": "todo"},
-        {"id": "p-plus-3m", "title": "اشتراك عز تي في بلس 3 شهور", "link": "p1024479901", "now": "2a34a15-500x500-OtAKd64tOXddtIp3XtlCzaNkObz6Rb6j3w99lt03-113b12d2.png", "new": "prod-plus-3m.png", "spec": "ذهبي · «٣ شهور»", "who": "me", "status": "todo"},
-        {"id": "p-renew-aztv", "title": "تجديد اشتراك عز تي في العادي", "link": "p777133688", "now": "75b791b-500x500-HGwrvjICWoLePFOaDdpCm1gKSorTGEA2EUBSqgHv-adbe7116.png", "new": "prod-renew-aztv.png", "spec": "سهم التجديد بالأبيض والأسود · «تجديد»", "who": "me", "status": "todo"},
-        {"id": "p-renew-plus", "title": "تجديد اشتراك عز تي في بلس", "link": "p287657453", "now": "f754e7b-500x500-9jf2ocR3CjOLW3sPvXYdAMYVnLmnrqN1cg81nSpA-1f7cd92e.png", "new": "prod-renew-plus.png", "spec": "سهم التجديد بالذهبي · «تجديد البلس»", "who": "me", "status": "todo"}
+        {
+          "id": "p-aztv-15m",
+          "title": "عز تي في سنة + ٣ شهور",
+          "link": "p930436127",
+          "now": "3749112-500x500-jALOT8PWhFqMydBaPXNuQ0Q93IRepaG523qElILR-ad8ae7f8.jpg",
+          "new": "prod-aztv-15m.png",
+          "spec": "أبيض وأسود · «سنة + ٣ شهور»",
+          "who": "me",
+          "status": "done"
+        },
+        {
+          "id": "p-aztv-6m",
+          "title": "اشتراك عز تي في 6 شهور",
+          "link": "p1133679038",
+          "now": "24a3c88-500x500-CnDzPvtHcrccqG4U3hjijJC1PjRB6eNgo0yQbebl-a838ae66.png",
+          "new": "prod-aztv-6m.png",
+          "spec": "أبيض وأسود · «٦ شهور»",
+          "who": "me",
+          "status": "done"
+        },
+        {
+          "id": "p-aztv-3m",
+          "title": "اشتراك عز تي في 3 شهور",
+          "link": "p527896233",
+          "now": "d9206bc-500x500-Pdq4qFNfyMqdl4t1NifigcGjTWetPoTMx8CrLzJk-22de4025.png",
+          "new": "prod-aztv-3m.png",
+          "spec": "أبيض وأسود · «٣ شهور»",
+          "who": "me",
+          "status": "done"
+        },
+        {
+          "id": "p-aztv-1m",
+          "title": "اشتراك عز تي في شهر",
+          "link": "p264351896",
+          "now": "6e336c0-500x500-LIOe2U9NnpSU0ZiQxWe6McRhZdPWXuCg52kFYQk9-c55544a3.png",
+          "new": "prod-aztv-1m.png",
+          "spec": "أبيض وأسود · «شهر»",
+          "who": "me",
+          "status": "done"
+        },
+        {
+          "id": "p-plus-12m",
+          "title": "اشتراك عز تي في بلس سنة",
+          "link": "p331255752",
+          "now": "022d3d6-500x500-NFc1bIYqaWt27iJChQiLr5qvf0S2wMbcH5JJTDW6-28f11ae7.jpg",
+          "new": "prod-plus-12m.png",
+          "spec": "ذهبي · «سنة»",
+          "who": "me",
+          "status": "done"
+        },
+        {
+          "id": "p-plus-12m-2d",
+          "title": "عز تي في بلس سنة (جهازين)",
+          "link": "p1669484767",
+          "now": "b86e1ef-500x500-1XzgT1KgFRTUDFBSo5M3zlDXu9CWk5QZEQwXsQiI-c7821b77.png",
+          "new": "prod-plus-12m-2dev.png",
+          "spec": "ذهبي · «سنة · جهازين»",
+          "who": "me",
+          "status": "done"
+        },
+        {
+          "id": "p-plus-6m",
+          "title": "اشتراك عز تي في بلس 6 شهور",
+          "link": "p1879371242",
+          "now": "603594c-500x500-BJo68nE5iCjLjE7ygy0YilBvKNwUNvzVX9JAGSJU-40df055e.png",
+          "new": "prod-plus-6m.png",
+          "spec": "ذهبي · «٦ شهور»",
+          "who": "me",
+          "status": "done"
+        },
+        {
+          "id": "p-plus-3m",
+          "title": "اشتراك عز تي في بلس 3 شهور",
+          "link": "p1024479901",
+          "now": "2a34a15-500x500-OtAKd64tOXddtIp3XtlCzaNkObz6Rb6j3w99lt03-113b12d2.png",
+          "new": "prod-plus-3m.png",
+          "spec": "ذهبي · «٣ شهور»",
+          "who": "me",
+          "status": "done"
+        },
+        {
+          "id": "p-renew-aztv",
+          "title": "تجديد اشتراك عز تي في العادي",
+          "link": "p777133688",
+          "now": "75b791b-500x500-HGwrvjICWoLePFOaDdpCm1gKSorTGEA2EUBSqgHv-adbe7116.png",
+          "new": "prod-renew-aztv.png",
+          "spec": "سهم التجديد بالأبيض والأسود · «تجديد»",
+          "who": "me",
+          "status": "done"
+        },
+        {
+          "id": "p-renew-plus",
+          "title": "تجديد اشتراك عز تي في بلس",
+          "link": "p287657453",
+          "now": "f754e7b-500x500-9jf2ocR3CjOLW3sPvXYdAMYVnLmnrqN1cg81nSpA-1f7cd92e.png",
+          "new": "prod-renew-plus.png",
+          "spec": "سهم التجديد بالذهبي · «تجديد البلس»",
+          "who": "me",
+          "status": "done"
+        }
       ]
     },
     {
@@ -28,11 +118,66 @@
       "why": "بنرا الجهازين أبيض وبنفسجي بنص مكتوب داخلهما، وبطاقات الباقات مسطحة ومكتوب الاسم فيها مرتين. المطلوب نفس أسلوب صور القسم 03.",
       "how": "صور ثلاثية الأبعاد بخلفية شفافة. للجهازين: أرفق صورة الجهاز الحقيقية حتى لا يخترع الذكاء الاصطناعي جهازًا آخر. للباقات: صورتان أساسيتان (قمة وتميز)، وأنا أضيف «عربي» و«خليجي» عليهما.",
       "items": [
-        {"id": "b-4k", "title": "رسيفر beIN TV 4K", "link": "c757128774", "now": "b3ee113b-01d6-4824-af25-344fa8a26396-022b88f8.webp", "new": "bein-4k-3d.png", "spec": "3D، خلفية شفافة، 2048×2048", "who": "you", "edge": "gold", "prompt": "Use the second attached photo as the exact product: the white beIN TV 4K receiver. Keep its real shape, buttons and logo position; remove the big 4K letters, the purple band and all text. Render it as a premium 3D product shot in the style of the first attached reference: device at a slight three-quarter angle on a thin black glossy plinth with a polished gold edge, soft gold rim light. TRANSPARENT background, no text, square 2048x2048.", "status": "todo"},
-        {"id": "b-pvr", "title": "رسيفر beIN PVR HD", "link": "c1398521669", "now": "0331b2be-ccc5-4f63-8a30-7cf3e1cf572c-03180d63.webp", "new": "bein-pvr-3d.png", "spec": "3D، خلفية شفافة، 2048×2048", "who": "you", "edge": "gold", "prompt": "Use the second attached photo as the exact product: the white beIN PVR HD receiver. Keep its real shape, display and logo position; remove the big HD letters, the purple band and all text. Same render as the beIN 4K image: three-quarter angle on a thin black glossy plinth with a polished gold edge, soft gold rim light. TRANSPARENT background, no text, square 2048x2048.", "status": "todo"},
-        {"id": "b-qimma", "title": "باقات قمة (عربي وخليجي)", "link": "c1147218769 · c415231319", "now": "malak/bein-qimma-arabi.webp", "new": "bein-qimma-3d.png ← bein-qimma-arabi / khaleeji", "spec": "صورة أساسية واحدة، وأنا أصنع منها نسختي عربي وخليجي", "who": "you", "edge": "gold", "prompt": "Premium 3D render of a top-tier sports subscription: a glossy black TV screen card showing a deep purple (#5B2A86) glowing screen, a small polished gold trophy standing in front of it at the lower right, a thin gold ring orbiting around the screen. Same style as the attached reference. TRANSPARENT background, no text, no logos on the screen, square 2048x2048.", "status": "todo"},
-        {"id": "b-tamayoz", "title": "باقات تميز (عربي وخليجي)", "link": "c374229586 · c1787038800", "now": "malak/bein-tamayoz-arabi.webp", "new": "bein-tamayoz-3d.png ← bein-tamayoz-arabi / khaleeji", "spec": "صورة أساسية واحدة، وأنا أصنع منها نسختي عربي وخليجي", "who": "you", "edge": "silver", "prompt": "Premium 3D render of a sports subscription: a glossy black TV screen card showing a deep purple (#5B2A86) glowing screen, a polished silver five-point star standing in front of it at the lower right, a thin silver ring orbiting around the screen. Same style as the attached reference but with silver instead of gold. TRANSPARENT background, no text, no logos on the screen, square 2048x2048.", "status": "todo"},
-        {"id": "b-renew", "title": "تجديد اشتراك beIN الرسمي", "link": "c899162953", "now": "malak/bein-renew.webp", "new": "bein-renew-3d.png", "spec": "3D، خلفية شفافة", "who": "you", "edge": "gold", "prompt": "Premium 3D render in the exact style of the attached renewal reference (cat-renewal-3d.png): a glossy black card with a deep purple (#5B2A86) face, wrapped by a polished gold circular renewal arrow, a small gold check badge. TRANSPARENT background, no text, square 2048x2048.", "status": "todo"}
+        {
+          "id": "b-4k",
+          "title": "رسيفر beIN TV 4K",
+          "link": "c757128774",
+          "now": "b3ee113b-01d6-4824-af25-344fa8a26396-022b88f8.webp",
+          "new": "bein-4k-3d.png",
+          "spec": "3D، خلفية شفافة، 2048×2048",
+          "who": "you",
+          "edge": "gold",
+          "prompt": "Use the second attached photo as the exact product: the white beIN TV 4K receiver. Keep its real shape, buttons and logo position; remove the big 4K letters, the purple band and all text. Render it as a premium 3D product shot in the style of the first attached reference: device at a slight three-quarter angle on a thin black glossy plinth with a polished gold edge, soft gold rim light. TRANSPARENT background, no text, square 2048x2048.",
+          "status": "todo"
+        },
+        {
+          "id": "b-pvr",
+          "title": "رسيفر beIN PVR HD",
+          "link": "c1398521669",
+          "now": "0331b2be-ccc5-4f63-8a30-7cf3e1cf572c-03180d63.webp",
+          "new": "bein-pvr-3d.png",
+          "spec": "3D، خلفية شفافة، 2048×2048",
+          "who": "you",
+          "edge": "gold",
+          "prompt": "Use the second attached photo as the exact product: the white beIN PVR HD receiver. Keep its real shape, display and logo position; remove the big HD letters, the purple band and all text. Same render as the beIN 4K image: three-quarter angle on a thin black glossy plinth with a polished gold edge, soft gold rim light. TRANSPARENT background, no text, square 2048x2048.",
+          "status": "todo"
+        },
+        {
+          "id": "b-qimma",
+          "title": "باقات قمة (عربي وخليجي)",
+          "link": "c1147218769 · c415231319",
+          "now": "malak/bein-qimma-arabi.webp",
+          "new": "bein-qimma-3d.png ← bein-qimma-arabi / khaleeji",
+          "spec": "صورة أساسية واحدة، وأنا أصنع منها نسختي عربي وخليجي",
+          "who": "you",
+          "edge": "gold",
+          "prompt": "Premium 3D render of a top-tier sports subscription: a glossy black TV screen card showing a deep purple (#5B2A86) glowing screen, a small polished gold trophy standing in front of it at the lower right, a thin gold ring orbiting around the screen. Same style as the attached reference. TRANSPARENT background, no text, no logos on the screen, square 2048x2048.",
+          "status": "todo"
+        },
+        {
+          "id": "b-tamayoz",
+          "title": "باقات تميز (عربي وخليجي)",
+          "link": "c374229586 · c1787038800",
+          "now": "malak/bein-tamayoz-arabi.webp",
+          "new": "bein-tamayoz-3d.png ← bein-tamayoz-arabi / khaleeji",
+          "spec": "صورة أساسية واحدة، وأنا أصنع منها نسختي عربي وخليجي",
+          "who": "you",
+          "edge": "silver",
+          "prompt": "Premium 3D render of a sports subscription: a glossy black TV screen card showing a deep purple (#5B2A86) glowing screen, a polished silver five-point star standing in front of it at the lower right, a thin silver ring orbiting around the screen. Same style as the attached reference but with silver instead of gold. TRANSPARENT background, no text, no logos on the screen, square 2048x2048.",
+          "status": "todo"
+        },
+        {
+          "id": "b-renew",
+          "title": "تجديد اشتراك beIN الرسمي",
+          "link": "c899162953",
+          "now": "malak/bein-renew.webp",
+          "new": "bein-renew-3d.png",
+          "spec": "3D، خلفية شفافة",
+          "who": "you",
+          "edge": "gold",
+          "prompt": "Premium 3D render in the exact style of the attached renewal reference (cat-renewal-3d.png): a glossy black card with a deep purple (#5B2A86) face, wrapped by a polished gold circular renewal arrow, a small gold check badge. TRANSPARENT background, no text, square 2048x2048.",
+          "status": "todo"
+        }
       ]
     },
     {
@@ -42,7 +187,18 @@
       "why": "الصورة الحالية بنر حملة بأسفل أبيض ونص «299 / توصيل مجاني» يكرر السعر الظاهر بجانبه.",
       "how": "الأسرع: أستخدم صورة الجهاز الثلاثية الأبعاد من القسم 03 على خلفية سوداء بتوهج ذهبي. والأفضل: لقطة جديدة بزاوية أوسع تُظهر الجهاز والريموت معًا.",
       "items": [
-        {"id": "x-box", "title": "صورة AZ TV Box للمنتج المميز", "link": "p1152326425", "now": "44b0d971-d7aa-45ab-9db8-5de0b83e7c8d-2324b29c.webp", "new": "box-3d-hero.png", "spec": "مربعة 2048×2048، خلفية شفافة أو سوداء", "who": "you", "edge": "gold", "prompt": "Use the attached cat-aztv-box-3d.png as the exact product and style: the black AZ TV Box with the gold AZ TV logo and its black remote. Wider hero composition: box in front at a three-quarter angle, remote standing to its right, a thin black glossy plinth with a polished gold edge, soft gold light from behind, faint gold dust in the air. TRANSPARENT background, no text, no price, square 2048x2048.", "status": "todo"}
+        {
+          "id": "x-box",
+          "title": "صورة AZ TV Box للمنتج المميز",
+          "link": "p1152326425",
+          "now": "44b0d971-d7aa-45ab-9db8-5de0b83e7c8d-2324b29c.webp",
+          "new": "box-3d-hero.png",
+          "spec": "مربعة 2048×2048، خلفية شفافة أو سوداء",
+          "who": "you",
+          "edge": "gold",
+          "prompt": "Use the attached cat-aztv-box-3d.png as the exact product and style: the black AZ TV Box with the gold AZ TV logo and its black remote. Wider hero composition: box in front at a three-quarter angle, remote standing to its right, a thin black glossy plinth with a polished gold edge, soft gold light from behind, faint gold dust in the air. TRANSPARENT background, no text, no price, square 2048x2048.",
+          "status": "todo"
+        }
       ]
     },
     {
@@ -52,7 +208,17 @@
       "why": "بنر حملة التيشرتات فاتح ويكسر الهوية الداكنة، والنص داخله يكرر عنوان القسم.",
       "how": "بنر داكن بدون نص؛ العنوان والزر في بلوك العنوان فوقه.",
       "items": [
-        {"id": "n-second", "title": "بنر «2 والثالث مجانًا» داكن", "link": "azshirtsstore.com", "now": "0a8a5712-7a85-471d-8604-e56d580e020e-86d3f5bf.webp", "new": "second-store-dark.png", "spec": "1600×900، نسخة جوال 800×1000", "who": "you", "prompt": "Three football jerseys floating and slightly overlapping, centred, in dark studio light: one light blue, one deep red, one yellow. Generic jerseys with no club crests, no sponsor logos, no letters or numbers. Black background (#0D0D0D) with warm gold rim light (#EACF69), a few gold confetti flecks, one jersey coming out of an open black gift box with a gold ribbon. Photorealistic, premium, no text, no logos. 16:9, 1600x900.", "status": "todo"}
+        {
+          "id": "n-second",
+          "title": "بنر «2 والثالث مجانًا» داكن",
+          "link": "azshirtsstore.com",
+          "now": "0a8a5712-7a85-471d-8604-e56d580e020e-86d3f5bf.webp",
+          "new": "second-store-dark.png",
+          "spec": "1600×900، نسخة جوال 800×1000",
+          "who": "you",
+          "prompt": "Three football jerseys floating and slightly overlapping, centred, in dark studio light: one light blue, one deep red, one yellow. Generic jerseys with no club crests, no sponsor logos, no letters or numbers. Black background (#0D0D0D) with warm gold rim light (#EACF69), a few gold confetti flecks, one jersey coming out of an open black gift box with a gold ribbon. Photorealistic, premium, no text, no logos. 16:9, 1600x900.",
+          "status": "todo"
+        }
       ]
     },
     {
@@ -62,9 +228,39 @@
       "why": "صور GIF متحركة قديمة بألوان لا تطابق الهوية.",
       "how": "أيقونات صغيرة ثلاثية الأبعاد ذهبية بخلفية شفافة، أو حذفها والاكتفاء بالعنوان.",
       "items": [
-        {"id": "i-tv", "title": "أيقونة القسم 07 (تلفزيون)", "now": "f8caHf.IMG-0029-8a6a9e6c.gif", "new": "icon-3d-tv.png", "spec": "512×512، شفافة", "who": "you", "edge": "silver", "prompt": "Small premium 3D icon in the style of the attached reference: a compact glossy black retro TV with two antennas and polished silver edges. TRANSPARENT background, no text, square 512x512.", "status": "todo"},
-        {"id": "i-crown", "title": "أيقونة القسم 11 (تاج)", "now": "f8tYaY.IMG-0027-728c1743.gif", "new": "icon-3d-crown.png", "spec": "512×512، شفافة", "who": "you", "edge": "gold", "prompt": "Small premium 3D icon in the style of the attached reference: a polished gold crown with three points and a black enamel band. TRANSPARENT background, no text, square 512x512.", "status": "todo"},
-        {"id": "i-loop", "title": "أيقونة القسم 15 (تجديد)", "now": "wired-lineal-213-arrow-2-rounded-loop-cycle-1532a874.gif", "new": "icon-3d-renew.png", "spec": "512×512، شفافة", "who": "you", "edge": "gold", "prompt": "Small premium 3D icon in the style of the attached reference: a polished gold circular renewal arrow around a small glossy black card. TRANSPARENT background, no text, square 512x512.", "status": "todo"}
+        {
+          "id": "i-tv",
+          "title": "أيقونة القسم 07 (تلفزيون)",
+          "now": "f8caHf.IMG-0029-8a6a9e6c.gif",
+          "new": "icon-3d-tv.png",
+          "spec": "512×512، شفافة",
+          "who": "you",
+          "edge": "silver",
+          "prompt": "Small premium 3D icon in the style of the attached reference: a compact glossy black retro TV with two antennas and polished silver edges. TRANSPARENT background, no text, square 512x512.",
+          "status": "todo"
+        },
+        {
+          "id": "i-crown",
+          "title": "أيقونة القسم 11 (تاج)",
+          "now": "f8tYaY.IMG-0027-728c1743.gif",
+          "new": "icon-3d-crown.png",
+          "spec": "512×512، شفافة",
+          "who": "you",
+          "edge": "gold",
+          "prompt": "Small premium 3D icon in the style of the attached reference: a polished gold crown with three points and a black enamel band. TRANSPARENT background, no text, square 512x512.",
+          "status": "todo"
+        },
+        {
+          "id": "i-loop",
+          "title": "أيقونة القسم 15 (تجديد)",
+          "now": "wired-lineal-213-arrow-2-rounded-loop-cycle-1532a874.gif",
+          "new": "icon-3d-renew.png",
+          "spec": "512×512، شفافة",
+          "who": "you",
+          "edge": "gold",
+          "prompt": "Small premium 3D icon in the style of the attached reference: a polished gold circular renewal arrow around a small glossy black card. TRANSPARENT background, no text, square 512x512.",
+          "status": "todo"
+        }
       ]
     },
     {
@@ -74,8 +270,28 @@
       "why": "ليست قديمة، صنعناها مؤقتًا بخطوط ذهبية مسطحة. نسخ ثلاثية الأبعاد تجعل الصفحة كلها بأسلوب القسم 03.",
       "how": "أيقونات 3D صغيرة بخلفية شفافة. بعد قسمي beIN والبوكس.",
       "items": [
-        {"id": "f-apps", "title": "أجهزة: أبل، جوال أندرويد، شاشة أندرويد، شاشة سامسونق/LG", "now": "malak/icon-apple.webp", "new": "icon-3d-apple / android-phone / android-tv / smart-tv.png", "spec": "4 صور، 512×512، شفافة", "who": "you", "edge": "gold", "prompt": "Set of four small premium 3D icons in the style of the attached reference, one per image: (1) a glossy black smartphone with an apple-shaped gold emblem on its back, (2) a glossy black Android phone with a gold edge, (3) a glossy black smart TV with a gold stand, (4) a glossy black wide TV with a silver stand. TRANSPARENT background, no text, no brand logos, square 512x512 each.", "status": "todo"},
-        {"id": "f-why", "title": "مميزات: تفعيل سريع، دعم، طرق دفع، كل الأجهزة", "now": "malak/icon-fast.webp", "new": "icon-3d-fast / support / payment / devices.png", "spec": "4 صور، 512×512، شفافة", "who": "you", "edge": "gold", "prompt": "Set of four small premium 3D icons in the style of the attached reference, one per image: (1) a polished gold lightning bolt, (2) a glossy black headset with gold ear cups, (3) a glossy black payment card with a gold chip, (4) a phone, tablet and TV grouped together in glossy black with gold edges. TRANSPARENT background, no text, square 512x512 each.", "status": "todo"}
+        {
+          "id": "f-apps",
+          "title": "أجهزة: أبل، جوال أندرويد، شاشة أندرويد، شاشة سامسونق/LG",
+          "now": "malak/icon-apple.webp",
+          "new": "icon-3d-apple / android-phone / android-tv / smart-tv.png",
+          "spec": "4 صور، 512×512، شفافة",
+          "who": "you",
+          "edge": "gold",
+          "prompt": "Set of four small premium 3D icons in the style of the attached reference, one per image: (1) a glossy black smartphone with an apple-shaped gold emblem on its back, (2) a glossy black Android phone with a gold edge, (3) a glossy black smart TV with a gold stand, (4) a glossy black wide TV with a silver stand. TRANSPARENT background, no text, no brand logos, square 512x512 each.",
+          "status": "todo"
+        },
+        {
+          "id": "f-why",
+          "title": "مميزات: تفعيل سريع، دعم، طرق دفع، كل الأجهزة",
+          "now": "malak/icon-fast.webp",
+          "new": "icon-3d-fast / support / payment / devices.png",
+          "spec": "4 صور، 512×512، شفافة",
+          "who": "you",
+          "edge": "gold",
+          "prompt": "Set of four small premium 3D icons in the style of the attached reference, one per image: (1) a polished gold lightning bolt, (2) a glossy black headset with gold ear cups, (3) a glossy black payment card with a gold chip, (4) a phone, tablet and TV grouped together in glossy black with gold edges. TRANSPARENT background, no text, square 512x512 each.",
+          "status": "todo"
+        }
       ]
     },
     {
@@ -85,7 +301,15 @@
       "why": "صورة الغلاف الحالية مؤقتة من Gemini حتى يصل الفيديو.",
       "how": "لقطات حقيقية مرخّصة، أنا أقصّها وأضغطها وأحوّلها للأبيض والأسود.",
       "items": [
-        {"id": "c-video", "title": "فيديو الـ Hero بالأبيض والأسود", "now": "hero-poster.webp", "new": "hero.mp4 + hero-poster.webp", "spec": "10 إلى 15 ثانية، بدون صوت، أقل من 3 ميجا، ونسخة للجوال", "who": "client", "status": "todo"}
+        {
+          "id": "c-video",
+          "title": "فيديو الـ Hero بالأبيض والأسود",
+          "now": "hero-poster.webp",
+          "new": "hero.mp4 + hero-poster.webp",
+          "spec": "10 إلى 15 ثانية، بدون صوت، أقل من 3 ميجا، ونسخة للجوال",
+          "who": "client",
+          "status": "todo"
+        }
       ]
     }
   ]

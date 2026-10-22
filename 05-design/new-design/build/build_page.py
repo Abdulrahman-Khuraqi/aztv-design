@@ -254,6 +254,17 @@ for blk in B:
     lst = blk.select_one('salla-products-list[style]')
     if lst and blk.get('component-id') == '817347637': lst['style'] = '--mob-products-cols:2;--products-cols:2'
 
+# product images: the new cards from build/make_products.js, as if uploaded to each product in Salla (product id -> image)
+PRODUCT_IMG = {'930436127': 'prod-aztv-15m', '1133679038': 'prod-aztv-6m', '527896233': 'prod-aztv-3m', '264351896': 'prod-aztv-1m',
+               '331255752': 'prod-plus-12m', '1669484767': 'prod-plus-12m-2dev', '1879371242': 'prod-plus-6m', '1024479901': 'prod-plus-3m',
+               '777133688': 'prod-renew-aztv', '287657453': 'prod-renew-plus'}
+for blk in B:
+    for card in blk.select('custom-salla-product-card'):
+        pid = (card.get('id') or '').replace('angel-product-', '')
+        if pid in PRODUCT_IMG:
+            for img in card.select('.s-product-card-image img'):
+                img['src'] = img['data-src'] = f'assets/img/products/{PRODUCT_IMG[pid]}.webp'
+
 # replace the old block run (first hero .. last products slider) with the new order
 app = soup.select_one('.app-inner')
 old = [s for s in app.find_all('section', recursive=False) if s.get('component-id') not in (None, '')]
