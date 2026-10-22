@@ -1,11 +1,11 @@
-# New design (working copy)
+# New design (ملاك blocks + one CSS file)
 
-Started on 2026-10-21 as an exact copy of the old design (`03-current-site/old-design/`). This is the one we change: section by section, in the order of the plan (01 to 17), with the new images and cards from `05-design/sections/` and `05-design/shared/`.
+The new homepage, built only from the blocks of the store's Salla theme **ملاك** (ANGEL by AfterAds), in the 17-section order of the plan. What you see here is what the store will look like after the steps in `../SALLA-SETUP.md`.
 
-- `index.html`: the homepage we are redesigning.
-- `assets/`: `css/`, `fonts/`, `img/` copied from the old design. New files go here too.
-- `assets/css/new-design.css`: every new style, prefix `az-`, one block per plan section in order, then the shared footer.
-
-Status (2026-10-22): all 17 sections have a first draft, in plan order. Images in 04 to 17 are the store's current ones until the new ones from `05-design/IMAGE-PROMPTS.md` arrive. Rows in 13 (comparison) and answers in 16 (FAQ) are drafts for the client to confirm.
+- `index.html`: generated, do not edit by hand. Run `python3 build/build_page.py` (needs `beautifulsoup4`). It starts from the saved live page (`03-current-site/old-design/index.html`), applies the theme settings (dark mode, brand colours), and lays out the ملاك blocks with the new content.
+- `assets/css/malak-custom.css`: **the only CSS for the store.** Paste it into Salla's custom CSS.
+- `assets/css/preview-only.css`: local preview only, never uploaded. The saved page has no scripts, so this file does what the theme's JavaScript does live (sliders, FAQ toggle).
+- `assets/img/malak/`: images made for the blocks (icons, beIN tiles, comparison, white platform logos). `assets/img/logo/`: the logo as SVG, static and animated.
+- `build/`: `build_page.py` (the page), `make_images.js` and `make_logos.js` (the images, with Playwright and the page served on :8770).
 
 Run it: double-click `open new design.bat` in the project folder, then http://localhost:8770.

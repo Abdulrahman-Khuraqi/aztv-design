@@ -1,0 +1,19 @@
+/* LOCAL PREVIEW ONLY. Not for Salla.
+   The saved page has no scripts, so this file stands in for what the theme's JavaScript does on the live store:
+   Swiper sliders laid out from their captured positions, and the FAQ answers closed until clicked. */
+
+/* sliders: lay the slides out in a row instead of the positions Swiper had when the page was saved */
+.swiper-wrapper { transform: none !important; display: flex; }
+.s-block--categories .swiper-slide { width: calc(100% / 6) !important; flex: none; }
+.s-products-slider-card.swiper-slide { width: calc((100% - 3 * 16px) / 4) !important; margin-inline-end: 16px; flex: none; }
+.s-products-slider-card.swiper-slide:last-child { margin-inline-end: 0; }
+.s-block--testimonials .swiper-slide { width: calc(100% / 3) !important; flex: none; }
+.s-block--hero-slider .swiper-slide { width: 100% !important; opacity: 1 !important; transform: none !important; }
+@media (max-width: 767px) {
+  .s-block--categories .swiper-slide { width: calc(100% / 3) !important; }
+  .s-products-slider-card.swiper-slide { width: 46% !important; }
+  .s-block--testimonials .swiper-slide { width: 100% !important; }
+  .swiper { overflow: hidden; }
+}
+/* FAQ: closed until clicked (the open state comes from the theme CSS) */
+.s-block--faqs .faq-answer { max-height: 0; opacity: 0; overflow: hidden; transform: translateY(-6px); transition: max-height .3s, opacity .3s, transform .3s; }

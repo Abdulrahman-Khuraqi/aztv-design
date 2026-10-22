@@ -1,5 +1,7 @@
 # Image prompts for the new design
 
+> Update 2026-10-22: the page is now built on ملاك blocks (see `SALLA-SETUP.md`). Prompts 1, 2, 4 and 5 still apply: their images go into banners, the featured product, product cards and a slider. Prompts 3 and 6 are **not needed**: ملاك's title block has no background-image field, so the season offers and the final CTA stay text on black.
+
 Sections 04 to 17 are built with the images the store already has. These are the new images that would lift them. Generate each one in Gemini or ChatGPT, save it under the file name given, and drop it into `05-design/sections/<folder>/`. I'll compress it to WebP, wire it into the page and grade it to the brand.
 
 Rules that apply to every image:
