@@ -54,7 +54,8 @@ for st in soup.find_all('style'):
 
 # ---------- logo: animated SVG in the header, static SVG in the footer ----------
 hl = soup.select_one('header img.logo-light')
-hl['src'] = 'assets/img/logo/aztv-logo-animated.svg'; hl['width'] = '885'; hl['height'] = '790'; hl['style'] = 'width: auto; height:2.75rem'
+# header: the LOOP version (intro, then quiet waves, glow and shine). Its canvas is taller (room for the waves), hence 3.25rem
+hl['src'] = 'assets/img/logo/aztv-logo-loop.svg'; hl['width'] = '885'; hl['height'] = '940'; hl['style'] = 'width: auto; height:3.25rem'
 # in dark mode ملاك hides .logo-light in a dark header and shows .logo-dark (the theme's dark-mode logo field), so the logo goes there too
 dl = copy.copy(hl); dl['class'] = ['logo-dark']; hl.insert_after(dl)
 fl = soup.select_one('footer img.logo-light')
@@ -189,9 +190,9 @@ B += [hero('new-01-hero', c(1765121197), IMG + 'hero-poster.webp', IMG + 'hero-p
 B += [divider('new-02-title', 'كل منصاتك وقنواتك في مكان واحد', 'رياضة، مسلسلات، أفلام وبرامج من أشهر المنصات'), STRIP]
 # 03 Main categories
 B += [divider('new-03-title', 'تسوّق حسب القسم', 'وصول سريع إلى الباقات والتجديد وأجهزة beIN'),
-      categories('new-03-cats', [('تجديد الاشتراك', c(183760688), IMG + 'cat-renewal-3d.png'), ('AZ TV', c(971844871), IMG + 'cat-aztv-3d.png'),
-                                 ('AZ TV Plus', c(921887589), IMG + 'cat-aztv-plus-3d.png'), ('beIN Sports', c(899162953), IMG + 'cat-bein-3d.png'),
-                                 ('AZ TV Box', f'{S}/-/p1152326425', IMG + 'cat-aztv-box-3d.png')])]
+      categories('new-03-cats', [('تجديد الاشتراك', c(183760688), IMG + 'cat-renewal-3d.webp'), ('AZ TV', c(971844871), IMG + 'cat-aztv-3d.webp'),
+                                 ('AZ TV Plus', c(921887589), IMG + 'cat-aztv-plus-3d.webp'), ('beIN Sports', c(899162953), IMG + 'cat-bein-3d.webp'),
+                                 ('AZ TV Box', f'{S}/-/p1152326425', IMG + 'cat-aztv-box-3d.webp')])]
 # 04 beIN world: title + devices + subscriptions and renewal
 B += [divider('1319788990', 'عالم beIN', 'أجهزة واشتراكات وتجديدات beIN الرسمية', ('تصفح عروض beIN', c(1461115041)), icon=IMG + 'logos/bein-white.svg'),
       banners('668296755', [(c(757128774), IMG + 'b3ee113b-01d6-4824-af25-344fa8a26396-022b88f8.webp'),
