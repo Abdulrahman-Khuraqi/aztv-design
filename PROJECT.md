@@ -3,7 +3,7 @@
 Single source of truth for the redesign of [aztvstore.com](https://aztvstore.com/).
 The visual version of this file is **Our Workspace**: [our workspace.html](our%20workspace.html). Keep the two in sync.
 
-Last updated: 2026-10-21
+Last updated: 2026-10-22
 
 ## 1. Project in one paragraph
 
@@ -141,6 +141,7 @@ Missing for this plan:
 4. Is a vector version of the logo available?
 5. Who supplies the hero video footage?
 6. Does the redesign cover only the homepage, or also category, product and activation pages?
+7. Are the comparison rows (section 13) and the FAQ answers (section 16) right? Both are drafts written from the store's own pages.
 
 ## 9. Folder map
 
@@ -153,12 +154,27 @@ new store design/
 ├── 03-current-site/    old-design/ (frozen copy of the live homepage + screens/)
 ├── 04-wireframes/      layout before visuals
 ├── open old design.bat / open new design.bat   run the two designs locally
-├── 05-design/          new-design/ (working copy of the homepage), shared/ (header, product card, buttons), sections/01-hero … 17-final-cta, desktop/, mobile/
+├── 05-design/          new-design/ (working copy of the homepage), sections/01-hero … 17-final-cta, IMAGE-PROMPTS.md (prompts for the new images)
 ├── 06-assets/          images, video, icons made for the new design
 └── 07-exports/         final files handed to the client or to development
 ```
 
 ## 10. Log
+
+- 2026-10-22: Sections 04 to 17, first draft, in `05-design/new-design/index.html`, in plan order. They replace the old theme blocks below the categories (the old design keeps them). Styles in `new-design.css`, all `az-`. What changed:
+  - Shared: one product card (`.az-card`) for every product row (06, 07, 11, 15), a shared section shell (`.az-sec`, `--band` for the `#1A1A1A` ground), a `--line` button, and the footer restyled dark with the same links. The page ground is black from the hero to the footer.
+  - 04 beIN world: three columns, devices (4K c757128774, PVR c1398521669), subscriptions (قمة عربي c1147218769, قمة خليجي c415231319, تميز عربي c374229586, تميز خليجي c1787038800), renewals (c899162953). Offers link c1461115041. Device images are the store's banners for now.
+  - 05 AZ TV Box: features with gold icons, Plus year as a gift, 299 instead of 400, countdown. The countdown date is a placeholder; on Salla it comes from the product.
+  - 06 Season offers: text banner ("خصم حتى 60٪") beside the two products of the offers category c1510593888.
+  - 07 and 11: four packages each from the product data captured on 2026-10-21 (names, prices, discounts, ratings).
+  - 08 and 12: kept as two sections (17 total) until the client decides. Both use one component (`.az-apps`) with icon tiles to the activation pages, so merging means deleting one.
+  - 09: the four plan features plus payment logos. The broken "+ 0 طلب" counter is dropped.
+  - 10: store reviews (names and stars; most have no text).
+  - 13 Comparison and 16 FAQ: **draft content** written from the store's own products, banners and pages. The client must confirm each row and answer.
+  - 14: dark card linking to azshirtsstore.com, current campaign image faded in. 15: renewal banner with the two renewal products. 17: final CTA with the three buttons.
+  - Removed a browser-extension overlay (orange glow border and fake cursor) that came with the saved page.
+  - Screenshots of each section (desktop PNG and WebP, mobile WebP) in `05-design/sections/04-…` to `17-…`, and embedded in the workspace board.
+  - New images: prompts for Gemini/ChatGPT in `05-design/IMAGE-PROMPTS.md` (beIN receivers and AZ TV Box restaged on dark, season-offer art, subscription card backgrounds, second-store banner, final CTA background). Text is kept out of the images on purpose.
 
 - 2026-10-21: Section 03 main categories, first draft. Five cards after the logo strip: تجديد الاشتراك (c183760688 "جدد الان"), AZ TV (c971844871), AZ TV Plus (c921887589), beIN Sports (c899162953, official renewal; there is no single beIN category), AZ TV Box (product p1152326425). Five images generated in Gemini in one matching style and warm-graded to the brand; originals `cat-*-gemini.jpg` in `05-design/sections/03-main-categories/`, web versions `cat-*.webp` (600x800). Cards 2-5 are Gemini's 765x1024 previews (Chrome blocked the full-size downloads), enough for the card size. The AZ TV Box image is a generic device: replace with the real product photo before going live.
 
