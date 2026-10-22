@@ -55,6 +55,8 @@ for st in soup.find_all('style'):
 # ---------- logo: animated SVG in the header, static SVG in the footer ----------
 hl = soup.select_one('header img.logo-light')
 hl['src'] = 'assets/img/logo/aztv-logo-animated.svg'; hl['width'] = '885'; hl['height'] = '790'; hl['style'] = 'width: auto; height:2.75rem'
+# in dark mode ملاك hides .logo-light in a dark header and shows .logo-dark (the theme's dark-mode logo field), so the logo goes there too
+dl = copy.copy(hl); dl['class'] = ['logo-dark']; hl.insert_after(dl)
 fl = soup.select_one('footer img.logo-light')
 fl['src'] = 'assets/img/logo/aztv-logo.svg'; fl['width'] = '885'; fl['height'] = '790'; fl['style'] = 'width:auto; height:2.5rem'
 
