@@ -584,8 +584,8 @@ body#app, .app-inner { background: var(--az-ink) !important; }
 .store-footer .s-social-icon, .store-footer .s-contacts-icon { background: var(--az-surface) !important; border: 1px solid var(--az-line); }
 .store-footer .s-social-icon svg, .store-footer .s-contacts-icon svg { fill: var(--az-gold) !important; }
 .store-footer .footer-bottom { border-top: 1px solid var(--az-line); }
-/* the logo file is gold on transparent; it reads fine on black, just a touch larger */
-.store-footer .logo-footer img { height: 3rem !important; }
+/* footer logo: the static SVG, trimmed tight, so it needs less height than the padded PNG did */
+.store-footer .logo-footer img { height: 2.5rem !important; }
 /* the recommendations block renders nothing in the local copy (Salla fills it live); with the footer's own top margin it left a 200px hole */
 .s-block--bundle-personalized-shoppers-who-bought { margin: 0 !important; }
 .store-footer { margin-top: 0 !important; }

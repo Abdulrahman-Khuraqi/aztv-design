@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 885 790" width="885" height="790" role="img" aria-label="AZ TV">
+  <title>AZ TV | عز تي في</title>
+  <!-- Traced from the store logo (S29idagq…png, 1284×1397) into flat polygons, one per shape. -->
+  <defs>
+    <linearGradient id="az-gold" x1="0" y1="0" x2="885" y2="790" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F2DA7A"/><stop offset=".55" stop-color="#ECD169"/><stop offset="1" stop-color="#CFAE4C"/>
+    </linearGradient>
+  </defs>
+  <g fill="url(#az-gold)">
+    <path id="frame" d="M546 6 396 209 266 159 366 215 363 217 335 221 182 249 146 254 124 259 118 259 6 279 93 783 831 655 209 693 188 693 171 695 159 695 157 693 95 334 99 331 107 330 128 323 154 317 193 305 237 294 251 289 335 267 389 251 431 190 498 80Z"/>
+    <path id="line" d="M766 147 522 190 446 202 439 207 414 244Z"/>
+    <path id="a" d="M310 338 209 610 202 633 250 628 256 626 302 501 311 480 321 450 323 448 329 454 398 558 401 558 431 510 427 502 317 346Z"/>
+    <path id="z" d="M638 298 335 334 367 380 399 377 462 368 523 362 539 359 544 360 398 604 396 610 515 595 558 591 598 585 659 579 673 576 668 528 547 541 539 543 529 543 495 548 490 547Z"/>
+    <path id="tv" d="M878 269 871 271 862 271 857 273 832 340 828 338 789 280 670 294 671 311 675 313 708 308 715 308 717 310 724 375 728 397 745 394 738 324 735 306 740 304 780 300 836 382Z"/>
+  </g>
+</svg>

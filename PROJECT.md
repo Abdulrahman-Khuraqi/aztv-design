@@ -158,7 +158,7 @@ Have (paths from the client folder root):
 
 Missing for this plan:
 
-- Vector logo (AI or SVG), needed for the animated logo.
+- Official vector logo (AI or SVG). A traced SVG now exists (see log, 2026-10-22); the official file is still better if the client has it.
 - Hero video footage, black and white, licensed for web use.
 - AZ TV Box product photos.
 - App and device icons.
@@ -193,6 +193,8 @@ new store design/
 ```
 
 ## 10. Log
+
+- 2026-10-22: Animated logo. The store logo PNG (`S29idagq…png`, 1284×1397) traced into an SVG of five flat shapes (TV frame with antennas, top line, A, Z, TV), 98.9% overlap with the original. Two files in `05-design/new-design/assets/img/logo/`: `aztv-logo.svg` (static, 1.4 KB, now in the footer) and `aztv-logo-animated.svg` (4.3 KB, now in the header). The animation plays once, about 2.6 s: the frame and top line draw in, the frame fills, A and Z rise, TV pops, one gold shine passes, then the logo stays still. No motion for visitors who ask for reduced motion. The animation is CSS inside the SVG file, so it also runs as a plain image: on Salla it can be uploaded as the store logo with no theme code, if Salla's logo field accepts SVG (to check; if not, it goes in the header through the theme's custom code). Frames preview: `05-design/shared/logo/logo-animation-frames.png`. The original's slight dark shading inside the Z is flattened to the gold gradient.
 
 - 2026-10-22: Sections 04 to 17, first draft, in `05-design/new-design/index.html`, in plan order. They replace the old theme blocks below the categories (the old design keeps them). Styles in `new-design.css`, all `az-`. What changed:
   - Shared: one product card (`.az-card`) for every product row (06, 07, 11, 15), a shared section shell (`.az-sec`, `--band` for the `#1A1A1A` ground), a `--line` button, and the footer restyled dark with the same links. The page ground is black from the hero to the footer.
