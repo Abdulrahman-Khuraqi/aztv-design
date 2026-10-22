@@ -3,7 +3,7 @@
 Single source of truth for the redesign of [aztvstore.com](https://aztvstore.com/).
 The visual version of this file is **Our Workspace**: [our workspace.html](our%20workspace.html). Keep the two in sync.
 
-Last updated: 2026-10-21
+Last updated: 2026-10-22
 
 ## 1. Project in one paragraph
 
@@ -81,6 +81,22 @@ Confirmed from Salla's Twilight documentation and from the live store:
 - Product data, prices, discounts, countdowns, cart and reviews come from Salla (the store uses `salla-products-list`, `salla-products-slider`, `salla-count-down`, `salla-add-product-button`, `salla-rating-stars`).
 - Cart and checkout belong to Salla. They are out of scope for the homepage design.
 
+### The store's theme: ANGEL by AfterAds
+
+Found in the saved page (`<meta name="theme:name" content="ANGEL">`, developer AfterAds®, theme CSS `themes/1034648396/1.174.0`). The theme page the client shared (salla.com/themes/1499917793) could not be opened from our environment, so everything below comes from the theme's own markup and CSS. Confirm against that page.
+
+- **Dark mode is built in**: `html.dark` plus `--dark-bg-main`, `--dark-text-main`, `--dark-text-sec`, `--dark-grey` and `da-*` helper classes.
+- **Colour settings** the theme exposes: `--color-primary` (+ dark, light, reverse), `--text-btn`, `--bg-color`, `--header-bg`, `--menu-bg`, `--footer-bg`, font. The new design sets them to the brand (see the `:root` block in `05-design/new-design/index.html`): primary `#EACF69`, reverse and button text `#0D0D0D`, backgrounds `#0D0D0D`, dark-grey (surfaces) `#1A1A1A`, text `#F3F0E6`, secondary text `#B9B4A6`, menu `#141414`. The store primary colour in Salla also becomes `#EACF69`.
+- **Homepage blocks used**: divider (`s-angel--divider`: title, subtitle, link, optional icon and countdown), banners, special product, products list (`angel-products`, `salla-products-list`), products slider, links (`s-block--categories`), features (`angel-features`), testimonials, hero slider. Product cards are the theme's `custom-salla-product-card`.
+
+### How the new design is built (sections 04 to 17)
+
+Route A first, as far as the theme allows:
+
+1. **Theme settings** (no code): dark mode on, the colours above, block order as in section 3, block texts edited in the customiser, expired countdowns removed, divider icons left empty, the beIN banners in one banners block, products sliders for 07 and 11 switched to the products list (grid), horizontal cards for 06 and 15.
+2. **Custom CSS**: the "ANGEL theme layer" in `05-design/new-design/assets/css/new-design.css` targets only the theme's own class names under `body.index`, so it can be pasted into Salla's custom CSS. One instance rule uses the block's `component-id` (14, second store banner).
+3. **New blocks** for what the theme has no block for: 13 comparison, 16 FAQ, 17 final CTA (classes `az-compare`, `az-faq`, `az-final`). These need a custom block (Route B), unless ANGEL has an FAQ or custom HTML block. To check on the theme page.
+
 Design rules that follow:
 
 1. Design every section as a block with editable fields (image, title, text, link, product or category picker). No one-off layouts that only work with one piece of content.
@@ -128,6 +144,7 @@ Missing for this plan:
 - Vector logo (AI or SVG), needed for the animated logo.
 - Hero video footage, black and white, licensed for web use.
 - AZ TV Box product photos.
+- Real text for the testimonials: most store reviews are stars only, no comment.
 - App and device icons.
 - Comparison data for AZ TV vs AZ TV Plus.
 - FAQ questions and answers.
@@ -159,6 +176,8 @@ new store design/
 ```
 
 ## 10. Log
+
+- 2026-10-22: Sections 04 to 17, first draft, built on the store's ANGEL theme (see section 5). ANGEL dark mode on and its colour settings set to the brand, theme blocks reordered into the plan order 04 to 17 and restyled with CSS on the theme's own classes; one product card for every list. 04 beIN: one banners block with the three images in equal tiles, expired countdown dropped. 05 AZ TV Box: special-product block as a dark showcase, expired countdown (05-01-2026) dropped. 06 renamed "عروض بداية الموسم", expired National Day countdown dropped, horizontal cards. 07 and 11: grid instead of slider. 08 and 12: links block as device tiles with an activation-guide link; images now local instead of Salla CDN. 09: the four plan items with new gold line icons (`assets/img/features/`), the broken "+ 0 طلب" counter replaced. 10: dark testimonial cards. 13 comparison (new): prices from the live store on 2026-10-21; rows other than prices need the client's confirmation. 14: second-store banner framed and shortened. 15: renewals as horizontal cards. 16 FAQ (new): eight questions answered only from what the store already says (delivery, devices, activation guides, payment methods from the footer, support contacts, policy link); client to review. 17 final CTA (new). Removed from the homepage to shorten it: the two phone banners ("اشتراك واحد يكفيك", "تابع بأعلى جودة مع عز بلس"). Also removed a browser overlay that had been saved into the page copy (orange glow border and fake cursor around the first screen). The old design copy still has it; it is read-only, so it stays.
 
 - 2026-10-21: Section 03 main categories, first draft. Five cards after the logo strip: تجديد الاشتراك (c183760688 "جدد الان"), AZ TV (c971844871), AZ TV Plus (c921887589), beIN Sports (c899162953, official renewal; there is no single beIN category), AZ TV Box (product p1152326425). Five images generated in Gemini in one matching style and warm-graded to the brand; originals `cat-*-gemini.jpg` in `05-design/sections/03-main-categories/`, web versions `cat-*.webp` (600x800). Cards 2-5 are Gemini's 765x1024 previews (Chrome blocked the full-size downloads), enough for the card size. The AZ TV Box image is a generic device: replace with the real product photo before going live.
 
