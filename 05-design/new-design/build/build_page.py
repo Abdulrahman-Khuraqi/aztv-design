@@ -58,6 +58,35 @@ hl['src'] = 'assets/img/logo/aztv-logo-animated.svg'; hl['width'] = '885'; hl['h
 fl = soup.select_one('footer img.logo-light')
 fl['src'] = 'assets/img/logo/aztv-logo.svg'; fl['width'] = '885'; fl['height'] = '790'; fl['style'] = 'width:auto; height:2.5rem'
 
+# ---------- main menu (Salla: «القوائم» → القائمة الرئيسية) ----------
+# Fixes from the plan: no empty card (the menu banner slide had no image), no empty image circles, beIN grouped
+# devices / packages / renewal, AZ TV Box, renewal and offers added, activation in one place. Items carry no images.
+MENU = [
+  ('باقات الاشتراك', c(1765121197), [('الباقة العادية AZ TV', c(971844871)), ('باقة البلس AZ TV Plus', c(921887589))]),
+  ('تجديد الاشتراك', c(183760688), None),
+  ('عالم beIN', c(1461115041), [('أجهزة beIN 4K', c(757128774)), ('أجهزة beIN PVR', c(1398521669)), ('قمة عربي', c(1147218769)),
+                                ('قمة خليجي', c(415231319)), ('تميز عربي', c(374229586)), ('تميز خليجي', c(1787038800)),
+                                ('تجديد اشتراك beIN الرسمي', c(899162953))]),
+  ('AZ TV Box', f'{S}/-/p1152326425', None),
+  ('العروض', c(1510593888), None),
+  ('تفعيل الاشتراك', page(1920849311), [('تفعيل AZ TV', page(1920849311)), ('تفعيل AZ TV Plus', page(389705163))]),
+]
+def menu_li(name, href, children):
+    a = f'<a aria-label="{name}" class="sidemenu-link text-gray-500{" has-max" if children else ""}" href="{href}" target="_self"><div class="menu_title font-primary">{name}</div></a>'
+    if not children:
+        return f'<li class="text-sm font-bold md:text-lg">{a}</li>'
+    subs = f'<li><a aria-label="{name}" class="sidemenu-link display-all-category text-gray-500" href="{href}" target="_self"><div class="font-primary">عرض الكل</div></a></li>'
+    subs += ''.join(f'<li class="text-sm font-bold md:text-lg"><a aria-label="{n}" class="sidemenu-link text-gray-500" href="{h}" target="_self"><div class="menu_title font-primary">{n}</div></a></li>' for n, h in children)
+    return f'<li class="text-sm font-bold md:text-lg">{a}<ul>{subs}</ul></li>'
+mm = soup.select_one('#mobile-menu ul.main-menu')
+for li in mm.find_all('li', recursive=False):
+    cls = li.get('class') or []
+    if 'links' in cls or 'social' in cls: continue   # «روابط تهمك» and «خدمة العملاء» come from the theme, kept
+    li.decompose()                                    # includes the empty menu-banner slide
+first_fixed = mm.find('li', recursive=False)
+for name, href, children in MENU:
+    first_fixed.insert_before(frag(menu_li(name, href, children)))
+
 # ---------- block factories ----------
 def divider(cid, title, sub=None, button=None, icon=None, countdown=False, xl=False, base='1319788990'):
     d = block(base); d['component-id'] = cid

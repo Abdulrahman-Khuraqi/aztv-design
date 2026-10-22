@@ -171,6 +171,10 @@
 .s-block--faqs + .s-angel--divider .vertical-lines { display: none; }
 .s-block--faqs + .s-angel--divider a.divider-url { background: var(--az-gold); color: var(--az-ink) !important; min-height: 52px; padding: 0 32px; font-size: 17px; }
 
+/* ---------- Main menu (side drawer) ---------- */
+.mm-spn a:hover .menu_title, .mm-spn a:hover .font-primary { color: var(--az-gold); }
+.mm-spn .display-all-category .font-primary { color: var(--az-gold); }
+
 /* ---------- Footer: logo size and icon tiles ---------- */
 .store-footer .logo-footer img { height: 2.5rem !important; }
 .store-footer .s-social-link a, .store-footer .s-contacts-item { border: 1px solid var(--az-line); }
