@@ -1,0 +1,44 @@
+.s-translate-wrap,
+.s-translate-all-wrap {
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.s-translate-all-wrap {
+  margin-top: 12px;
+  margin-bottom: 16px;
+}
+
+.s-translate-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--theme-primary-color, inherit);
+  line-height: 1.2;
+}
+
+.s-translate-btn svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+
+.s-translate-btn[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+html[dir="rtl"] .s-translate-btn {
+  flex-direction: row-reverse;
+}

@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "old-design",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "8765", "--directory", "03-current-site/old-design"],
+      "port": 8765
+    },
+    {
+      "name": "new-design",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "8770", "--directory", "05-design/new-design"],
+      "port": 8770
+    }
+  ]
+}
