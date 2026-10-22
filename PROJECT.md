@@ -13,6 +13,7 @@ Redesign the AZ TV Store homepage (عز تي في) into a shorter, clearer page 
 - Agreed plan, full original Arabic text: [01-brief/homepage-plan.md](01-brief/homepage-plan.md), also inside the workspace (tabs "الخطة" and "ملاحظات التصميم"). Work from these, not from the Google Doc.
 - Original Google Doc (`AZTV_Homepage_New_Order_v3`), reference only: https://docs.google.com/document/d/1F0vgi7_V4gwE4v3klXzwdz6QhVmNvYYqwonBPe1vdEs/edit?tab=t.0
 - Platform: Salla (Twilight theme engine)
+- Theme: **ملاك (Malak)** by AfterAds, the name it has on Salla. In the code it is called `ANGEL` (v1.174.0).
 - Language and direction: Arabic first, RTL
 
 ## 2. Brand
@@ -88,7 +89,9 @@ Design rules that follow:
 3. Arabic and RTL first. The header also carries a language and a currency switch.
 4. The hero video needs a poster image, muted autoplay and a mobile fallback, and must stay small.
 
-### The theme: ANGEL (ملاك) by AfterAds
+### The theme: ملاك (Malak) by AfterAds
+
+On Salla the store uses the theme **ملاك**. Its code name is **ANGEL**, so the page and CSS say ANGEL; both names mean the same theme.
 
 Read from the saved page: `<meta name="theme:name" content="ANGEL">`, `theme:developer` AfterAds, CSS `themes/1034648396/1.174.0/app.css`. (`salla-1130931637` on `<body>` is the store id, not the theme.) The AfterAds site is blocked from this work environment, so the block list below comes from the theme's own markup and CSS.
 
@@ -122,11 +125,11 @@ So with ANGEL kept, almost everything is block settings plus one custom CSS file
 
 - Route A: keep the current theme and restyle it through its settings and custom CSS. Faster, limited.
 - Route B: build custom blocks or a custom Twilight theme. Full control. Needs a Salla Partners account, the Salla CLI and Twig development.
-- Update 2026-10-22: the theme is ANGEL, and it already covers the video hero, the logo strip and the FAQ (map above). **Route A is now the recommended fit**: keep ANGEL, set the blocks in the order of the plan, and add one custom CSS file. Route B only if the client wants the comparison table or the three-button final CTA as real HTML.
+- Update 2026-10-22: the theme is ملاك (ANGEL in the code), and it already covers the video hero, the logo strip and the FAQ (map above). **Route A is now the recommended fit**: keep ANGEL, set the blocks in the order of the plan, and add one custom CSS file. Route B only if the client wants the comparison table or the three-button final CTA as real HTML.
 
 ## 6. Current store snapshot (homepage, 2026-10-14)
 
-- Theme: ANGEL by AfterAds, v1.174.0 (theme files id `1034648396`; `1130931637` is the store id). Font `PingARLT`. Theme primary colour `#000000`.
+- Theme: ملاك (Malak, code name ANGEL) by AfterAds, v1.174.0 (theme files id `1034648396`; `1130931637` is the store id). Font `PingARLT`. Theme primary colour `#000000`.
 - Desktop homepage is about 8,000 px tall once products load.
 - Order today: header → hero slider (Saudi win offer) → عالم بي ان → banners → عز تي في بوكس (featured product) → عروض اليوم الوطني → 2 والثالث مجانا → مميزات متجرنا → لعملائنا الأوفياء → تطبيقات الباقة العادية → Az TV → قالوا عن عز تي في → تطبيقات باقة البلس → Az TV Plus → newsletter → footer.
 - Menu: أجهزة بي ان 4K, أجهزة بي ان PVR, تجديد اشتراك بي ان الرسمي, قمة عربي, قمة خليجي, تميز عربي, تميز خليجي, باقات الاشتراك (الباقة العادية, باقة البلس), تفعيل اشتراك عز تي في, تفعيل اشتراك عز تي في بلس.
@@ -166,7 +169,7 @@ Missing for this plan:
 ## 8. Open questions
 
 1. Merge the two apps sections into one (16 sections) or keep both (17)?
-2. ~~Which Salla theme does the store own?~~ ANGEL by AfterAds (v1.174.0). Still open: confirm Route A (keep ANGEL + custom CSS), and where the store adds custom CSS (theme settings or Salla's custom code).
+2. ~~Which Salla theme does the store own?~~ ملاك (Malak) by AfterAds, code name ANGEL, v1.174.0. Still open: confirm Route A (keep ANGEL + custom CSS), and where the store adds custom CSS (theme settings or Salla's custom code).
 3. Typeface for the new design: keep `PingARLT` or change?
 4. Is a vector version of the logo available?
 5. Who supplies the hero video footage?

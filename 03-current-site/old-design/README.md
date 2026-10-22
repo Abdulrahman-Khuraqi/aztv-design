@@ -9,4 +9,4 @@ The live homepage of https://aztvstore.com/ar as it was on 2026-10-21, captured 
 
 Run it: double-click `open old design.bat` in the project folder, then http://localhost:8765.
 
-Theme in the CSS URL: `themes/1034648396/1.174.0/app.css`. Block class names (`s-angel--divider`, `angel-products`) suggest Salla's "Angel" theme.
+Theme in the CSS URL: `themes/1034648396/1.174.0/app.css`. Block class names (`s-angel--divider`, `angel-products`) belong to the store's Salla theme **ملاك (Malak)** by AfterAds, whose code name is ANGEL.
