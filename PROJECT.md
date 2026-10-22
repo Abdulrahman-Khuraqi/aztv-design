@@ -88,15 +88,45 @@ Design rules that follow:
 3. Arabic and RTL first. The header also carries a language and a currency switch.
 4. The hero video needs a poster image, muted autoplay and a mobile fallback, and must stay small.
 
+### The theme: ANGEL (ملاك) by AfterAds
+
+Read from the saved page: `<meta name="theme:name" content="ANGEL">`, `theme:developer` AfterAds, CSS `themes/1034648396/1.174.0/app.css`. (`salla-1130931637` on `<body>` is the store id, not the theme.) The AfterAds site is blocked from this work environment, so the block list below comes from the theme's own markup and CSS.
+
+ANGEL blocks **in use on the homepage today**: hero slider (`s-block--hero-slider`, full width), section title / divider (`s-angel--divider`: title, subtitle, image or GIF, countdown, one button), banners (`s-block--banners`), featured product (`s-block--special-product`: product, features, countdown), products grid (`s-block--angel-products`), products slider (`s-block--best-offers`), categories / links slider (`s-block--categories`: image + title + link), store features (`s-block--features`), testimonials (`s-block--testimonials`).
+
+ANGEL blocks **in the theme CSS but not used yet**: FAQ (`s-block--faqs`), moving strip (`angel-ad`, marquee with small images and text, pauses on hover), video in the hero slider (`responsive-video`, `video-swiper`), slider with background (`s-block--slider-with-bg`), stories (`angel-stories`, YouTube/TikTok), discount coupon (`angel-discountcoupon`).
+
+**Build map: each section on ANGEL, with as little extra code as possible.**
+
+| # | Section | ANGEL block | Extra code |
+|---|---|---|---|
+| 01 | Hero | Hero slider with a video slide | CSS. Headline and buttons over the video may not be a slider field: either bake them into the poster or add a small custom block. To check in the theme settings. |
+| 02 | Logos strip | Moving strip `angel-ad` (images) | CSS only (bigger logos, dark tiles) |
+| 03 | Main categories | Categories block (image + title + link) | CSS only. The second line under each name is not a field; drop it. |
+| 04 | beIN world | Divider (title + "تصفح العروض") + banners (two devices) + categories (packages and renewal) | CSS only. The three-column layout in the draft becomes three stacked blocks. |
+| 05 | AZ TV Box | Featured product | CSS only |
+| 06 | Season offers | Divider with countdown and button + products grid | CSS only. Banner and cards stack instead of sitting side by side. |
+| 07 / 11 | Packages | Divider + products slider | CSS only (product card restyled once) |
+| 08 / 12 | Apps and devices | Divider with "تفعيل" button + categories block with icon images | CSS only. Icons uploaded as images. |
+| 09 | Why us | Store features | CSS only. Payment logos already sit in the footer. |
+| 10 | Testimonials | Testimonials | CSS only |
+| 13 | Comparison | **No ANGEL block.** Banners block with a designed comparison image (desktop and phone) + divider buttons | Image instead of code. A real table needs a custom block. |
+| 14 | Second store | Divider + full-width banner | CSS only |
+| 15 | Loyal customers | Divider with button + products grid (renewals) | CSS only |
+| 16 | FAQ | FAQ block `s-block--faqs` | CSS only |
+| 17 | Final CTA | Divider (title, subtitle, one button) | CSS only, with one button; three buttons need three banners or a custom block |
+
+So with ANGEL kept, almost everything is block settings plus one custom CSS file. Only the comparison table, the three-button final CTA and text over the hero video would need code; each has a no-code fallback above.
+
 **Decision needed:** how we build it.
 
 - Route A: keep the current theme and restyle it through its settings and custom CSS. Faster, limited.
 - Route B: build custom blocks or a custom Twilight theme. Full control. Needs a Salla Partners account, the Salla CLI and Twig development.
-- The plan asks for a video hero, an animated logo, a logo strip, a comparison block and an FAQ. Route B is the likely fit, to be confirmed once we know which theme the store owns and what access we have.
+- Update 2026-10-22: the theme is ANGEL, and it already covers the video hero, the logo strip and the FAQ (map above). **Route A is now the recommended fit**: keep ANGEL, set the blocks in the order of the plan, and add one custom CSS file. Route B only if the client wants the comparison table or the three-button final CTA as real HTML.
 
 ## 6. Current store snapshot (homepage, 2026-10-14)
 
-- Theme: Salla Twilight theme, id `1130931637`. Font `PingARLT`. Theme primary colour `#000000`.
+- Theme: ANGEL by AfterAds, v1.174.0 (theme files id `1034648396`; `1130931637` is the store id). Font `PingARLT`. Theme primary colour `#000000`.
 - Desktop homepage is about 8,000 px tall once products load.
 - Order today: header → hero slider (Saudi win offer) → عالم بي ان → banners → عز تي في بوكس (featured product) → عروض اليوم الوطني → 2 والثالث مجانا → مميزات متجرنا → لعملائنا الأوفياء → تطبيقات الباقة العادية → Az TV → قالوا عن عز تي في → تطبيقات باقة البلس → Az TV Plus → newsletter → footer.
 - Menu: أجهزة بي ان 4K, أجهزة بي ان PVR, تجديد اشتراك بي ان الرسمي, قمة عربي, قمة خليجي, تميز عربي, تميز خليجي, باقات الاشتراك (الباقة العادية, باقة البلس), تفعيل اشتراك عز تي في, تفعيل اشتراك عز تي في بلس.
@@ -136,7 +166,7 @@ Missing for this plan:
 ## 8. Open questions
 
 1. Merge the two apps sections into one (16 sections) or keep both (17)?
-2. Which Salla theme does the store own, and do we have developer access (Route A or B)?
+2. ~~Which Salla theme does the store own?~~ ANGEL by AfterAds (v1.174.0). Still open: confirm Route A (keep ANGEL + custom CSS), and where the store adds custom CSS (theme settings or Salla's custom code).
 3. Typeface for the new design: keep `PingARLT` or change?
 4. Is a vector version of the logo available?
 5. Who supplies the hero video footage?
