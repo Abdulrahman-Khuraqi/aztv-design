@@ -189,9 +189,9 @@ B += [hero('new-01-hero', c(1765121197), IMG + 'hero-poster.webp', IMG + 'hero-p
 B += [divider('new-02-title', 'كل منصاتك وقنواتك في مكان واحد', 'رياضة، مسلسلات، أفلام وبرامج من أشهر المنصات'), STRIP]
 # 03 Main categories
 B += [divider('new-03-title', 'تسوّق حسب القسم', 'وصول سريع إلى الباقات والتجديد وأجهزة beIN'),
-      categories('new-03-cats', [('تجديد الاشتراك', c(183760688), IMG + 'cat-renewal.webp'), ('AZ TV', c(971844871), IMG + 'cat-aztv.webp'),
-                                 ('AZ TV Plus', c(921887589), IMG + 'cat-aztv-plus.webp'), ('beIN Sports', c(899162953), IMG + 'cat-bein.webp'),
-                                 ('AZ TV Box', f'{S}/-/p1152326425', IMG + 'cat-aztv-box.webp')])]
+      categories('new-03-cats', [('تجديد الاشتراك', c(183760688), IMG + 'cat-renewal-3d.png'), ('AZ TV', c(971844871), IMG + 'cat-aztv-3d.png'),
+                                 ('AZ TV Plus', c(921887589), IMG + 'cat-aztv-plus-3d.png'), ('beIN Sports', c(899162953), IMG + 'cat-bein-3d.png'),
+                                 ('AZ TV Box', f'{S}/-/p1152326425', IMG + 'cat-aztv-box-3d.png')])]
 # 04 beIN world: title + devices + subscriptions and renewal
 B += [divider('1319788990', 'عالم beIN', 'أجهزة واشتراكات وتجديدات beIN الرسمية', ('تصفح عروض beIN', c(1461115041)), icon=IMG + 'logos/bein-white.svg'),
       banners('668296755', [(c(757128774), IMG + 'b3ee113b-01d6-4824-af25-344fa8a26396-022b88f8.webp'),
