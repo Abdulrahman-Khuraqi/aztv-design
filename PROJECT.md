@@ -196,6 +196,7 @@ new store design/
 
 ## 10. Log
 
+- 2026-10-22: Section 03, AZ TV card: black-and-white version of the 3D render (`cat-aztv-3d-bw.png/.webp`, silver frame, white logo) so the regular package reads black and white and Plus stays gold, as on the store's product cards. The gold original is kept.
 - 2026-10-22: Full review of the new page, section by section, with the next edit for each and the top five priorities: stale «اليوم الوطني» product images (06, 07, 11), the beIN section (04), the AZ TV Box image (05), a shorter page by merging 08 and 12 (page is 10,826 px vs about 9,500 today), and renewal prices showing «-» (15). In `05-design/REVIEW.md`, full-page screenshots in `05-design/review/`.
 - 2026-10-22: Section 03 uses the five 3D renders (transparent PNG, `cat-*-3d.png`, WebP copies for the page). CSS for the first categories block only (`section:nth-child(1 of .s-block--categories)`): the card is drawn behind the lower two thirds of the tile so the object rises out of it, floats gently and lifts with a gold glow on hover. The theme's own dark background on category links is removed for all category blocks.
 - 2026-10-22: Second logo, `assets/img/logo/aztv-logo-loop.svg`: the same intro, then a quiet loop (signal waves from the antenna tip, a breathing gold glow, a shine every 7 s); taller canvas for the waves. Now in the header (logo-light and logo-dark). `aztv-logo-animated.svg` (plays once) stays as the calmer option the plan described. Frames: `05-design/shared/logo/logo-loop-frames.png`.

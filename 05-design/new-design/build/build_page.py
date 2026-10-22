@@ -190,7 +190,7 @@ B += [hero('new-01-hero', c(1765121197), IMG + 'hero-poster.webp', IMG + 'hero-p
 B += [divider('new-02-title', 'كل منصاتك وقنواتك في مكان واحد', 'رياضة، مسلسلات، أفلام وبرامج من أشهر المنصات'), STRIP]
 # 03 Main categories
 B += [divider('new-03-title', 'تسوّق حسب القسم', 'وصول سريع إلى الباقات والتجديد وأجهزة beIN'),
-      categories('new-03-cats', [('تجديد الاشتراك', c(183760688), IMG + 'cat-renewal-3d.webp'), ('AZ TV', c(971844871), IMG + 'cat-aztv-3d.webp'),
+      categories('new-03-cats', [('تجديد الاشتراك', c(183760688), IMG + 'cat-renewal-3d.webp'), ('AZ TV', c(971844871), IMG + 'cat-aztv-3d-bw.webp'),
                                  ('AZ TV Plus', c(921887589), IMG + 'cat-aztv-plus-3d.webp'), ('beIN Sports', c(899162953), IMG + 'cat-bein-3d.webp'),
                                  ('AZ TV Box', f'{S}/-/p1152326425', IMG + 'cat-aztv-box-3d.webp')])]
 # 04 beIN world: title + devices + subscriptions and renewal
