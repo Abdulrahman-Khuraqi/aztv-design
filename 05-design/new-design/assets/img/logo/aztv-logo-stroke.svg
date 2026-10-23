@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-12 -12 909 814" width="909" height="814" role="img" aria-label="AZ TV">
+  <title>AZ TV | عز تي في</title>
+  <!-- Animated store logo, STROKE version (header). One slow 10 s loop:
+       a gold stroke draws around each shape, the logo fills in, it rests, a soft shine passes across, it rests,
+       then it fades out gently and the cycle starts again. CSS inside the file, so it runs as a plain image. Still under reduced motion. -->
+  <defs>
+    <linearGradient id="az-gold" x1="0" y1="0" x2="885" y2="790" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F4DC7E"/><stop offset=".55" stop-color="#ECD169"/><stop offset="1" stop-color="#CBA748"/>
+    </linearGradient>
+    <linearGradient id="az-shine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0"/><stop offset=".35" stop-color="#FFF4C8" stop-opacity=".35"/>
+      <stop offset=".5" stop-color="#FFFFFF" stop-opacity=".9"/><stop offset=".65" stop-color="#FFF4C8" stop-opacity=".35"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="az-shapes"><path d="M546 6 396 209 266 159 366 215 363 217 335 221 182 249 146 254 124 259 118 259 6 279 93 783 831 655 209 693 188 693 171 695 159 695 157 693 95 334 99 331 107 330 128 323 154 317 193 305 237 294 251 289 335 267 389 251 431 190 498 80Z"/><path d="M766 147 522 190 446 202 439 207 414 244Z"/><path d="M310 338 209 610 202 633 250 628 256 626 302 501 311 480 321 450 323 448 329 454 398 558 401 558 431 510 427 502 317 346Z"/><path d="M638 298 335 334 367 380 399 377 462 368 523 362 539 359 544 360 398 604 396 610 515 595 558 591 598 585 659 579 673 576 668 528 547 541 539 543 529 543 495 548 490 547Z"/><path d="M878 269 871 271 862 271 857 273 832 340 828 338 789 280 670 294 671 311 675 313 708 308 715 308 717 310 724 375 728 397 745 394 738 324 735 306 740 304 780 300 836 382Z"/></clipPath>
+  </defs>
+  <style>
+    .s { fill: url(#az-gold); fill-opacity: 0; stroke: #ECD169; stroke-width: 7; stroke-linejoin: round;
+          stroke-dasharray: 1; stroke-dashoffset: 1; stroke-opacity: 1;
+          animation: az-cycle 10s cubic-bezier(.45, 0, .25, 1) infinite; animation-delay: var(--d); }
+    #shine { transform: translateX(-460px) skewX(-18deg); animation: az-shine 10s ease-in-out infinite; }
+    /* 0-26% stroke draws · 26-36% logo fills, stroke melts in · 36-86% rests (shine at 50-64%) · 86-96% fades out · 96-100% empty */
+    @keyframes az-cycle {
+      0%   { stroke-dashoffset: 1; stroke-opacity: 1; fill-opacity: 0; }
+      26%  { stroke-dashoffset: 0; stroke-opacity: 1; fill-opacity: 0; }
+      36%  { stroke-dashoffset: 0; stroke-opacity: 0; fill-opacity: 1; }
+      86%  { stroke-dashoffset: 0; stroke-opacity: 0; fill-opacity: 1; }
+      96%  { stroke-dashoffset: 0; stroke-opacity: 0; fill-opacity: 0; }
+      100% { stroke-dashoffset: 1; stroke-opacity: 0; fill-opacity: 0; }
+    }
+    @keyframes az-shine {
+      0%, 50% { transform: translateX(-460px) skewX(-18deg); }
+      64%, 100% { transform: translateX(1045px) skewX(-18deg); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .s { animation: none; fill-opacity: 1; stroke-opacity: 0; }
+      #shine { display: none; }
+    }
+  </style>
+  <g><path class="s" style="--d:0s" pathLength="1" d="M546 6 396 209 266 159 366 215 363 217 335 221 182 249 146 254 124 259 118 259 6 279 93 783 831 655 209 693 188 693 171 695 159 695 157 693 95 334 99 331 107 330 128 323 154 317 193 305 237 294 251 289 335 267 389 251 431 190 498 80Z"/><path class="s" style="--d:0.2s" pathLength="1" d="M766 147 522 190 446 202 439 207 414 244Z"/><path class="s" style="--d:0.45s" pathLength="1" d="M310 338 209 610 202 633 250 628 256 626 302 501 311 480 321 450 323 448 329 454 398 558 401 558 431 510 427 502 317 346Z"/><path class="s" style="--d:0.6s" pathLength="1" d="M638 298 335 334 367 380 399 377 462 368 523 362 539 359 544 360 398 604 396 610 515 595 558 591 598 585 659 579 673 576 668 528 547 541 539 543 529 543 495 548 490 547Z"/><path class="s" style="--d:0.8s" pathLength="1" d="M878 269 871 271 862 271 857 273 832 340 828 338 789 280 670 294 671 311 675 313 708 308 715 308 717 310 724 375 728 397 745 394 738 324 735 306 740 304 780 300 836 382Z"/></g>
+  <g clip-path="url(#az-shapes)"><rect id="shine" x="0" y="-60" width="380" height="910" fill="url(#az-shine)"/></g>
+</svg>
