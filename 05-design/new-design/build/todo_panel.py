@@ -48,6 +48,9 @@ def build(root):
                           f'<pre dir="ltr"><code>{html.escape(full)}</code></pre></div></details>')
             img = thumb(os.path.join(imgdir, it['now'])) if it.get('now') else ''
             img_html = f'<img src="{img}" alt="الصورة الحالية">' if img else ''
+            # optional "old": the image on the live store, shown above the current one (items redone a second time)
+            old = thumb(os.path.join(imgdir, it['old'])) if it.get('old') else ''
+            old_html = f'<img class="todo-old" src="{old}" alt="صورة المتجر الحالية"><figcaption>في المتجر اليوم</figcaption>' if old else ''
             # a finished item also shows its new image (first file found by its new name)
             new_img = ''
             if it['status'] == 'done':
@@ -73,7 +76,7 @@ def build(root):
             meta += f'<dt>الملف الجديد</dt><dd><code>{html.escape(it["new"])}</code></dd><dt>المواصفات</dt><dd>{html.escape(it["spec"])}</dd>'
             cards += (f'<article class="todo-item" data-id="{it["id"]}" data-status="{it["status"]}">'
                       f'<label class="todo-check"><input type="checkbox"{" checked" if it["status"] == "done" else ""}><span>تم</span></label>'
-                      f'<figure class="todo-now">{img_html}<figcaption>{"القديمة" if new_img else "الحالية"}</figcaption>'
+                      f'<figure class="todo-now">{old_html}{img_html}<figcaption>{"القديمة" if new_img else "الحالية"}</figcaption>'
                       f'{f"<img class={chr(34)}todo-new{chr(34)} src={chr(34)}{new_img}{chr(34)} alt=\"\"><figcaption>الجديدة</figcaption>" if new_img else ""}</figure>'
                       f'<div class="todo-body"><h4>{html.escape(it["title"])}</h4><p class="todo-chips">{chips}</p>'
                       f'<dl class="todo-meta">{meta}</dl>{prompt}</div></article>\n')
@@ -142,6 +145,8 @@ STYLE = '''/* TODO-STYLE:START */
 .todo-now { margin: 0; text-align: center; }
 .todo-now img { width: 110px; height: 110px; object-fit: contain; border-radius: 8px; background: #0D0D0D; border: 1px solid var(--line); }
 .todo-now figcaption { font-size: 12px; color: var(--muted); }
+.todo-now img.todo-old { margin-bottom: 0; }
+.todo-now img.todo-old + figcaption { margin-bottom: 8px; }
 .todo-now img.todo-new { margin-top: 8px; border-color: rgba(234, 207, 105, .5); }
 .todo-item.is-done .todo-now { opacity: 1; }
 .todo-body { min-width: 0; }
