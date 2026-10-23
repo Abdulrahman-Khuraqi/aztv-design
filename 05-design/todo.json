@@ -7,15 +7,14 @@
       "title": "إعادة تصميم بطاقات الاشتراك (كل الباقات)",
       "where": "صور المنتجات في سلة، وتظهر في الأقسام 06 (العروض)، 07 (اشتراكات AZ TV)، 11 (اشتراكات AZ TV Plus)، 15 (التجديد)، وفي صفحة كل منتج",
       "why": "نعيد تصميم البطاقات العشر كلها. الباقة العادية فيها أربع مدد (سنة + ٣ شهور، ٦ شهور، ٣ شهور، شهر)، والبلس فيها أربع (سنة، سنة لجهازين، ٦ شهور، ٣ شهور)، وبطاقتا تجديد (العادية والبلس). ملاحظة: لا توجد بطاقة «١٢ شهر» في العادية، أطول مدة فيها «سنة + ٣ شهور» (١٥ شهر)، و«سنة» هي ١٢ شهر في البلس.",
-      "how": "في كل بطاقة صورتان: «في المتجر اليوم» هي الصورة القديمة على المتجر الآن، و«الحالية» هي تصميمنا الأول (الجولة الأولى) الذي لم يُرفع بعد. البطاقات العشر بنظام واحد: العادية بالأبيض والأسود، والبلس بالذهبي، والمدة هي العنصر الأكبر. مربعة 1000×1000، ويُترك الركن الأيسر العلوي فارغًا لشارة الخصم التي تضيفها سلة. احفظ كل بطاقة باسم «الملف الجديد» في new-design/assets/img/products/.",
+      "how": "الصورة في كل مهمة هي البطاقة الموجودة على المتجر اليوم، مقصوصة بدون خلفية التصميم حولها ومكبّرة (الملفات في 05-design/shared/subscription-cards-old/). التصميم الجديد لم يبدأ بعد. احفظ كل بطاقة جديدة باسم «الملف الجديد» في new-design/assets/img/products/.",
       "items": [
         {
           "id": "r-aztv-15m",
           "title": "عز تي في سنة + ٣ شهور (العادية)",
           "link": "p930436127",
-          "old": "3749112-500x500-jALOT8PWhFqMydBaPXNuQ0Q93IRepaG523qElILR-ad8ae7f8.jpg",
-          "now": "products/prod-aztv-15m.png",
-          "new": "prod-aztv-15m-v2.png",
+          "now": "05-design/shared/subscription-cards-old/old-aztv-15m.png",
+          "new": "prod-aztv-15m.png",
           "spec": "أبيض وأسود · «سنة + ٣ شهور» · السعر اليوم: ٩٦ ر.س بدل ٢٣٨ (خصم ٦٠٪)",
           "who": "you",
           "status": "todo"
@@ -24,9 +23,8 @@
           "id": "r-aztv-6m",
           "title": "اشتراك عز تي في 6 شهور (العادية)",
           "link": "p1133679038",
-          "old": "24a3c88-500x500-CnDzPvtHcrccqG4U3hjijJC1PjRB6eNgo0yQbebl-a838ae66.png",
-          "now": "products/prod-aztv-6m.png",
-          "new": "prod-aztv-6m-v2.png",
+          "now": "05-design/shared/subscription-cards-old/old-aztv-6m.png",
+          "new": "prod-aztv-6m.png",
           "spec": "أبيض وأسود · «٦ شهور» · السعر اليوم: ٦٩ ر.س بدل ١٥٠ (خصم ٥٤٪)",
           "who": "you",
           "status": "todo"
@@ -35,9 +33,8 @@
           "id": "r-aztv-3m",
           "title": "اشتراك عز تي في 3 شهور (العادية)",
           "link": "p527896233",
-          "old": "d9206bc-500x500-Pdq4qFNfyMqdl4t1NifigcGjTWetPoTMx8CrLzJk-22de4025.png",
-          "now": "products/prod-aztv-3m.png",
-          "new": "prod-aztv-3m-v2.png",
+          "now": "05-design/shared/subscription-cards-old/old-aztv-3m.png",
+          "new": "prod-aztv-3m.png",
           "spec": "أبيض وأسود · «٣ شهور» · السعر اليوم: ٣٩ ر.س بدل ١٠٠ (خصم ٦١٪)",
           "who": "you",
           "status": "todo"
@@ -46,9 +43,8 @@
           "id": "r-aztv-1m",
           "title": "اشتراك عز تي في شهر (العادية)",
           "link": "p264351896",
-          "old": "6e336c0-500x500-LIOe2U9NnpSU0ZiQxWe6McRhZdPWXuCg52kFYQk9-c55544a3.png",
-          "now": "products/prod-aztv-1m.png",
-          "new": "prod-aztv-1m-v2.png",
+          "now": "05-design/shared/subscription-cards-old/old-aztv-1m.png",
+          "new": "prod-aztv-1m.png",
           "spec": "أبيض وأسود · «شهر» · السعر اليوم: ٢٤ ر.س بدل ٥٠ (خصم ٥٢٪)",
           "who": "you",
           "status": "todo"
@@ -57,9 +53,8 @@
           "id": "r-plus-12m",
           "title": "اشتراك عز تي في بلس سنة (12 شهر)",
           "link": "p331255752",
-          "old": "022d3d6-500x500-NFc1bIYqaWt27iJChQiLr5qvf0S2wMbcH5JJTDW6-28f11ae7.jpg",
-          "now": "products/prod-plus-12m.png",
-          "new": "prod-plus-12m-v2.png",
+          "now": "05-design/shared/subscription-cards-old/old-plus-12m.png",
+          "new": "prod-plus-12m.png",
           "spec": "ذهبي · «سنة» · السعر اليوم: ١٩٦ ر.س بدل ٣٠٠ (خصم ٣٥٪)",
           "who": "you",
           "status": "todo"
@@ -68,9 +63,8 @@
           "id": "r-plus-12m-2dev",
           "title": "عز تي في بلس سنة (جهازين)",
           "link": "p1669484767",
-          "old": "b86e1ef-500x500-1XzgT1KgFRTUDFBSo5M3zlDXu9CWk5QZEQwXsQiI-c7821b77.png",
-          "now": "products/prod-plus-12m-2dev.png",
-          "new": "prod-plus-12m-2dev-v2.png",
+          "now": "05-design/shared/subscription-cards-old/old-plus-12m-2dev.png",
+          "new": "prod-plus-12m-2dev.png",
           "spec": "ذهبي · «سنة · جهازين» · السعر اليوم: ٤٠٠ ر.س بدل ٥٠٠ (خصم ٢٠٪)",
           "who": "you",
           "status": "todo"
@@ -79,9 +73,8 @@
           "id": "r-plus-6m",
           "title": "اشتراك عز تي في بلس 6 شهور",
           "link": "p1879371242",
-          "old": "603594c-500x500-BJo68nE5iCjLjE7ygy0YilBvKNwUNvzVX9JAGSJU-40df055e.png",
-          "now": "products/prod-plus-6m.png",
-          "new": "prod-plus-6m-v2.png",
+          "now": "05-design/shared/subscription-cards-old/old-plus-6m.png",
+          "new": "prod-plus-6m.png",
           "spec": "ذهبي · «٦ شهور» · السعر اليوم: ١٥٠ ر.س (بدون خصم)",
           "who": "you",
           "status": "todo"
@@ -90,9 +83,8 @@
           "id": "r-plus-3m",
           "title": "اشتراك عز تي في بلس 3 شهور",
           "link": "p1024479901",
-          "old": "2a34a15-500x500-OtAKd64tOXddtIp3XtlCzaNkObz6Rb6j3w99lt03-113b12d2.png",
-          "now": "products/prod-plus-3m.png",
-          "new": "prod-plus-3m-v2.png",
+          "now": "05-design/shared/subscription-cards-old/old-plus-3m.png",
+          "new": "prod-plus-3m.png",
           "spec": "ذهبي · «٣ شهور» · السعر اليوم: ١٠٠ ر.س بدل ١٥٠ (خصم ٣٣٪)",
           "who": "you",
           "status": "todo"
@@ -101,9 +93,8 @@
           "id": "r-renew-aztv",
           "title": "تجديد اشتراك عز تي في العادي",
           "link": "p777133688",
-          "old": "75b791b-500x500-HGwrvjICWoLePFOaDdpCm1gKSorTGEA2EUBSqgHv-adbe7116.png",
-          "now": "products/prod-renew-aztv.png",
-          "new": "prod-renew-aztv-v2.png",
+          "now": "05-design/shared/subscription-cards-old/old-renew-aztv.png",
+          "new": "prod-renew-aztv.png",
           "spec": "أبيض وأسود مع سهم التجديد · «تجديد» · السعر اليوم: بدون سعر ظاهر في الصفحة الرئيسية",
           "who": "you",
           "status": "todo"
@@ -112,123 +103,14 @@
           "id": "r-renew-plus",
           "title": "تجديد اشتراك عز تي في بلس",
           "link": "p287657453",
-          "old": "f754e7b-500x500-9jf2ocR3CjOLW3sPvXYdAMYVnLmnrqN1cg81nSpA-1f7cd92e.png",
-          "now": "products/prod-renew-plus.png",
-          "new": "prod-renew-plus-v2.png",
+          "now": "05-design/shared/subscription-cards-old/old-renew-plus.png",
+          "new": "prod-renew-plus.png",
           "spec": "ذهبي مع سهم التجديد · «تجديد البلس» · السعر اليوم: بدون سعر ظاهر في الصفحة الرئيسية",
           "who": "you",
           "status": "todo"
         }
-      ]
-    },
-    {
-      "id": "products",
-      "title": "بطاقات المنتجات (صور المنتجات في سلة)",
-      "where": "الأقسام 06، 07، 11، 15، وصفحات المنتجات نفسها",
-      "why": "صور قديمة بأساليب مختلفة، واثنتان منها ما زالتا «عرض اليوم الوطني». الخطة: صورة واحدة بنظام واحد لكل باقة: العادية بالأبيض والأسود، البلس بالذهبي.",
-      "how": "تم: ركّبتها من صور القسم 03 الثلاثية الأبعاد (العادية بالأبيض والأسود، البلس بالذهبي مع شارة 4K، وسهم التجديد) ومدة الاشتراك بالعربي بخط المتجر، 1000×1000. الملفات في new-design/assets/img/products/ (PNG للرفع في سلة، WebP للصفحة). السكربت build/make_products.js. المتبقي: رفعها على كل منتج في سلة.",
-      "items": [
-        {
-          "id": "p-aztv-15m",
-          "title": "عز تي في سنة + ٣ شهور",
-          "link": "p930436127",
-          "now": "3749112-500x500-jALOT8PWhFqMydBaPXNuQ0Q93IRepaG523qElILR-ad8ae7f8.jpg",
-          "new": "prod-aztv-15m.png",
-          "spec": "أبيض وأسود · «سنة + ٣ شهور»",
-          "who": "me",
-          "status": "done"
-        },
-        {
-          "id": "p-aztv-6m",
-          "title": "اشتراك عز تي في 6 شهور",
-          "link": "p1133679038",
-          "now": "24a3c88-500x500-CnDzPvtHcrccqG4U3hjijJC1PjRB6eNgo0yQbebl-a838ae66.png",
-          "new": "prod-aztv-6m.png",
-          "spec": "أبيض وأسود · «٦ شهور»",
-          "who": "me",
-          "status": "done"
-        },
-        {
-          "id": "p-aztv-3m",
-          "title": "اشتراك عز تي في 3 شهور",
-          "link": "p527896233",
-          "now": "d9206bc-500x500-Pdq4qFNfyMqdl4t1NifigcGjTWetPoTMx8CrLzJk-22de4025.png",
-          "new": "prod-aztv-3m.png",
-          "spec": "أبيض وأسود · «٣ شهور»",
-          "who": "me",
-          "status": "done"
-        },
-        {
-          "id": "p-aztv-1m",
-          "title": "اشتراك عز تي في شهر",
-          "link": "p264351896",
-          "now": "6e336c0-500x500-LIOe2U9NnpSU0ZiQxWe6McRhZdPWXuCg52kFYQk9-c55544a3.png",
-          "new": "prod-aztv-1m.png",
-          "spec": "أبيض وأسود · «شهر»",
-          "who": "me",
-          "status": "done"
-        },
-        {
-          "id": "p-plus-12m",
-          "title": "اشتراك عز تي في بلس سنة",
-          "link": "p331255752",
-          "now": "022d3d6-500x500-NFc1bIYqaWt27iJChQiLr5qvf0S2wMbcH5JJTDW6-28f11ae7.jpg",
-          "new": "prod-plus-12m.png",
-          "spec": "ذهبي · «سنة»",
-          "who": "me",
-          "status": "done"
-        },
-        {
-          "id": "p-plus-12m-2d",
-          "title": "عز تي في بلس سنة (جهازين)",
-          "link": "p1669484767",
-          "now": "b86e1ef-500x500-1XzgT1KgFRTUDFBSo5M3zlDXu9CWk5QZEQwXsQiI-c7821b77.png",
-          "new": "prod-plus-12m-2dev.png",
-          "spec": "ذهبي · «سنة · جهازين»",
-          "who": "me",
-          "status": "done"
-        },
-        {
-          "id": "p-plus-6m",
-          "title": "اشتراك عز تي في بلس 6 شهور",
-          "link": "p1879371242",
-          "now": "603594c-500x500-BJo68nE5iCjLjE7ygy0YilBvKNwUNvzVX9JAGSJU-40df055e.png",
-          "new": "prod-plus-6m.png",
-          "spec": "ذهبي · «٦ شهور»",
-          "who": "me",
-          "status": "done"
-        },
-        {
-          "id": "p-plus-3m",
-          "title": "اشتراك عز تي في بلس 3 شهور",
-          "link": "p1024479901",
-          "now": "2a34a15-500x500-OtAKd64tOXddtIp3XtlCzaNkObz6Rb6j3w99lt03-113b12d2.png",
-          "new": "prod-plus-3m.png",
-          "spec": "ذهبي · «٣ شهور»",
-          "who": "me",
-          "status": "done"
-        },
-        {
-          "id": "p-renew-aztv",
-          "title": "تجديد اشتراك عز تي في العادي",
-          "link": "p777133688",
-          "now": "75b791b-500x500-HGwrvjICWoLePFOaDdpCm1gKSorTGEA2EUBSqgHv-adbe7116.png",
-          "new": "prod-renew-aztv.png",
-          "spec": "سهم التجديد بالأبيض والأسود · «تجديد»",
-          "who": "me",
-          "status": "done"
-        },
-        {
-          "id": "p-renew-plus",
-          "title": "تجديد اشتراك عز تي في بلس",
-          "link": "p287657453",
-          "now": "f754e7b-500x500-9jf2ocR3CjOLW3sPvXYdAMYVnLmnrqN1cg81nSpA-1f7cd92e.png",
-          "new": "prod-renew-plus.png",
-          "spec": "سهم التجديد بالذهبي · «تجديد البلس»",
-          "who": "me",
-          "status": "done"
-        }
-      ]
+      ],
+      "closeup": true
     },
     {
       "id": "bein",
