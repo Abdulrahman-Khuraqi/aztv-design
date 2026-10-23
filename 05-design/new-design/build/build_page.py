@@ -54,8 +54,9 @@ for st in soup.find_all('style'):
 
 # ---------- logo: animated SVG in the header, static SVG in the footer ----------
 hl = soup.select_one('header img.logo-light')
-# header: the LOOP version (intro, then quiet waves, glow and shine). Its canvas is taller (room for the waves), hence 3.25rem
-hl['src'] = 'assets/img/logo/aztv-logo-loop.svg'; hl['width'] = '885'; hl['height'] = '940'; hl['style'] = 'width: auto; height:3.25rem'
+# header: the SHINE version (always visible, shine every 3 s, gentle float, breathing glow, sparkles). Its canvas has room
+# around the logo for the float and sparkles, hence 3.35rem for the same visible logo size
+hl['src'] = 'assets/img/logo/aztv-logo-shine.svg'; hl['width'] = '1025'; hl['height'] = '960'; hl['style'] = 'width: auto; height:3.35rem'
 # in dark mode ملاك hides .logo-light in a dark header and shows .logo-dark (the theme's dark-mode logo field), so the logo goes there too
 dl = copy.copy(hl); dl['class'] = ['logo-dark']; hl.insert_after(dl)
 fl = soup.select_one('footer img.logo-light')
