@@ -147,6 +147,18 @@ def hero(cid, href, desktop, phone=None, alt='Az TV | عز تي في'):
     b.select_one('salla-slider').attrs.pop('data-ak-hero-override', None)
     return b
 
+def hero_video(cid, href, mp4, mp4_phone, poster, poster_phone, alt='Az TV | عز تي في'):
+    """ملاك hero slider with one video slide (the theme styles .responsive-video / .video-swiper).
+    Markup rebuilt from the theme CSS: check it against a real video slide once the video is set in the customizer."""
+    b = hero(cid, href, poster, poster_phone, alt)
+    b['class'] = b['class'] + ['responsive-video']
+    a = b.select_one('.swiper-slide a')
+    a.clear()
+    a.append(frag(f'''<div class="video-swiper"><video class="w-full" autoplay muted loop playsinline preload="auto" poster="{poster}" aria-hidden="true">
+<source media="(max-width: 767px)" src="{mp4_phone}" type="video/mp4"><source media="(max-width: 767px)" src="{mp4_phone[:-4]}.webm" type="video/webm">
+<source src="{mp4}" type="video/mp4"><source src="{mp4[:-4]}.webm" type="video/webm"></video></div>'''))
+    return b
+
 def raw(s): return frag(s)
 
 # ---------- 02: moving strip (ANGEL "angel-ad"), rebuilt from the theme CSS: confirm against the real block ----------
@@ -183,7 +195,9 @@ IMG = 'assets/img/'
 M = IMG + 'malak/'
 B = []
 # 01 Hero: slider (poster now, video slide later) + title block pulled over it by the CSS
-B += [hero('new-01-hero', c(1765121197), IMG + 'hero-poster.webp', IMG + 'hero-poster-phone.webp'),
+# 01 Hero: the black-and-white video (assets/video/, phone version cropped 3:4), its first frame as the poster
+VID = 'assets/video/'
+B += [hero_video('new-01-hero', c(1765121197), VID + 'hero.mp4', VID + 'hero-phone.mp4', VID + 'hero-poster.webp', VID + 'hero-poster-phone.webp'),
       divider('new-01-title', 'المباريات والمسلسلات في اشتراك واحد',
               'كل ما تحتاجه للمشاهدة والترفيه، من اشتراكات عز تي في إلى أجهزة beIN، على كل أجهزتك.', ('تصفح الباقات', c(1765121197)), xl=True)]
 # 02 Logos

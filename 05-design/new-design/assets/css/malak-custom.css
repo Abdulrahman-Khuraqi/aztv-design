@@ -45,6 +45,13 @@
   background: linear-gradient(to top, var(--az-ink) 0%, rgba(13, 13, 13, .85) 22%, rgba(13, 13, 13, 0) 55%);
 }
 .app-inner > section.s-block--hero-slider:first-of-type img { filter: grayscale(1) contrast(1.05); }
+/* hero video: fills the slide like a background (wide on desktop, the 3:4 phone file on phones) */
+.app-inner > section.s-block--hero-slider:first-of-type video {
+  display: block; width: 100% !important; height: clamp(520px, 80vh, 820px) !important; max-width: none !important;
+  object-fit: cover; background: var(--az-ink);
+}
+.app-inner > section.s-block--hero-slider:first-of-type .video-swiper { height: auto !important; display: block !important; }
+@media (max-width: 767px) { .app-inner > section.s-block--hero-slider:first-of-type video { height: 82svh !important; } }
 .app-inner > section.s-block--hero-slider:first-of-type + .s-angel--divider { position: relative; z-index: 2; margin-top: clamp(-260px, -16vw, -120px) !important; }
 .app-inner > section.s-block--hero-slider:first-of-type + .s-angel--divider .vertical-lines { display: none; }
 .app-inner > section.s-block--hero-slider:first-of-type + .s-angel--divider .divider-title h2 { font-size: clamp(30px, 4.6vw, 60px); line-height: 1.25; }
