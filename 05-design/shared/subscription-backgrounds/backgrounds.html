@@ -6,11 +6,11 @@
 <title>Subscription Backgrounds</title>
 <!--
   One background for every subscription card: AZ TV (white) and AZ TV Plus (gold).
-  Two directions to choose from: A = diagonal shards (the old look, redrawn), B = spotlight burst.
-  The card sits in the reserved area (x 280-720, y 150-900 on the 1000 x 1000 canvas), same place as the old images,
-  so the existing card files drop straight in.
+  Two directions to choose from: B = spotlight burst, C = halo (light from above, thin rings).
+  The card sits in the reserved area (x 310-690, y 204-852 on the 1000 x 1000 canvas): same proportions as the old cards,
+  a little smaller than in the old images, so the existing card files still drop straight in.
 
-  URL options:  ?opt=a|b  &tier=regular|plus  &guide=1 (show the card area)  &card=path/to/card.png (mock-up)
+  URL options:  ?opt=b|c  &tier=regular|plus  &guide=1 (show the card area)  &card=path/to/card.png (mock-up)
   Export:       node render.cjs  (writes export/ and mockups/)
 -->
 <style>
@@ -38,7 +38,6 @@
   .side--r { right: 40px; top: 56px; }
   .side--l { left: 40px; bottom: 56px; }
   .bg[data-tier="plus"] .side { color: var(--gold); }
-  .bg[data-opt="a"] .side { mix-blend-mode: difference; opacity: 1; }
 
   /* 4K badge (Plus only) */
   .badge {
@@ -67,16 +66,16 @@
 
   /* reserved card area */
   .guide {
-    position: absolute; left: 280px; top: 150px; width: 440px; height: 750px; border-radius: 40px;
+    position: absolute; left: 310px; top: 204px; width: 380px; height: 648px; border-radius: 35px;
     outline: 3px dashed #ff3b6b; outline-offset: 0; display: none;
   }
   .guide::after {
-    content: "CARD 440 x 750"; position: absolute; inset: auto 0 50% 0; text-align: center;
+    content: "CARD 380 x 648"; position: absolute; inset: auto 0 50% 0; text-align: center;
     font: 700 22px/1 system-ui, sans-serif; color: #ff3b6b; direction: ltr;
   }
   .show-guide .guide { display: block; }
   .card {
-    position: absolute; left: 280px; top: 150px; width: 440px; height: 750px; border-radius: 40px; overflow: hidden;
+    position: absolute; left: 310px; top: 204px; width: 380px; height: 648px; border-radius: 35px; overflow: hidden;
     box-shadow: 0 40px 70px rgba(0, 0, 0, .55), 0 0 0 1px rgba(255, 255, 255, .06); display: none;
   }
   .card img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -100,7 +99,7 @@
 
 <script>
 const q = new URLSearchParams(location.search);
-const opt = q.get("opt") || "a";
+const opt = q.get("opt") || "b";
 const tier = q.get("tier") || "regular";
 const bg = document.getElementById("bg");
 const art = document.getElementById("art");
@@ -143,83 +142,81 @@ const defs = `
     <linearGradient id="band" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="${C.hi}"/><stop offset=".55" stop-color="${C.mid}"/><stop offset="1" stop-color="${C.lo}"/>
     </linearGradient>
-    <radialGradient id="spot" cx="500" cy="500" r="520" gradientUnits="userSpaceOnUse">
+    <radialGradient id="spot" cx="500" cy="528" r="520" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="rgb(${C.glow})" stop-opacity="${plus ? .34 : .2}"/>
       <stop offset=".45" stop-color="rgb(${C.glow})" stop-opacity="${plus ? .1 : .06}"/>
       <stop offset="1" stop-color="rgb(${C.glow})" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="rayfade" cx="500" cy="520" r="560" gradientUnits="userSpaceOnUse">
+    <radialGradient id="rayfade" cx="500" cy="528" r="560" gradientUnits="userSpaceOnUse">
       <stop offset=".3" stop-color="#fff" stop-opacity="1"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
     </radialGradient>
     <mask id="raymask"><rect width="1000" height="1000" fill="url(#rayfade)"/></mask>
     <radialGradient id="vignette" cx="500" cy="480" r="760" gradientUnits="userSpaceOnUse">
       <stop offset=".55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".75"/>
     </radialGradient>
-    <linearGradient id="floor" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="rgb(${C.glow})" stop-opacity="0"/>
-      <stop offset=".5" stop-color="rgb(${C.glow})" stop-opacity=".9"/>
+    <linearGradient id="beam" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="rgb(${C.glow})" stop-opacity="${plus ? .34 : .22}"/>
+      <stop offset=".55" stop-color="rgb(${C.glow})" stop-opacity="${plus ? .1 : .06}"/>
       <stop offset="1" stop-color="rgb(${C.glow})" stop-opacity="0"/>
     </linearGradient>
-    <radialGradient id="pool" cx="500" cy="905" r="300" gradientUnits="userSpaceOnUse" gradientTransform="translate(0 905) scale(1 .12) translate(0 -905)">
-      <stop offset="0" stop-color="rgb(${C.glow})" stop-opacity=".45"/><stop offset="1" stop-color="rgb(${C.glow})" stop-opacity="0"/>
+    <filter id="soft" filterUnits="userSpaceOnUse" x="-100" y="-100" width="1200" height="1200"><feGaussianBlur stdDeviation="18"/></filter>
+    <filter id="shaft" filterUnits="userSpaceOnUse" x="-100" y="-100" width="1200" height="1200"><feGaussianBlur stdDeviation="9"/></filter>
+    <radialGradient id="halo" cx="500" cy="528" r="430" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="rgb(${C.glow})" stop-opacity="${plus ? .22 : .13}"/>
+      <stop offset=".6" stop-color="rgb(${C.glow})" stop-opacity="${plus ? .06 : .035}"/>
+      <stop offset="1" stop-color="rgb(${C.glow})" stop-opacity="0"/>
     </radialGradient>
+    <linearGradient id="arcfade" x1="360" y1="0" x2="640" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="${C.hi}" stop-opacity="0"/><stop offset=".5" stop-color="${C.hi}"/>
+      <stop offset="1" stop-color="${C.hi}" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="ring" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="${C.hi}" stop-opacity=".9"/>
+      <stop offset=".5" stop-color="${C.mid}" stop-opacity=".35"/>
+      <stop offset="1" stop-color="${C.lo}" stop-opacity=".05"/>
+    </linearGradient>
   </defs>`;
 
 let body = "";
 
-if (opt === "a") {
-  // A: diagonal shards. Same geometry for both tiers, only the colour changes (white / gold).
-  const dark = `<rect width="1000" height="1000" fill="#0D0D0D"/>
-    <rect width="1000" height="1000" fill="url(#spot)"/>`;
-  // faint angles texture in the dark top half
-  let tex = "";
-  seed = 11;
-  for (let i = 0; i < 22; i++) {
-    const a = -Math.PI + (i / 22) * Math.PI * 2 + (rnd() - .5) * .2;
-    tex += `<polygon points="${zigRay(500, 470, a, 120, 520 + rnd() * 160, 16 + rnd() * 10, 16, 6)}"/>`;
+if (opt === "c") {
+  // C: halo. Light falls from above onto the card, two thin rings frame it, a little dust in the beam.
+  let dust = "";
+  seed = 5;
+  for (let i = 0; i < 90; i++) {
+    const y = 40 + rnd() * 900, spread = 60 + y * .36;
+    const x = 500 + (rnd() - .5) * 2 * spread;
+    const r = .6 + rnd() * rnd() * 2.6;
+    dust += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r.toFixed(2)}" opacity="${(.15 + rnd() * .6).toFixed(2)}"/>`;
   }
-  const texture = `<g fill="#fff" opacity="${plus ? .035 : .05}">${tex}</g>`;
-  // main band: wide diagonal sweep across the middle, rising to the right
-  const band = `
-    <polygon points="0,590 1000,420 1000,660 0,830" fill="url(#band)"/>
-    <polygon points="0,590 1000,420 1000,438 0,614" fill="#0D0D0D" opacity=".9"/>
-    <polygon points="0,830 1000,660 1000,680 0,856" fill="#0D0D0D" opacity=".85"/>`;
-  // loose shards around the band (the broken-glass pieces of the old Plus image)
-  const shards = `
-    <g fill="url(#band)">
-      <polygon points="0,470 150,445 70,520 0,532"/>
-      <polygon points="860,330 1000,300 1000,352 905,368"/>
-      <polygon points="120,955 300,915 250,965 90,1000 60,1000"/>
-      <polygon points="780,745 1000,706 1000,742 830,772"/>
-      <polygon points="40,240 110,226 70,262"/>
-      <polygon points="905,600 960,588 930,630"/>
+  body = `<rect width="1000" height="1000" fill="#0D0D0D"/>
+    <polygon points="430,-20 570,-20 900,1000 100,1000" fill="url(#beam)" filter="url(#soft)"/>
+    <rect width="1000" height="1000" fill="url(#halo)"/>
+    <g filter="url(#shaft)" fill="rgb(${C.glow})">
+      <polygon points="490,-10 500,-10 330,1000 300,1000" opacity="${plus ? .16 : .1}"/>
+      <polygon points="500,-10 510,-10 700,1000 670,1000" opacity="${plus ? .16 : .1}"/>
+      <polygon points="496,-10 504,-10 520,1000 480,1000" opacity="${plus ? .2 : .12}"/>
     </g>
-    <g stroke="rgb(${C.glow})" stroke-opacity=".35" stroke-width="2" fill="none">
-      <path d="M0 640 L1000 466"/><path d="M0 890 L1000 716"/>
-    </g>`;
-  // lower part a touch lighter than the top so the card reads as "standing" on the band
-  const lower = `<polygon points="0,856 1000,680 1000,1000 0,1000" fill="#141414"/>`;
-  body = dark + texture + band + lower + shards +
-    `<rect width="1000" height="1000" fill="url(#vignette)" opacity=".7"/>
-     <rect width="1000" height="1000" filter="url(#grain)" opacity=".07"/>`;
+    <circle cx="500" cy="528" r="356" fill="none" stroke="url(#ring)" stroke-width="2"/>
+    <circle cx="500" cy="528" r="390" fill="none" stroke="url(#ring)" stroke-width="1" opacity=".4"/>
+    <path d="M330 215 A356 356 0 0 1 670 215" fill="none" stroke="rgb(${C.glow})" stroke-width="10" stroke-opacity="${plus ? .55 : .4}" filter="url(#soft)"/>
+    <path d="M360 200.6 A356 356 0 0 1 640 200.6" fill="none" stroke="url(#arcfade)" stroke-width="3"/>
+    <g fill="rgb(${C.glow})">${dust}</g>
+    <rect width="1000" height="1000" fill="url(#vignette)"/>
+    <rect width="1000" height="1000" filter="url(#grain)" opacity=".06"/>`;
 } else {
-  // B: spotlight burst. Black stage, jagged rays from behind the card, a lit floor under it.
+  // B: spotlight burst. Black stage, jagged rays (the cards' "angles" motif) from behind the card.
   let rays = "";
   seed = 3;
   const N = 34;
   for (let i = 0; i < N; i++) {
     const a = (i / N) * Math.PI * 2 + (rnd() - .5) * .12;
     const long = i % 2 === 0;
-    rays += `<polygon points="${zigRay(500, 520, a, 90 + rnd() * 40, (long ? 640 : 470) + rnd() * 120, long ? 22 : 13, long ? 22 : 14, long ? 7 : 5)}"/>`;
+    rays += `<polygon points="${zigRay(500, 528, a, 90 + rnd() * 40, (long ? 640 : 470) + rnd() * 120, long ? 22 : 13, long ? 22 : 14, long ? 7 : 5)}"/>`;
   }
   body = `<rect width="1000" height="1000" fill="#0D0D0D"/>
     <g mask="url(#raymask)"><g fill="url(#band)" opacity="${plus ? .42 : .2}">${rays}</g></g>
     <rect width="1000" height="1000" fill="url(#spot)"/>
-    <ellipse cx="500" cy="905" rx="420" ry="46" fill="url(#pool)"/>
-    <rect x="130" y="903" width="740" height="2" fill="url(#floor)" opacity=".8"/>
-    <g fill="none" stroke="rgb(${C.glow})" stroke-opacity=".5" stroke-width="2">
-      <path d="M28 120 V28 H120"/><path d="M972 880 V972 H880"/>
-    </g>
     <rect width="1000" height="1000" fill="url(#vignette)"/>
     <rect width="1000" height="1000" filter="url(#grain)" opacity=".07"/>`;
 }
