@@ -3,7 +3,7 @@
 Single source of truth for the redesign of [aztvstore.com](https://aztvstore.com/).
 The visual version of this file is **Our Workspace**: [our workspace.html](our%20workspace.html). Keep the two in sync.
 
-Last updated: 2026-10-21
+Last updated: 2026-10-23
 
 ## 1. Project in one paragraph
 
@@ -159,6 +159,8 @@ new store design/
 ```
 
 ## 10. Log
+
+- 2026-10-23: Subscription product backgrounds, two options for the client to pick (sections 07 and 11). One background for all subscription cards, the card in the middle changes per product. AZ TV uses white, AZ TV Plus uses gold with a 4K badge. Option A redraws the old diagonal look (dark top, one white or gold band with shards); Option B is a black stage with jagged rays from behind the card and a lit floor. Card area kept where it was in the old images (x 280-720, y 150-900 of 1000) so the current cards fit. Files in `05-design/shared/subscription-backgrounds/` (previews `compare-option-a.webp`, `compare-option-b.webp`; finals 2000 x 2000 in `export/`).
 
 - 2026-10-21: Section 03 main categories, first draft. Five cards after the logo strip: تجديد الاشتراك (c183760688 "جدد الان"), AZ TV (c971844871), AZ TV Plus (c921887589), beIN Sports (c899162953, official renewal; there is no single beIN category), AZ TV Box (product p1152326425). Five images generated in Gemini in one matching style and warm-graded to the brand; originals `cat-*-gemini.jpg` in `05-design/sections/03-main-categories/`, web versions `cat-*.webp` (600x800). Cards 2-5 are Gemini's 765x1024 previews (Chrome blocked the full-size downloads), enough for the card size. The AZ TV Box image is a generic device: replace with the real product photo before going live.
 
