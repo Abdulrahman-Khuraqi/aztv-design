@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Subscription Backgrounds</title>
+<!--
+  One background for every subscription card: AZ TV (white) and AZ TV Plus (gold).
+  Approved direction (2026-10-23): spotlight burst, jagged rays from behind the card on a black stage (opt=b, the default).
+  Trying: opt=e "split", the old images' black / light diagonal split, redrawn clean.
+  The card sits in the reserved area (x 310-690, y 204-852 on the 1000 x 1000 canvas): same proportions as the old cards,
+  a little smaller than in the old images, so the existing card files still drop straight in.
+
+  URL options:  ?opt=b|e  &tier=regular|plus  &guide=1 (show the card area)  &card=path/to/card.png (mock-up)
+  Export:       node render.cjs  (writes export/ and mockups/)
+-->
+<style>
+  @font-face { font-family: "PingARLT"; src: url("src/PingARLT-Bold.woff2") format("woff2"); font-weight: 700; }
+  :root { --gold: #EACF69; --gold-deep: #B8963A; --ink: #0D0D0D; --surface: #1A1A1A; --white: #F4F4F2; }
+  html, body { margin: 0; background: #2a2a2a; }
+  body { display: grid; place-items: center; min-height: 100vh; }
+  .bg {
+    position: relative; width: 1000px; height: 1000px; overflow: hidden; background: var(--ink);
+    font-family: "PingARLT", system-ui, sans-serif; color: var(--white);
+    --accent: var(--white); --accent-2: #BDBDBD;
+  }
+  .bg[data-tier="plus"] { --accent: var(--gold); --accent-2: var(--gold-deep); }
+  .bg > svg.art { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+  /* logo */
+  .logo { position: absolute; top: 34px; left: 50%; transform: translateX(-50%); height: 92px; }
+
+  /* vertical store name, like the old images */
+  .side {
+    position: absolute; writing-mode: vertical-lr; text-orientation: upright;
+    font-size: 15px; letter-spacing: 9px; font-weight: 700; color: var(--white); opacity: .85;
+    direction: ltr;
+  }
+  .side--r { right: 40px; top: 56px; }
+  .side--l { left: 40px; bottom: 56px; }
+  .bg[data-opt="e"] .side.side--l { color: var(--ink); opacity: .8; }
+  .bg[data-tier="plus"] .side { color: var(--gold); }
+
+  /* 4K badge (Plus only) */
+  .badge {
+    position: absolute; top: 34px; right: 34px; display: none;
+    padding: 6px 16px 4px; border-radius: 14px; background: var(--gold); color: var(--ink);
+    font: 700 46px/1 "PingARLT", system-ui, sans-serif; letter-spacing: 1px; direction: ltr;
+  }
+  .bg[data-tier="plus"] .badge { display: block; }
+  .bg[data-tier="plus"] .side--r { top: 130px; }
+
+  /* contact pill */
+  .contact {
+    position: absolute; left: 50%; bottom: 26px; transform: translateX(-50%);
+    display: flex; gap: 14px; direction: ltr;
+  }
+  .contact span {
+    display: inline-flex; align-items: center; gap: 10px; height: 44px; padding: 0 20px 0 8px; border-radius: 22px;
+    background: rgba(26, 26, 26, .92); border: 1.5px solid rgba(244, 244, 242, .22);
+    font-size: 19px; letter-spacing: .5px; white-space: nowrap;
+  }
+  .bg[data-tier="plus"] .contact span { border-color: rgba(234, 207, 105, .5); }
+  .contact i {
+    display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--accent); color: var(--ink);
+  }
+  .contact svg { width: 18px; height: 18px; }
+
+  /* reserved card area */
+  .guide {
+    position: absolute; left: 310px; top: 204px; width: 380px; height: 648px; border-radius: 35px;
+    outline: 3px dashed #ff3b6b; outline-offset: 0; display: none;
+  }
+  .guide::after {
+    content: "CARD 380 x 648"; position: absolute; inset: auto 0 50% 0; text-align: center;
+    font: 700 22px/1 system-ui, sans-serif; color: #ff3b6b; direction: ltr;
+  }
+  .show-guide .guide { display: block; }
+  .card {
+    position: absolute; left: 310px; top: 204px; width: 380px; height: 648px; border-radius: 35px; overflow: hidden;
+    box-shadow: 0 40px 70px rgba(0, 0, 0, .55), 0 0 0 1px rgba(255, 255, 255, .06); display: none;
+  }
+  .card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .has-card .card { display: block; }
+</style>
+</head>
+<body>
+<div class="bg" id="bg" data-tier="regular">
+  <svg class="art" id="art" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"></svg>
+  <img class="logo" id="logo" src="src/logo-white.png" alt="AZ TV">
+  <div class="side side--r">AZTVSTORE</div>
+  <div class="side side--l">AZTVSTORE</div>
+  <div class="badge">4K</div>
+  <div class="guide"></div>
+  <div class="card"><img id="cardImg" alt=""></div>
+  <div class="contact">
+    <span><i><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg></i>966509130883</span>
+    <span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></i>AZTVSTORE.COM</span>
+  </div>
+</div>
+
+<script>
+const q = new URLSearchParams(location.search);
+const opt = q.get("opt") || "b";
+const tier = q.get("tier") || "regular";
+const bg = document.getElementById("bg");
+const art = document.getElementById("art");
+bg.dataset.tier = tier;
+bg.dataset.opt = opt;
+document.getElementById("logo").src = tier === "plus" ? "src/logo-gold.png" : "src/logo-white.png";
+if (q.get("guide")) bg.classList.add("show-guide");
+if (q.get("card")) { bg.classList.add("has-card"); document.getElementById("cardImg").src = q.get("card"); }
+
+const plus = tier === "plus";
+const C = plus
+  ? { hi: "#F3DC85", mid: "#EACF69", lo: "#B8963A", glow: "234,207,105" }
+  : { hi: "#FFFFFF", mid: "#ECECEA", lo: "#BEBEBC", glow: "255,255,255" };
+
+// small seeded random so every export is identical
+let seed = 7;
+const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+
+// one jagged ray from the centre outwards, the "angles" motif of the cards
+function zigRay(cx, cy, ang, r0, r1, w0, amp, steps) {
+  const ux = Math.cos(ang), uy = Math.sin(ang), nx = -uy, ny = ux;
+  const L = [], R = [];
+  for (let i = 0; i <= steps; i++) {
+    const t = i / steps, r = r0 + (r1 - r0) * t;
+    const off = (i % 2 ? 1 : -1) * amp * (0.4 + t);
+    const w = w0 * (0.25 + 0.75 * t);
+    const px = cx + ux * r + nx * off, py = cy + uy * r + ny * off;
+    L.push([px + nx * w, py + ny * w]); R.push([px - nx * w, py - ny * w]);
+  }
+  const tip = [cx + ux * (r1 + w0 * 2.2), cy + uy * (r1 + w0 * 2.2)];
+  return [...L, tip, ...R.reverse()].map(p => p.map(v => v.toFixed(1)).join(",")).join(" ");
+}
+
+const defs = `
+  <defs>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/>
+      <feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .55 0"/>
+    </filter>
+    <linearGradient id="band" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="${C.hi}"/><stop offset=".55" stop-color="${C.mid}"/><stop offset="1" stop-color="${C.lo}"/>
+    </linearGradient>
+    <radialGradient id="spot" cx="500" cy="528" r="520" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="rgb(${C.glow})" stop-opacity="${plus ? .34 : .2}"/>
+      <stop offset=".45" stop-color="rgb(${C.glow})" stop-opacity="${plus ? .1 : .06}"/>
+      <stop offset="1" stop-color="rgb(${C.glow})" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="rayfade" cx="500" cy="528" r="560" gradientUnits="userSpaceOnUse">
+      <stop offset=".3" stop-color="#fff" stop-opacity="1"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+    <mask id="raymask"><rect width="1000" height="1000" fill="url(#rayfade)"/></mask>
+    <radialGradient id="vignette" cx="500" cy="480" r="760" gradientUnits="userSpaceOnUse">
+      <stop offset=".55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".75"/>
+    </radialGradient>
+    <linearGradient id="planeE" x1="0" y1="476" x2="0" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="${C.hi}"/><stop offset=".45" stop-color="${C.mid}"/><stop offset="1" stop-color="${C.lo}"/>
+    </linearGradient>
+    <radialGradient id="planeShade" cx="500" cy="700" r="620" gradientUnits="userSpaceOnUse">
+      <stop offset=".35" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="${plus ? .35 : .28}"/>
+    </radialGradient>
+    <clipPath id="planeClip"><polygon points="0,612 1000,476 1000,1000 0,1000"/></clipPath>
+  </defs>`;
+
+let body = "";
+if (opt === "e") {
+  // Split: the old images' look redrawn clean. Black top, one light plane (white / gold) under a sharp diagonal,
+  // the cards' zigzag rays pressed into the plane tone on tone, one clean edge line. No loose shards.
+  const plane = "0,612 1000,476 1000,1000 0,1000";
+  let rays = "";
+  seed = 3;
+  const N = 34;
+  for (let i = 0; i < N; i++) {
+    const a = (i / N) * Math.PI * 2 + (rnd() - .5) * .12;
+    const long = i % 2 === 0;
+    rays += `<polygon points="${zigRay(500, 528, a, 90 + rnd() * 40, (long ? 700 : 520) + rnd() * 120, long ? 24 : 14, long ? 22 : 14, long ? 7 : 5)}"/>`;
+  }
+  body = `<rect width="1000" height="1000" fill="#0D0D0D"/>
+    <g mask="url(#raymask)"><g fill="rgb(${C.glow})" opacity="${plus ? .07 : .045}">${rays}</g></g>
+    <rect width="1000" height="1000" fill="url(#spot)"/>
+    <polygon points="${plane}" fill="url(#planeE)"/>
+    <g clip-path="url(#planeClip)"><g fill="${plus ? "#6b5418" : "#000"}" opacity="${plus ? .11 : .05}">${rays}</g>
+      <rect width="1000" height="1000" fill="url(#planeShade)"/></g>
+    <path d="M0 612 L1000 476" stroke="${C.hi}" stroke-width="2.5"/>
+    <rect width="1000" height="1000" fill="url(#vignette)" opacity=".6"/>
+    <rect width="1000" height="1000" filter="url(#grain)" opacity=".06"/>`;
+} else {
+  // Spotlight burst: black stage, jagged rays (the cards' "angles" motif) from behind the card.
+  let rays = "";
+  seed = 3;
+  const N = 34;
+  for (let i = 0; i < N; i++) {
+    const a = (i / N) * Math.PI * 2 + (rnd() - .5) * .12;
+    const long = i % 2 === 0;
+    rays += `<polygon points="${zigRay(500, 528, a, 90 + rnd() * 40, (long ? 640 : 470) + rnd() * 120, long ? 22 : 13, long ? 22 : 14, long ? 7 : 5)}"/>`;
+  }
+  body = `<rect width="1000" height="1000" fill="#0D0D0D"/>
+    <g mask="url(#raymask)"><g fill="url(#band)" opacity="${plus ? .42 : .2}">${rays}</g></g>
+    <rect width="1000" height="1000" fill="url(#spot)"/>
+    <rect width="1000" height="1000" fill="url(#vignette)"/>
+    <rect width="1000" height="1000" filter="url(#grain)" opacity=".07"/>`;
+}
+
+art.innerHTML = defs + body;
+document.fonts.ready.then(() => { document.body.dataset.ready = "1"; });
+</script>
+</body>
+</html>
