@@ -41,7 +41,7 @@ def build(root):
             prompt = ''
             if it.get('prompt'):
                 full = it['prompt']
-                if it['who'] == 'you':
+                if it['who'] == 'you' and not it.get('refs'):   # items with their own references carry their own style text
                     full += '\n\n' + data['style'].replace('{EDGE}', it.get('edge', 'gold'))
                 prompt = ('<details class="todo-prompt"><summary>نص التوليد (Prompt)</summary><div class="files-code">'
                           '<button type="button" class="files-btn files-copy">نسخ</button>'
@@ -59,6 +59,17 @@ def build(root):
             if it.get('priority'):
                 chips += f'<span class="chip wait">{html.escape(it["priority"])}</span>'
             meta = f'<dt>الرابط</dt><dd><code>{html.escape(it["link"])}</code></dd>' if it.get('link') else ''
+            refs = ''
+            for r in it.get('refs', []):   # reference images to attach when generating: thumbnail + download
+                rp = os.path.join(root, r)
+                if os.path.exists(rp):
+                    # embedded as a 1024px WebP to keep the workspace light; the full PNG is at the path shown
+                    im = Image.open(rp).convert('RGBA'); im.thumbnail((1024, 1024)); buf = io.BytesIO(); im.save(buf, 'WEBP', quality=90)
+                    name = os.path.splitext(os.path.basename(r))[0] + '.webp'
+                    refs += (f'<a class="todo-ref" download="{name}" title="{r}" href="data:image/webp;base64,{base64.b64encode(buf.getvalue()).decode()}">'
+                             f'<img src="{thumb(rp)}" alt=""><span>{os.path.basename(r)}</span></a>')
+            if refs:
+                prompt = f'<div class="todo-refs"><b>صور المرجع (أرفقها مع النص، اضغط للتنزيل)</b><div>{refs}</div></div>' + prompt
             meta += f'<dt>الملف الجديد</dt><dd><code>{html.escape(it["new"])}</code></dd><dt>المواصفات</dt><dd>{html.escape(it["spec"])}</dd>'
             cards += (f'<article class="todo-item" data-id="{it["id"]}" data-status="{it["status"]}">'
                       f'<label class="todo-check"><input type="checkbox"{" checked" if it["status"] == "done" else ""}><span>تم</span></label>'
@@ -143,6 +154,11 @@ STYLE = '''/* TODO-STYLE:START */
 .todo-meta dt { color: var(--muted); }
 .todo-meta dd { margin: 0; min-width: 0; word-break: break-word; }
 .todo-prompt { margin-top: 8px; }
+.todo-refs { margin-top: 10px; font-size: 14px; }
+.todo-refs > div { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
+.todo-ref { display: flex; flex-direction: column; align-items: center; gap: 4px; width: 120px; color: var(--gold); font-size: 11.5px; text-decoration: none; text-align: center; word-break: break-all; }
+.todo-ref img { width: 120px; height: 90px; object-fit: contain; border-radius: 8px; background: #0D0D0D; border: 1px solid var(--line); }
+.todo-ref:hover img { border-color: var(--gold); }
 .todo-prompt summary { cursor: pointer; color: var(--gold); font-size: 14px; }
 @media (max-width: 640px) { .todo-item { grid-template-columns: auto 1fr; } .todo-body { grid-column: 1 / -1; } }
 /* TODO-STYLE:END */

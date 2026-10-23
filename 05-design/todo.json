@@ -114,68 +114,53 @@
     {
       "id": "bein",
       "title": "عالم beIN (القسم 04)",
-      "where": "القسم 04: بنرات الجهازين وبطاقات الباقات والتجديد",
-      "why": "بنرا الجهازين أبيض وبنفسجي بنص مكتوب داخلهما، وبطاقات الباقات مسطحة ومكتوب الاسم فيها مرتين. المطلوب نفس أسلوب صور القسم 03.",
-      "how": "صور ثلاثية الأبعاد بخلفية شفافة. للجهازين: أرفق صورة الجهاز الحقيقية حتى لا يخترع الذكاء الاصطناعي جهازًا آخر. للباقات: صورتان أساسيتان (قمة وتميز)، وأنا أضيف «عربي» و«خليجي» عليهما.",
+      "where": "القسم 04: ثلاث بطاقات متساوية في صف واحد (رسيفر 4K، رسيفر PVR، تجديد beIN الرسمي)",
+      "why": "حذفنا صف الباقات الخمس تحت القسم لأنه غير متوازن، وصعدنا التجديد بجانب الجهازين. البطاقات الثلاث الآن مؤقتة: الجهازان مقصوصان من البنرات القديمة، والتجديد بالسهم الذهبي.",
+      "how": "أنت تولّد الشكل الثلاثي الأبعاد فقط بخلفية شفافة، بنفس الزاوية والقاعدة والإضاءة للثلاثة. أرفق مع كل نص صورتي المرجع المذكورتين (صورة الجهاز الحقيقية، وصورة الأسلوب). احفظ الناتج بالاسم المكتوب وارفعه في new-design/assets/img/bein/، وأنا أركّب البطاقة (شعار beIN والعنوان بالعربي) بتشغيل build/make_bein.js.",
       "items": [
         {
           "id": "b-4k",
-          "title": "رسيفر beIN TV 4K",
+          "title": "بطاقة رسيفر beIN TV 4K",
           "link": "c757128774",
-          "now": "b3ee113b-01d6-4824-af25-344fa8a26396-022b88f8.webp",
+          "now": "bein/bein-card-4k.png",
           "new": "bein-4k-3d.png",
-          "spec": "3D، خلفية شفافة، 2048×2048",
+          "spec": "شكل 3D بخلفية شفافة، 2048×2048",
           "who": "you",
-          "edge": "gold",
-          "prompt": "Use the second attached photo as the exact product: the white beIN TV 4K receiver. Keep its real shape, buttons and logo position; remove the big 4K letters, the purple band and all text. Render it as a premium 3D product shot in the style of the first attached reference: device at a slight three-quarter angle on a thin black glossy plinth with a polished gold edge, soft gold rim light. TRANSPARENT background, no text, square 2048x2048.",
+          "refs": [
+            "05-design/new-design/assets/img/bein/ref-bein-4k-device.png",
+            "05-design/new-design/assets/img/cat-aztv-box-3d.png"
+          ],
+          "prompt": "Attached: (1) ref-bein-4k-device.png = the EXACT product, (2) cat-aztv-box-3d.png = the style reference.\nRender the exact beIN TV 4K receiver from image 1: keep its real white rounded-square body, the round power button and the row of small indicator lights on the front, and the small grey beIN mark on top. Do not redesign it and do not add the big 4K letters or any purple band. Three-quarter view from slightly above, a slim black remote control lying in front of it at an angle.\nKeep the SAME camera angle, plinth and lighting in all three beIN images: they sit side by side as three equal cards. Premium 3D product render in the exact style of the attached style reference (glossy black and polished gold, soft studio light from the top left, subtle reflections). Object centred, filling about 70% of the width, standing on a thin round black glossy plinth with a polished gold edge, soft gold rim light behind, a faint deep purple (#5B2A86) glow on the floor under the plinth. TRANSPARENT background (PNG), no text, no letters, no numbers, no watermark. Square 2048x2048.",
           "status": "todo"
         },
         {
           "id": "b-pvr",
-          "title": "رسيفر beIN PVR HD",
+          "title": "بطاقة رسيفر beIN PVR HD",
           "link": "c1398521669",
-          "now": "0331b2be-ccc5-4f63-8a30-7cf3e1cf572c-03180d63.webp",
+          "now": "bein/bein-card-pvr.png",
           "new": "bein-pvr-3d.png",
-          "spec": "3D، خلفية شفافة، 2048×2048",
+          "spec": "شكل 3D بخلفية شفافة، 2048×2048",
           "who": "you",
-          "edge": "gold",
-          "prompt": "Use the second attached photo as the exact product: the white beIN PVR HD receiver. Keep its real shape, display and logo position; remove the big HD letters, the purple band and all text. Same render as the beIN 4K image: three-quarter angle on a thin black glossy plinth with a polished gold edge, soft gold rim light. TRANSPARENT background, no text, square 2048x2048.",
-          "status": "todo"
-        },
-        {
-          "id": "b-qimma",
-          "title": "باقات قمة (عربي وخليجي)",
-          "link": "c1147218769 · c415231319",
-          "now": "malak/bein-qimma-arabi.webp",
-          "new": "bein-qimma-3d.png ← bein-qimma-arabi / khaleeji",
-          "spec": "صورة أساسية واحدة، وأنا أصنع منها نسختي عربي وخليجي",
-          "who": "you",
-          "edge": "gold",
-          "prompt": "Premium 3D render of a top-tier sports subscription: a glossy black TV screen card showing a deep purple (#5B2A86) glowing screen, a small polished gold trophy standing in front of it at the lower right, a thin gold ring orbiting around the screen. Same style as the attached reference. TRANSPARENT background, no text, no logos on the screen, square 2048x2048.",
-          "status": "todo"
-        },
-        {
-          "id": "b-tamayoz",
-          "title": "باقات تميز (عربي وخليجي)",
-          "link": "c374229586 · c1787038800",
-          "now": "malak/bein-tamayoz-arabi.webp",
-          "new": "bein-tamayoz-3d.png ← bein-tamayoz-arabi / khaleeji",
-          "spec": "صورة أساسية واحدة، وأنا أصنع منها نسختي عربي وخليجي",
-          "who": "you",
-          "edge": "silver",
-          "prompt": "Premium 3D render of a sports subscription: a glossy black TV screen card showing a deep purple (#5B2A86) glowing screen, a polished silver five-point star standing in front of it at the lower right, a thin silver ring orbiting around the screen. Same style as the attached reference but with silver instead of gold. TRANSPARENT background, no text, no logos on the screen, square 2048x2048.",
+          "refs": [
+            "05-design/new-design/assets/img/bein/ref-bein-pvr-device.png",
+            "05-design/new-design/assets/img/cat-aztv-box-3d.png"
+          ],
+          "prompt": "Attached: (1) ref-bein-pvr-device.png = the EXACT product, (2) cat-aztv-box-3d.png = the style reference.\nRender the exact beIN PVR HD receiver from image 1: keep its real white box shape, the textured top, the black front display window with the power symbol, the USB label and the purple beIN mark on the front right. Do not redesign it and do not add the big HD letters or any purple band. Three-quarter view from slightly above, a slim black remote control lying in front of it at an angle.\nKeep the SAME camera angle, plinth and lighting in all three beIN images: they sit side by side as three equal cards. Premium 3D product render in the exact style of the attached style reference (glossy black and polished gold, soft studio light from the top left, subtle reflections). Object centred, filling about 70% of the width, standing on a thin round black glossy plinth with a polished gold edge, soft gold rim light behind, a faint deep purple (#5B2A86) glow on the floor under the plinth. TRANSPARENT background (PNG), no text, no letters, no numbers, no watermark. Square 2048x2048.",
           "status": "todo"
         },
         {
           "id": "b-renew",
-          "title": "تجديد اشتراك beIN الرسمي",
+          "title": "بطاقة تجديد اشتراك beIN الرسمي",
           "link": "c899162953",
-          "now": "malak/bein-renew.webp",
+          "now": "bein/bein-card-renew.png",
           "new": "bein-renew-3d.png",
-          "spec": "3D، خلفية شفافة",
+          "spec": "شكل 3D بخلفية شفافة، 2048×2048",
           "who": "you",
-          "edge": "gold",
-          "prompt": "Premium 3D render in the exact style of the attached renewal reference (cat-renewal-3d.png): a glossy black card with a deep purple (#5B2A86) face, wrapped by a polished gold circular renewal arrow, a small gold check badge. TRANSPARENT background, no text, square 2048x2048.",
+          "refs": [
+            "05-design/new-design/assets/img/cat-renewal-3d.png",
+            "05-design/new-design/assets/img/cat-bein-3d.png"
+          ],
+          "prompt": "Attached: (1) cat-renewal-3d.png = the shape to follow, (2) cat-bein-3d.png = the beIN colours.\nThe same object as image 1 (a card wrapped by a polished gold circular renewal arrow with a small gold check badge), but the card is a glossy black smart card with a deep purple (#5B2A86) face, a gold chip and a soft purple glow on its edges, like the purple of image 2. No logo and no letters on the card.\nKeep the SAME camera angle, plinth and lighting in all three beIN images: they sit side by side as three equal cards. Premium 3D product render in the exact style of the attached style reference (glossy black and polished gold, soft studio light from the top left, subtle reflections). Object centred, filling about 70% of the width, standing on a thin round black glossy plinth with a polished gold edge, soft gold rim light behind, a faint deep purple (#5B2A86) glow on the floor under the plinth. TRANSPARENT background (PNG), no text, no letters, no numbers, no watermark. Square 2048x2048.",
           "status": "todo"
         }
       ]

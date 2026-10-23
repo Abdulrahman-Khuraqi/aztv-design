@@ -130,7 +130,15 @@
 }
 
 /* ---------- Banners (04 beIN devices) ---------- */
-.s-block--banners .square-grid { max-width: 820px; margin-inline: auto; }
+.s-block--banners .square-grid { max-width: 1100px; margin-inline: auto; }
+/* phones: a row of three cards (04 beIN world) swipes sideways instead of shrinking to thumbnails */
+@media (max-width: 767px) {
+  .s-block--banners .square-grid:has(> :nth-child(3)) {
+    display: flex !important; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-inline: 4px;
+  }
+  .s-block--banners .square-grid:has(> :nth-child(3))::-webkit-scrollbar { display: none; }
+  .s-block--banners .square-grid:has(> :nth-child(3)) > * { flex: 0 0 72%; scroll-snap-align: center; }
+}
 .s-block--banners .box-img { border-radius: 20px !important; overflow: hidden; border: 1px solid var(--az-line); }
 .s-block--banners .grayscaled-img img { filter: none !important; }
 

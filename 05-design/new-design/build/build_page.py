@@ -193,13 +193,11 @@ B += [divider('new-03-title', 'تسوّق حسب القسم', 'وصول سريع
       categories('new-03-cats', [('تجديد الاشتراك', c(183760688), IMG + 'cat-renewal-3d.webp'), ('AZ TV', c(971844871), IMG + 'cat-aztv-3d-bw.webp'),
                                  ('AZ TV Plus', c(921887589), IMG + 'cat-aztv-plus-3d.webp'), ('beIN Sports', c(899162953), IMG + 'cat-bein-3d.webp'),
                                  ('AZ TV Box', f'{S}/-/p1152326425', IMG + 'cat-aztv-box-3d.webp')])]
-# 04 beIN world: title + devices + subscriptions and renewal
-B += [divider('1319788990', 'عالم beIN', 'أجهزة واشتراكات وتجديدات beIN الرسمية', ('تصفح عروض beIN', c(1461115041)), icon=IMG + 'logos/bein-white.svg'),
-      banners('668296755', [(c(757128774), IMG + 'b3ee113b-01d6-4824-af25-344fa8a26396-022b88f8.webp'),
-                            (c(1398521669), IMG + '0331b2be-ccc5-4f63-8a30-7cf3e1cf572c-03180d63.webp')], 2),
-      categories('new-04-packs', [('قمة عربي', c(1147218769), M + 'bein-qimma-arabi.webp'), ('قمة خليجي', c(415231319), M + 'bein-qimma-khaleeji.webp'),
-                                  ('تميز عربي', c(374229586), M + 'bein-tamayoz-arabi.webp'), ('تميز خليجي', c(1787038800), M + 'bein-tamayoz-khaleeji.webp'),
-                                  ('تجديد اشتراك beIN', c(899162953), M + 'bein-renew.webp')])]
+# 04 beIN world: title + three balanced cards in one banners block (4K receiver, PVR receiver, official renewal).
+# The five package tiles were removed (packages stay reachable from the menu and «تصفح عروض beIN»). Cards: build/make_bein.js
+B += [divider('1319788990', 'عالم beIN', 'أجهزة واشتراكات وتجديدات beIN الرسمية', ('تصفح عروض beIN', c(1461115041))),
+      banners('668296755', [(c(757128774), IMG + 'bein/bein-card-4k.webp'), (c(1398521669), IMG + 'bein/bein-card-pvr.webp'),
+                            (c(899162953), IMG + 'bein/bein-card-renew.webp')], 3)]
 # 05 AZ TV Box: featured product, as on the store
 B += [block('1551497783')]
 # 06 Season offers: title with countdown and button + products grid
