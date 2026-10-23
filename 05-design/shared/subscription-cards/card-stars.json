@@ -1,0 +1,40 @@
+{
+  "_about": "Who appears on the subscription cards. Source for the «نجوم البطاقات» section in the workspace (tab «ملفات التسليم»); edit here, then run python3 05-design/new-design/build/sync_workspace.py. Chosen by fame and audience size for a Saudi / Arab football and series audience; not a live ranking, so check clubs and current form before publishing.",
+  "players": [
+    { "name": "Cristiano Ronaldo", "ar": "كريستيانو رونالدو", "why": "أكبر وجه في الدوري السعودي وأكثر لاعب متابعة في العالم" },
+    { "name": "Lionel Messi", "ar": "ليونيل ميسي", "why": "بطل العالم، والاسم الذي يعرفه كل من يشاهد كرة القدم" },
+    { "name": "Kylian Mbappé", "ar": "كيليان مبابي", "why": "نجم ريال مدريد وفرنسا وأقوى لاعب في جيله" },
+    { "name": "Erling Haaland", "ar": "إيرلينغ هالاند", "why": "هدّاف مانشستر سيتي الأول، وقوة بدنية وأرقام خيالية" },
+    { "name": "Vinícius Júnior", "ar": "فينيسيوس جونيور", "why": "نجم ريال مدريد والبرازيل، وجمهوره كبير جدًا في الخليج" },
+    { "name": "Jude Bellingham", "ar": "جود بيلينغهام", "why": "قلب ريال مدريد وإنجلترا، ومن أشهر الشباب في العالم" },
+    { "name": "Lamine Yamal", "ar": "لامين يامال", "why": "جوهرة برشلونة وإسبانيا الشابة، وأكثر اسم صاعد الآن" },
+    { "name": "Mohamed Salah", "ar": "محمد صلاح", "why": "أحب لاعب عربي إلى الجمهور العربي، ونجم ليفربول" },
+    { "name": "Neymar Jr", "ar": "نيمار", "why": "محبوب جدًا عند الجمهور السعودي منذ الهلال" },
+    { "name": "Karim Benzema", "ar": "كريم بنزيما", "why": "الكرة الذهبية 2022، ولعب في الدوري السعودي" }
+  ],
+  "stars": [
+    { "name": "Kit Harington", "ar": "كيت هارينغتون", "title": "Game of Thrones", "ar_title": "صراع العروش", "why": "أشهر مسلسل في العالم، ومعه بيت التنين (House of the Dragon)" },
+    { "name": "Bryan Cranston", "ar": "براين كرانستون", "title": "Breaking Bad", "ar_title": "بريكنغ باد", "why": "يُذكر دائمًا ضمن أفضل المسلسلات في التاريخ" },
+    { "name": "Cillian Murphy", "ar": "كيليان مورفي", "title": "Peaky Blinders", "ar_title": "بيكي بلايندرز", "why": "مسلسل ضخم، وفاز بالأوسكار عن أوبنهايمر" },
+    { "name": "Tom Holland", "ar": "توم هولاند", "title": "Spider-Man", "ar_title": "سبايدرمان", "why": "أحد أنجح أفلام السينما في العالم، وجمهوره من كل الأعمار" },
+    { "name": "Antony Starr", "ar": "أنتوني ستار", "title": "The Boys", "ar_title": "ذا بويز", "why": "شخصية هوملاندر من أشهر الشخصيات في المسلسلات الحديثة" },
+    { "name": "Lee Jung-jae", "ar": "لي جونغ جاي", "title": "Squid Game", "ar_title": "لعبة الحبار", "why": "أكثر مسلسل مشاهدة على نتفليكس في تاريخها" },
+    { "name": "Álvaro Morte", "ar": "ألفارو مورتي", "title": "Money Heist", "ar_title": "لا كاسا دي بابيل", "why": "شخصية البروفيسور، والمسلسل محبوب جدًا في العالم العربي" },
+    { "name": "Millie Bobby Brown", "ar": "ميلي بوبي براون", "title": "Stranger Things", "ar_title": "سترينجر ثينغز", "why": "من أكبر مسلسلات نتفليكس، وجمهوره عالمي" },
+    { "name": "Travis Fimmel", "ar": "ترافيس فيميل", "title": "Vikings", "ar_title": "فايكنغز", "why": "مسلسل تاريخي له جمهور وفيّ، وهو من الوجوه القديمة في بطاقاتنا" },
+    { "name": "Jenna Ortega", "ar": "جينا أورتيغا", "title": "Wednesday", "ar_title": "وينزداي", "why": "من أكثر المسلسلات انتشارًا بين الشباب" }
+  ],
+  "pairs_note": "اقتراح لتوزيع الأسماء على البطاقات الثماني التي فيها وجوه (بطاقتا التجديد بلا وجوه). كل بطاقة وجهان: لاعب ونجم. الأطول مدة تأخذ الأكبر اسمًا. ولا تتكرر الأسماء.",
+  "pairs": [
+    { "tier": "plus", "card": "بلس سنة (جهازين)", "player": "Cristiano Ronaldo", "star": "Bryan Cranston" },
+    { "tier": "plus", "card": "بلس سنة", "player": "Lionel Messi", "star": "Kit Harington" },
+    { "tier": "plus", "card": "بلس ٦ شهور", "player": "Kylian Mbappé", "star": "Cillian Murphy" },
+    { "tier": "plus", "card": "بلس ٣ شهور", "player": "Erling Haaland", "star": "Lee Jung-jae" },
+    { "tier": "regular", "card": "العادية سنة + ٣ شهور", "player": "Vinícius Júnior", "star": "Tom Holland" },
+    { "tier": "regular", "card": "العادية ٦ شهور", "player": "Jude Bellingham", "star": "Antony Starr" },
+    { "tier": "regular", "card": "العادية ٣ شهور", "player": "Mohamed Salah", "star": "Álvaro Morte" },
+    { "tier": "regular", "card": "العادية شهر", "player": "Lamine Yamal", "star": "Millie Bobby Brown" }
+  ],
+  "reserve": "احتياط: نيمار وبنزيما (من اللاعبين)، وترافيس فيميل وجينا أورتيغا (من النجوم). وأسماء أخرى كبيرة للاحتياط: دي بروين، كين، رافينيا، كيانو ريفز (John Wick)، فين ديزل (Fast & Furious)، بيدرو باسكال (The Last of Us)، ومسلسلات تركية مثل قيامة عثمان.",
+  "rights": "تنبيه: صور هؤلاء الأشخاص في بطاقات تجارية تحتاج إلى ترخيص أو توليد بأسلوب موحّد. نتحقق من هذا قبل النشر."
+}

@@ -196,6 +196,8 @@ new store design/
 
 ## 10. Log
 
+- 2026-10-23: Who appears on the subscription cards: top 10 football players (Ronaldo, Messi, Mbappé, Haaland, Vinícius, Bellingham, Yamal, Salah, Neymar, Benzema) and top 10 series and film stars (Game of Thrones, Breaking Bad, Peaky Blinders, Spider-Man, The Boys, Squid Game, Money Heist, Stranger Things, Vikings, Wednesday), picked for a Saudi and Arab audience by fame, not a live ranking. Source `05-design/shared/subscription-cards/card-stars.json`; shown in the workspace «ملفات التسليم» (نجوم البطاقات) with a suggested split across the eight cards that carry faces (the two renewal cards have none). Image rights to check before publishing.
+
 - 2026-10-23: Subscription card backgrounds, one per style, in `05-design/shared/subscription-cards/bg/` (760 x 1296, transparent corners and hanger slot): AZ TV white with a bold black zigzag burst, AZ TV Plus black with a gold frame, gold corner shards and gold dust; both with AZTVSTORE side tabs and the same jagged ray as the approved product backgrounds. Content guides, mock-ups on B and E, source `card-background.html`, export `render-card-bg.cjs`. Also in the workspace «ملفات التسليم» under «خلفيات بطاقات الاشتراك».
 
 - 2026-10-23: New first tab "نظرة عامة" in the workspace: a grid of large tiles, one icon and a short title each, in groups: tabs, to-do list, tasks and decisions, delivery files, plan and design, brand, Salla, current store, files and links. Each tile opens its tab and scrolls straight to that part (tasks, open questions, colours, Salla rules, footer links, etc.), plus the old design, new design and live store. The workspace now opens on it.
