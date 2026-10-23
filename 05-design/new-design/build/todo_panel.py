@@ -54,7 +54,7 @@ def build(root):
             # a finished item also shows its new image (first file found by its new name)
             new_img = ''
             if it['status'] == 'done':
-                for cand in (os.path.join(imgdir, 'products', it['new']), os.path.join(imgdir, it['new'])):
+                for cand in (os.path.join(imgdir, 'products', it['new']), os.path.join(imgdir, it['new']), os.path.join(root, it['new'])):
                     if os.path.exists(cand):
                         new_img = thumb(cand)
                         break
