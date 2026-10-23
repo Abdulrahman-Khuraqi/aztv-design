@@ -6,11 +6,12 @@
 <title>Subscription Backgrounds</title>
 <!--
   One background for every subscription card: AZ TV (white) and AZ TV Plus (gold).
-  Approved direction (2026-10-23): spotlight burst, jagged rays from behind the card on a black stage.
+  Approved direction (2026-10-23): spotlight burst, jagged rays from behind the card on a black stage (opt=b, the default).
+  Trying: opt=e "split", the old images' black / light diagonal split, redrawn clean.
   The card sits in the reserved area (x 310-690, y 204-852 on the 1000 x 1000 canvas): same proportions as the old cards,
   a little smaller than in the old images, so the existing card files still drop straight in.
 
-  URL options:  ?tier=regular|plus  &guide=1 (show the card area)  &card=path/to/card.png (mock-up)
+  URL options:  ?opt=b|e  &tier=regular|plus  &guide=1 (show the card area)  &card=path/to/card.png (mock-up)
   Export:       node render.cjs  (writes export/ and mockups/)
 -->
 <style>
@@ -37,6 +38,7 @@
   }
   .side--r { right: 40px; top: 56px; }
   .side--l { left: 40px; bottom: 56px; }
+  .bg[data-opt="e"] .side.side--l { color: var(--ink); opacity: .8; }
   .bg[data-tier="plus"] .side { color: var(--gold); }
 
   /* 4K badge (Plus only) */
@@ -99,10 +101,12 @@
 
 <script>
 const q = new URLSearchParams(location.search);
+const opt = q.get("opt") || "b";
 const tier = q.get("tier") || "regular";
 const bg = document.getElementById("bg");
 const art = document.getElementById("art");
 bg.dataset.tier = tier;
+bg.dataset.opt = opt;
 document.getElementById("logo").src = tier === "plus" ? "src/logo-gold.png" : "src/logo-white.png";
 if (q.get("guide")) bg.classList.add("show-guide");
 if (q.get("card")) { bg.classList.add("has-card"); document.getElementById("cardImg").src = q.get("card"); }
@@ -152,22 +156,55 @@ const defs = `
     <radialGradient id="vignette" cx="500" cy="480" r="760" gradientUnits="userSpaceOnUse">
       <stop offset=".55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".75"/>
     </radialGradient>
+    <linearGradient id="planeE" x1="0" y1="476" x2="0" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="${C.hi}"/><stop offset=".45" stop-color="${C.mid}"/><stop offset="1" stop-color="${C.lo}"/>
+    </linearGradient>
+    <radialGradient id="planeShade" cx="500" cy="700" r="620" gradientUnits="userSpaceOnUse">
+      <stop offset=".35" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="${plus ? .35 : .28}"/>
+    </radialGradient>
+    <clipPath id="planeClip"><polygon points="0,612 1000,476 1000,1000 0,1000"/></clipPath>
   </defs>`;
 
-// Spotlight burst: black stage, jagged rays (the cards' "angles" motif) from behind the card.
-let rays = "";
-seed = 3;
-const N = 34;
-for (let i = 0; i < N; i++) {
-  const a = (i / N) * Math.PI * 2 + (rnd() - .5) * .12;
-  const long = i % 2 === 0;
-  rays += `<polygon points="${zigRay(500, 528, a, 90 + rnd() * 40, (long ? 640 : 470) + rnd() * 120, long ? 22 : 13, long ? 22 : 14, long ? 7 : 5)}"/>`;
+let body = "";
+if (opt === "e") {
+  // Split: the old images' look redrawn clean. Black top, one light plane (white / gold) under a sharp diagonal,
+  // the cards' zigzag rays pressed into the plane tone on tone, a fine double line on the edge. No loose shards.
+  const plane = "0,612 1000,476 1000,1000 0,1000";
+  let rays = "";
+  seed = 3;
+  const N = 34;
+  for (let i = 0; i < N; i++) {
+    const a = (i / N) * Math.PI * 2 + (rnd() - .5) * .12;
+    const long = i % 2 === 0;
+    rays += `<polygon points="${zigRay(500, 528, a, 90 + rnd() * 40, (long ? 700 : 520) + rnd() * 120, long ? 24 : 14, long ? 22 : 14, long ? 7 : 5)}"/>`;
+  }
+  body = `<rect width="1000" height="1000" fill="#0D0D0D"/>
+    <g mask="url(#raymask)"><g fill="rgb(${C.glow})" opacity="${plus ? .07 : .045}">${rays}</g></g>
+    <rect width="1000" height="1000" fill="url(#spot)"/>
+    <polygon points="0,560 1000,424 1000,450 0,586" fill="url(#planeE)" opacity=".18"/>
+    <polygon points="${plane}" fill="url(#planeE)"/>
+    <g clip-path="url(#planeClip)"><g fill="${plus ? "#6b5418" : "#000"}" opacity="${plus ? .11 : .05}">${rays}</g>
+      <rect width="1000" height="1000" fill="url(#planeShade)"/></g>
+    <path d="M0 612 L1000 476" stroke="${C.hi}" stroke-width="2.5"/>
+    <path d="M0 586 L1000 450" stroke="rgb(${C.glow})" stroke-opacity=".5" stroke-width="1"/>
+    <rect width="1000" height="1000" fill="url(#vignette)" opacity=".6"/>
+    <rect width="1000" height="1000" filter="url(#grain)" opacity=".06"/>`;
+} else {
+  // Spotlight burst: black stage, jagged rays (the cards' "angles" motif) from behind the card.
+  let rays = "";
+  seed = 3;
+  const N = 34;
+  for (let i = 0; i < N; i++) {
+    const a = (i / N) * Math.PI * 2 + (rnd() - .5) * .12;
+    const long = i % 2 === 0;
+    rays += `<polygon points="${zigRay(500, 528, a, 90 + rnd() * 40, (long ? 640 : 470) + rnd() * 120, long ? 22 : 13, long ? 22 : 14, long ? 7 : 5)}"/>`;
+  }
+  body = `<rect width="1000" height="1000" fill="#0D0D0D"/>
+    <g mask="url(#raymask)"><g fill="url(#band)" opacity="${plus ? .42 : .2}">${rays}</g></g>
+    <rect width="1000" height="1000" fill="url(#spot)"/>
+    <rect width="1000" height="1000" fill="url(#vignette)"/>
+    <rect width="1000" height="1000" filter="url(#grain)" opacity=".07"/>`;
 }
-let body = `<rect width="1000" height="1000" fill="#0D0D0D"/>
-  <g mask="url(#raymask)"><g fill="url(#band)" opacity="${plus ? .42 : .2}">${rays}</g></g>
-  <rect width="1000" height="1000" fill="url(#spot)"/>
-  <rect width="1000" height="1000" fill="url(#vignette)"/>
-  <rect width="1000" height="1000" filter="url(#grain)" opacity=".07"/>`;
 
 art.innerHTML = defs + body;
 document.fonts.ready.then(() => { document.body.dataset.ready = "1"; });

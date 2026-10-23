@@ -10,10 +10,12 @@ const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: 1100, height: 1100 }, deviceScaleFactor: 2 });
 
 const jobs = [];
-for (const [tier, name] of [["regular", "aztv"], ["plus", "aztv-plus"]]) {
-  jobs.push({ q: `tier=${tier}`, out: `export/bg-${name}.png` });
-  jobs.push({ q: `tier=${tier}&guide=1`, out: `export/bg-${name}-guide.jpg` });
-  jobs.push({ q: `tier=${tier}&card=src/old-card-${tier}-6m.png`, out: `mockups/bg-${name}-6m.jpg` });
+// opt b = approved (bg-*), other opts are options being tried (option-<x>-*)
+for (const opt of ["b", "e"]) for (const [tier, name] of [["regular", "aztv"], ["plus", "aztv-plus"]]) {
+  const base = opt === "b" ? `bg-${name}` : `option-${opt}-${name}`;
+  jobs.push({ q: `opt=${opt}&tier=${tier}`, out: `export/${base}.png` });
+  jobs.push({ q: `opt=${opt}&tier=${tier}&guide=1`, out: `export/${base}-guide.jpg` });
+  jobs.push({ q: `opt=${opt}&tier=${tier}&card=src/old-card-${tier}-6m.png`, out: `mockups/${base}-6m.jpg` });
 }
 for (const j of jobs) {
   await page.goto(`${page_}?${j.q}`);

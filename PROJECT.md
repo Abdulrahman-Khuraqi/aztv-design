@@ -160,6 +160,7 @@ new store design/
 
 ## 10. Log
 
+- 2026-10-23: Subscription background, new option to try next to the approved B: Option E "split", the old images' black / light diagonal redrawn clean (white or gold plane, zigzag rays tone on tone, fine double edge line, no loose shards). B stays the approved background until the client decides. Preview `05-design/shared/subscription-backgrounds/preview-option-e.webp`.
 - 2026-10-23: **Subscription background approved: Option B** (spotlight burst). Option D (stadium) rejected as childish; all other options removed. Final files `05-design/shared/subscription-backgrounds/export/bg-aztv.png` (white) and `bg-aztv-plus.png` (gold, 4K badge), 2000 x 2000. Card area 380 x 648 at x 310, y 204 (of 1000). Added to the workspace: shared elements card, sections 07 and 11, log.
 - 2026-10-23: Subscription backgrounds, round 3. Client: Option B is good, Option C is bad. C replaced by Option D "stadium night" (floodlight towers crossing beams behind the card, crowd camera flashes, pitch lines under the card), to feel epic and fun: TV shows and football. Preview `compare-option-d.webp`.
 - 2026-10-23: Subscription backgrounds, round 2 after client feedback. Option A dropped (too busy). Option B kept without the floor light and the corner frames. New Option C "halo": light from above, soft shafts, two thin rings, dust in the beam. Card made smaller in both: 380 x 648 at x 310, y 204 (of 1000). Previews `compare-option-b.webp`, `compare-option-c.webp`.
