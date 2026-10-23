@@ -9,13 +9,13 @@ One background for every subscription product image. The card in the middle chan
 
 Preview: `preview.webp` (top row the backgrounds, bottom row with the current 6-month cards).
 
-## Option being tried: E "split" (2026-10-23)
+## Also approved: Option E "split" (2026-10-23)
 
-The old images' look, redrawn clean: black top, one light plane under a sharp diagonal (white for AZ TV, gold for Plus), the zigzag rays pressed into the plane tone on tone, a fine double line on the edge. No loose shards. Same card area, logo, side text and contact pills as the approved background.
+The old images' look, redrawn clean: black top, one light plane under a sharp diagonal (white for AZ TV, gold for Plus), the zigzag rays pressed into the plane tone on tone, one clean edge line. No loose shards, no grey strip (removed at the client's request). Same card area, logo, side text and contact pills as B. Both B and E are approved and saved; pick per use.
 
 - Preview: `preview-option-e.webp`
 - Files: `export/option-e-aztv.png`, `export/option-e-aztv-plus.png`, mock-ups `mockups/option-e-*-6m.jpg`
-- Source: `backgrounds.html?opt=e&tier=regular|plus`. If E is chosen, it becomes the `bg-*` files.
+- Source: `backgrounds.html?opt=e&tier=regular|plus`
 
 ## Layout (1000 x 1000 canvas, exported at 2000 x 2000)
 

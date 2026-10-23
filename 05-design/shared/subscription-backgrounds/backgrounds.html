@@ -168,7 +168,7 @@ const defs = `
 let body = "";
 if (opt === "e") {
   // Split: the old images' look redrawn clean. Black top, one light plane (white / gold) under a sharp diagonal,
-  // the cards' zigzag rays pressed into the plane tone on tone, a fine double line on the edge. No loose shards.
+  // the cards' zigzag rays pressed into the plane tone on tone, one clean edge line. No loose shards.
   const plane = "0,612 1000,476 1000,1000 0,1000";
   let rays = "";
   seed = 3;
@@ -181,12 +181,10 @@ if (opt === "e") {
   body = `<rect width="1000" height="1000" fill="#0D0D0D"/>
     <g mask="url(#raymask)"><g fill="rgb(${C.glow})" opacity="${plus ? .07 : .045}">${rays}</g></g>
     <rect width="1000" height="1000" fill="url(#spot)"/>
-    <polygon points="0,560 1000,424 1000,450 0,586" fill="url(#planeE)" opacity=".18"/>
     <polygon points="${plane}" fill="url(#planeE)"/>
     <g clip-path="url(#planeClip)"><g fill="${plus ? "#6b5418" : "#000"}" opacity="${plus ? .11 : .05}">${rays}</g>
       <rect width="1000" height="1000" fill="url(#planeShade)"/></g>
     <path d="M0 612 L1000 476" stroke="${C.hi}" stroke-width="2.5"/>
-    <path d="M0 586 L1000 450" stroke="rgb(${C.glow})" stroke-opacity=".5" stroke-width="1"/>
     <rect width="1000" height="1000" fill="url(#vignette)" opacity=".6"/>
     <rect width="1000" height="1000" filter="url(#grain)" opacity=".06"/>`;
 } else {
