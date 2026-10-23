@@ -10,7 +10,7 @@ const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: 1100, height: 1100 }, deviceScaleFactor: 2 });
 
 const jobs = [];
-for (const opt of ["b", "c"]) for (const tier of ["regular", "plus"]) {
+for (const opt of ["b", "d"]) for (const tier of ["regular", "plus"]) {
   jobs.push({ q: `opt=${opt}&tier=${tier}`, out: `export/option-${opt}-${tier}.png` });
   jobs.push({ q: `opt=${opt}&tier=${tier}&guide=1`, out: `export/option-${opt}-${tier}-guide.jpg` });
   jobs.push({ q: `opt=${opt}&tier=${tier}&card=src/old-card-${tier}-6m.png`, out: `mockups/option-${opt}-${tier}-6m.jpg` });

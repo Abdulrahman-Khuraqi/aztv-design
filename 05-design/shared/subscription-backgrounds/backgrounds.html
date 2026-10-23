@@ -6,11 +6,11 @@
 <title>Subscription Backgrounds</title>
 <!--
   One background for every subscription card: AZ TV (white) and AZ TV Plus (gold).
-  Two directions to choose from: B = spotlight burst, C = halo (light from above, thin rings).
+  Two directions to choose from: B = spotlight burst, D = stadium night (floodlights, crowd flashes, pitch).
   The card sits in the reserved area (x 310-690, y 204-852 on the 1000 x 1000 canvas): same proportions as the old cards,
   a little smaller than in the old images, so the existing card files still drop straight in.
 
-  URL options:  ?opt=b|c  &tier=regular|plus  &guide=1 (show the card area)  &card=path/to/card.png (mock-up)
+  URL options:  ?opt=b|d  &tier=regular|plus  &guide=1 (show the card area)  &card=path/to/card.png (mock-up)
   Export:       node render.cjs  (writes export/ and mockups/)
 -->
 <style>
@@ -154,55 +154,109 @@ const defs = `
     <radialGradient id="vignette" cx="500" cy="480" r="760" gradientUnits="userSpaceOnUse">
       <stop offset=".55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".75"/>
     </radialGradient>
-    <linearGradient id="beam" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="rgb(${C.glow})" stop-opacity="${plus ? .34 : .22}"/>
-      <stop offset=".55" stop-color="rgb(${C.glow})" stop-opacity="${plus ? .1 : .06}"/>
-      <stop offset="1" stop-color="rgb(${C.glow})" stop-opacity="0"/>
-    </linearGradient>
     <filter id="soft" filterUnits="userSpaceOnUse" x="-100" y="-100" width="1200" height="1200"><feGaussianBlur stdDeviation="18"/></filter>
-    <filter id="shaft" filterUnits="userSpaceOnUse" x="-100" y="-100" width="1200" height="1200"><feGaussianBlur stdDeviation="9"/></filter>
-    <radialGradient id="halo" cx="500" cy="528" r="430" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="rgb(${C.glow})" stop-opacity="${plus ? .22 : .13}"/>
-      <stop offset=".6" stop-color="rgb(${C.glow})" stop-opacity="${plus ? .06 : .035}"/>
+    <filter id="blur4" filterUnits="userSpaceOnUse" x="-100" y="-100" width="1200" height="1200"><feGaussianBlur stdDeviation="4"/></filter>
+    <linearGradient id="beamL" x1="190" y1="80" x2="700" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="rgb(${C.glow})" stop-opacity="${plus ? .7 : .5}"/>
+      <stop offset=".5" stop-color="rgb(${C.glow})" stop-opacity="${plus ? .18 : .12}"/>
+      <stop offset=".9" stop-color="rgb(${C.glow})" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="beamR" x1="810" y1="80" x2="300" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="rgb(${C.glow})" stop-opacity="${plus ? .7 : .5}"/>
+      <stop offset=".5" stop-color="rgb(${C.glow})" stop-opacity="${plus ? .18 : .12}"/>
+      <stop offset=".9" stop-color="rgb(${C.glow})" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="bloom">
+      <stop offset="0" stop-color="${C.hi}" stop-opacity=".85"/>
+      <stop offset=".18" stop-color="rgb(${C.glow})" stop-opacity=".35"/>
       <stop offset="1" stop-color="rgb(${C.glow})" stop-opacity="0"/>
     </radialGradient>
-    <linearGradient id="arcfade" x1="360" y1="0" x2="640" y2="0" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="${C.hi}" stop-opacity="0"/><stop offset=".5" stop-color="${C.hi}"/>
+    <linearGradient id="flare" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="${C.hi}" stop-opacity="0"/><stop offset=".5" stop-color="${C.hi}" stop-opacity=".9"/>
       <stop offset="1" stop-color="${C.hi}" stop-opacity="0"/>
     </linearGradient>
-    <linearGradient id="ring" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="${C.hi}" stop-opacity=".9"/>
-      <stop offset=".5" stop-color="${C.mid}" stop-opacity=".35"/>
-      <stop offset="1" stop-color="${C.lo}" stop-opacity=".05"/>
+    <linearGradient id="pitchfade" x1="0" y1="735" x2="0" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="1"/><stop offset="1" stop-color="#fff" stop-opacity=".2"/>
     </linearGradient>
+    <mask id="pitchmask"><rect width="1000" height="1000" fill="url(#pitchfade)"/></mask>
   </defs>`;
 
 let body = "";
 
-if (opt === "c") {
-  // C: halo. Light falls from above onto the card, two thin rings frame it, a little dust in the beam.
+if (opt === "d") {
+  // D: stadium night. Two floodlights cross their beams behind the card, the crowd flashes in the stands,
+  // the pitch (halfway line, centre circle) runs under the card. Football and TV, one colour per tier.
+  const lamp = (cx, cy, rot) => {
+    let cells = "";
+    for (let r = 0; r < 3; r++) for (let c = 0; c < 5; c++)
+      cells += `<circle cx="${-24 + c * 12}" cy="${-12 + r * 12}" r="4.2"/>`;
+    return `<path d="M${cx} ${cy + 16} V${(600 - 160 * (cx / 1000) * (1 - cx / 1000)).toFixed(0)}" stroke="#1f1f1f" stroke-width="5"/>
+      <circle cx="${cx}" cy="${cy}" r="210" fill="url(#bloom)"/>
+      <rect x="${cx - 260}" y="${cy - 6}" width="520" height="12" fill="url(#flare)" filter="url(#blur4)"/>
+      <rect x="${cx - 200}" y="${cy - .8}" width="400" height="1.6" fill="url(#flare)"/>
+      <g transform="translate(${cx} ${cy}) rotate(${rot})">
+        <rect x="-33" y="-20" width="66" height="40" rx="4" fill="#161616"/>
+        <g fill="${C.hi}" filter="url(#blur4)">${cells}</g>
+        <g fill="#fff">${cells}</g>
+      </g>`;
+  };
+  // stands: top edge y = 600 - 160 t (1 - t), t = x / 1000
+  const standTop = x => 600 - 160 * (x / 1000) * (1 - x / 1000);
+  let flashes = "", glints = "";
+  seed = 9;
+  for (let i = 0; i < 220; i++) {
+    const x = rnd() * 1000, top = standTop(x) + 6, y = top + rnd() * (732 - top);
+    const r = .5 + rnd() * rnd() * 1.8;
+    flashes += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r.toFixed(2)}" opacity="${(.2 + rnd() * .7).toFixed(2)}"/>`;
+  }
+  for (let i = 0; i < 9; i++) {
+    const x = 40 + rnd() * 920, top = standTop(x) + 14, y = top + rnd() * (720 - top), l = 4 + rnd() * 5;
+    glints += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="5" filter="url(#blur4)" opacity=".8"/>
+      <path d="M${(x - l).toFixed(1)} ${y.toFixed(1)}h${(2 * l).toFixed(1)}M${x.toFixed(1)} ${(y - l * .6).toFixed(1)}v${(1.2 * l).toFixed(1)}"/>
+      <circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="1.6"/>`;
+  }
+  let tiers = "";
+  for (const d of [34, 72, 108]) tiers += `<path d="M0 ${600 + d} Q500 ${520 + d} 1000 ${600 + d}"/>`;
+  // mowing stripes, converging on a vanishing point above the pitch
+  let stripes = "";
+  const vy = 380, k = (1000 - vy) / (735 - vy);
+  for (let i = 0; i < 14; i += 2) {
+    const x0 = -420 + i * 130, x1 = x0 + 130;
+    const f = x => (500 + (x - 500) * k).toFixed(1);
+    stripes += `<polygon points="${x0},735 ${x1},735 ${f(x1)},1000 ${f(x0)},1000"/>`;
+  }
   let dust = "";
-  seed = 5;
-  for (let i = 0; i < 90; i++) {
-    const y = 40 + rnd() * 900, spread = 60 + y * .36;
-    const x = 500 + (rnd() - .5) * 2 * spread;
-    const r = .6 + rnd() * rnd() * 2.6;
-    dust += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r.toFixed(2)}" opacity="${(.15 + rnd() * .6).toFixed(2)}"/>`;
+  seed = 21;
+  for (let i = 0; i < 70; i++) {
+    const t = rnd(), side = rnd() < .5;
+    const x = side ? 190 + (700 - 190) * t : 810 - (810 - 300) * t, y = 80 + 920 * t;
+    const jx = (rnd() - .5) * (40 + 220 * t);
+    dust += `<circle cx="${(x + jx).toFixed(1)}" cy="${y.toFixed(1)}" r="${(.5 + rnd() * 1.6).toFixed(2)}" opacity="${(.15 + rnd() * .55).toFixed(2)}"/>`;
   }
   body = `<rect width="1000" height="1000" fill="#0D0D0D"/>
-    <polygon points="430,-20 570,-20 900,1000 100,1000" fill="url(#beam)" filter="url(#soft)"/>
-    <rect width="1000" height="1000" fill="url(#halo)"/>
-    <g filter="url(#shaft)" fill="rgb(${C.glow})">
-      <polygon points="490,-10 500,-10 330,1000 300,1000" opacity="${plus ? .16 : .1}"/>
-      <polygon points="500,-10 510,-10 700,1000 670,1000" opacity="${plus ? .16 : .1}"/>
-      <polygon points="496,-10 504,-10 520,1000 480,1000" opacity="${plus ? .2 : .12}"/>
+    <path d="M0 600 Q500 520 1000 600 L1000 736 L0 736 Z" fill="#131313"/>
+    <g fill="none" stroke="rgb(${C.glow})" stroke-opacity=".07" stroke-width="1.5">${tiers}</g>
+    <path d="M0 600 Q500 520 1000 600" fill="none" stroke="rgb(${C.glow})" stroke-opacity=".22" stroke-width="1.5"/>
+    <g fill="${plus ? C.hi : "#fff"}">${flashes}</g>
+    <g fill="#fff" stroke="#fff" stroke-width=".8" stroke-linecap="round" opacity=".85">${glints}</g>
+    <rect y="736" width="1000" height="264" fill="#101010"/>
+    <g mask="url(#pitchmask)">
+      <g fill="rgb(${C.glow})" opacity=".035">${stripes}</g>
+      <g fill="none" stroke="rgb(${C.glow})" stroke-opacity="${plus ? .55 : .4}" stroke-width="2">
+        <path d="M0 737 H1000"/><path d="M500 737 V1000"/>
+        <ellipse cx="500" cy="850" rx="240" ry="54"/>
+      </g>
+      <circle cx="500" cy="850" r="4" fill="rgb(${C.glow})" opacity=".6"/>
     </g>
-    <circle cx="500" cy="528" r="356" fill="none" stroke="url(#ring)" stroke-width="2"/>
-    <circle cx="500" cy="528" r="390" fill="none" stroke="url(#ring)" stroke-width="1" opacity=".4"/>
-    <path d="M330 215 A356 356 0 0 1 670 215" fill="none" stroke="rgb(${C.glow})" stroke-width="10" stroke-opacity="${plus ? .55 : .4}" filter="url(#soft)"/>
-    <path d="M360 200.6 A356 356 0 0 1 640 200.6" fill="none" stroke="url(#arcfade)" stroke-width="3"/>
+    <rect width="1000" height="1000" fill="url(#spot)"/>
+    <g filter="url(#soft)">
+      <polygon points="178,72 202,72 870,1000 530,1000" fill="url(#beamL)"/>
+      <polygon points="798,72 822,72 470,1000 130,1000" fill="url(#beamR)"/>
+    </g>
     <g fill="rgb(${C.glow})">${dust}</g>
-    <rect width="1000" height="1000" fill="url(#vignette)"/>
+    ${lamp(190, 72, 24)}
+    ${lamp(810, 72, -24)}
+    <rect width="1000" height="1000" fill="url(#vignette)" opacity=".8"/>
     <rect width="1000" height="1000" filter="url(#grain)" opacity=".06"/>`;
 } else {
   // B: spotlight burst. Black stage, jagged rays (the cards' "angles" motif) from behind the card.
