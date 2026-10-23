@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Card Backgrounds</title>
+<!--
+  The card's own background: what every subscription card shares before the title, photos and duration go on.
+  AZ TV (regular): white card, bold black zigzag burst, the old cards' black and white look redrawn clean.
+  AZ TV Plus: black card, gold frame, gold corner shards, gold dust, side tabs, the old Plus look redrawn clean.
+  Both use the same jagged ray as the approved product background (../subscription-backgrounds/), so card and stage match.
+
+  Size: 380 x 648 here, exported at 2x = 760 x 1296 (the card area of the approved backgrounds), corner radius 35,
+  transparent corners and a transparent hanger slot at the top.
+
+  URL options:  ?tier=regular|plus  &guide=1 (show where title, photos, duration and platform logos go)
+  Export:       node render-card-bg.cjs  (writes bg/ and bg/mockups/)
+-->
+<style>
+  @font-face { font-family: "PingARLT"; src: url("../subscription-backgrounds/src/PingARLT-Bold.woff2") format("woff2"); font-weight: 700; }
+  :root { --gold: #EACF69; --gold-deep: #B8963A; --ink: #0D0D0D; --white: #F4F4F2; }
+  html, body { margin: 0; background: transparent; }
+  body { display: grid; place-items: center; min-height: 100vh; }
+  .card { position: relative; width: 380px; height: 648px; font-family: "PingARLT", system-ui, sans-serif; }
+  .card > svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+  /* where the per-product content goes */
+  .zone { position: absolute; display: none; border: 2px dashed #ff3b6b; border-radius: 12px; }
+  .zone::after {
+    content: attr(data-label); position: absolute; inset: 50% 0 auto; transform: translateY(-50%); text-align: center;
+    font: 700 13px/1.2 system-ui, sans-serif; color: #ff3b6b; direction: ltr;
+  }
+  .show-guide .zone { display: block; }
+</style>
+</head>
+<body>
+<div class="card" id="card" data-tier="regular">
+  <svg id="art" viewBox="0 0 380 648" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"></svg>
+  <div class="zone" style="left:40px;top:44px;width:300px;height:68px" data-label="TITLE"></div>
+  <div class="zone" style="left:22px;top:122px;width:336px;height:398px" data-label="PHOTOS"></div>
+  <div class="zone" style="left:80px;top:528px;width:220px;height:32px" data-label="DURATION"></div>
+  <div class="zone" style="left:40px;top:568px;width:300px;height:50px" data-label="PLATFORM LOGOS"></div>
+</div>
+
+<script>
+const q = new URLSearchParams(location.search);
+const tier = q.get("tier") === "plus" ? "plus" : "regular";
+const plus = tier === "plus";
+const card = document.getElementById("card");
+card.dataset.tier = tier;
+if (q.get("guide")) card.classList.add("show-guide");
+
+const W = 380, H = 648, R = 35;
+const CX = 190, CY = 300;              // burst centre, behind the faces
+
+// small seeded random so every export is identical
+let seed = 11;
+const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+
+// one jagged ray from the centre outwards, same motif as the approved product background
+function zigRay(cx, cy, ang, r0, r1, w0, amp, steps) {
+  const ux = Math.cos(ang), uy = Math.sin(ang), nx = -uy, ny = ux;
+  const L = [], Rt = [];
+  for (let i = 0; i <= steps; i++) {
+    const t = i / steps, r = r0 + (r1 - r0) * t;
+    const off = (i % 2 ? 1 : -1) * amp * (0.4 + t);
+    const w = w0 * (0.25 + 0.75 * t);
+    const px = cx + ux * r + nx * off, py = cy + uy * r + ny * off;
+    L.push([px + nx * w, py + ny * w]); Rt.push([px - nx * w, py - ny * w]);
+  }
+  const tip = [cx + ux * (r1 + w0 * 2.2), cy + uy * (r1 + w0 * 2.2)];
+  return [...L, tip, ...Rt.reverse()].map(p => p.map(v => v.toFixed(1)).join(",")).join(" ");
+}
+function rays(n, r0, rLong, rShort, wLong, wShort, ampLong, ampShort) {
+  let out = "";
+  for (let i = 0; i < n; i++) {
+    const a = (i / n) * Math.PI * 2 + (rnd() - .5) * .14 - Math.PI / 2;
+    const long = i % 2 === 0;
+    out += `<polygon points="${zigRay(CX, CY, a, r0 + rnd() * 16, (long ? rLong : rShort) + rnd() * 60,
+      long ? wLong : wShort, long ? ampLong : ampShort, long ? 7 : 5)}"/>`;
+  }
+  return out;
+}
+const rr = (x, y, w, h, r) => `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${r}"/>`;
+
+// side tabs with the store name, one letter under the other (left tab high, right tab low, as on the old cards)
+const TAB = { w: 24, h: 168, l: [-6, 96], r: [W - 18, 406] };
+function sideTabs(tabFill, textFill) {
+  const letters = (x, y0) => [..."AZTVSTORE"].map((c, i) =>
+    `<text x="${x}" y="${y0 + i * 15.5}" text-anchor="middle">${c}</text>`).join("");
+  const top = (TAB.h - 8 * 15.5) / 2 + 3;
+  return `<g fill="${tabFill}">${rr(TAB.l[0], TAB.l[1], TAB.w, TAB.h, 7)}${rr(TAB.r[0], TAB.r[1], TAB.w, TAB.h, 7)}</g>
+    <g fill="${textFill}" font-family="PingARLT, system-ui, sans-serif" font-weight="700" font-size="9">
+      ${letters(TAB.l[0] + 3 + (TAB.w - 6) / 2, TAB.l[1] + top)}${letters(TAB.r[0] + 3 + (TAB.w - 6) / 2, TAB.r[1] + top)}
+    </g>`;
+}
+
+// shape of the card: rounded rectangle with the hanger slot cut out (transparent)
+const defs = `
+  <defs>
+    <mask id="cardShape">
+      <rect width="${W}" height="${H}" rx="${R}" fill="#fff"/>
+      <rect x="148" y="17" width="84" height="15" rx="7.5" fill="#000"/>
+      <path d="M176 17 a14 9 0 0 1 28 0Z" fill="#000"/>
+    </mask>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="2" stitchTiles="stitch"/>
+      <feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .55 0"/>
+    </filter>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F6E08E"/><stop offset=".5" stop-color="#EACF69"/><stop offset="1" stop-color="#B8963A"/>
+    </linearGradient>
+    <linearGradient id="goldV" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F6E08E"/><stop offset="1" stop-color="#C9A84A"/>
+    </linearGradient>
+    <radialGradient id="clearCentre" cx="${CX}" cy="${CY}" r="330" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".2" stop-color="#fff" stop-opacity=".9"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="1"/>
+    </radialGradient>
+    <linearGradient id="fadeDown" x1="0" y1="0" x2="0" y2="${H}" gradientUnits="userSpaceOnUse">
+      <stop offset=".45" stop-color="#fff" stop-opacity="1"/><stop offset=".86" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <mask id="rayMask">
+      <rect width="${W}" height="${H}" fill="url(#clearCentre)"/>
+    </mask>
+    <mask id="rayMaskDown">
+      <rect width="${W}" height="${H}" fill="url(#fadeDown)"/>
+    </mask>
+  </defs>`;
+
+let body;
+if (!plus) {
+  // AZ TV: white card, bold black zigzag burst behind the faces, fading to a clean light floor for duration and logos
+  seed = 11;
+  const burst = rays(30, 14, 430, 330, 17, 10, 16, 11);
+  body = `
+    <linearGradient id="paper" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/><stop offset=".6" stop-color="#F1F1EF"/><stop offset="1" stop-color="#D9D9D6"/>
+    </linearGradient>
+    <linearGradient id="floor" x1="0" y1="430" x2="0" y2="${H}" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".55" stop-color="#EDEDEB" stop-opacity=".92"/>
+      <stop offset="1" stop-color="#CFCFCC"/>
+    </linearGradient>
+    <g mask="url(#cardShape)">
+      <rect width="${W}" height="${H}" fill="url(#paper)"/>
+      <g mask="url(#rayMaskDown)" fill="#0D0D0D">${burst}</g>
+      <rect y="430" width="${W}" height="${H - 430}" fill="url(#floor)"/>
+      <rect width="${W}" height="${H}" filter="url(#grain)" opacity=".05"/>
+      ${sideTabs("#0D0D0D", "#F4F4F2")}
+      <rect x=".75" y=".75" width="${W - 1.5}" height="${H - 1.5}" rx="${R - .75}" fill="none" stroke="#000" stroke-opacity=".12" stroke-width="1.5"/>
+      <rect x="148" y="17" width="84" height="15" rx="7.5" fill="none" stroke="#000" stroke-opacity=".35" stroke-width="2"/>
+    </g>`;
+} else {
+  // AZ TV Plus: black card, gold frame, two clean gold corner shards, faint gold burst and gold dust
+  seed = 11;
+  const burst = rays(30, 40, 430, 330, 17, 10, 16, 11);
+  let dust = "";
+  seed = 29;
+  for (let i = 0; i < 150; i++) {
+    const a = rnd() * Math.PI * 2, d = Math.pow(rnd(), .7) * 250;
+    const x = CX + Math.cos(a) * d * 1.05, y = CY + 20 + Math.sin(a) * d * 1.25;
+    const r = rnd() < .85 ? .5 + rnd() * 1.1 : 1.6 + rnd() * 1.6;
+    dust += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r.toFixed(2)}" opacity="${(.25 + rnd() * .65).toFixed(2)}"/>`;
+  }
+  body = `
+    <radialGradient id="stage" cx="${CX}" cy="${CY - 20}" r="420" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3A3016"/><stop offset=".45" stop-color="#1A1710"/><stop offset="1" stop-color="#0D0D0D"/>
+    </radialGradient>
+    <linearGradient id="floorP" x1="0" y1="440" x2="0" y2="${H}" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0D0D0D" stop-opacity="0"/><stop offset="1" stop-color="#0D0D0D" stop-opacity=".85"/>
+    </linearGradient>
+    <g mask="url(#cardShape)">
+      <rect width="${W}" height="${H}" fill="url(#stage)"/>
+      <g mask="url(#rayMaskDown)"><g mask="url(#rayMask)" fill="url(#gold)" opacity=".16">${burst}</g></g>
+      <rect y="440" width="${W}" height="${H - 440}" fill="url(#floorP)"/>
+      <g fill="url(#gold)">
+        <polygon points="250,0 ${W},0 ${W},150 352,92 318,104 300,40 270,52"/>
+        <polygon points="0,488 40,520 30,548 78,566 64,604 112,${H} 0,${H}"/>
+      </g>
+      <g fill="#EACF69">${dust}</g>
+      <rect width="${W}" height="${H}" filter="url(#grain)" opacity=".06"/>
+      <rect x="4" y="4" width="${W - 8}" height="${H - 8}" rx="${R - 4}" fill="none" stroke="url(#gold)" stroke-width="8"/>
+      <rect x="10" y="10" width="${W - 20}" height="${H - 20}" rx="${R - 10}" fill="none" stroke="#0D0D0D" stroke-opacity=".5" stroke-width="1"/>
+      ${sideTabs("url(#goldV)", "#0D0D0D")}
+      <rect x="148" y="17" width="84" height="15" rx="7.5" fill="none" stroke="#EACF69" stroke-opacity=".7" stroke-width="2"/>
+    </g>`;
+}
+
+document.getElementById("art").innerHTML = defs + body;
+document.fonts.ready.then(() => { document.body.dataset.ready = "1"; });
+</script>
+</body>
+</html>
