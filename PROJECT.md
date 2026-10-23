@@ -160,6 +160,8 @@ new store design/
 
 ## 10. Log
 
+- 2026-10-23: New first tab "نظرة عامة" in the workspace: a grid of large tiles, one icon and a short title each, opening every tab plus the old design, new design and live store. The workspace now opens on it.
+
 - 2026-10-21: Section 03 main categories, first draft. Five cards after the logo strip: تجديد الاشتراك (c183760688 "جدد الان"), AZ TV (c971844871), AZ TV Plus (c921887589), beIN Sports (c899162953, official renewal; there is no single beIN category), AZ TV Box (product p1152326425). Five images generated in Gemini in one matching style and warm-graded to the brand; originals `cat-*-gemini.jpg` in `05-design/sections/03-main-categories/`, web versions `cat-*.webp` (600x800). Cards 2-5 are Gemini's 765x1024 previews (Chrome blocked the full-size downloads), enough for the card size. The AZ TV Box image is a generic device: replace with the real product photo before going live.
 
 - 2026-10-21: Section 02 now uses the eight official logos, all shown white. Seven from Wikimedia Commons, stc tv from stctv.com; originals and sources in `05-design/sections/02-platform-logos/originals/` (`SOURCES.md`). beIN and STARZPLAY have their own white versions; the rest are whitened with a CSS filter. MBC is the "MBC Group" version.
