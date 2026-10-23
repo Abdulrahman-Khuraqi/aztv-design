@@ -7,6 +7,11 @@ const fs = require('fs');
 const path = require('path');
 const IMG = path.join(__dirname, '../assets/img');
 const OUT = path.join(IMG, 'bein');
+const SITE = (process.env.SITE_URL || 'http://localhost:8770').replace(/\/$/, '');
+const launchOptions = process.env.CHROME_PATH ? {
+  executablePath: process.env.CHROME_PATH,
+  args: ['--allow-file-access-from-files'],
+} : {};
 
 const pick = (render, fallback) => fs.existsSync(path.join(IMG, 'bein', render)) ? `bein/${render}` : fallback;
 const CARDS = [
@@ -20,9 +25,9 @@ const card = (art, big, sub) => `
   background:radial-gradient(60% 45% at 50% 42%, rgba(234,207,105,.20), transparent 72%),
              radial-gradient(80% 40% at 50% 100%, rgba(91,42,134,.35), transparent 70%), #0D0D0D">
   <div style="position:absolute;inset:28px;border:1.5px solid rgba(234,207,105,.18);border-radius:40px"></div>
-  <img src="/assets/img/logos/bein-white.svg" style="position:absolute;top:60px;right:72px;height:44px">
+  <img src="${SITE}/assets/img/logos/bein-white.svg" style="position:absolute;top:60px;right:72px;height:44px">
   <div style="position:absolute;top:150px;bottom:300px;inset-inline:90px;display:grid;place-items:center">
-    <img src="/assets/img/${art}" style="max-width:820px;max-height:520px;object-fit:contain;filter:drop-shadow(0 30px 30px rgba(0,0,0,.7))">
+    <img src="${SITE}/assets/img/${art}" style="max-width:820px;max-height:520px;object-fit:contain;filter:drop-shadow(0 30px 30px rgba(0,0,0,.7))">
   </div>
   <div style="position:absolute;bottom:96px;inset-inline:0;text-align:center">
     <div style="font:800 ${big.length > 9 ? 100 : 118}px/1.1 PingARLT;color:#F3F0E6">${big}</div>
@@ -31,11 +36,11 @@ const card = (art, big, sub) => `
 </div>`;
 
 (async () => {
-  const b = await chromium.launch();
+  const b = await chromium.launch(launchOptions);
   const p = await b.newPage({ viewport: { width: 1000, height: 1000 } });
-  await p.goto('http://localhost:8770/README.md');   // same origin, so the fonts load
+  await p.goto(`${SITE}/README.md`);   // same origin, so the fonts load
   for (const [name, art, big, sub] of CARDS) {
-    await p.setContent(`<!doctype html><html><head><link rel="stylesheet" href="/assets/css/pingarlt-2194a8e3.css">
+    await p.setContent(`<!doctype html><html><head><link rel="stylesheet" href="${SITE}/assets/css/pingarlt-2194a8e3.css">
       <style>body{margin:0}</style></head><body>${card(art, big, sub)}</body></html>`, { waitUntil: 'networkidle' });
     await p.evaluate(() => document.fonts.ready);
     await (await p.$('#c')).screenshot({ path: path.join(OUT, name + '.png') });

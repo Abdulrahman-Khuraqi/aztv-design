@@ -131,7 +131,7 @@
             "05-design/new-design/assets/img/cat-aztv-box-3d.png"
           ],
           "prompt": "Attached: (1) ref-bein-4k-device.png = the EXACT product, (2) cat-aztv-box-3d.png = the style reference.\nRender the exact beIN TV 4K receiver from image 1: keep its real white rounded-square body, the round power button and the row of small indicator lights on the front, and the small grey beIN mark on top. Do not redesign it and do not add the big 4K letters or any purple band. Three-quarter view from slightly above, a slim black remote control lying in front of it at an angle.\nKeep the SAME camera angle, plinth and lighting in all three beIN images: they sit side by side as three equal cards. Premium 3D product render in the exact style of the attached style reference (glossy black and polished gold, soft studio light from the top left, subtle reflections). Object centred, filling about 70% of the width, standing on a thin round black glossy plinth with a polished gold edge, soft gold rim light behind, a faint deep purple (#5B2A86) glow on the floor under the plinth. TRANSPARENT background (PNG), no text, no letters, no numbers, no watermark. Square 2048x2048.",
-          "status": "todo"
+          "status": "done"
         },
         {
           "id": "b-pvr",
@@ -146,7 +146,7 @@
             "05-design/new-design/assets/img/cat-aztv-box-3d.png"
           ],
           "prompt": "Attached: (1) ref-bein-pvr-device.png = the EXACT product, (2) cat-aztv-box-3d.png = the style reference.\nRender the exact beIN PVR HD receiver from image 1: keep its real white box shape, the textured top, the black front display window with the power symbol, the USB label and the purple beIN mark on the front right. Do not redesign it and do not add the big HD letters or any purple band. Three-quarter view from slightly above, a slim black remote control lying in front of it at an angle.\nKeep the SAME camera angle, plinth and lighting in all three beIN images: they sit side by side as three equal cards. Premium 3D product render in the exact style of the attached style reference (glossy black and polished gold, soft studio light from the top left, subtle reflections). Object centred, filling about 70% of the width, standing on a thin round black glossy plinth with a polished gold edge, soft gold rim light behind, a faint deep purple (#5B2A86) glow on the floor under the plinth. TRANSPARENT background (PNG), no text, no letters, no numbers, no watermark. Square 2048x2048.",
-          "status": "todo"
+          "status": "done"
         },
         {
           "id": "b-renew",
@@ -161,7 +161,7 @@
             "05-design/new-design/assets/img/cat-bein-3d.png"
           ],
           "prompt": "Attached: (1) cat-renewal-3d.png = the shape to follow, (2) cat-bein-3d.png = the beIN colours.\nThe same object as image 1 (a card wrapped by a polished gold circular renewal arrow with a small gold check badge), but the card is a glossy black smart card with a deep purple (#5B2A86) face, a gold chip and a soft purple glow on its edges, like the purple of image 2. No logo and no letters on the card.\nKeep the SAME camera angle, plinth and lighting in all three beIN images: they sit side by side as three equal cards. Premium 3D product render in the exact style of the attached style reference (glossy black and polished gold, soft studio light from the top left, subtle reflections). Object centred, filling about 70% of the width, standing on a thin round black glossy plinth with a polished gold edge, soft gold rim light behind, a faint deep purple (#5B2A86) glow on the floor under the plinth. TRANSPARENT background (PNG), no text, no letters, no numbers, no watermark. Square 2048x2048.",
-          "status": "todo"
+          "status": "done"
         }
       ]
     },
