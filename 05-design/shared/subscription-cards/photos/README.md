@@ -29,8 +29,10 @@ The photos for the subscription cards (football players and series/film stars; s
 | 011 | `011-light-blue-kit-hands-behind-back.jpg` | 2000×2000 | Square studio portrait, royal-blue kit with white collar, hands behind back, looking at camera; white background, not a tight cut-out |
 | 012 | `012-red-blue-spider-suit.png` | 540×740 | Red and blue spider suit, head tilted, looking at camera; already transparent (small file, fine at card size) |
 | 013 | `013-blue-suit-eagle-shoulder-cape.webp` | 1350×1687 | Blue patterned suit, silver eagle on the shoulder, red cape, slicked hair; already transparent |
+| 014 | `014-bald-khaki-shirt-gloves.webp` | 1126×1397 | Bald, khaki short-sleeved shirt open at the neck, fingerless black gloves, cargo trousers; white background |
+| 015 | `015-flat-cap-long-coat-scar.webp` | 873×1802 | Flat cap, scar on the cheek, long dark wool coat, red tie, looking over the shoulder; white background |
 
-Batches 1 (001-005), 2 (006-009), 3 (010-011) and 4 (012-013, already transparent: copied to `transparent/` as PNG without cutting). More images to come.
+Batches 1 (001-005), 2 (006-009), 3 (010-011), 4 (012-013, already transparent: copied to `transparent/` as PNG without cutting) and 5 (014-015). More images to come.
 
 ## To check before the cards are built
 

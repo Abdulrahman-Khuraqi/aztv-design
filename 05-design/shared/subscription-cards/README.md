@@ -60,13 +60,13 @@ Built from `card.html` in the accepted look of card 3, with the card photos 001-
 | 1 `aztv-15m` | 003 | Tom Holland (`05`) |
 | 2 `aztv-6m` | 010 | 013 |
 | 3 `aztv-3m` | 005 | 009 |
-| 4 `aztv-1m` | 007 | Álvaro Morte (`07`) |
+| 4 `aztv-1m` | 014 | 015 |
 | 5 `plus-12m` | 001 | 012 |
 | 6 `plus-12m-2dev` | 006 | 002 |
 | 7 `plus-6m` | 004 | Cillian Murphy (`03`) |
 | 8 `plus-3m` | 011 | Lee Jung-jae (`04`) |
 
-Numbers are the photos in `photos/` (cut-outs in `photos/transparent/`); stars are in `stars/latest-roles/vertical/transparent/`. Pairs follow `card-stars.json` where we have the photo; where we don't have that photo yet (Mbappé, Vinícius and Neymar among the players; Kit Harington, Bryan Cranston and others appear in the new photos instead), the closest photo we have stands in. Photos 001 and 007 are the same player, so he is on two cards (5 and 4): replace 007 on card 4 when a new player photo arrives. Photos 012 and 05 are the same actor (cards 5 and 1), so card 1 needs another star. 012 and 013 replaced 008 (card 5) and the dark star `06` (card 2) at the client's request. Photo 011 was cut out with `--holes 5000` to clear the white gaps between the arms and the body.
+Numbers are the photos in `photos/` (cut-outs in `photos/transparent/`); stars are in `stars/latest-roles/vertical/transparent/`. Pairs follow `card-stars.json` where we have the photo; where we don't have that photo yet (Mbappé, Vinícius and Neymar among the players; Kit Harington, Bryan Cranston and others appear in the new photos instead), the closest photo we have stands in. Card 4 has two actors (014 in front, 015 behind) instead of a player and a star: the client found 007 and `07` weak and sent these two. 015 and `03` are the same actor (cards 4 and 7). Photos 012 and 05 are the same actor (cards 5 and 1), so card 1 needs another star. 012 and 013 replaced 008 (card 5) and the dark star `06` (card 2) at the client's request. Photo 011 was cut out with `--holes 5000` to clear the white gaps between the arms and the body.
 
 ## How we work
 
