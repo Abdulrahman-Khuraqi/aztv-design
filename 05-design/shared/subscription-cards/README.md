@@ -2,7 +2,7 @@
 
 The card in the middle of every subscription product image. The background around it is in `../subscription-backgrounds/` (approved: B and E); the card changes per product, the background stays the same.
 
-**Status (2026-10-24): card 3 (`new/aztv-3m.png`, اشتراك ٣ شهور) accepted as the look for all cards. Cards 5, 7 and 8 (Plus 1 year, Plus 6 months, Plus 3 months) were rejected by the client and are now redone with new photos: 8 with 016, 5 with 017 and 019, 7 with 018 and 020. All wait for review (overview `new/all-cards.jpg`).**
+**Status (2026-10-24): card 3 (`new/aztv-3m.png`, اشتراك ٣ شهور) accepted as the look for all cards. Cards 5, 7 and 8 (Plus 1 year, Plus 6 months, Plus 3 months) were rejected by the client and are now redone with new photos: 8 with 016, 5 with 017 and 018, 7 with 019 and 020. All wait for review (overview `new/all-cards.jpg`).**
 
 Cards 5 and 7 were rebuilt with the new photos 017-020 (2026-10-24) and card 8 with 016. The client marked ten photos as not usable: 001, 007, 008 and the stars S01, S02, S04, S05, S06, S07, S08. They are kept in `photos/rejected/` (`originals/` and `transparent/`, stars renamed with their S id) and must not be used on any card. Still free to use: 003, 012, 014 and S03 (003 and 012 were on the removed card 1).
 
@@ -67,12 +67,12 @@ Built from `card.html` in the accepted look of card 3, with the card photos 001-
 | 2 `aztv-6m` | 010 | 013 |
 | 3 `aztv-3m` | 005 | 009 |
 | 4 `aztv-1m` | 004 | 015 |
-| 5 `plus-12m` | 017 | 019 (new, 2026-10-24) |
+| 5 `plus-12m` | 017 | 018 (new, 2026-10-24) |
 | 6 `plus-12m-2dev` | 006 | 002 |
-| 7 `plus-6m` | 020 | 018 (new, 2026-10-24) |
+| 7 `plus-6m` | 020 | 019 (new, 2026-10-24) |
 | 8 `plus-3m` | 011 | 016 (new, 2026-10-24) |
 
-Numbers are the photos in `photos/` (cut-outs in `photos/transparent/`); stars are in `stars/latest-roles/vertical/transparent/`. Pairs follow `card-stars.json` where we have the photo; where we don't have that photo yet (Mbappé, Vinícius and Neymar among the players; Kit Harington, Bryan Cranston and others appear in the new photos instead), the closest photo we have stands in. Card 4 is a player (004) in front and an actor (015) behind; 014 was tried in front but the client wants one player and one actor on every card. Cards 5 and 7 follow the proportions of card 3: the actor behind has the larger face (about 114 px on the 380 px card, centre about x 275, y 245), the player in front a slightly smaller one, a little lower, at about x 130. Card 5 is player 017 in front of actor 019, the pair `card-stars.json` plans for Plus 1 year; 019 fades out above the waist so his chair does not show behind 017. Card 7 is player 020 in front of actor 018, whose cane and chair fade out. 020 looks like the same player as 010 on card 2: swap one if the client wants no repeats. 012 and 013 replaced 008 (card 5) and the dark star `06` (card 2) at the client's request. Photo 011 was cut out with `--holes 5000` to clear the white gaps between the arms and the body.
+Numbers are the photos in `photos/` (cut-outs in `photos/transparent/`); stars are in `stars/latest-roles/vertical/transparent/`. Pairs follow `card-stars.json` where we have the photo; where we don't have that photo yet (Mbappé, Vinícius and Neymar among the players; Kit Harington, Bryan Cranston and others appear in the new photos instead), the closest photo we have stands in. Card 4 is a player (004) in front and an actor (015) behind; 014 was tried in front but the client wants one player and one actor on every card. Cards 5 and 7 follow the proportions of card 3 (pairs swapped on 2026-10-24 after the client's review): card 5 is player 017 in front of the cowboy-hat actor 018, the same pairing as card 3 (fists-clenched player, actor in a hat); the hat limits the actor's face to about 98 px so the brim stays inside the card and below the package line, and 017 fades out at the bottom because the photo ends at the thighs. Card 7 is player 020 in front of the long-haired actor 019, whose face sits higher at the right; he is large enough that his chair falls under the duration pills, where it fades out. 020 looks like the same player as 010 on card 2: swap one if the client wants no repeats. 012 and 013 replaced 008 (card 5) and the dark star `06` (card 2) at the client's request. Photo 011 was cut out with `--holes 5000` to clear the white gaps between the arms and the body.
 
 ## How we work
 
