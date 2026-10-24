@@ -35,6 +35,10 @@ The normal package has no 12-month card: its longest is سنة + ٣ شهور (15
 
 The face photos for the cards (cut-outs on white, delivered in batches) are in `photos/originals/`; `photos/README.md` lists them. Not yet matched to the names in `card-stars.json`.
 
+## Trial card (2026-10-24)
+
+`new/plus-12m.png` is a first trial of card 5 (بلس سنة), to settle the look before the other nine. Built from `card.html` (`?card=plus-12m`, title, two portraits, duration, platform logos on `bg/card-bg-aztv-plus.png`) and exported with `node render-cards.cjs plus-12m`. The portraits are stand-ins: one star from `stars/latest-roles/vertical/transparent/`, one player cut out of `photos/originals/` with `photos/cutout-white.py` (output in `photos/transparent/`, needs `pip install scipy`). Both are shown black and white with a warm tint, as on the old Plus card.
+
 ## How we work
 
 1. **Old:** `old/` holds each card as it is on the store today, cut out of its post and enlarged 4x (`cut-old-cards.py`). `old/all-cards.png` shows all ten.
