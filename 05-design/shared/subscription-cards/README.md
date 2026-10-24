@@ -4,7 +4,7 @@ The card in the middle of every subscription product image. The background aroun
 
 **Status (2026-10-24): card 3 (`new/aztv-3m.png`, اشتراك ٣ شهور) accepted as the look for all cards. Cards 5, 7 and 8 (Plus 1 year, Plus 6 months, Plus 3 months) were rejected by the client and are now redone with new photos: 8 with 016, 5 with 017 and 018, 7 with 020 and 014. All wait for review (overview `new/all-cards.jpg`).**
 
-Cards 5 and 7 were rebuilt with the new photos 017-020 (2026-10-24) and card 8 with 016. The client marked ten photos as not usable: 001, 007, 008 and the stars S01, S02, S04, S05, S06, S07, S08. They are kept in `photos/rejected/` (`originals/` and `transparent/`, stars renamed with their S id) and must not be used on any card. Still free to use: 003, 012, 019 and S03 (003 and 012 were on the removed card 1).
+Cards 5 and 7 were rebuilt (2026-10-24): card 5 with the new photos 017 and 018, card 7 with the new photo 020 and 014; card 8 with 016. The client marked ten photos as not usable: 001, 007, 008 and the stars S01, S02, S04, S05, S06, S07, S08. They are kept in `photos/rejected/` (`originals/` and `transparent/`, stars renamed with their S id) and must not be used on any card. Still free to use: 003, 012, 019 and S03 (003 and 012 were on the removed card 1).
 
 `photos/all-photos.jpg` (`python3 photo-sheet.py`) shows every usable face photo with its id (001-015 card photos, S01-S08 latest-roles stars) and the card it is on, so the client can say which photos to drop. Our first-round cards were rejected and removed (they remain in git history). The tasks are in the workspace tab «قائمة المهام», group «إعادة تصميم بطاقات الاشتراك», from `05-design/todo.json`.
 
