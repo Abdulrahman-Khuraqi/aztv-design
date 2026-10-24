@@ -197,6 +197,7 @@ new store design/
 
 ## 10. Log
 
+- 2026-10-24: Card photos batch 3 (010 and 011: Barcelona kit with crossed fingers, royal-blue kit studio portrait) added to `05-design/shared/subscription-cards/photos/originals/`. Eleven photos in total. 011 is a square studio shot, not a tight cut-out like the rest.
 - 2026-10-24: Card images batch 2 (four more cut-outs, 006 to 009: yellow-and-navy kit, Argentina kit jumping, man in dark period coat seated, man in straw hat and pinstripe suit) added to `05-design/shared/subscription-cards/photos/originals/`. Nine images in total, still all on white backgrounds.
 - 2026-10-24: Place for the card images created: `05-design/shared/subscription-cards/photos/`. Batch 1 (five cut-outs: Argentina kit, man in black coat, Real Madrid, Barcelona, Man City) saved untouched in `originals/` with numbered names; more batches to follow, then we start on the cards. All five are on a white background (no transparency), so transparent versions are needed for the dark site; rights to be confirmed. Listed under shared elements in the workspace.
 

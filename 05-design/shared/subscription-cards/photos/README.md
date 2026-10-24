@@ -24,11 +24,13 @@ The photos for the subscription cards (football players and series/film stars; s
 | 007 | `007-argentina-kit-10-jumping.jpg` | 896×1194 | Full body, mid-jump, light-blue kit and black shorts, captain's armband |
 | 008 | `008-man-long-hair-dark-coat-chair.jpg` | 896×1195 | Long hair, dark period coat, seated in a wooden chair |
 | 009 | `009-man-straw-hat-pinstripe-suit.jpg` | 928×1133 | Straw boater hat, glasses, moustache, pinstripe suit, holding a chocolate bar |
+| 010 | `010-barcelona-curly-hair-crossed-fingers.jpg` | 1500×2000 | Curly hair, Barcelona kit, tongue out, hands crossed on chest |
+| 011 | `011-light-blue-kit-hands-behind-back.jpg` | 2000×2000 | Square studio portrait, royal-blue kit with white collar, hands behind back, looking at camera; white background, not a tight cut-out |
 
-Batches 1 (001-005) and 2 (006-009). More images to come.
+Batches 1 (001-005), 2 (006-009) and 3 (010-011). More images to come.
 
 ## To check before the cards are built
 
-- All nine are cut-outs on a **white** background (JPG, no transparency). The site is dark, so the cards need a transparent version (PNG/WebP) or the images will show a white box.
-- Sizes differ (002 is 1755×2000, 009 is 928×1133, the rest about 896×1200). Crop to one aspect ratio per card slot when making `web/`.
+- All eleven are cut-outs on a **white** background (JPG, no transparency). The site is dark, so the cards need a transparent version (PNG/WebP) or the images will show a white box.
+- Sizes differ (001-009 are about 896×1200 except 002 at 1755×2000 and 009 at 928×1133; 010 is 1500×2000; 011 is square 2000×2000). Crop to one aspect ratio per card slot when making `web/`.
 - Rights: the photos show real people and club kits. Confirm they are licensed for the store before launch.
