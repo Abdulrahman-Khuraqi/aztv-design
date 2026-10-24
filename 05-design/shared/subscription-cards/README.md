@@ -2,7 +2,7 @@
 
 The card in the middle of every subscription product image. The background around it is in `../subscription-backgrounds/` (approved: B and E); the card changes per product, the background stays the same.
 
-**Status (2026-10-24): card 3 (`new/aztv-3m.png`, اشتراك ٣ شهور) accepted as the look for all cards; card 2 (`new/aztv-6m.png`) is a trial in the same look; the other eight are not started.** Our first-round cards were rejected and removed (they remain in git history). The tasks are in the workspace tab «قائمة المهام», group «إعادة تصميم بطاقات الاشتراك», from `05-design/todo.json`.
+**Status (2026-10-24): card 3 (`new/aztv-3m.png`, اشتراك ٣ شهور) is accepted as the look for all cards. Card 2 (`new/aztv-6m.png`) was an unapproved trial and has been removed; a replacement is needed. The other eight are not started.** Our first-round cards were rejected and removed (they remain in git history). The tasks are in the workspace tab «قائمة المهام», group «إعادة تصميم بطاقات الاشتراك», from `05-design/todo.json`.
 
 ## Card backgrounds (2026-10-23)
 
@@ -19,7 +19,7 @@ What every card shares before its title, photos and duration go on. One per styl
 | # | Card | Product | Price today | Style | Old card | New card |
 |---|---|---|---|---|---|---|
 | 1 | عز تي في سنة + ٣ شهور | p930436127 | 96 SAR (was 238) | AZ TV, black and white | `old/aztv-15m.png` | `new/aztv-15m.png` |
-| 2 | اشتراك عز تي في 6 شهور | p1133679038 | 69 SAR (was 150) | AZ TV, black and white | `old/aztv-6m.png` | `new/aztv-6m.png` |
+| 2 | اشتراك عز تي في 6 شهور | p1133679038 | 69 SAR (was 150) | AZ TV, black and white | `old/aztv-6m.png` | **بديل مطلوب** |
 | 3 | اشتراك عز تي في 3 شهور | p527896233 | 39 SAR (was 100) | AZ TV, black and white | `old/aztv-3m.png` | `new/aztv-3m.png` |
 | 4 | اشتراك عز تي في شهر | p264351896 | 24 SAR (was 50) | AZ TV, black and white | `old/aztv-1m.png` | `new/aztv-1m.png` |
 | 5 | اشتراك عز تي في بلس سنة | p331255752 | 196 SAR (was 300) | Plus, gold | `old/plus-12m.png` | `new/plus-12m.png` |
@@ -35,15 +35,9 @@ The normal package has no 12-month card: its longest is سنة + ٣ شهور (15
 
 The face photos for the cards (cut-outs on white, delivered in batches) are in `photos/originals/`; `photos/README.md` lists them. Not yet matched to the names in `card-stars.json`.
 
-## Trial card (2026-10-24)
+## Removed trial card (2026-10-24)
 
-`new/aztv-6m.png` is the trial for the look of all ten cards: card 2 (اشتراك ٦ شهور, regular, black and white). A first trial on the Plus 1-year card was rejected and removed (it stays in git history). What changed: big close-up faces that fill the card from under the title to the bottom (player in front, star behind), the title in a black pill, real black and white instead of a warm tint, and the duration and logo pills sitting on the photos, as on the old cards.
-
-Built from `card.html` (`?card=aztv-6m`; each card is one entry in `CARDS`) and exported with `node render-cards.cjs aztv-6m`. The portraits are stand-ins: star `stars/latest-roles/vertical/transparent/06-antony-starr-g20.png` and player photo 010 from `photos/originals/`, cut out with `photos/cutout-white.py` (output in `photos/transparent/`, needs `pip install scipy`). Who goes on which card is not decided yet.
-
-`new/aztv-3m.png` (card 3, اشتراك ٣ شهور) is a second trial in the same layout with photo 009 as the star (behind, right) and player photo 005 in front: `node render-cards.cjs aztv-3m`.
-
-Round 2 on both trials: portraits about 10% smaller, a small «AZ TV SUBSCRIPTION» line under the title, a soft white light at the burst centre (hides the knot of rays between the faces) and a light floor under the duration and logo pills.
+`new/aztv-6m.png` was an unapproved trial and has been removed because it was not good enough for the cards. Do not restore it; create a replacement after better portrait images are selected. The accepted reference remains `new/aztv-3m.png`.
 
 ## How we work
 

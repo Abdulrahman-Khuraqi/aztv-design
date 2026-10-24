@@ -6,7 +6,7 @@
 <!--
   One subscription card: the card background (bg/) plus its title, two portraits, duration and platform logos.
   Size 380 x 648 here, exported at 2x = 760 x 1296 to new/<card>.png by render-cards.cjs.
-  URL: ?card=aztv-6m   (cards are defined in CARDS below)
+  URL: ?card=aztv-3m   (cards are defined in CARDS below)
   Photo placement: left, top, width in card px (lift brightens a dark photo); images are faded out at the bottom so no cut line shows.
 -->
 <style>
@@ -63,7 +63,7 @@
 const LOGO = "../../new-design/assets/img/logos/";
 const LOGOS = [["netflix.svg", 64], ["ssc.svg", 46], ["bein-white.svg", 58], ["shahid.svg", 52]];
 const CARDS = {
-  // AZ TV (regular), 3 months. Trial with photo 009 as the star; the player is a stand-in.
+  // AZ TV (regular), 3 months. Accepted look for the remaining subscription cards.
   "aztv-3m": {
     bg: "bg/card-bg-aztv.png", title: "اشتراك ٣ شهور", dEn: "3 MONTHS", dAr: "٣ شهور",
     photos: [
@@ -71,17 +71,8 @@ const CARDS = {
       { src: "photos/transparent/005-man-city-sky-blue-kit.png", left: -112, top: 150, width: 470 }
     ]
   },
-  // AZ TV (regular), 6 months. Trial: the portraits are stand-ins until photos are matched to the name list.
-  "aztv-6m": {
-    bg: "bg/card-bg-aztv.png", title: "اشتراك ٦ شهور", dEn: "6 MONTHS", dAr: "٦ شهور",
-    // first = behind, last = in front
-    photos: [
-      { src: "stars/latest-roles/vertical/transparent/06-antony-starr-g20.png", left: 160, top: 132, width: 276, lift: 1.22 },
-      { src: "photos/transparent/010-barcelona-curly-hair-crossed-fingers.png", left: -18, top: 136, width: 378 }
-    ]
-  }
 };
-const c = CARDS[new URLSearchParams(location.search).get("card") || "aztv-6m"];
+const c = CARDS[new URLSearchParams(location.search).get("card") || "aztv-3m"];
 document.getElementById("bg").src = document.getElementById("tabs").src = c.bg;
 document.getElementById("title").textContent = c.title;
 document.getElementById("sub").textContent = c.sub || "AZ TV SUBSCRIPTION";
