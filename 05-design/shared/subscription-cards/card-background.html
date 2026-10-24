@@ -7,7 +7,7 @@
 <!--
   The card's own background: what every subscription card shares before the title, photos and duration go on.
   AZ TV (regular): white card with a white frame (it keeps the black header cap apart from the dark top of the product backgrounds), bold black zigzag burst, the old cards' black and white look redrawn clean.
-  AZ TV Plus: black card, flat gold frame (no gradient, no inner line), a flat gold corner shard at the bottom left, a few specks of gold dust, side tabs, the old Plus look redrawn clean.
+  AZ TV Plus (2026-10-24): the regular card in gold: flat gold card and frame, the same bold black zigzag burst, black header cap and side tabs.
   Both: a flat header cap (black on AZ TV, gold on Plus) with a gently curved lower edge holds the card name, so nothing in the background runs into it;
   the rays fade out before they reach the cap.
   Both use the same jagged ray as the approved product background (../subscription-backgrounds/), so card and stage match.
@@ -167,34 +167,23 @@ if (!plus) {
       <rect x="148" y="17" width="84" height="15" rx="7.5" fill="none" stroke="#F4F4F2" stroke-opacity=".35" stroke-width="2"/>
     </g>`;
 } else {
-  // AZ TV Plus: black card, gold frame, gold header cap, one clean gold corner shard (bottom left), faint gold burst and gold dust
+  // AZ TV Plus: the regular card in gold. Flat gold card and frame, the same bold black zigzag burst, black header cap
+  // (the name goes on it in gold), black side tabs with gold letters. Flat: no shards, no dust, no grain.
   seed = 11;
-  const burst = rays(30, 40, 430, 330, 17, 10, 16, 11);
-  let dust = "";
-  seed = 29;
-  for (let i = 0; i < 60; i++) {
-    const a = rnd() * Math.PI * 2, d = Math.pow(rnd(), .7) * 250;
-    const x = CX + Math.cos(a) * d * 1.05, y = CY + 20 + Math.sin(a) * d * 1.25;
-    const r = rnd() < .85 ? .5 + rnd() * 1.1 : 1.6 + rnd() * 1.6;
-    dust += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r.toFixed(2)}" opacity="${(.25 + rnd() * .65).toFixed(2)}"/>`;
-  }
+  const burst = rays(30, 14, 430, 330, 17, 10, 16, 11);
   body = `
-    <radialGradient id="stage" cx="${CX}" cy="${CY - 20}" r="420" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#3A3016"/><stop offset=".45" stop-color="#1A1710"/><stop offset="1" stop-color="#0D0D0D"/>
-    </radialGradient>
-    <linearGradient id="floorP" x1="0" y1="440" x2="0" y2="${H}" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#0D0D0D" stop-opacity="0"/><stop offset="1" stop-color="#0D0D0D" stop-opacity=".85"/>
+    <linearGradient id="floorP" x1="0" y1="430" x2="0" y2="${H}" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#EACF69" stop-opacity="0"/><stop offset=".55" stop-color="#EACF69" stop-opacity=".94"/>
+      <stop offset="1" stop-color="#EACF69"/>
     </linearGradient>
     <g mask="url(#cardShape)">
-      <rect width="${W}" height="${H}" fill="#101010"/>
-      <g mask="url(#rayMaskTop)"><g mask="url(#rayMaskDown)"><g mask="url(#rayMask)" fill="#EACF69" opacity=".1">${burst}</g></g></g>
-      <g fill="#EACF69">
-        <polygon points="0,488 40,520 30,548 78,566 64,604 112,${H} 0,${H}"/>
-      </g>
-      <g fill="#EACF69" mask="url(#rayMaskTop)">${dust}</g>
-      ${cap("#EACF69")}
+      <rect width="${W}" height="${H}" fill="#EACF69"/>
+      <g mask="url(#rayMaskTop)"><g mask="url(#rayMaskDown)" fill="#0D0D0D">${burst}</g></g>
+      <rect y="430" width="${W}" height="${H - 430}" fill="url(#floorP)"/>
+      ${cap("#0D0D0D")}
       <rect x="4" y="4" width="${W - 8}" height="${H - 8}" rx="${R - 4}" fill="none" stroke="#EACF69" stroke-width="8"/>
-      ${sideTabs("#EACF69", "#0D0D0D")}
+      ${sideTabs("#0D0D0D", "#EACF69")}
+      <rect x="148" y="17" width="84" height="15" rx="7.5" fill="none" stroke="#EACF69" stroke-opacity=".5" stroke-width="2"/>
     </g>`;
 }
 

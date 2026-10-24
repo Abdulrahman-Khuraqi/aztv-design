@@ -9,7 +9,7 @@
   URL: ?card=aztv-6m   (cards are defined in CARDS below)
   Photo placement: left, top, width in card px (lift brightens a dark photo; gamma below 1 opens the shadows of a dark face without
   blowing out the highlights); images are faded out at the bottom so no cut line shows.
-  Tiers: the regular cards are white and black and white; plus: true switches to the black and gold card (gold pills, warm photos, dark floor).
+  Tiers: the regular cards are white and black and white; plus: true switches to the gold card (the same layout in gold: black burst, gold name on the black cap, black pills with gold text).
   Renewal cards have no photos: renew: true draws the renewal arrows in the middle instead.
 -->
 <style>
@@ -72,21 +72,19 @@
   .renew .arrows { fill: none; stroke: var(--white); stroke-width: 20; stroke-linecap: round; }
   .renew .heads { fill: var(--white); }
 
-  /* AZ TV Plus: black card, gold accents, warm photos */
-  /* warm light at the burst centre: bright enough to hide where the rays meet behind the faces */
-  .plus .glow { background: radial-gradient(circle at 190px 300px, rgba(244,226,150,.95) 0, rgba(238,214,120,.7) 70px, rgba(234,207,105,.25) 140px, rgba(234,207,105,0) 210px); }
-  .plus .floor { background: linear-gradient(to top, rgba(13,13,13,1) 0, rgba(13,13,13,.92) 80px, rgba(13,13,13,.55) 140px, rgba(13,13,13,0) 210px); }
-  .plus .photos img { filter: grayscale(1) sepia(.4) saturate(1.1) contrast(1.1) brightness(.98); }
-  /* Plus is kept flat and quiet: solid gold, no gradients, no outlines, no shadows */
-  .plus .title { color: var(--ink); }
-  /* the package line is the same pill as on the regular cards: dark pill, light chip, no outline */
-  .plus .sub > span { background: #1C1B17; box-shadow: 0 0 0 3px var(--ink); color: #D6D6D2; }
+  /* AZ TV Plus: the regular card in gold. Black and white photos on a gold card with a black burst; the name in gold on the black cap;
+     black pills with gold text. Kept flat: solid colours, no outlines. */
+  .plus .glow { background: radial-gradient(circle at 190px 300px, rgba(250,236,178,1) 0, rgba(246,228,160,.94) 46px, rgba(240,218,130,.65) 92px, rgba(234,207,105,.2) 150px, rgba(234,207,105,0) 210px); }
+  .plus .floor { background: linear-gradient(to top, rgba(234,207,105,1) 0, rgba(234,207,105,.94) 80px, rgba(234,207,105,.6) 140px, rgba(234,207,105,0) 210px); }
+  .plus .photos img { filter: grayscale(1) contrast(1.15) brightness(1.02); }
+  .plus .title { color: var(--gold); }
+  .plus .sub > span { box-shadow: 0 0 0 3px var(--gold), 0 6px 16px rgba(0,0,0,.2); }
   .plus .sub b { background: var(--gold); }
-  .plus .duration span { background: #1C1B17; color: var(--gold); box-shadow: none; }
-  .plus .logos { background: #1C1B17; box-shadow: none; }
-  .plus .badge span { background: var(--gold); border-color: var(--ink); }
-  .plus.is-renew .glow { background: radial-gradient(circle at 190px 310px, rgba(234,207,105,.45) 0, rgba(234,207,105,.25) 130px, rgba(234,207,105,0) 220px); }
-  .plus .renew .disc { fill: var(--ink); }
+  .plus .duration span { color: var(--gold); }
+  .plus .badge span { background: var(--ink); color: var(--gold); border-color: var(--gold); }
+  .plus .badge .ico { fill: var(--gold); stroke: var(--ink); }
+  .plus .badge .ico rect:last-child { fill: var(--gold); }
+  .plus.is-renew .glow { background: radial-gradient(circle at 190px 310px, rgba(250,236,178,1) 0, rgba(246,228,160,.9) 130px, rgba(234,207,105,.35) 175px, rgba(234,207,105,0) 230px); }
   .plus .renew .ring { stroke: var(--gold); }
   .plus .renew .arrows { stroke: var(--gold); }
   .plus .renew .heads { fill: var(--gold); }
@@ -241,7 +239,7 @@ c.photos.forEach(p => {
     im.style.webkitMaskComposite = "source-in"; im.style.maskComposite = "intersect";
   }
   if (p.lift || p.gamma) {
-    const tone = c.plus ? `grayscale(1) sepia(.4) saturate(1.1) contrast(1.1) brightness(${p.lift || .98})` : `grayscale(1) contrast(1.15) brightness(${p.lift || 1.02})`;
+    const tone = `grayscale(1) contrast(1.15) brightness(${p.lift || 1.02})`;
     im.style.filter = (p.gamma ? `url(#${gammaFilter(p.gamma)}) ` : "") + tone;
   }
   photos.appendChild(im);

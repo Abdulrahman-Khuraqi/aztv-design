@@ -8,6 +8,18 @@ Cards 5 and 7 were rebuilt (2026-10-24): card 5 with the new photos 017 and 018,
 
 `photos/all-photos.jpg` (`python3 photo-sheet.py`) shows every usable face photo with its id (001-015 card photos, S01-S08 latest-roles stars) and the card it is on, so the client can say which photos to drop. Our first-round cards were rejected and removed (they remain in git history). The tasks are in the workspace tab «قائمة المهام», group «إعادة تصميم بطاقات الاشتراك», from `05-design/todo.json`.
 
+## AZ TV Plus, new design (2026-10-24)
+
+The client kept the new AZ TV card and asked for a new Plus design. Plus is now the AZ TV card in gold, so the two tiers read as one family:
+
+- Flat gold card and gold frame, with the same bold black zigzag burst as AZ TV (`bg/card-bg-aztv-plus.png`).
+- Black header cap with the card name in gold; black side tabs with gold letters.
+- Black and white photos (the same tone as AZ TV), a light gold glow at the burst centre and a gold floor under the pills.
+- Black pills with gold text (duration, logos, the two-device badge); the package line has a gold «AZ TV PLUS» chip and a gold ring.
+- Gone from the old Plus look: the black card, the gold dust, the corner shard and the warm sepia photos.
+
+The older Plus notes below (black card, gold dust, warm portraits) are history.
+
 ## Header cap (2026-10-24)
 
 The client did not like the top of the card, where the background ran into the card name (the gold corner shard on Plus, the black rays on AZ TV). New top for all cards:
