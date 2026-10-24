@@ -6,9 +6,9 @@
 <title>Card Backgrounds</title>
 <!--
   The card's own background: what every subscription card shares before the title, photos and duration go on.
-  AZ TV (regular): white card with a white frame (it keeps the black header cap apart from the dark top of the product backgrounds), bold black zigzag burst, the old cards' black and white look redrawn clean.
+  AZ TV (regular): white card, bold black zigzag burst, the old cards' black and white look redrawn clean (no header cap: the client kept this one as it was).
   AZ TV Plus (2026-10-24): the regular card in gold: flat gold card and frame, the same bold black zigzag burst, black header cap and side tabs.
-  Both: a flat header cap (black on AZ TV, gold on Plus) with a gently curved lower edge holds the card name, so nothing in the background runs into it;
+  Plus only: a flat black header cap with a gently curved lower edge holds the card name, so nothing in the background runs into it;
   the rays fade out before they reach the cap.
   Both use the same jagged ray as the approved product background (../subscription-backgrounds/), so card and stage match.
 
@@ -38,8 +38,8 @@
 <body>
 <div class="card" id="card" data-tier="regular">
   <svg id="art" viewBox="0 0 380 648" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"></svg>
-  <div class="zone" style="left:40px;top:44px;width:300px;height:62px" data-label="TITLE"></div>
-  <div class="zone" style="left:22px;top:150px;width:336px;height:370px" data-label="PHOTOS"></div>
+  <div class="zone" style="left:40px;top:44px;width:300px;height:68px" data-label="TITLE"></div>
+  <div class="zone" style="left:22px;top:122px;width:336px;height:398px" data-label="PHOTOS"></div>
   <div class="zone" style="left:80px;top:528px;width:220px;height:32px" data-label="DURATION"></div>
   <div class="zone" style="left:40px;top:568px;width:300px;height:50px" data-label="PLATFORM LOGOS"></div>
 </div>
@@ -51,6 +51,11 @@ const plus = tier === "plus";
 const card = document.getElementById("card");
 card.dataset.tier = tier;
 if (q.get("guide")) card.classList.add("show-guide");
+// Plus: the title sits on the header cap and the photos start under it
+if (plus) {
+  Object.assign(card.querySelector('[data-label="TITLE"]').style, { top: "44px", height: "62px" });
+  Object.assign(card.querySelector('[data-label="PHOTOS"]').style, { top: "150px", height: "370px" });
+}
 
 const W = 380, H = 648, R = 35;
 const CX = 190, CY = 300;              // burst centre, behind the faces
@@ -83,13 +88,14 @@ function rays(n, r0, rLong, rShort, wLong, wShort, ampLong, ampShort) {
   }
   return out;
 }
-// header cap: the top of the card, with a gently curved lower edge (sides at CAP_Y, centre at CAP_Y + 14)
+// header cap (Plus only): the top of the card, with a gently curved lower edge (sides at CAP_Y, centre at CAP_Y + 14)
 const CAP_Y = 118;
 const cap = fill => `<path d="M0 0 H${W} V${CAP_Y} Q${W / 2} ${CAP_Y + 28} 0 ${CAP_Y} Z" fill="${fill}"/>`;
 const rr = (x, y, w, h, r) => `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${r}"/>`;
 
-// side tabs with the store name, one letter under the other (left tab high, right tab low, as on the old cards)
-const TAB = { w: 24, h: 168, l: [-6, 168], r: [W - 18, 406] };
+// side tabs with the store name, one letter under the other (left tab high, right tab low, as on the old cards);
+// on Plus the left tab sits lower, clear of the header cap
+const TAB = { w: 24, h: 168, l: [-6, plus ? 168 : 96], r: [W - 18, 406] };
 function sideTabs(tabFill, textFill) {
   const letters = (x, y0) => [..."AZTVSTORE"].map((c, i) =>
     `<text x="${x}" y="${y0 + i * 15.5}" text-anchor="middle">${c}</text>`).join("");
@@ -157,14 +163,12 @@ if (!plus) {
     </linearGradient>
     <g mask="url(#cardShape)">
       <rect width="${W}" height="${H}" fill="url(#paper)"/>
-      <g mask="url(#rayMaskTop)"><g mask="url(#rayMaskDown)" fill="#0D0D0D">${burst}</g></g>
+      <g mask="url(#rayMaskDown)" fill="#0D0D0D">${burst}</g>
       <rect y="430" width="${W}" height="${H - 430}" fill="url(#floor)"/>
       <rect width="${W}" height="${H}" filter="url(#grain)" opacity=".05"/>
-      ${cap("#0D0D0D")}
-      <rect x="4" y="4" width="${W - 8}" height="${H - 8}" rx="${R - 4}" fill="none" stroke="#F4F4F2" stroke-width="8"/>
       ${sideTabs("#0D0D0D", "#F4F4F2")}
       <rect x=".75" y=".75" width="${W - 1.5}" height="${H - 1.5}" rx="${R - .75}" fill="none" stroke="#000" stroke-opacity=".12" stroke-width="1.5"/>
-      <rect x="148" y="17" width="84" height="15" rx="7.5" fill="none" stroke="#F4F4F2" stroke-opacity=".35" stroke-width="2"/>
+      <rect x="148" y="17" width="84" height="15" rx="7.5" fill="none" stroke="#000" stroke-opacity=".35" stroke-width="2"/>
     </g>`;
 } else {
   // AZ TV Plus: the regular card in gold. Flat gold card and frame, the same bold black zigzag burst, black header cap

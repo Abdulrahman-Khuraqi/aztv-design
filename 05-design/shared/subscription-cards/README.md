@@ -10,9 +10,9 @@ Cards 5 and 7 were rebuilt (2026-10-24): card 5 with the new photos 017 and 018,
 
 ## AZ TV Plus, new design (2026-10-24)
 
-The client kept the new AZ TV card and asked for a new Plus design. Plus is now the AZ TV card in gold, so the two tiers read as one family:
+The client asked for a new Plus design, and then for the AZ TV cards to go back to their old design (black title pill, rays up to the top, white card with no frame; the header cap below was tried on them and dropped). So only Plus has the new look: the AZ TV burst in gold, with a black header cap:
 
-- Flat gold card and gold frame, with the same bold black zigzag burst as AZ TV (`bg/card-bg-aztv-plus.png`).
+- Flat gold card and gold frame, with the same bold black zigzag burst as the AZ TV card (`bg/card-bg-aztv-plus.png`).
 - Black header cap with the card name in gold; black side tabs with gold letters.
 - Black and white photos (the same tone as AZ TV), a light gold glow at the burst centre and a gold floor under the pills.
 - Black pills with gold text (duration, logos, the two-device badge); the package line has a gold «AZ TV PLUS» chip and a gold ring.
@@ -20,15 +20,15 @@ The client kept the new AZ TV card and asked for a new Plus design. Plus is now 
 
 The older Plus notes below (black card, gold dust, warm portraits) are history.
 
-## Header cap (2026-10-24)
+## Header cap (2026-10-24, Plus only)
 
-The client did not like the top of the card, where the background ran into the card name (the gold corner shard on Plus, the black rays on AZ TV). New top for all cards:
+The client did not like the top of the card, where the background ran into the card name. The header cap below was made for all cards; the AZ TV cards went back to their old top afterwards, so it is now on the Plus cards only (black cap, gold name):
 
 - A flat **header cap** across the top of the card, black on AZ TV and gold on Plus, with a gently curved lower edge (sides at y 118, centre at y 132 on the 380 x 648 card). The card name is plain text on it (white on black, black on gold), with no pill of its own.
 - Nothing reaches the cap: the top-right gold shard is gone, the rays and gold dust fade out before the cap, and the photos are clipped under its edge (`.photos` clip-path in `card.html`, same curve).
 - The package line sits on the cap's edge as a badge, ringed in the card colour.
-- The AZ TV card has a white frame (as Plus has its gold one), so the black cap does not merge with the dark top of the product backgrounds.
 - The left side tab moved down (y 168 to 336) so it no longer touches the cap.
+- In `card.html` the base styles are the AZ TV top (title pill, package line at y 114, no photo clip); the `.plus` rules add the cap layout.
 
 ## Card backgrounds (2026-10-23)
 
