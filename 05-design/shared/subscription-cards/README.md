@@ -8,6 +8,10 @@ Cards 2, 5, 7 and 8 were rebuilt (2026-10-24): card 5 with the new photos 017 an
 
 `photos/all-photos.jpg` (`python3 photo-sheet.py`) shows every usable face photo with its id (001-015 card photos, S01-S08 latest-roles stars) and the card it is on, so the client can say which photos to drop. Our first-round cards were rejected and removed (they remain in git history). The tasks are in the workspace tab «قائمة المهام», group «إعادة تصميم بطاقات الاشتراك», from `05-design/todo.json`.
 
+## Actor behind: no early fade (2026-10-24)
+
+The client said the second person (the actor behind) faded out too early, so the burst showed through his body. The actors on cards 2, 3, 5, 6 and 8 now stay solid down to the floor and the pills and fade only in the last few percent (`fadeBottom: [86-92, 100]` in `card.html`, under the floor gradient). Two photos were too short to get there and were enlarged a little: 002 on card 6 (it ended at y 455, now 560) and 016 on card 8 (it ended at y 493, now 545; its dishes at the bottom stay hidden under the floor, and the «456» badge is kept clear of the right side tab). Rule for a new actor photo: it must reach y 560 or more on the 648 px card.
+
 ## Players changed on cards 2 and 8 (2026-10-24)
 
 The client asked to change the player on card 2 and to fix card 8, where the player had no visible hands. After two tries with the photos we had (003 with a raised arm, which forced a mirrored card, and 010, the same player as card 7), the client sent two new player photos, already transparent:

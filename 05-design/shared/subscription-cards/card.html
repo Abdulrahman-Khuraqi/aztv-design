@@ -118,7 +118,7 @@ const CARDS = {
   "aztv-6m": {
     bg: REG, title: "اشتراك ٦ شهور", dEn: "6 MONTHS", dAr: "٦ شهور",
     photos: [
-      { src: PH + "013-blue-suit-eagle-shoulder-cape.png", left: 88, top: 133, width: 455 },
+      { src: PH + "013-blue-suit-eagle-shoulder-cape.png", left: 88, top: 133, width: 455, fadeBottom: [88, 100] },
       { src: PH + "022-bayern-red-kit-looking-up.png", left: -90, top: 69, width: 367 }
     ]
   },
@@ -126,7 +126,7 @@ const CARDS = {
   "aztv-3m": {
     bg: REG, title: "اشتراك ٣ شهور", dEn: "3 MONTHS", dAr: "٣ شهور",
     photos: [
-      { src: PH + "009-man-straw-hat-pinstripe-suit.png", left: 52, top: 26, width: 452 },
+      { src: PH + "009-man-straw-hat-pinstripe-suit.png", left: 52, top: 26, width: 452, fadeBottom: [92, 100] },
       { src: PH + "005-man-city-sky-blue-kit.png", left: -112, top: 150, width: 470 }
     ]
   },
@@ -143,7 +143,7 @@ const CARDS = {
     plus: true, bg: PLUS, title: "اشتراك بلس سنة", dEn: "1 YEAR", dAr: "سنة",
     // actor 018 behind (hat clears the package line; cane faded out), player 017 in front: the pairing of card 3
     photos: [
-      { src: PH + "018-cowboy-hat-blue-suit-bolo-tie.png", left: -7, top: 157, width: 571, lift: .94, fadeBottom: [62, 82] },
+      { src: PH + "018-cowboy-hat-blue-suit-bolo-tie.png", left: -7, top: 157, width: 571, lift: .94, fadeBottom: [86, 100] },
       { src: PH + "017-argentina-kit-10-fists-out.png", left: -118, top: 181, width: 530, lift: .9, fadeBottom: [80, 100] }
     ]
   },
@@ -151,7 +151,7 @@ const CARDS = {
   "plus-12m-2dev": {
     plus: true, bg: PLUS, title: "اشتراك بلس سنة", dEn: "1 YEAR", dAr: "سنة", badge: ["جهازين", "2 DEVICES"],
     photos: [
-      { src: PH + "002-man-black-coat.png", left: 100, top: 150, width: 268, lift: 1.06, gamma: .78 },
+      { src: PH + "002-man-black-coat.png", left: 22, top: 150, width: 360, lift: 1.06, gamma: .78, fadeBottom: [90, 100] },
       { src: PH + "006-yellow-navy-kit-captain.png", left: -110, top: 167, width: 505, lift: .9 }
     ]
   },
@@ -168,8 +168,8 @@ const CARDS = {
   "plus-3m": {
     plus: true, bg: PLUS, title: "اشتراك بلس ٣ شهور", dEn: "3 MONTHS", dAr: "٣ شهور",
     photos: [
-      { src: PH + "016-man-tuxedo-456-badge.png", left: 129, top: 140, width: 290, lift: 1.05, gamma: .8, fadeBottom: [58, 90] },
-      { src: PH + "021-real-madrid-white-kit-arms-crossed.png", left: -38, top: 138, width: 339, lift: .9 }
+      { src: PH + "016-man-tuxedo-456-badge.png", left: 72, top: 132, width: 340, lift: 1.05, gamma: .8, fadeBottom: [86, 98] },
+      { src: PH + "021-real-madrid-white-kit-arms-crossed.png", left: -60, top: 138, width: 339, lift: .9 }
     ]
   },
   // 9. AZ TV (regular) renewal: no faces
@@ -227,6 +227,8 @@ const photos = document.getElementById("photos");
 c.photos.forEach(p => {
   const im = new Image(); im.src = p.src;
   im.style.cssText = `left:${p.left}px;top:${p.top}px;width:${p.width}px`;
+  // The actor behind should stay solid down to the floor and the pills (a fade that starts high lets the burst show through the body):
+  // use fadeBottom: [86-92, 100] for them; the photo must reach y 560 or more, scale it up if it ends higher.
   // fadeTop / fadeRight: the photo is cut flat at that edge (hair touching the frame, shoulders running out of a close-up),
   // so fade that edge too. fadeBottom: [from %, to %] fades out higher than usual (hides a chair or hands).
   if (p.fadeTop || p.fadeRight || p.fadeBottom) {
