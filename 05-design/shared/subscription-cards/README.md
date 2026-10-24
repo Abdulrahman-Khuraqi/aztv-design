@@ -4,9 +4,13 @@ The card in the middle of every subscription product image. The background aroun
 
 **Status (2026-10-24): card 3 (`new/aztv-3m.png`, اشتراك ٣ شهور) accepted as the look for all cards. Cards 5, 7 and 8 (Plus 1 year, Plus 6 months, Plus 3 months) were rejected by the client and are now redone with new photos: 8 with 016, 5 with 017 and 018, 7 with 020 and 014. All wait for review (overview `new/all-cards.jpg`).**
 
-Cards 2, 5, 7 and 8 were rebuilt (2026-10-24): card 5 with the new photos 017 and 018, card 7 with 020 and 014, card 8 with 021 and 016, card 2 with 022 and 013. The client marked ten photos as not usable: 001, 007, 008 and the stars S01, S02, S04, S05, S06, S07, S08. They are kept in `photos/rejected/` (`originals/` and `transparent/`, stars renamed with their S id) and must not be used on any card. Still free to use: 003, 010, 011 (hands behind his back), 012, 019 and S03 (003 and 012 were on the removed card 1).
+Cards 2, 5, 7 and 8 were rebuilt (2026-10-24): card 5 with the new photos 023 and 018, card 7 with 020 and 014, card 8 with 021 and 016, card 2 with 022 and 013. The client marked ten photos as not usable: 001, 007, 008 and the stars S01, S02, S04, S05, S06, S07, S08. They are kept in `photos/rejected/` (`originals/` and `transparent/`, stars renamed with their S id) and must not be used on any card. Still free to use: 003, 010, 011, 017 (replaced by 023) (hands behind his back), 012, 019 and S03 (003 and 012 were on the removed card 1).
 
 `photos/all-photos.jpg` (`python3 photo-sheet.py`) shows every usable face photo with its id (001-015 card photos, S01-S08 latest-roles stars) and the card it is on, so the client can say which photos to drop. Our first-round cards were rejected and removed (they remain in git history). The tasks are in the workspace tab «قائمة المهام», group «إعادة تصميم بطاقات الاشتراك», from `05-design/todo.json`.
+
+## Card 5: better-lit photo (2026-10-24)
+
+The client sent a black-and-white version of photo 017 with better lighting (`023`, same size and framing, already transparent) and asked to use it on card 5. It replaces 017 in the same place; the darkening (`lift: .9`) that 017 needed is no longer applied. 017 is unused now.
 
 ## Actor behind: no early fade (2026-10-24)
 
@@ -122,7 +126,7 @@ Built from `card.html` in the accepted look of card 3, with the card photos 001-
 | 2 `aztv-6m` | 022 (new, 2026-10-24) | 013 |
 | 3 `aztv-3m` | 005 | 009 |
 | 4 `aztv-1m` | 004 | 015 |
-| 5 `plus-12m` | 017 | 018 (new, 2026-10-24) |
+| 5 `plus-12m` | 023 (2026-10-24, replaces 017) | 018 (new, 2026-10-24) |
 | 6 `plus-12m-2dev` | 006 | 002 |
 | 7 `plus-6m` | 020 (new, 2026-10-24) | 014 |
 | 8 `plus-3m` | 021 (new, 2026-10-24) | 016 (new, 2026-10-24) |

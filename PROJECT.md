@@ -197,6 +197,7 @@ new store design/
 
 ## 10. Log
 
+- 2026-10-24: Card 5 (Plus 1 year): the player photo replaced with a black-and-white version with better lighting sent by the client (023, same framing as 017). 017 is unused now.
 - 2026-10-24: The actor behind no longer fades out early (client: the background showed through his body). Cards 2, 3, 5, 6 and 8: the actor stays solid down to the floor and the pills; the short photos 002 (card 6) and 016 (card 8) were enlarged a little to reach the bottom.
 - 2026-10-24: Cards 2 and 8 redone with two new player photos from the client (already transparent): 022 (red Bayern kit) in front of the actor on card 2, back to the normal layout; 021 (white Real Madrid kit, arms crossed) in front of the Squid Game actor on card 8. 003, 010 and 011 are no longer used, so no player appears twice (seven cards, seven players).
 - 2026-10-24: Logo strip balanced on all nine cards: Netflix, SSC, beIN and Shahid are sized for the same visual weight (widths 56, 50, 50, 56 px on the 380 px card) with even gaps.
