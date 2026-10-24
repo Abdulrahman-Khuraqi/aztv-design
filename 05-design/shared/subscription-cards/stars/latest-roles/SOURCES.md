@@ -1,6 +1,6 @@
 # Latest-role image sources
 
-> 2026-10-24: 01, 02, 04, 06, 07 and 08 were rejected by the client and moved to `../../photos/rejected/` (as S01, S02, S04, S06, S07, S08). Only 03 and 05 remain here. The rows below are kept as the record of where they came from.
+> 2026-10-24: 01, 02, 04, 05, 06, 07 and 08 were rejected by the client and moved to `../../photos/rejected/` (as S01, S02, S04, S05, S06, S07, S08). Only 03 remains here. The rows below are kept as the record of where they came from.
 
 Downloaded on 2026-10-24 for design review. These are promotional/movie stills,
 not public-domain or Creative Commons assets. A source link is not a commercial

@@ -4,7 +4,7 @@ The card in the middle of every subscription product image. The background aroun
 
 **Status (2026-10-24): card 3 (`new/aztv-3m.png`, اشتراك ٣ شهور) accepted as the look for all cards. Cards 5, 7 and 8 (Plus 1 year, Plus 6 months, Plus 3 months) rejected by the client: to be redone with other photos. The rest wait for review (overview `new/all-cards.jpg`).**
 
-Cards 5, 7 and 8 have no photos for now (they render as empty cards). The client marked nine photos as not usable: 001, 007, 008 and the stars S01, S02, S04, S06, S07, S08. They are kept in `photos/rejected/` (`originals/` and `transparent/`, stars renamed with their S id) and must not be used on any card. Still free to use: 004, 011, 012 and S03.
+Cards 5, 7 and 8 have no photos for now (they render as empty cards). The client marked ten photos as not usable: 001, 007, 008 and the stars S01, S02, S04, S05, S06, S07, S08. They are kept in `photos/rejected/` (`originals/` and `transparent/`, stars renamed with their S id) and must not be used on any card. Still free to use: 004, 011 and S03 (012 is on card 1 as a stand-in).
 
 `photos/all-photos.jpg` (`python3 photo-sheet.py`) shows every usable face photo with its id (001-015 card photos, S01-S08 latest-roles stars) and the card it is on, so the client can say which photos to drop. Our first-round cards were rejected and removed (they remain in git history). The tasks are in the workspace tab «قائمة المهام», group «إعادة تصميم بطاقات الاشتراك», from `05-design/todo.json`.
 
@@ -63,7 +63,7 @@ Built from `card.html` in the accepted look of card 3, with the card photos 001-
 
 | Card | Player (front) | Star (behind) |
 |---|---|---|
-| 1 `aztv-15m` | 003 | Tom Holland (`05`) |
+| 1 `aztv-15m` | 003 | 012 (stand-in: S05 rejected) |
 | 2 `aztv-6m` | 010 | 013 |
 | 3 `aztv-3m` | 005 | 009 |
 | 4 `aztv-1m` | 014 | 015 |

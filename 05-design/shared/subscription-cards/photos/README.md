@@ -10,7 +10,7 @@ The photos for the subscription cards (football players and series/film stars; s
 
 ## Rejected
 
-`rejected/` holds the photos the client marked as not usable (2026-10-24): 001, 007, 008, and the latest-roles stars S01, S02, S04, S06, S07, S08 (moved from `../stars/latest-roles/vertical/`, renamed with their S id). Same layout as here (`originals/`, `transparent/`). Never put them on a card.
+`rejected/` holds the photos the client marked as not usable (2026-10-24): 001, 007, 008, and the latest-roles stars S01, S02, S04, S05, S06, S07, S08 (moved from `../stars/latest-roles/vertical/`, renamed with their S id). Same layout as here (`originals/`, `transparent/`). Never put them on a card.
 
 ## Naming
 
