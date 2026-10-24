@@ -8,6 +8,16 @@ Cards 5 and 7 were rebuilt (2026-10-24): card 5 with the new photos 017 and 018,
 
 `photos/all-photos.jpg` (`python3 photo-sheet.py`) shows every usable face photo with its id (001-015 card photos, S01-S08 latest-roles stars) and the card it is on, so the client can say which photos to drop. Our first-round cards were rejected and removed (they remain in git history). The tasks are in the workspace tab «قائمة المهام», group «إعادة تصميم بطاقات الاشتراك», from `05-design/todo.json`.
 
+## Header cap (2026-10-24)
+
+The client did not like the top of the card, where the background ran into the card name (the gold corner shard on Plus, the black rays on AZ TV). New top for all cards:
+
+- A flat **header cap** across the top of the card, black on AZ TV and gold on Plus, with a gently curved lower edge (sides at y 118, centre at y 132 on the 380 x 648 card). The card name is plain text on it (white on black, black on gold), with no pill of its own.
+- Nothing reaches the cap: the top-right gold shard is gone, the rays and gold dust fade out before the cap, and the photos are clipped under its edge (`.photos` clip-path in `card.html`, same curve).
+- The package line sits on the cap's edge as a badge, ringed in the card colour.
+- The AZ TV card has a white frame (as Plus has its gold one), so the black cap does not merge with the dark top of the product backgrounds.
+- The left side tab moved down (y 168 to 336) so it no longer touches the cap.
+
 ## Card backgrounds (2026-10-23)
 
 What every card shares before its title, photos and duration go on. One per style, 760 x 1296, transparent rounded corners (radius 70) and a transparent hanger slot at the top, so they drop straight into the card area of the approved backgrounds.

@@ -6,8 +6,10 @@
 <title>Card Backgrounds</title>
 <!--
   The card's own background: what every subscription card shares before the title, photos and duration go on.
-  AZ TV (regular): white card, bold black zigzag burst, the old cards' black and white look redrawn clean.
-  AZ TV Plus: black card, flat gold frame (no gradient, no inner line), flat gold corner shards, a few specks of gold dust, side tabs, the old Plus look redrawn clean.
+  AZ TV (regular): white card with a white frame (it keeps the black header cap apart from the dark top of the product backgrounds), bold black zigzag burst, the old cards' black and white look redrawn clean.
+  AZ TV Plus: black card, flat gold frame (no gradient, no inner line), a flat gold corner shard at the bottom left, a few specks of gold dust, side tabs, the old Plus look redrawn clean.
+  Both: a flat header cap (black on AZ TV, gold on Plus) with a gently curved lower edge holds the card name, so nothing in the background runs into it;
+  the rays fade out before they reach the cap.
   Both use the same jagged ray as the approved product background (../subscription-backgrounds/), so card and stage match.
 
   Size: 380 x 648 here, exported at 2x = 760 x 1296 (the card area of the approved backgrounds), corner radius 35,
@@ -36,8 +38,8 @@
 <body>
 <div class="card" id="card" data-tier="regular">
   <svg id="art" viewBox="0 0 380 648" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"></svg>
-  <div class="zone" style="left:40px;top:44px;width:300px;height:68px" data-label="TITLE"></div>
-  <div class="zone" style="left:22px;top:122px;width:336px;height:398px" data-label="PHOTOS"></div>
+  <div class="zone" style="left:40px;top:44px;width:300px;height:62px" data-label="TITLE"></div>
+  <div class="zone" style="left:22px;top:150px;width:336px;height:370px" data-label="PHOTOS"></div>
   <div class="zone" style="left:80px;top:528px;width:220px;height:32px" data-label="DURATION"></div>
   <div class="zone" style="left:40px;top:568px;width:300px;height:50px" data-label="PLATFORM LOGOS"></div>
 </div>
@@ -81,10 +83,13 @@ function rays(n, r0, rLong, rShort, wLong, wShort, ampLong, ampShort) {
   }
   return out;
 }
+// header cap: the top of the card, with a gently curved lower edge (sides at CAP_Y, centre at CAP_Y + 14)
+const CAP_Y = 118;
+const cap = fill => `<path d="M0 0 H${W} V${CAP_Y} Q${W / 2} ${CAP_Y + 28} 0 ${CAP_Y} Z" fill="${fill}"/>`;
 const rr = (x, y, w, h, r) => `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${r}"/>`;
 
 // side tabs with the store name, one letter under the other (left tab high, right tab low, as on the old cards)
-const TAB = { w: 24, h: 168, l: [-6, 96], r: [W - 18, 406] };
+const TAB = { w: 24, h: 168, l: [-6, 168], r: [W - 18, 406] };
 function sideTabs(tabFill, textFill) {
   const letters = (x, y0) => [..."AZTVSTORE"].map((c, i) =>
     `<text x="${x}" y="${y0 + i * 15.5}" text-anchor="middle">${c}</text>`).join("");
@@ -129,6 +134,12 @@ const defs = `
     <mask id="rayMaskDown">
       <rect width="${W}" height="${H}" fill="url(#fadeDown)"/>
     </mask>
+    <linearGradient id="fadeTop" x1="0" y1="0" x2="0" y2="${H}" gradientUnits="userSpaceOnUse">
+      <stop offset="${(CAP_Y + 24) / H}" stop-color="#fff" stop-opacity="0"/><stop offset="${(CAP_Y + 96) / H}" stop-color="#fff" stop-opacity="1"/>
+    </linearGradient>
+    <mask id="rayMaskTop">
+      <rect width="${W}" height="${H}" fill="url(#fadeTop)"/>
+    </mask>
   </defs>`;
 
 let body;
@@ -146,15 +157,17 @@ if (!plus) {
     </linearGradient>
     <g mask="url(#cardShape)">
       <rect width="${W}" height="${H}" fill="url(#paper)"/>
-      <g mask="url(#rayMaskDown)" fill="#0D0D0D">${burst}</g>
+      <g mask="url(#rayMaskTop)"><g mask="url(#rayMaskDown)" fill="#0D0D0D">${burst}</g></g>
       <rect y="430" width="${W}" height="${H - 430}" fill="url(#floor)"/>
       <rect width="${W}" height="${H}" filter="url(#grain)" opacity=".05"/>
+      ${cap("#0D0D0D")}
+      <rect x="4" y="4" width="${W - 8}" height="${H - 8}" rx="${R - 4}" fill="none" stroke="#F4F4F2" stroke-width="8"/>
       ${sideTabs("#0D0D0D", "#F4F4F2")}
       <rect x=".75" y=".75" width="${W - 1.5}" height="${H - 1.5}" rx="${R - .75}" fill="none" stroke="#000" stroke-opacity=".12" stroke-width="1.5"/>
-      <rect x="148" y="17" width="84" height="15" rx="7.5" fill="none" stroke="#000" stroke-opacity=".35" stroke-width="2"/>
+      <rect x="148" y="17" width="84" height="15" rx="7.5" fill="none" stroke="#F4F4F2" stroke-opacity=".35" stroke-width="2"/>
     </g>`;
 } else {
-  // AZ TV Plus: black card, gold frame, two clean gold corner shards, faint gold burst and gold dust
+  // AZ TV Plus: black card, gold frame, gold header cap, one clean gold corner shard (bottom left), faint gold burst and gold dust
   seed = 11;
   const burst = rays(30, 40, 430, 330, 17, 10, 16, 11);
   let dust = "";
@@ -174,12 +187,12 @@ if (!plus) {
     </linearGradient>
     <g mask="url(#cardShape)">
       <rect width="${W}" height="${H}" fill="#101010"/>
-      <g mask="url(#rayMaskDown)"><g mask="url(#rayMask)" fill="#EACF69" opacity=".1">${burst}</g></g>
+      <g mask="url(#rayMaskTop)"><g mask="url(#rayMaskDown)"><g mask="url(#rayMask)" fill="#EACF69" opacity=".1">${burst}</g></g></g>
       <g fill="#EACF69">
-        <polygon points="250,0 ${W},0 ${W},150 352,92 318,104 300,40 270,52"/>
         <polygon points="0,488 40,520 30,548 78,566 64,604 112,${H} 0,${H}"/>
       </g>
-      <g fill="#EACF69">${dust}</g>
+      <g fill="#EACF69" mask="url(#rayMaskTop)">${dust}</g>
+      ${cap("#EACF69")}
       <rect x="4" y="4" width="${W - 8}" height="${H - 8}" rx="${R - 4}" fill="none" stroke="#EACF69" stroke-width="8"/>
       ${sideTabs("#EACF69", "#0D0D0D")}
     </g>`;

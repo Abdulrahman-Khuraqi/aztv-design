@@ -21,7 +21,8 @@
   .card > img.bg { position: absolute; inset: 0; width: 100%; height: 100%; }
 
   /* portraits: full card width, from under the title to the bottom; the side tabs are redrawn on top */
-  .photos { position: absolute; inset: 0; overflow: hidden; }
+  /* clipped under the header cap (same curve as in card-background.html), so no photo runs into the card name */
+  .photos { position: absolute; inset: 0; overflow: hidden; clip-path: path("M0 118 Q190 146 380 118 V648 H0 Z"); }
   /* light at the burst centre, behind the faces, so the centre of the burst reads as a glow and not as a knot */
   .glow { position: absolute; inset: 0; pointer-events: none;
     background: radial-gradient(circle at 190px 300px, rgba(255,255,255,1) 0, rgba(255,255,255,.96) 46px, rgba(255,255,255,.7) 92px, rgba(255,255,255,.25) 150px, rgba(255,255,255,0) 210px); }
@@ -29,19 +30,20 @@
   .floor { position: absolute; inset: auto 0 0; height: 210px; z-index: 8; pointer-events: none;
     background: linear-gradient(to top, rgba(244,244,242,1) 0, rgba(244,244,242,.94) 80px, rgba(244,244,242,.6) 140px, rgba(244,244,242,0) 210px); }
   /* package line under the title: the package name in a light chip, then SUBSCRIPTION (or RENEWAL) */
-  .sub { position: absolute; left: 0; right: 0; top: 114px; z-index: 10; display: flex; align-items: center; justify-content: center; gap: 10px;
+  /* sits on the lower edge of the header cap, ringed in the card colour so it reads as a badge */
+  .sub { position: absolute; left: 0; right: 0; top: 117px; z-index: 10; display: flex; align-items: center; justify-content: center; gap: 10px;
     direction: ltr; font-weight: 700; }
   .sub > span { display: flex; align-items: center; gap: 9px; height: 30px; padding: 0 11px 0 4px; border-radius: 99px;
-    background: var(--ink); color: #D6D6D2; font-size: 11px; letter-spacing: .22em; box-shadow: 0 6px 16px rgba(0,0,0,.25); }
+    background: var(--ink); color: #D6D6D2; font-size: 11px; letter-spacing: .22em; box-shadow: 0 0 0 3px var(--white), 0 6px 16px rgba(0,0,0,.25); }
   .sub b { display: grid; place-items: center; height: 22px; padding: 0 11px; border-radius: 99px; background: var(--white); color: var(--ink);
     font-size: 12.5px; letter-spacing: .1em; }
-  .card > img.tabs { z-index: 9; clip-path: path("M0 97 H18 V262 H0 Z M362 408 H380 V572 H362 Z"); }
+  .card > img.tabs { z-index: 9; clip-path: path("M0 168 H18 V336 H0 Z M362 406 H380 V574 H362 Z"); }
   .photos img { position: absolute; height: auto; filter: grayscale(1) contrast(1.15) brightness(1.02);
     -webkit-mask-image: linear-gradient(to bottom, #000 72%, transparent 97%); mask-image: linear-gradient(to bottom, #000 72%, transparent 97%); }
 
-  .title { position: absolute; left: 38px; right: 38px; top: 50px; height: 58px; z-index: 10; display: grid; place-items: center;
-    border-radius: 22px; background: var(--ink); color: var(--white); font-size: 29px; font-weight: 700; line-height: 1;
-    box-shadow: 0 8px 22px rgba(0,0,0,.28); }
+  /* the card name is plain text on the header cap of the card background (no pill of its own) */
+  .title { position: absolute; left: 30px; right: 30px; top: 40px; height: 66px; z-index: 10; display: grid; place-items: center;
+    color: var(--white); font-size: 31px; font-weight: 700; line-height: 1; }
 
   .duration { position: absolute; left: 62px; right: 62px; top: 524px; height: 34px; z-index: 10; display: flex; gap: 10px; }
   .duration span { flex: 1; display: grid; place-items: center; border-radius: 99px; background: var(--ink); color: var(--white); font-weight: 700; font-size: 15px; box-shadow: 0 6px 16px rgba(0,0,0,.25); }
@@ -76,9 +78,9 @@
   .plus .floor { background: linear-gradient(to top, rgba(13,13,13,1) 0, rgba(13,13,13,.92) 80px, rgba(13,13,13,.55) 140px, rgba(13,13,13,0) 210px); }
   .plus .photos img { filter: grayscale(1) sepia(.4) saturate(1.1) contrast(1.1) brightness(.98); }
   /* Plus is kept flat and quiet: solid gold, no gradients, no outlines, no shadows */
-  .plus .title { background: var(--gold); color: var(--ink); box-shadow: none; }
+  .plus .title { color: var(--ink); }
   /* the package line is the same pill as on the regular cards: dark pill, light chip, no outline */
-  .plus .sub > span { background: #1C1B17; box-shadow: none; color: #D6D6D2; }
+  .plus .sub > span { background: #1C1B17; box-shadow: 0 0 0 3px var(--ink); color: #D6D6D2; }
   .plus .sub b { background: var(--gold); }
   .plus .duration span { background: #1C1B17; color: var(--gold); box-shadow: none; }
   .plus .logos { background: #1C1B17; box-shadow: none; }
