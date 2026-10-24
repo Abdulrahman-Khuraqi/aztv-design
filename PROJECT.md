@@ -197,6 +197,7 @@ new store design/
 
 ## 10. Log
 
+- 2026-10-24: Card 8 (Plus 3 months) rebuilt with the new photo 016 (the Squid Game actor in the tuxedo, supplied transparent) behind player 011. Waiting for review.
 - 2026-10-24: Card 1 (عز تي في سنة + ٣ شهور) removed: the client says there is no such card. Nine cards left, numbers unchanged (2-10). Photos 003 and 012 are free again.
 - 2026-10-24: Card 4 (AZ TV 1 month) now has a player (004) in front and an actor (015) behind, as every card should (one player, one actor); 014 is free again.
 - 2026-10-24: Plus cards simplified at the client's request (too much going on): flat gold instead of gradients, no outlines or shadows, plain package line (gold chip, white text, no box), dark grey duration and logo pills, flat black background with faint gold rays.

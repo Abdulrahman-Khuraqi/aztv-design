@@ -2,9 +2,9 @@
 
 The card in the middle of every subscription product image. The background around it is in `../subscription-backgrounds/` (approved: B and E); the card changes per product, the background stays the same.
 
-**Status (2026-10-24): card 3 (`new/aztv-3m.png`, اشتراك ٣ شهور) accepted as the look for all cards. Cards 5, 7 and 8 (Plus 1 year, Plus 6 months, Plus 3 months) rejected by the client: to be redone with other photos. The rest wait for review (overview `new/all-cards.jpg`).**
+**Status (2026-10-24): card 3 (`new/aztv-3m.png`, اشتراك ٣ شهور) accepted as the look for all cards. Cards 5, 7 and 8 (Plus 1 year, Plus 6 months, Plus 3 months) rejected by the client: 8 is redone with the new photo 016 and waits for review, 5 and 7 wait for photos. The rest wait for review (overview `new/all-cards.jpg`).**
 
-Cards 5, 7 and 8 have no photos for now (they render as empty cards). The client marked ten photos as not usable: 001, 007, 008 and the stars S01, S02, S04, S05, S06, S07, S08. They are kept in `photos/rejected/` (`originals/` and `transparent/`, stars renamed with their S id) and must not be used on any card. Still free to use: 003, 011, 012, 014 and S03 (003 and 012 were on the removed card 1).
+Cards 5 and 7 have no photos for now (they render as empty cards); card 8 was rebuilt with the new photo 016. The client marked ten photos as not usable: 001, 007, 008 and the stars S01, S02, S04, S05, S06, S07, S08. They are kept in `photos/rejected/` (`originals/` and `transparent/`, stars renamed with their S id) and must not be used on any card. Still free to use: 003, 012, 014 and S03 (003 and 012 were on the removed card 1).
 
 `photos/all-photos.jpg` (`python3 photo-sheet.py`) shows every usable face photo with its id (001-015 card photos, S01-S08 latest-roles stars) and the card it is on, so the client can say which photos to drop. Our first-round cards were rejected and removed (they remain in git history). The tasks are in the workspace tab «قائمة المهام», group «إعادة تصميم بطاقات الاشتراك», from `05-design/todo.json`.
 
@@ -70,7 +70,7 @@ Built from `card.html` in the accepted look of card 3, with the card photos 001-
 | 5 `plus-12m` | rejected, empty | |
 | 6 `plus-12m-2dev` | 006 | 002 |
 | 7 `plus-6m` | rejected, empty | |
-| 8 `plus-3m` | rejected, empty | |
+| 8 `plus-3m` | 011 | 016 (new, 2026-10-24) |
 
 Numbers are the photos in `photos/` (cut-outs in `photos/transparent/`); stars are in `stars/latest-roles/vertical/transparent/`. Pairs follow `card-stars.json` where we have the photo; where we don't have that photo yet (Mbappé, Vinícius and Neymar among the players; Kit Harington, Bryan Cranston and others appear in the new photos instead), the closest photo we have stands in. Card 4 is a player (004) in front and an actor (015) behind; 014 was tried in front but the client wants one player and one actor on every card. Card 5 has two actors (client rejected its earlier photos 001 and 012); Morte's close-up fades out at the right edge and 008 fades out below the chest so his chair does not show. 012 and 013 replaced 008 (card 5) and the dark star `06` (card 2) at the client's request. Photo 011 was cut out with `--holes 5000` to clear the white gaps between the arms and the body.
 
