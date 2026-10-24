@@ -6,7 +6,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 # which card each photo is on (card numbers as in README.md); keep in step with CARDS in card.html
 # rejected photos are in photos/rejected/ and are not shown
-USED = {"003": 2, "013": 2, "005": 3, "009": 3, "004": 4, "015": 4, "006": 6, "002": 6, "010": 8, "016": 8,
+USED = {"022": 2, "013": 2, "005": 3, "009": 3, "004": 4, "015": 4, "006": 6, "002": 6, "021": 8, "016": 8,
         "017": 5, "018": 5, "020": 7, "014": 7}
 files = [(Path(f).stem[:3], f) for f in sorted(glob.glob("photos/transparent/*.png"))]
 files += [("S" + Path(f).stem[:2], f) for f in sorted(glob.glob("stars/latest-roles/vertical/transparent/0*.png"))]

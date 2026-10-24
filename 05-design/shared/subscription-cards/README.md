@@ -4,17 +4,18 @@ The card in the middle of every subscription product image. The background aroun
 
 **Status (2026-10-24): card 3 (`new/aztv-3m.png`, اشتراك ٣ شهور) accepted as the look for all cards. Cards 5, 7 and 8 (Plus 1 year, Plus 6 months, Plus 3 months) were rejected by the client and are now redone with new photos: 8 with 016, 5 with 017 and 018, 7 with 020 and 014. All wait for review (overview `new/all-cards.jpg`).**
 
-Cards 5 and 7 were rebuilt (2026-10-24): card 5 with the new photos 017 and 018, card 7 with the new photo 020 and 014; card 8 with 016. The client marked ten photos as not usable: 001, 007, 008 and the stars S01, S02, S04, S05, S06, S07, S08. They are kept in `photos/rejected/` (`originals/` and `transparent/`, stars renamed with their S id) and must not be used on any card. Still free to use: 011 (hands behind his back), 012, 019 and S03 (003 and 012 were on the removed card 1).
+Cards 2, 5, 7 and 8 were rebuilt (2026-10-24): card 5 with the new photos 017 and 018, card 7 with 020 and 014, card 8 with 021 and 016, card 2 with 022 and 013. The client marked ten photos as not usable: 001, 007, 008 and the stars S01, S02, S04, S05, S06, S07, S08. They are kept in `photos/rejected/` (`originals/` and `transparent/`, stars renamed with their S id) and must not be used on any card. Still free to use: 003, 010, 011 (hands behind his back), 012, 019 and S03 (003 and 012 were on the removed card 1).
 
 `photos/all-photos.jpg` (`python3 photo-sheet.py`) shows every usable face photo with its id (001-015 card photos, S01-S08 latest-roles stars) and the card it is on, so the client can say which photos to drop. Our first-round cards were rejected and removed (they remain in git history). The tasks are in the workspace tab «قائمة المهام», group «إعادة تصميم بطاقات الاشتراك», from `05-design/todo.json`.
 
 ## Players changed on cards 2 and 8 (2026-10-24)
 
-The client asked to change the player on card 2 and to fix card 8, where the player had no visible hands.
+The client asked to change the player on card 2 and to fix card 8, where the player had no visible hands. After two tries with the photos we had (003 with a raised arm, which forced a mirrored card, and 010, the same player as card 7), the client sent two new player photos, already transparent:
 
-- **Card 2** (`aztv-6m`): the player is now 003 (white Real Madrid kit, raised arm) instead of 010. Because his raised arm would cross the actor's face, this card is mirrored: the player stands in front at the right, his arm leaving through the card edge, and the actor (013) is behind at the left.
-- **Card 8** (`plus-3m`): the player is now 010 (crossed hands) instead of 011, whose hands were behind his back so his arms ended without hands. The actor stays (016). 011 is not used on any card now.
-- **Same player twice:** 010 and 020 (card 7) are the same player in two photos, so he is on cards 7 and 8. There are seven cards and only six usable players (003, 004, 005, 006, 010/020, 017; 011 is out), so one repeat cannot be avoided without one more player photo.
+- **021** (white Real Madrid kit, arms crossed over the chest, smiling; 488 x 650, small, so it is used at the card's size with no more enlargement) is now the player on **card 8** (`plus-3m`), in front of the actor 016. It is darkened a little (`lift: .9`) so the white kit does not wash out into the gold.
+- **022** (red Bayern kit, looking up, one hand hanging; 895 x 1608) is now the player on **card 2** (`aztv-6m`), in front of the actor 013. The card is back to the normal layout (player front left, actor behind right).
+- Not used on any card now: 003, 010 (the same player as 020 on card 7, so he is no longer repeated), 011 (hands behind his back).
+- Seven cards, seven players: 022, 005, 004, 017, 006, 020, 021. No repeats.
 
 ## Plus design: the AZ TV card in gold (chosen 2026-10-24)
 
@@ -114,13 +115,13 @@ Built from `card.html` in the accepted look of card 3, with the card photos 001-
 
 | Card | Player (front) | Star (behind) |
 |---|---|---|
-| 2 `aztv-6m` | 003 (2026-10-24) | 013 |
+| 2 `aztv-6m` | 022 (new, 2026-10-24) | 013 |
 | 3 `aztv-3m` | 005 | 009 |
 | 4 `aztv-1m` | 004 | 015 |
 | 5 `plus-12m` | 017 | 018 (new, 2026-10-24) |
 | 6 `plus-12m-2dev` | 006 | 002 |
 | 7 `plus-6m` | 020 (new, 2026-10-24) | 014 |
-| 8 `plus-3m` | 010 (2026-10-24) | 016 (new, 2026-10-24) |
+| 8 `plus-3m` | 021 (new, 2026-10-24) | 016 (new, 2026-10-24) |
 
 Numbers are the photos in `photos/` (cut-outs in `photos/transparent/`); stars are in `stars/latest-roles/vertical/transparent/`. Pairs follow `card-stars.json` where we have the photo; where we don't have that photo yet (Mbappé, Vinícius and Neymar among the players; Kit Harington, Bryan Cranston and others appear in the new photos instead), the closest photo we have stands in. Card 4 is a player (004) in front and an actor (015) behind; 014 was tried in front but the client wants one player and one actor on every card. Cards 5 and 7 follow the proportions of card 3 (pairs swapped on 2026-10-24 after the client's review): card 5 is player 017 in front of the cowboy-hat actor 018, the same pairing as card 3 (fists-clenched player, actor in a hat); the hat limits the actor's face to about 98 px so the brim stays inside the card and below the package line, and 017 fades out at the bottom because the photo ends at the thighs. Card 7 is player 020 in front of the bald actor 014 in the khaki shirt (the client asked to change the actor; 019 is now unused): he stands upright, his light shirt balances the player's dark kit, and the photo runs to the knees, so it reaches the bottom of the card with no fade. 020 looks like the same player as 010 on card 2: swap one if the client wants no repeats. 012 and 013 replaced 008 (card 5) and the dark star `06` (card 2) at the client's request. Photo 011 was cut out with `--holes 5000` to clear the white gaps between the arms and the body.
 

@@ -40,8 +40,10 @@ The photos for the subscription cards (football players and series/film stars; s
 | 018 | `018-cowboy-hat-blue-suit-bolo-tie.webp` | 1254×1254 | Cowboy hat, blue pinstripe western suit, turquoise bolo tie, longhorn belt buckle, seated, hand on a wooden cane; already transparent |
 | 019 | `019-long-hair-black-period-coat-chair.webp` | 1086×1448 | Long dark hair, black period coat and waistcoat, white cravat, seated in a wooden chair; already transparent |
 | 020 | `020-barcelona-curly-hair-fist-pump.webp` | 1122×1402 | Curly hair, Barcelona kit and shorts with number 10, shouting, fist pump, taped hand, full body; already transparent |
+| 021 | `021-real-madrid-white-kit-arms-crossed.webp` | 488×650 | White Real Madrid kit, arms crossed over the chest, smiling, chest-up; already transparent (small file) |
+| 022 | `022-bayern-red-kit-looking-up.webp` | 895×1608 | Red Bayern kit, looking up with the mouth open, one hand hanging down at the bottom right, waist-up; already transparent |
 
-Batches 1 (001-005), 2 (006-009), 3 (010-011), 4 (012-013, already transparent: copied to `transparent/` as PNG without cutting) 5 (014-015), 6 (016, already transparent) and 7 (017-020, already transparent, copied to `transparent/` as PNG without cutting). More images to come.
+Batches 1 (001-005), 2 (006-009), 3 (010-011), 4 (012-013, already transparent: copied to `transparent/` as PNG without cutting) 5 (014-015), 6 (016, already transparent) and 7 (017-020, already transparent, copied to `transparent/` as PNG without cutting) and 8 (021-022, already transparent, the new players for cards 8 and 2). More images to come.
 
 ## To check before the cards are built
 

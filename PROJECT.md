@@ -197,6 +197,7 @@ new store design/
 
 ## 10. Log
 
+- 2026-10-24: Cards 2 and 8 redone with two new player photos from the client (already transparent): 022 (red Bayern kit) in front of the actor on card 2, back to the normal layout; 021 (white Real Madrid kit, arms crossed) in front of the Squid Game actor on card 8. 003, 010 and 011 are no longer used, so no player appears twice (seven cards, seven players).
 - 2026-10-24: Logo strip balanced on all nine cards: Netflix, SSC, beIN and Shahid are sized for the same visual weight (widths 56, 50, 50, 56 px on the 380 px card) with even gaps.
 - 2026-10-24: Card 2: player changed to 003 (Real Madrid kit), the card mirrored (player front right, actor behind left) so his raised arm does not cross the actor. Card 8: player 011 (no visible hands) replaced by 010 (crossed hands); 010 and 020 (card 7) are the same player, so he is on cards 7 and 8: there are only six usable players for seven cards. The outline beIN SPORTS logo is now on all nine cards, regular and Plus.
 - 2026-10-24: Plus design F chosen by the client and applied to all five Plus cards (5, 6, 7, 8, 10): the AZ TV card in gold (gold card, black burst up to the top, gold name on a black title pill, black pills with gold text), with the outline beIN SPORTS logo. The other options and their code are removed. Overview `new/all-cards.jpg`.
