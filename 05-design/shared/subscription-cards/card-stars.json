@@ -20,9 +20,9 @@
     { "name": "Antony Starr", "ar": "أنتوني ستار", "title": "The Boys", "ar_title": "ذا بويز", "why": "شخصية هوملاندر من أشهر الشخصيات في المسلسلات الحديثة" },
     { "name": "Lee Jung-jae", "ar": "لي جونغ جاي", "title": "Squid Game", "ar_title": "لعبة الحبار", "why": "أكثر مسلسل مشاهدة على نتفليكس في تاريخها" },
     { "name": "Álvaro Morte", "ar": "ألفارو مورتي", "title": "Money Heist", "ar_title": "لا كاسا دي بابيل", "why": "شخصية البروفيسور، والمسلسل محبوب جدًا في العالم العربي" },
-    { "name": "Millie Bobby Brown", "ar": "ميلي بوبي براون", "title": "Stranger Things", "ar_title": "سترينجر ثينغز", "why": "من أكبر مسلسلات نتفليكس، وجمهوره عالمي" },
     { "name": "Travis Fimmel", "ar": "ترافيس فيميل", "title": "Vikings", "ar_title": "فايكنغز", "why": "مسلسل تاريخي له جمهور وفيّ، وهو من الوجوه القديمة في بطاقاتنا" },
-    { "name": "Jenna Ortega", "ar": "جينا أورتيغا", "title": "Wednesday", "ar_title": "وينزداي", "why": "من أكثر المسلسلات انتشارًا بين الشباب" }
+    { "name": "Keanu Reeves", "ar": "كيانو ريفز", "title": "John Wick", "ar_title": "جون ويك", "why": "نجم أفلام الأكشن وله جمهور واسع" },
+    { "name": "Pedro Pascal", "ar": "بيدرو باسكال", "title": "The Last of Us", "ar_title": "ذا لاست أوف أس", "why": "وجه معروف في مسلسلات الدراما والأكشن" }
   ],
   "pairs_note": "اقتراح لتوزيع الأسماء على البطاقات الثماني التي فيها وجوه (بطاقتا التجديد بلا وجوه). كل بطاقة وجهان: لاعب ونجم. الأطول مدة تأخذ الأكبر اسمًا. ولا تتكرر الأسماء.",
   "pairs": [
@@ -33,8 +33,8 @@
     { "tier": "regular", "card": "العادية سنة + ٣ شهور", "player": "Vinícius Júnior", "star": "Tom Holland" },
     { "tier": "regular", "card": "العادية ٦ شهور", "player": "Jude Bellingham", "star": "Antony Starr" },
     { "tier": "regular", "card": "العادية ٣ شهور", "player": "Mohamed Salah", "star": "Álvaro Morte" },
-    { "tier": "regular", "card": "العادية شهر", "player": "Lamine Yamal", "star": "Millie Bobby Brown" }
+    { "tier": "regular", "card": "العادية شهر", "player": "Lamine Yamal", "star": "Travis Fimmel" }
   ],
-  "reserve": "احتياط: نيمار وبنزيما (من اللاعبين)، وترافيس فيميل وجينا أورتيغا (من النجوم). وأسماء أخرى كبيرة للاحتياط: دي بروين، كين، رافينيا، كيانو ريفز (John Wick)، فين ديزل (Fast & Furious)، بيدرو باسكال (The Last of Us)، ومسلسلات تركية مثل قيامة عثمان.",
+  "reserve": "احتياط: نيمار وبنزيما (من اللاعبين)، وفين ديزل (من النجوم). وأسماء أخرى كبيرة للاحتياط: دي بروين، كين، رافينيا، ومسلسلات تركية مثل قيامة عثمان.",
   "rights": "تنبيه: صور هؤلاء الأشخاص في بطاقات تجارية تحتاج إلى ترخيص أو توليد بأسلوب موحّد. نتحقق من هذا قبل النشر."
 }

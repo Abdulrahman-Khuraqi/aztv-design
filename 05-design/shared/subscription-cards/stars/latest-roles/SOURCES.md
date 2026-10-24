@@ -16,24 +16,38 @@ or press portal before publishing them in store artwork.
 | `05-tom-holland-spider-man-brand-new-day.jpg` | Tom Holland | *Spider-Man: Brand New Day* | 2026 | [Sony Pictures title page](https://www.sonypictures.com/movies/spidermanbrandnewday); promotional still accessed through [Cine3 coverage](https://cine3.com/nuevo-vistazo-a-tom-holland-en-spider-man-brand-new-day/). Sony Pictures / Marvel rights apply. |
 | `06-antony-starr-g20.jpg` | Antony Starr | *G20* | 2025 | [Soap Opera Network trailer coverage](https://www.soapoperanetwork.com/2025/03/viola-davis-g20-trailer); photo credit Ilze Kitshoff / Prime Video / Amazon Content Services LLC. |
 | `07-alvaro-morte-8.jpg` | Alvaro Morte | *8* | 2025 | [El Pais review](https://elpais.com/cultura/2025-03-21/el-declive-del-romanticismo-visual-de-medem-se-confirma-en-la-ingenua-reflexion-politica-de-8.html); film still supplied for press coverage, production/distributor rights apply. |
-| `08-millie-bobby-brown-enola-holmes-3.jpg` | Millie Bobby Brown | *Enola Holmes 3* | 2026 | [Netflix Tudum](https://www.netflix.com/tudum/articles/enola-holmes-3-release-date-cast-news); official Netflix promotional still. |
 
-`contact-sheet.jpg` is a local review sheet generated from the eight files above.
+`contact-sheet.jpg` is a local review sheet generated from the seven files above.
 
 ## Vertical derivatives
 
 The files in `vertical/` are non-generative 4:5 crops at 1200 x 1500 pixels.
-Faces and screen content were not synthesized or retouched. Files 04 and 08 retain
-the approved crops. Files 01, 02, 03, 05, 06, and 07 were replaced with stronger
-single-performer compositions on 2026-10-24.
+Faces and screen content were not synthesized or retouched. File 04 retains
+the approved crop. Files 01, 03, and 07 use stronger single-performer
+compositions selected on 2026-10-24.
+
+Replacement images are currently needed for Kit Harington. The rejected
+vertical source image and transparent PNG were removed on 2026-10-24 and
+should not be restored. Tom Holland was replaced on 2026-10-24 with a
+user-supplied transparent Spider-Man cutout; source and commercial-use rights
+for that replacement still need confirmation. Antony Starr was replaced on
+2026-10-24 using the user's Homelander reference and a transparent-background
+edit; source and commercial-use rights for that replacement still need
+confirmation.
 
 | Vertical file | Selected role image | Source / credit |
 | --- | --- | --- |
 | `01-bryan-cranston-everythings-going-to-be-great.jpg` | *Everything's Going to Be Great* | [Kinopoisk image page](https://www.kinopoisk.ru/picture/4252261/); promotional film still, production/distributor rights apply. |
-| `02-kit-harington-the-family-plan-2.jpg` | *The Family Plan 2* | [Apple TV Press](https://www.apple.com/uk/tv-pr/originals/the-family-plan-2/images/); Apple Original Films / Skydance unit photo 0211. |
 | `03-cillian-murphy-the-immortal-man.jpg` | *Peaky Blinders: The Immortal Man* coverage | [iHeart coverage](https://kez999.iheart.com/featured/jeff-stevens/content/2026-02-20-peaky-blinders-the-immortal-man-trailer-drops/); supplied promotional portrait, photographer/rightsholder terms apply. |
 | `04-lee-jung-jae-squid-game-3.jpg` | *Squid Game*, Season 3 | Approved crop retained; source listed in the main table. |
-| `05-tom-holland-spider-man-brand-new-day.jpg` | Spider-Man promotional still | [elDiario coverage](https://www.eldiario.es/spin/spider-man-brand-new-day-muestra-primer-trailer-cuatro-meses-estreno-pm_1_13077762.html); Sony Pictures / Marvel rights apply. |
-| `06-antony-starr-g20.jpg` | *G20* | [Wherever I Look review](https://wherever-i-look.com/movies/g20-2025-review-summary); production still, Prime Video / Amazon rights apply. |
+| `05-tom-holland-spider-man-brand-new-day.png` | User-supplied Spider-Man cutout | Transparent replacement supplied on 2026-10-24; source and commercial-use rights to confirm. |
+| `06-antony-starr-g20.png` | User-supplied *The Boys* / Homelander reference | Transparent replacement edited on 2026-10-24; source and commercial-use rights to confirm. |
 | `07-alvaro-morte-dos-tumbas.jpg` | *Dos tumbas* | [elDiario / Vertele trailer coverage](https://www.eldiario.es/vertele/videos/trailers-y-avances/netflix-lanza-trailer-tumbas-nueva-serie-alvaro-morte-sello-carmen-mola-ensena-imagenes_7_12496638.html); Netflix promotional still. |
-| `08-millie-bobby-brown-enola-holmes-3.jpg` | *Enola Holmes 3* | Approved crop retained; wider composition via [GeekTyrant coverage](https://geektyrant.com/news/enola-holmes-3-trailer-reveals-romance-danger-and-a-high-stakes-adventure). |
+
+## White-background edit
+
+`vertical/03-cillian-murphy-white-background.png` was edited from the
+user-supplied `person.png` on 2026-10-24. The street and second person were
+removed, leaving Cillian Murphy on a white background. This is a separate
+edited portrait, not an untouched film still; source and commercial-use rights
+still need confirmation.

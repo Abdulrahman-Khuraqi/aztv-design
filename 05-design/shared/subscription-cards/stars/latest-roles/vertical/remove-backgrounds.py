@@ -2,9 +2,9 @@
 
 from io import BytesIO
 from pathlib import Path
+import sys
 
 from PIL import Image, ImageDraw, ImageFont
-from rembg import new_session, remove
 import numpy as np
 from scipy.ndimage import label
 
@@ -20,31 +20,35 @@ SOURCE_FILES = sorted(
     if path.name != "contact-sheet-vertical.jpg"
 )
 
-session = new_session("isnet-general-use")
+SHEETS_ONLY = "--sheets-only" in sys.argv[1:]
 
-for source_path in SOURCE_FILES:
-    source_bytes = source_path.read_bytes()
-    result = remove(
-        source_bytes,
-        session=session,
-        alpha_matting=False,
-        post_process_mask=True,
-        force_return_bytes=True,
-    )
-    with Image.open(BytesIO(result)) as cutout:
-        rgba = cutout.convert("RGBA")
-        if rgba.size != (1200, 1500):
-            rgba = rgba.resize((1200, 1500), Image.Resampling.LANCZOS)
-        # Remove detached mask specks while preserving the main person and soft edge alpha.
-        pixels = np.array(rgba)
-        components, count = label(pixels[:, :, 3] > 8)
-        if count > 1:
-            areas = np.bincount(components.ravel())
-            areas[0] = 0
-            largest = int(areas.argmax())
-            pixels[:, :, 3][(components != 0) & (components != largest)] = 0
-            rgba = Image.fromarray(pixels, "RGBA")
-        rgba.save(OUTPUT / f"{source_path.stem}.png", optimize=True)
+if not SHEETS_ONLY:
+    from rembg import new_session, remove
+
+    session = new_session("isnet-general-use")
+    for source_path in SOURCE_FILES:
+        source_bytes = source_path.read_bytes()
+        result = remove(
+            source_bytes,
+            session=session,
+            alpha_matting=False,
+            post_process_mask=True,
+            force_return_bytes=True,
+        )
+        with Image.open(BytesIO(result)) as cutout:
+            rgba = cutout.convert("RGBA")
+            if rgba.size != (1200, 1500):
+                rgba = rgba.resize((1200, 1500), Image.Resampling.LANCZOS)
+            # Remove detached mask specks while preserving the main person and soft edge alpha.
+            pixels = np.array(rgba)
+            components, count = label(pixels[:, :, 3] > 8)
+            if count > 1:
+                areas = np.bincount(components.ravel())
+                areas[0] = 0
+                largest = int(areas.argmax())
+                pixels[:, :, 3][(components != 0) & (components != largest)] = 0
+                rgba = Image.fromarray(pixels, "RGBA")
+            rgba.save(OUTPUT / f"{source_path.stem}.png", optimize=True)
 
 
 def checkerboard(size, cell=24):
