@@ -197,6 +197,7 @@ new store design/
 
 ## 10. Log
 
+- 2026-10-24: Plus options: A and B dropped by the client, C kept, two new designs added on card 5: D (black card, big gold disc behind the faces) and E (gold card with a black screen; the heads rise out of its top). The stacked beIN logo on the Plus cards is now black and white. Overview `05-design/shared/subscription-cards/new/options/plus-12m-options.jpg`.
 - 2026-10-24: Plus cards: the stacked beIN SPORTS logo supplied by the client replaces the old white beIN logo in the logo strip (Plus only). Three Plus design options made on card 5 for the client to choose from: A gold card (current), B black card with a gold burst and gold cap, C gold and black diagonal split with a black title pill. Overview `05-design/shared/subscription-cards/new/options/plus-12m-options.jpg`.
 - 2026-10-24: AZ TV (regular) cards back to their old design at the client's request: black title pill, rays up to the top, white card with no frame (the cards are pixel-identical to the earlier export). The header cap and the new gold design stay on the Plus cards only.
 - 2026-10-24: New AZ TV Plus card design (the client kept the new AZ TV card): Plus is now the AZ TV card in gold. Flat gold card and frame with the same black zigzag burst, black header cap with the name in gold, black side tabs and pills with gold text, black and white photos. The black card, gold dust, corner shard and sepia photos are gone. All Plus cards re-exported.

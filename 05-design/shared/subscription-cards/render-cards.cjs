@@ -1,6 +1,6 @@
 // Renders the cards defined in card.html to new/<card>.png (760 x 1296, transparent corners).
 // Run from this folder: node render-cards.cjs aztv-6m   (no name = all cards; needs the playwright package)
-// A Plus design option: node render-cards.cjs plus-12m@b  -> new/options/plus-12m-b.png
+// A Plus design option: node render-cards.cjs plus-12m@c  -> new/options/plus-12m-c.png
 const { chromium } = require("playwright");
 const { pathToFileURL } = require("node:url");
 const { resolve } = require("node:path");

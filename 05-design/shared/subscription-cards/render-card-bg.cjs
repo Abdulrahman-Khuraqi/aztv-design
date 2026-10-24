@@ -38,7 +38,7 @@ for (const [tier, name] of [["regular", "aztv"], ["plus", "aztv-plus"]]) {
 }
 // Plus design options under review (2026-10-24): bg/options/card-bg-aztv-plus-<opt>.png
 mkdirSync("bg/options", { recursive: true });
-for (const opt of ["b", "c"]) {
+for (const opt of ["c", "d", "e"]) {
   await page.goto(`${cardPage}?tier=plus&opt=${opt}`);
   await ready();
   await page.locator("#card").screenshot({ path: `bg/options/card-bg-aztv-plus-${opt}.png`, omitBackground: true });
