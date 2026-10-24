@@ -115,15 +115,7 @@ const REG = "bg/card-bg-aztv.png", PLUS = "bg/card-bg-aztv-plus.png";
 // In every card with faces: first photo = the star (behind, right), last = the player (in front, left).
 // Who is on which card follows card-stars.json where we have the photo; the rest are the closest photo we have.
 const CARDS = {
-  // 1. AZ TV (regular), 1 year + 3 months (15 months)
-  "aztv-15m": {
-    bg: REG, title: "اشتراك سنة + ٣ شهور", dEn: "15 MONTHS", dAr: "سنة + ٣ شهور", titleSize: 25,
-    photos: [
-      // stand-in: S05 was rejected (2026-10-24); photo 012 is the same actor until the client picks another star
-      { src: PH + "012-red-blue-spider-suit.png", left: 168, top: 160, width: 270 },
-      { src: PH + "003-real-madrid-white-kit.png", left: -80, top: 128, width: 480 }
-    ]
-  },
+  // 1. (removed by the client: there is no «سنة + ٣ شهور» card; numbers 2-10 stay as they were)
   // 2. AZ TV (regular), 6 months
   "aztv-6m": {
     bg: REG, title: "اشتراك ٦ شهور", dEn: "6 MONTHS", dAr: "٦ شهور",

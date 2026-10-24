@@ -4,7 +4,7 @@ The card in the middle of every subscription product image. The background aroun
 
 **Status (2026-10-24): card 3 (`new/aztv-3m.png`, اشتراك ٣ شهور) accepted as the look for all cards. Cards 5, 7 and 8 (Plus 1 year, Plus 6 months, Plus 3 months) rejected by the client: to be redone with other photos. The rest wait for review (overview `new/all-cards.jpg`).**
 
-Cards 5, 7 and 8 have no photos for now (they render as empty cards). The client marked ten photos as not usable: 001, 007, 008 and the stars S01, S02, S04, S05, S06, S07, S08. They are kept in `photos/rejected/` (`originals/` and `transparent/`, stars renamed with their S id) and must not be used on any card. Still free to use: 011, 014 and S03 (012 is on card 1 as a stand-in).
+Cards 5, 7 and 8 have no photos for now (they render as empty cards). The client marked ten photos as not usable: 001, 007, 008 and the stars S01, S02, S04, S05, S06, S07, S08. They are kept in `photos/rejected/` (`originals/` and `transparent/`, stars renamed with their S id) and must not be used on any card. Still free to use: 003, 011, 012, 014 and S03 (003 and 012 were on the removed card 1).
 
 `photos/all-photos.jpg` (`python3 photo-sheet.py`) shows every usable face photo with its id (001-015 card photos, S01-S08 latest-roles stars) and the card it is on, so the client can say which photos to drop. Our first-round cards were rejected and removed (they remain in git history). The tasks are in the workspace tab «قائمة المهام», group «إعادة تصميم بطاقات الاشتراك», from `05-design/todo.json`.
 
@@ -18,11 +18,11 @@ What every card shares before its title, photos and duration go on. One per styl
 - `bg/mockups/`: each card background, blank, on approved backgrounds B (`bg-*`) and E (`option-e-*`). `preview.webp`: all four.
 - Source `card-background.html` (`?tier=regular|plus`, `&guide=1`), export `node render-card-bg.cjs` (needs Playwright).
 
-## The ten cards
+## The nine cards (card 1 was removed by the client: there is no «سنة + ٣ شهور» card; the other numbers stay as they are)
 
 | # | Card | Product | Price today | Style | Old card | New card |
 |---|---|---|---|---|---|---|
-| 1 | عز تي في سنة + ٣ شهور | p930436127 | 96 SAR (was 238) | AZ TV, black and white | `old/aztv-15m.png` | `new/aztv-15m.png` |
+| ~~1~~ | ~~عز تي في سنة + ٣ شهور~~ removed | | | | `old/aztv-15m.png` (kept as reference) | |
 | 2 | اشتراك عز تي في 6 شهور | p1133679038 | 69 SAR (was 150) | AZ TV, black and white | `old/aztv-6m.png` | `new/aztv-6m.png` |
 | 3 | اشتراك عز تي في 3 شهور | p527896233 | 39 SAR (was 100) | AZ TV, black and white | `old/aztv-3m.png` | `new/aztv-3m.png` |
 | 4 | اشتراك عز تي في شهر | p264351896 | 24 SAR (was 50) | AZ TV, black and white | `old/aztv-1m.png` | `new/aztv-1m.png` |
@@ -33,7 +33,7 @@ What every card shares before its title, photos and duration go on. One per styl
 | 9 | تجديد اشتراك عز تي في العادي | p777133688 | not shown | AZ TV renewal | `old/renew-aztv.png` | `new/renew-aztv.png` |
 | 10 | تجديد اشتراك عز تي في بلس | p287657453 | not shown | Plus renewal | `old/renew-plus.png` | `new/renew-plus.png` |
 
-The normal package has no 12-month card: its longest is سنة + ٣ شهور (15 months), shown today as a 12-month card plus a free 3-month card. "سنة" (12 months) is a Plus card.
+The normal package has no 12-month card and, as the client says, no «سنة + ٣ شهور» card either: its longest is 6 months. "سنة" (12 months) is a Plus card.
 
 ## Photos
 
@@ -49,7 +49,7 @@ Built from `card.html` (`?card=aztv-6m`; each card is one entry in `CARDS`) and 
 
 Round 2 on both trials: portraits about 10% smaller, a small «AZ TV SUBSCRIPTION» line under the title, a soft white light at the burst centre (hides the knot of rays between the faces) and a light floor under the duration and logo pills.
 
-## All ten cards (2026-10-24)
+## All nine cards (2026-10-24)
 
 Built from `card.html` in the accepted look of card 3, with the card photos 001-011 and the stars from `stars/latest-roles/`. Export all: `node render-cards.cjs` (or one: `node render-cards.cjs plus-6m`). Then `python3 contact-sheet.py` rebuilds the overview `new/all-cards.jpg`, each card with its number from the table above and its name, for review with the client.
 
@@ -64,7 +64,6 @@ Built from `card.html` in the accepted look of card 3, with the card photos 001-
 
 | Card | Player (front) | Star (behind) |
 |---|---|---|
-| 1 `aztv-15m` | 003 | 012 (stand-in: S05 rejected) |
 | 2 `aztv-6m` | 010 | 013 |
 | 3 `aztv-3m` | 005 | 009 |
 | 4 `aztv-1m` | 004 | 015 |

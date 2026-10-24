@@ -1,11 +1,11 @@
-"""Overview of the ten cards with their number (as in README.md) and name, for review with the client.
+"""Overview of the nine cards with their number (as in README.md) and name, for review with the client.
 Run from this folder after render-cards.cjs:  python3 contact-sheet.py  ->  new/all-cards.jpg
 Needs Pillow with raqm (Arabic shaping)."""
 from PIL import Image, ImageDraw, ImageFont
 
 # number, file, name; laid out right to left, AZ TV on the first row, Plus on the second
 ROWS = [
-    [(1, "aztv-15m", "عز تي في سنة + ٣ شهور"), (2, "aztv-6m", "عز تي في ٦ شهور"), (3, "aztv-3m", "عز تي في ٣ شهور"),
+    [(2, "aztv-6m", "عز تي في ٦ شهور"), (3, "aztv-3m", "عز تي في ٣ شهور"),
      (4, "aztv-1m", "عز تي في شهر"), (9, "renew-aztv", "تجديد عز تي في")],
     [(5, "plus-12m", "بلس سنة"), (6, "plus-12m-2dev", "بلس سنة (جهازين)"), (7, "plus-6m", "بلس ٦ شهور"),
      (8, "plus-3m", "بلس ٣ شهور"), (10, "renew-plus", "تجديد بلس")],
