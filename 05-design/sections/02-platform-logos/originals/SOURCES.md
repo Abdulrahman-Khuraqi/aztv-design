@@ -13,4 +13,5 @@ Wikimedia files are marked public domain for copyright; all marks remain tradema
 | osnplus.svg | OSN+ | https://commons.wikimedia.org/wiki/File:OSN%2B_logo.svg |
 | starzplay.svg | STARZPLAY | https://commons.wikimedia.org/wiki/File:Starzplay-logo.svg |
 | stctv.svg | stc tv | https://www.stctv.com/assets/stc-tv/images/logo.svg (official site) |
-| bein-sports-stacked.svg | beIN SPORTS, stacked (purple box with «bein», «SPORTS» below), used on the Plus subscription cards | supplied by the client 2026-10-24 (file named footylogos). The site copy `bein-sports-stacked-bw.svg` is black and white (client request): «bein» and the frame white, «SPORTS» black on the white lower block. |
+| bein-sports-stacked.svg | beIN SPORTS, stacked (purple box with «bein», «SPORTS» below), used on the Plus subscription cards | supplied by the client 2026-10-24 (file named footylogos). Tried on the Plus cards and replaced by the outline logo below; no site copy. |
+| bein-sports-outline.svg | beIN SPORTS, outline («bein» with «SPORTS» under it, one colour, no fills), used on the Plus subscription cards | supplied by the client 2026-10-24 (`Bein_sport_logo_1.svg`). The site copy is the same file, shown white with the CSS filter like the other logos. |

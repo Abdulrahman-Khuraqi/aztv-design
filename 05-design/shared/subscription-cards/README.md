@@ -10,15 +10,14 @@ Cards 5 and 7 were rebuilt (2026-10-24): card 5 with the new photos 017 and 018,
 
 ## Plus design options and the new beIN logo (2026-10-24, waiting for the client)
 
-Options on one card (card 5, بلس سنة), side by side in `new/options/plus-12m-options.jpg`; each one alone in `new/options/plus-12m-c.png`, `-d.png`, `-e.png`. The client dropped options A (the current gold card) and B (black card with a gold burst) and asked for new designs; C stays. All keep the name clear of the background.
+Options on one card (card 5, بلس سنة), side by side in `new/options/plus-12m-options.jpg`; each one alone in `new/options/plus-12m-c.png` and `-f.png`. The client dropped options A (the current gold card), B (black card with a gold burst), D (black card with a gold disc) and E (gold card with a black screen); C stays, improved.
 
-- **C, split**: gold above with the black burst (faded out below the title), a black plane below a diagonal with a fine gold line (the split of approved product background E), the name in gold on a black pill (no cap), gold duration pills.
-- **D, gold disc**: black card with one big flat gold disc behind the faces and a thin gold ring around it, the name in plain gold text on the black top, gold duration pills.
-- **E, screen**: gold card with a black rounded screen holding the gold burst; the photos sit in the screen and the heads rise out of its top edge. The name in plain black text on the gold above, black pills on the gold below.
+- **C, split**: gold above with the black burst running up to the top behind the title pill (as on the AZ TV card; it used to fade out below the title), a black plane below a diagonal with a fine gold line (the split of approved product background E), the name in gold on a black pill, gold duration pills.
+- **F, the AZ TV card in gold**: the layout the client likes on the AZ TV card, recoloured: gold card, the black burst up to the top, the name in gold on a black pill, black pills with gold text, gold floor. No cap, no frame, no split.
 
-Source: `card-background.html?tier=plus&opt=c|d|e` (exported to `bg/options/`) and `card.html?card=plus-12m&opt=c|d|e`; export with `node render-card-bg.cjs`, then `node render-cards.cjs plus-12m@c plus-12m@d plus-12m@e`. The five Plus cards keep the gold card (A) until the client picks one; it then becomes the Plus design for all five.
+Source: `card-background.html?tier=plus&opt=c|f` (exported to `bg/options/`) and `card.html?card=plus-12m&opt=c|f`; export with `node render-card-bg.cjs`, then `node render-cards.cjs plus-12m@c plus-12m@f`. The five Plus cards keep the gold card (A) until the client picks one; it then becomes the Plus design for all five.
 
-**beIN logo on the Plus cards:** the stacked beIN SPORTS logo the client supplied replaces the old white beIN logo in the logo strip of every Plus card (`LOGOS_PLUS` in `card.html`), in black and white as the client asked: «bein» and the frame white, «SPORTS» black on the white lower block (`05-design/new-design/assets/img/logos/bein-sports-stacked-bw.svg`; original in `05-design/sections/02-platform-logos/originals/bein-sports-stacked.svg`). The AZ TV cards keep the old logo.
+**beIN logo on the Plus cards:** the outline beIN SPORTS logo the client supplied («bein» with «SPORTS» under it, one colour) replaces the old beIN logo in the logo strip of every Plus card (`LOGOS_PLUS` in `card.html`). It is shown white like the other logos, so the strip stays black and white and the four logos have a similar weight (`05-design/new-design/assets/img/logos/bein-sports-outline.svg`; original in `05-design/sections/02-platform-logos/originals/`). The stacked logo tried before is no longer used. The AZ TV cards keep the old logo.
 
 ## AZ TV Plus, new design (2026-10-24)
 

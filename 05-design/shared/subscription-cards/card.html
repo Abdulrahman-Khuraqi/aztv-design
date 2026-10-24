@@ -101,26 +101,14 @@
   .plus.opt-c .logos { background: #1C1B17; box-shadow: none; }
   .plus.opt-c .photos { clip-path: none; }
   .card.plus.opt-c > img.tabs { clip-path: path("M0 97 H18 V262 H0 Z M362 408 H380 V572 H362 Z"); }
-  /* Plus option D: black card with a gold disc; the name in gold text on the black top (no cap, no pill); no glow (the disc is the light) */
-  .plus.opt-d .glow { background: none; }
-  .plus.opt-d .floor { background: linear-gradient(to top, rgba(13,13,13,1) 0, rgba(13,13,13,.94) 80px, rgba(13,13,13,.6) 140px, rgba(13,13,13,0) 210px); }
-  .plus.opt-d .title { left: 30px; right: 30px; top: 44px; height: 62px; border-radius: 0; background: none; box-shadow: none; color: var(--gold); font-size: 31px; }
-  .plus.opt-d .sub { top: 112px; }
-  .plus.opt-d .sub > span { background: #1C1B17; box-shadow: none; }
-  .plus.opt-d .duration span { background: var(--gold); color: var(--ink); box-shadow: none; }
-  .plus.opt-d .logos { background: #1C1B17; box-shadow: none; }
-  .plus.opt-d .photos { clip-path: none; }
-  .card.plus.opt-d > img.tabs { clip-path: path("M0 97 H18 V262 H0 Z M362 408 H380 V572 H362 Z"); }
-  /* Plus option E: the photos sit in the black screen: clipped to its sides and bottom, open at the top so the heads rise out of it;
-     the name in black text on the gold top; no floor (the pills sit on the gold under the screen) */
-  .plus.opt-e .glow { background: radial-gradient(circle at 190px 320px, rgba(250,236,178,.9) 0, rgba(240,218,130,.6) 60px, rgba(234,207,105,.2) 120px, rgba(234,207,105,0) 190px); }
-  .plus.opt-e .floor { display: none; }
-  .plus.opt-e .title { left: 30px; right: 30px; top: 44px; height: 62px; border-radius: 0; background: none; box-shadow: none; color: var(--ink); font-size: 31px; }
-  .plus.opt-e .sub { top: 112px; }
-  .plus.opt-e .sub > span { box-shadow: none; }
-  .plus.opt-e .photos { clip-path: path("M18 0 H362 V490 Q362 516 336 516 H44 Q18 516 18 490 Z"); }
-  .plus.opt-e .photos img { -webkit-mask-image: none; mask-image: none; }
-  .card.plus.opt-e > img.tabs { clip-path: path("M0 97 H18 V262 H0 Z M362 408 H380 V572 H362 Z"); }
+  /* Plus option F: the AZ TV card in gold: black title pill with the name in gold, package line under it, black pills with gold text,
+     gold glow and floor (the .plus defaults); the photos are not clipped */
+  .plus.opt-f .title { left: 38px; right: 38px; top: 50px; height: 58px; border-radius: 22px; background: var(--ink); color: var(--gold); font-size: 29px;
+    box-shadow: 0 8px 22px rgba(0,0,0,.28); }
+  .plus.opt-f .sub { top: 114px; }
+  .plus.opt-f .sub > span { box-shadow: 0 6px 16px rgba(0,0,0,.25); }
+  .plus.opt-f .photos { clip-path: none; }
+  .card.plus.opt-f > img.tabs { clip-path: path("M0 97 H18 V262 H0 Z M362 408 H380 V572 H362 Z"); }
 </style>
 </head>
 <body>
@@ -143,8 +131,8 @@
 <script>
 const LOGO = "../../new-design/assets/img/logos/";
 const LOGOS = [["netflix.svg", 64], ["ssc.svg", 46], ["bein-white.svg", 58], ["shahid.svg", 52]];
-// Plus cards: the stacked beIN SPORTS logo (supplied by the client 2026-10-24), in black and white
-const LOGOS_PLUS = [["netflix.svg", 64], ["ssc.svg", 46], ["bein-sports-stacked-bw.svg", 40, "own"], ["shahid.svg", 52]];
+// Plus cards: the outline beIN SPORTS logo supplied by the client (2026-10-24), shown white like the other logos
+const LOGOS_PLUS = [["netflix.svg", 64], ["ssc.svg", 46], ["bein-sports-outline.svg", 56], ["shahid.svg", 52]];
 const PH = "photos/transparent/", ST = "stars/latest-roles/vertical/transparent/";
 const REG = "bg/card-bg-aztv.png", PLUS = "bg/card-bg-aztv-plus.png";
 // In every card with faces: first photo = the star (behind, right), last = the player (in front, left).
@@ -219,8 +207,8 @@ const CARDS = {
   }
 };
 const c = CARDS[new URLSearchParams(location.search).get("card") || "aztv-3m"];
-// Plus design options under review (2026-10-24): &opt=c, d or e (none = the current gold card); see card-background.html
-const OPT = c.plus && ["c", "d", "e"].includes(new URLSearchParams(location.search).get("opt")) ? new URLSearchParams(location.search).get("opt") : "";
+// Plus design options under review (2026-10-24): &opt=c or f (none = the current gold card); see card-background.html
+const OPT = c.plus && ["c", "f"].includes(new URLSearchParams(location.search).get("opt")) ? new URLSearchParams(location.search).get("opt") : "";
 const card = document.getElementById("card");
 card.classList.toggle("plus", !!c.plus);
 card.classList.toggle("is-renew", !!c.renew);
