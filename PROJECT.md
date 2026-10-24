@@ -1,9 +1,9 @@
 # AZ TV Store — New Store Design
 
 Single source of truth for the redesign of [aztvstore.com](https://aztvstore.com/).
-The visual version of this file is **Our Workspace**: [our workspace.html](our%20workspace.html). Keep the two in sync.
+The visual version of this file is **Our Workspace**: [our workspace.html](our%20workspace.html). Keep the two in sync. Its tab «قائمة المهام» is the image to-do list (`05-design/todo.json`), and «ملفات التسليم» embeds every deliverable (refresh with `python3 05-design/new-design/build/sync_workspace.py`).
 
-Last updated: 2026-10-21
+Last updated: 2026-10-23
 
 ## 1. Project in one paragraph
 
@@ -13,6 +13,7 @@ Redesign the AZ TV Store homepage (عز تي في) into a shorter, clearer page 
 - Agreed plan, full original Arabic text: [01-brief/homepage-plan.md](01-brief/homepage-plan.md), also inside the workspace (tabs "الخطة" and "ملاحظات التصميم"). Work from these, not from the Google Doc.
 - Original Google Doc (`AZTV_Homepage_New_Order_v3`), reference only: https://docs.google.com/document/d/1F0vgi7_V4gwE4v3klXzwdz6QhVmNvYYqwonBPe1vdEs/edit?tab=t.0
 - Platform: Salla (Twilight theme engine)
+- Theme: **ملاك (Malak)** by AfterAds, the name it has on Salla. In the code it is called `ANGEL` (v1.174.0).
 - Language and direction: Arabic first, RTL
 
 ## 2. Brand
@@ -88,15 +89,48 @@ Design rules that follow:
 3. Arabic and RTL first. The header also carries a language and a currency switch.
 4. The hero video needs a poster image, muted autoplay and a mobile fallback, and must stay small.
 
+### The theme: ملاك (Malak) by AfterAds
+
+On Salla the store uses the theme **ملاك**. Its code name is **ANGEL**, so the page and CSS say ANGEL; both names mean the same theme.
+
+Read from the saved page: `<meta name="theme:name" content="ANGEL">`, `theme:developer` AfterAds, CSS `themes/1034648396/1.174.0/app.css`. (`salla-1130931637` on `<body>` is the store id, not the theme.) The AfterAds site is blocked from this work environment, so the block list below comes from the theme's own markup and CSS.
+
+ANGEL blocks **in use on the homepage today**: hero slider (`s-block--hero-slider`, full width), section title / divider (`s-angel--divider`: title, subtitle, image or GIF, countdown, one button), banners (`s-block--banners`), featured product (`s-block--special-product`: product, features, countdown), products grid (`s-block--angel-products`), products slider (`s-block--best-offers`), categories / links slider (`s-block--categories`: image + title + link), store features (`s-block--features`), testimonials (`s-block--testimonials`).
+
+ANGEL blocks **in the theme CSS but not used yet**: FAQ (`s-block--faqs`), moving strip (`angel-ad`, marquee with small images and text, pauses on hover), video in the hero slider (`responsive-video`, `video-swiper`), slider with background (`s-block--slider-with-bg`), stories (`angel-stories`, YouTube/TikTok), discount coupon (`angel-discountcoupon`).
+
+**Build map: each section on ANGEL, with as little extra code as possible.**
+
+| # | Section | ANGEL block | Extra code |
+|---|---|---|---|
+| 01 | Hero | Hero slider with a video slide | CSS. Headline and buttons over the video may not be a slider field: either bake them into the poster or add a small custom block. To check in the theme settings. |
+| 02 | Logos strip | Moving strip `angel-ad` (images) | CSS only (bigger logos, dark tiles) |
+| 03 | Main categories | Categories block (image + title + link) | CSS only. The second line under each name is not a field; drop it. |
+| 04 | beIN world | Divider (title + "تصفح العروض") + banners (two devices) + categories (packages and renewal) | CSS only. The three-column layout in the draft becomes three stacked blocks. |
+| 05 | AZ TV Box | Featured product | CSS only |
+| 06 | Season offers | Divider with countdown and button + products grid | CSS only. Banner and cards stack instead of sitting side by side. |
+| 07 / 11 | Packages | Divider + products slider | CSS only (product card restyled once) |
+| 08 / 12 | Apps and devices | Divider with "تفعيل" button + categories block with icon images | CSS only. Icons uploaded as images. |
+| 09 | Why us | Store features | CSS only. Payment logos already sit in the footer. |
+| 10 | Testimonials | Testimonials | CSS only |
+| 13 | Comparison | **No ANGEL block.** Banners block with a designed comparison image (desktop and phone) + divider buttons | Image instead of code. A real table needs a custom block. |
+| 14 | Second store | Divider + full-width banner | CSS only |
+| 15 | Loyal customers | Divider with button + products grid (renewals) | CSS only |
+| 16 | FAQ | FAQ block `s-block--faqs` | CSS only |
+| 17 | Final CTA | Divider (title, subtitle, one button) | CSS only, with one button; three buttons need three banners or a custom block |
+
+So with ANGEL kept, almost everything is block settings plus one custom CSS file. Only the comparison table, the three-button final CTA and text over the hero video would need code; each has a no-code fallback above.
+
 **Decision needed:** how we build it.
 
 - Route A: keep the current theme and restyle it through its settings and custom CSS. Faster, limited.
 - Route B: build custom blocks or a custom Twilight theme. Full control. Needs a Salla Partners account, the Salla CLI and Twig development.
-- The plan asks for a video hero, an animated logo, a logo strip, a comparison block and an FAQ. Route B is the likely fit, to be confirmed once we know which theme the store owns and what access we have.
+- **Decided 2026-10-22: Route A.** The page is built from ملاك blocks with one custom CSS file; step-by-step setup in `05-design/SALLA-SETUP.md`.
+- Earlier note, 2026-10-22: the theme is ملاك (ANGEL in the code), and it already covers the video hero, the logo strip and the FAQ (map above). **Route A is now the recommended fit**: keep ANGEL, set the blocks in the order of the plan, and add one custom CSS file. Route B only if the client wants the comparison table or the three-button final CTA as real HTML.
 
 ## 6. Current store snapshot (homepage, 2026-10-14)
 
-- Theme: Salla Twilight theme, id `1130931637`. Font `PingARLT`. Theme primary colour `#000000`.
+- Theme: ملاك (Malak, code name ANGEL) by AfterAds, v1.174.0 (theme files id `1034648396`; `1130931637` is the store id). Font `PingARLT`. Theme primary colour `#000000`.
 - Desktop homepage is about 8,000 px tall once products load.
 - Order today: header → hero slider (Saudi win offer) → عالم بي ان → banners → عز تي في بوكس (featured product) → عروض اليوم الوطني → 2 والثالث مجانا → مميزات متجرنا → لعملائنا الأوفياء → تطبيقات الباقة العادية → Az TV → قالوا عن عز تي في → تطبيقات باقة البلس → Az TV Plus → newsletter → footer.
 - Menu: أجهزة بي ان 4K, أجهزة بي ان PVR, تجديد اشتراك بي ان الرسمي, قمة عربي, قمة خليجي, تميز عربي, تميز خليجي, باقات الاشتراك (الباقة العادية, باقة البلس), تفعيل اشتراك عز تي في, تفعيل اشتراك عز تي في بلس.
@@ -119,14 +153,15 @@ Have (paths from the client folder root):
 - Player and show photos: `02-assets/player-photos/`
 - Stock textures and effects: `02-assets/stock/`
 - Subscription cards (3 months, 12 months, Plus): `03-product-cards/subscription-cards/`
-- Card images (player and show cut-outs, arriving in batches): `05-design/shared/card-images/` (`originals/`, README with the list and checks)
+- Card images (player and show cut-outs, arriving in batches): `05-design/shared/subscription-cards/photos/` (`originals/`, README with the list and checks)
 - Past campaigns for reference: `04-campaigns/`
 - Activation guide: `05-guides/device-activation-steps/`
 - Designs the client liked: `07-client/designs-client-liked/`
 
 Missing for this plan:
 
-- Vector logo (AI or SVG), needed for the animated logo.
+- Confirmation in the Salla customizer that the moving strip and FAQ blocks exist on the homepage (see `05-design/SALLA-SETUP.md`, section 6).
+- Official vector logo (AI or SVG). A traced SVG now exists (see log, 2026-10-22); the official file is still better if the client has it.
 - Hero video footage, black and white, licensed for web use.
 - AZ TV Box product photos.
 - App and device icons.
@@ -137,11 +172,12 @@ Missing for this plan:
 ## 8. Open questions
 
 1. Merge the two apps sections into one (16 sections) or keep both (17)?
-2. Which Salla theme does the store own, and do we have developer access (Route A or B)?
+2. ~~Which Salla theme does the store own?~~ ملاك (Malak) by AfterAds, code name ANGEL, v1.174.0. Still open: confirm Route A (keep ANGEL + custom CSS), and where the store adds custom CSS (theme settings or Salla's custom code).
 3. Typeface for the new design: keep `PingARLT` or change?
 4. Is a vector version of the logo available?
 5. Who supplies the hero video footage?
 6. Does the redesign cover only the homepage, or also category, product and activation pages?
+7. Are the comparison rows (section 13) and the FAQ answers (section 16) right? Both are drafts written from the store's own pages.
 
 ## 9. Folder map
 
@@ -154,15 +190,69 @@ new store design/
 ├── 03-current-site/    old-design/ (frozen copy of the live homepage + screens/)
 ├── 04-wireframes/      layout before visuals
 ├── open old design.bat / open new design.bat   run the two designs locally
-├── 05-design/          new-design/ (working copy of the homepage), shared/ (header, product card, buttons), sections/01-hero … 17-final-cta, desktop/, mobile/
+├── 05-design/          new-design/ (the homepage on ملاك blocks + malak-custom.css), sections/01-hero … 17-final-cta, SALLA-SETUP.md (how to apply it on Salla), IMAGE-PROMPTS.md
 ├── 06-assets/          images, video, icons made for the new design
 └── 07-exports/         final files handed to the client or to development
 ```
 
 ## 10. Log
 
-- 2026-10-24: Card images batch 2 (four more cut-outs, 006 to 009: yellow-and-navy kit, Argentina kit jumping, man in dark period coat seated, man in straw hat and pinstripe suit) added to `05-design/shared/card-images/originals/`. Nine images in total, still all on white backgrounds.
-- 2026-10-24: Place for the card images created: `05-design/shared/card-images/`. Batch 1 (five cut-outs: Argentina kit, man in black coat, Real Madrid, Barcelona, Man City) saved untouched in `originals/` with numbered names; more batches to follow, then we start on the cards. All five are on a white background (no transparency), so transparent versions are needed for the dark site; rights to be confirmed. Listed under shared elements in the workspace.
+- 2026-10-24: Card images batch 2 (four more cut-outs, 006 to 009: yellow-and-navy kit, Argentina kit jumping, man in dark period coat seated, man in straw hat and pinstripe suit) added to `05-design/shared/subscription-cards/photos/originals/`. Nine images in total, still all on white backgrounds.
+- 2026-10-24: Place for the card images created: `05-design/shared/subscription-cards/photos/`. Batch 1 (five cut-outs: Argentina kit, man in black coat, Real Madrid, Barcelona, Man City) saved untouched in `originals/` with numbered names; more batches to follow, then we start on the cards. All five are on a white background (no transparency), so transparent versions are needed for the dark site; rights to be confirmed. Listed under shared elements in the workspace.
+
+- 2026-10-23: Who appears on the subscription cards: top 10 football players (Ronaldo, Messi, Mbappé, Haaland, Vinícius, Bellingham, Yamal, Salah, Neymar, Benzema) and top 10 series and film stars (Game of Thrones, Breaking Bad, Peaky Blinders, Spider-Man, The Boys, Squid Game, Money Heist, Stranger Things, Vikings, Wednesday), picked for a Saudi and Arab audience by fame, not a live ranking. Source `05-design/shared/subscription-cards/card-stars.json`; shown in the workspace «ملفات التسليم» (نجوم البطاقات) with a suggested split across the eight cards that carry faces (the two renewal cards have none). Image rights to check before publishing.
+
+- 2026-10-23: Subscription card backgrounds, one per style, in `05-design/shared/subscription-cards/bg/` (760 x 1296, transparent corners and hanger slot): AZ TV white with a bold black zigzag burst, AZ TV Plus black with a gold frame, gold corner shards and gold dust; both with AZTVSTORE side tabs and the same jagged ray as the approved product backgrounds. Content guides, mock-ups on B and E, source `card-background.html`, export `render-card-bg.cjs`. Also in the workspace «ملفات التسليم» under «خلفيات بطاقات الاشتراك».
+
+- 2026-10-23: New first tab "نظرة عامة" in the workspace: a grid of large tiles, one icon and a short title each, in groups: tabs, to-do list, tasks and decisions, delivery files, plan and design, brand, Salla, current store, files and links. Each tile opens its tab and scrolls straight to that part (tasks, open questions, colours, Salla rules, footer links, etc.), plus the old design, new design and live store. The workspace now opens on it.
+
+- 2026-10-23: Subscription cards organised in one folder, `05-design/shared/subscription-cards/` (README lists the ten cards, products, prices, old and new file names and the steps): `old/` the store's cards cut out of their posts, 4x, transparent corners (`cut-old-cards.py`, `old/all-cards.png` for all ten); `new/` empty, for the redesign, each card 760 x 1296 to fit the card area of the approved backgrounds. Our first-round cards were rejected (not good enough, will not go on the site) and removed: `assets/img/products/`, `build/make_products.js`, `cat-renewal-3d-bw.png`; the preview shows the store's own product images again and SALLA-SETUP.md no longer lists them. Tasks: «إعادة تصميم بطاقات الاشتراك» in «قائمة المهام», ten close-ups, not started.
+- 2026-10-23: Subscription backgrounds merged into `site-dev`. Both approved backgrounds (B and E, white and gold) are in the workspace: «لوحة التصميم» shared-elements card, sections 07 and 11, and a new «خلفيات بطاقات الاشتراك» block in «ملفات التسليم» with downloads (WebP copies in `05-design/shared/subscription-backgrounds/export/`; `sync_workspace.py` embeds them).
+- 2026-10-23: Option E approved by the client after removing the grey strip and thin line above the diagonal. B and E are both saved as usable subscription backgrounds (`bg-aztv*.png` = B, `option-e-aztv*.png` = E). Workspace shared-elements card shows both.
+- 2026-10-23: Subscription background, new option to try next to the approved B: Option E "split", the old images' black / light diagonal redrawn clean (white or gold plane, zigzag rays tone on tone, fine double edge line, no loose shards). B stays the approved background until the client decides. Preview `05-design/shared/subscription-backgrounds/preview-option-e.webp`.
+- 2026-10-23: **Subscription background approved: Option B** (spotlight burst). Option D (stadium) rejected as childish; all other options removed. Final files `05-design/shared/subscription-backgrounds/export/bg-aztv.png` (white) and `bg-aztv-plus.png` (gold, 4K badge), 2000 x 2000. Card area 380 x 648 at x 310, y 204 (of 1000). Added to the workspace: shared elements card, sections 07 and 11, log.
+- 2026-10-23: Subscription backgrounds, round 3. Client: Option B is good, Option C is bad. C replaced by Option D "stadium night" (floodlight towers crossing beams behind the card, crowd camera flashes, pitch lines under the card), to feel epic and fun: TV shows and football. Preview `compare-option-d.webp`.
+- 2026-10-23: Subscription backgrounds, round 2 after client feedback. Option A dropped (too busy). Option B kept without the floor light and the corner frames. New Option C "halo": light from above, soft shafts, two thin rings, dust in the beam. Card made smaller in both: 380 x 648 at x 310, y 204 (of 1000). Previews `compare-option-b.webp`, `compare-option-c.webp`.
+- 2026-10-23: Subscription product backgrounds, two options for the client to pick (sections 07 and 11). One background for all subscription cards, the card in the middle changes per product. AZ TV uses white, AZ TV Plus uses gold with a 4K badge. Option A redraws the old diagonal look (dark top, one white or gold band with shards); Option B is a black stage with jagged rays from behind the card and a lit floor. Card area kept where it was in the old images (x 280-720, y 150-900 of 1000) so the current cards fit. Files in `05-design/shared/subscription-backgrounds/` (previews `compare-option-a.webp`, `compare-option-b.webp`; finals 2000 x 2000 in `export/`).
+- 2026-10-23: Task list: new group «إعادة تصميم بطاقات الاشتراك» at the top of the «قائمة المهام» tab, all ten subscription cards marked to redesign. AZ TV (black and white): سنة + ٣ شهور p930436127, ٦ شهور p1133679038, ٣ شهور p527896233, شهر p264351896. AZ TV Plus (gold): سنة p331255752, سنة جهازين p1669484767, ٦ شهور p1879371242, ٣ شهور p1024479901. Renewals: العادي p777133688, البلس p287657453. Each shows today's card, current price and the new file name (`prod-*-v2.png`). The normal package has no 12-month card; its longest is سنة + ٣ شهور.
+- 2026-10-23: Header logo changed again at the client's request, to `assets/img/logo/aztv-logo-stroke.svg`: one slow 10 s loop, a gold stroke draws around each shape (frame first, then the line, A, Z and TV), the logo fills in, rests, a soft shine passes across, rests, fades out gently, and the loop starts again. Still under reduced motion. The shine, loop and play-once versions stay as alternatives. Frames: `05-design/shared/logo/logo-stroke-frames.png`.
+- 2026-10-23: New header logo `assets/img/logo/aztv-logo-shine.svg`, at the client's request (keep it moving and shining): no drawing intro, the logo is always visible; a wide bright shine sweeps across every 3 s, it floats gently, a gold glow breathes behind it, and four small sparkles twinkle in turn. CSS inside the SVG (works as a plain image / uploaded logo), still under reduced motion. Header (logo-light and logo-dark) now uses it; the loop and play-once versions stay as alternatives. Frames: `05-design/shared/logo/logo-shine-frames.png`.
+- 2026-10-23: Hero video in place of the Gemini poster (poster files removed). Source `05-design/sections/01-hero/hero-video-source.mp4` (19.5 s, 1920x1080, already black and white, 13 MB with sound). Cropped to the 2.39:1 area because most clips carry 138 px cinema bars; encoded without sound to `assets/video/hero.mp4` (1280x536, 2.3 MB) and `hero-phone.mp4` (600x798, centre 3:4 crop, 1.4 MB), with VP9 WebM fallbacks and first-frame posters. Hero slider markup now a video slide (`responsive-video`, `video-swiper`; rebuilt from the theme CSS, to check in the customizer); the CSS makes it fill the hero like a background. Checked playing at 1440 and 390.
+- 2026-10-22: Section 04 rebalanced: the row of five package tiles is gone, renewal moved up, so the section is three equal cards in one banners block (4K receiver, PVR receiver, official beIN renewal), swiping sideways on phones; the beIN icon above the title is dropped (the cards carry the logo). Cards composed by `build/make_bein.js` (beIN logo + Arabic title in PingARLT), temporarily with the devices cut out of the old banners. Prompts for the three 3D renders, with reference images (the real devices cut out, `assets/img/bein/ref-bein-*-device.png`, plus the section 03 style renders), are in the to-do list; when `bein-4k-3d.png`, `bein-pvr-3d.png`, `bein-renew-3d.png` land in `assets/img/bein/`, re-running `make_bein.js` swaps them in.
+- 2026-10-22: The ten product card images are done (`assets/img/products/prod-*.png` for Salla, `.webp` for the page), composed by `build/make_products.js` in the browser so the Arabic is shaped in PingARLT: the section 03 3D card (black and white for AZ TV, gold for Plus with a 4K badge, the renewal arrow for renewals), the duration large, the package name small, on black with a soft glow. The two «اليوم الوطني» images are gone. In the preview via `build_page.py`; upload list in `SALLA-SETUP.md`; to-do items marked done.
+- 2026-10-22: Image to-do list. `05-design/todo.json` lists the 23 old or placeholder images still in the new page, grouped: 10 product cards (I compose them from the section 03 3D renders, with the duration in Arabic; two still say «اليوم الوطني»), beIN world (4K and PVR receivers, قمة and تميز packages, renewal), the AZ TV Box card, the second-store banner, the three old GIF title icons, an optional 3D upgrade of the flat icons, and the hero video. Each has the image used today, the new file name, who makes it and a ready prompt in the section 03 style. `sync_workspace.py` (with `build/todo_panel.py`) turns it into the workspace tab «قائمة المهام» and `05-design/TODO.md`.
+- 2026-10-22: Section 03, AZ TV card: black-and-white version of the 3D render (`cat-aztv-3d-bw.png/.webp`, silver frame, white logo) so the regular package reads black and white and Plus stays gold, as on the store's product cards. The gold original is kept.
+- 2026-10-22: Full review of the new page, section by section, with the next edit for each and the top five priorities: stale «اليوم الوطني» product images (06, 07, 11), the beIN section (04), the AZ TV Box image (05), a shorter page by merging 08 and 12 (page is 10,826 px vs about 9,500 today), and renewal prices showing «-» (15). In `05-design/REVIEW.md`, full-page screenshots in `05-design/review/`.
+- 2026-10-22: Section 03 uses the five 3D renders (transparent PNG, `cat-*-3d.png`, WebP copies for the page). CSS for the first categories block only (`section:nth-child(1 of .s-block--categories)`): the card is drawn behind the lower two thirds of the tile so the object rises out of it, floats gently and lifts with a gold glow on hover. The theme's own dark background on category links is removed for all category blocks.
+- 2026-10-22: Second logo, `assets/img/logo/aztv-logo-loop.svg`: the same intro, then a quiet loop (signal waves from the antenna tip, a breathing gold glow, a shine every 7 s); taller canvas for the waves. Now in the header (logo-light and logo-dark). `aztv-logo-animated.svg` (plays once) stays as the calmer option the plan described. Frames: `05-design/shared/logo/logo-loop-frames.png`.
+- 2026-10-22: Fix: the header logo disappeared with dark mode on. ملاك hides `.logo-light` in a dark header and shows `.logo-dark`, the dark-mode logo field, which the store never filled. The preview now carries the animated logo in both; `SALLA-SETUP.md` says to upload it in the dark-mode logo field too.
+- 2026-10-22: Main menu fixed (plan note «مراجعة وإصلاح Menu List، إصلاح الكرت الذي يظهر بدون صورة»). Found in the saved page: the "card without an image" is the menu banner slider at the top of the drawer, enabled with one slide and no image; and «تجديد اشتراك بي ان الرسمي» has an empty image circle next to the 4K and PVR items that have images. New menu, no item images: باقات الاشتراك (العادية، البلس) · تجديد الاشتراك · عالم beIN (4K، PVR، قمة وتميز عربي وخليجي، تجديد beIN الرسمي) · AZ TV Box · العروض · تفعيل الاشتراك (AZ TV، AZ TV Plus). beIN packages were filed under renewal; renewal, the Box and offers were missing. Built into the preview by `build/build_page.py`, steps in `SALLA-SETUP.md` section 5, screenshots in `05-design/shared/menu/`.
+- 2026-10-22: Workspace tab «ملفات التسليم» holds a copy of every deliverable, embedded so nothing depends on the folder: SALLA-SETUP.md (rendered), malak-custom.css (with copy button), both logo SVGs, all block images, IMAGE-PROMPTS.md and this file, each with a download button. Refresh after any change with `python3 05-design/new-design/build/sync_workspace.py`.
+- 2026-10-22: **New design rebuilt on ملاك blocks (Route A).** `05-design/new-design/index.html` is now generated by `build/build_page.py` from the saved live page: the theme's own block markup, in the plan's 17-section order, refilled the way the merchant would in Salla's customizer. The earlier custom-markup draft (`new-design.css`, `az-` sections) is removed.
+  - Theme settings do most of the work: ملاك has a dark mode (`.dark`, `--dark-bg-main` etc.) and colour settings (`--color-primary`, `--text-btn`, `--bg-color`, header/footer). Gold `#EACF69`, black `#0D0D0D`, surface `#1A1A1A` there turn the page black and gold with no CSS.
+  - One CSS file for the store: `assets/css/malak-custom.css` (about 180 lines). It uses theme classes and block order, never component ids. Two order rules matter: the title block right after the first slider becomes the hero text (01), and the title block right after the FAQ becomes the final CTA box (17).
+  - `assets/css/preview-only.css` is for the local copy only (stands in for Swiper and the FAQ toggle, since the saved page has no scripts).
+  - New images made locally in `assets/img/malak/`: gold icons for the apps and features blocks, five beIN package tiles, the comparison image (desktop and phone), and the eight platform logos in white on one canvas size. Scripts in `build/`.
+  - Not used on the store yet, so rebuilt from the theme CSS and to be checked in the Salla customizer: the moving strip (`angel-ad`, section 02) and the FAQ block (`s-block--faqs`, 16).
+  - 13 Comparison is an image (no ملاك block for tables). 17 has one button (the title block holds one).
+  - Section screenshots: `05-design/sections/*/…-malak-desktop.png|webp` and `…-malak-mobile.webp`, also in the workspace board.
+
+- 2026-10-22: Animated logo. The store logo PNG (`S29idagq…png`, 1284×1397) traced into an SVG of five flat shapes (TV frame with antennas, top line, A, Z, TV), 98.9% overlap with the original. Two files in `05-design/new-design/assets/img/logo/`: `aztv-logo.svg` (static, 1.4 KB, now in the footer) and `aztv-logo-animated.svg` (4.3 KB, now in the header). The animation plays once, about 2.6 s: the frame and top line draw in, the frame fills, A and Z rise, TV pops, one gold shine passes, then the logo stays still. No motion for visitors who ask for reduced motion. The animation is CSS inside the SVG file, so it also runs as a plain image: on Salla it can be uploaded as the store logo with no theme code, if Salla's logo field accepts SVG (to check; if not, it goes in the header through the theme's custom code). Frames preview: `05-design/shared/logo/logo-animation-frames.png`. The original's slight dark shading inside the Z is flattened to the gold gradient.
+
+- 2026-10-22: Sections 04 to 17, first draft, in `05-design/new-design/index.html`, in plan order. They replace the old theme blocks below the categories (the old design keeps them). Styles in `new-design.css`, all `az-`. What changed:
+  - Shared: one product card (`.az-card`) for every product row (06, 07, 11, 15), a shared section shell (`.az-sec`, `--band` for the `#1A1A1A` ground), a `--line` button, and the footer restyled dark with the same links. The page ground is black from the hero to the footer.
+  - 04 beIN world: three columns, devices (4K c757128774, PVR c1398521669), subscriptions (قمة عربي c1147218769, قمة خليجي c415231319, تميز عربي c374229586, تميز خليجي c1787038800), renewals (c899162953). Offers link c1461115041. Device images are the store's banners for now.
+  - 05 AZ TV Box: features with gold icons, Plus year as a gift, 299 instead of 400, countdown. The countdown date is a placeholder; on Salla it comes from the product.
+  - 06 Season offers: text banner ("خصم حتى 60٪") beside the two products of the offers category c1510593888.
+  - 07 and 11: four packages each from the product data captured on 2026-10-21 (names, prices, discounts, ratings).
+  - 08 and 12: kept as two sections (17 total) until the client decides. Both use one component (`.az-apps`) with icon tiles to the activation pages, so merging means deleting one.
+  - 09: the four plan features plus payment logos. The broken "+ 0 طلب" counter is dropped.
+  - 10: store reviews (names and stars; most have no text).
+  - 13 Comparison and 16 FAQ: **draft content** written from the store's own products, banners and pages. The client must confirm each row and answer.
+  - 14: dark card linking to azshirtsstore.com, current campaign image faded in. 15: renewal banner with the two renewal products. 17: final CTA with the three buttons.
+  - Removed a browser-extension overlay (orange glow border and fake cursor) that came with the saved page.
+  - Screenshots of each section (desktop PNG and WebP, mobile WebP) in `05-design/sections/04-…` to `17-…`, and embedded in the workspace board.
+  - New images: prompts for Gemini/ChatGPT in `05-design/IMAGE-PROMPTS.md` (beIN receivers and AZ TV Box restaged on dark, season-offer art, subscription card backgrounds, second-store banner, final CTA background). Text is kept out of the images on purpose.
 
 - 2026-10-21: Section 03 main categories, first draft. Five cards after the logo strip: تجديد الاشتراك (c183760688 "جدد الان"), AZ TV (c971844871), AZ TV Plus (c921887589), beIN Sports (c899162953, official renewal; there is no single beIN category), AZ TV Box (product p1152326425). Five images generated in Gemini in one matching style and warm-graded to the brand; originals `cat-*-gemini.jpg` in `05-design/sections/03-main-categories/`, web versions `cat-*.webp` (600x800). Cards 2-5 are Gemini's 765x1024 previews (Chrome blocked the full-size downloads), enough for the card size. The AZ TV Box image is a generic device: replace with the real product photo before going live.
 
