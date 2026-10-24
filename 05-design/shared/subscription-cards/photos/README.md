@@ -27,8 +27,10 @@ The photos for the subscription cards (football players and series/film stars; s
 | 009 | `009-man-straw-hat-pinstripe-suit.jpg` | 928×1133 | Straw boater hat, glasses, moustache, pinstripe suit, holding a chocolate bar |
 | 010 | `010-barcelona-curly-hair-crossed-fingers.jpg` | 1500×2000 | Curly hair, Barcelona kit, tongue out, hands crossed on chest |
 | 011 | `011-light-blue-kit-hands-behind-back.jpg` | 2000×2000 | Square studio portrait, royal-blue kit with white collar, hands behind back, looking at camera; white background, not a tight cut-out |
+| 012 | `012-red-blue-spider-suit.png` | 540×740 | Red and blue spider suit, head tilted, looking at camera; already transparent (small file, fine at card size) |
+| 013 | `013-blue-suit-eagle-shoulder-cape.webp` | 1350×1687 | Blue patterned suit, silver eagle on the shoulder, red cape, slicked hair; already transparent |
 
-Batches 1 (001-005), 2 (006-009) and 3 (010-011). More images to come.
+Batches 1 (001-005), 2 (006-009), 3 (010-011) and 4 (012-013, already transparent: copied to `transparent/` as PNG without cutting). More images to come.
 
 ## To check before the cards are built
 

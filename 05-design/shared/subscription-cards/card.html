@@ -27,10 +27,14 @@
   /* light floor under the duration and logo pills, so they sit on a calm base and the photos fade into it */
   .floor { position: absolute; inset: auto 0 0; height: 210px; z-index: 8; pointer-events: none;
     background: linear-gradient(to top, rgba(244,244,242,1) 0, rgba(244,244,242,.94) 80px, rgba(244,244,242,.6) 140px, rgba(244,244,242,0) 210px); }
-  .sub { position: absolute; left: 0; right: 0; top: 116px; z-index: 10; display: flex; align-items: center; justify-content: center; gap: 8px;
-    direction: ltr; font-size: 9.5px; font-weight: 700; letter-spacing: .32em; color: var(--ink); }
-  .sub::before, .sub::after { content: ""; width: 26px; height: 2px; border-radius: 2px; background: var(--ink); }
-  .sub span { padding: 3px 9px 3px 12px; border-radius: 99px; background: rgba(244,244,242,.92); }
+  /* package line under the title: the package name in a light chip, then SUBSCRIPTION (or RENEWAL) */
+  .sub { position: absolute; left: 0; right: 0; top: 114px; z-index: 10; display: flex; align-items: center; justify-content: center; gap: 10px;
+    direction: ltr; font-weight: 700; }
+  .sub::before, .sub::after { content: ""; width: 34px; height: 2.5px; border-radius: 2px; background: var(--ink); }
+  .sub > span { display: flex; align-items: center; gap: 9px; height: 30px; padding: 0 11px 0 4px; border-radius: 99px;
+    background: var(--ink); color: #D6D6D2; font-size: 11px; letter-spacing: .22em; box-shadow: 0 6px 16px rgba(0,0,0,.25); }
+  .sub b { display: grid; place-items: center; height: 22px; padding: 0 11px; border-radius: 99px; background: var(--white); color: var(--ink);
+    font-size: 12.5px; letter-spacing: .1em; }
   .card > img.tabs { z-index: 9; clip-path: path("M0 97 H18 V262 H0 Z M362 408 H380 V572 H362 Z"); }
   .photos img { position: absolute; height: auto; filter: grayscale(1) contrast(1.15) brightness(1.02);
     -webkit-mask-image: linear-gradient(to bottom, #000 72%, transparent 97%); mask-image: linear-gradient(to bottom, #000 72%, transparent 97%); }
@@ -69,9 +73,9 @@
   .plus .floor { background: linear-gradient(to top, rgba(13,13,13,1) 0, rgba(13,13,13,.92) 80px, rgba(13,13,13,.55) 140px, rgba(13,13,13,0) 210px); }
   .plus .photos img { filter: grayscale(1) sepia(.55) saturate(1.25) contrast(1.12) brightness(.96); }
   .plus .title { background: linear-gradient(180deg, #F4DE85, var(--gold) 55%, #C9A94A); color: var(--ink); box-shadow: 0 8px 22px rgba(0,0,0,.5); }
-  .plus .sub { color: var(--gold); }
   .plus .sub::before, .plus .sub::after { background: var(--gold); }
-  .plus .sub span { background: rgba(13,13,13,.88); }
+  .plus .sub > span { border: 1.5px solid var(--gold); color: var(--white); box-shadow: 0 6px 16px rgba(0,0,0,.5); }
+  .plus .sub b { background: linear-gradient(180deg, #F4DE85, var(--gold) 55%, #C9A94A); }
   .plus .duration span { background: var(--ink); color: var(--gold); border: 1.5px solid var(--gold); box-shadow: 0 6px 16px rgba(0,0,0,.5); }
   .plus .logos { border: 1.5px solid var(--gold); box-shadow: 0 8px 22px rgba(0,0,0,.5); }
   .plus .badge span { background: var(--gold); border-color: var(--ink); }
@@ -94,7 +98,7 @@
   <div class="floor"></div>
   <img class="bg tabs" id="tabs" alt="">
   <div class="title" id="title"></div>
-  <div class="sub"><span id="sub"></span></div>
+  <div class="sub"><span><b id="sub-name"></b><span id="sub"></span></span></div>
   <div class="badge" id="badge"></div>
   <div class="duration"><span class="ar" id="d-ar"></span><span class="en" id="d-en"></span></div>
   <div class="logos" id="logos"></div>
@@ -119,7 +123,7 @@ const CARDS = {
   "aztv-6m": {
     bg: REG, title: "اشتراك ٦ شهور", dEn: "6 MONTHS", dAr: "٦ شهور",
     photos: [
-      { src: ST + "06-antony-starr-g20.png", left: 147, top: 97, width: 290, lift: 1.22, fadeTop: true },
+      { src: PH + "013-blue-suit-eagle-shoulder-cape.png", left: 88, top: 133, width: 455 },
       { src: PH + "010-barcelona-curly-hair-crossed-fingers.png", left: -38, top: 160, width: 330 }
     ]
   },
@@ -141,15 +145,15 @@ const CARDS = {
   },
   // 5. AZ TV Plus, 1 year
   "plus-12m": {
-    plus: true, bg: PLUS, title: "اشتراك بلس سنة", dEn: "1 YEAR", dAr: "سنة", sub: "AZ TV PLUS SUBSCRIPTION",
+    plus: true, bg: PLUS, title: "اشتراك بلس سنة", dEn: "1 YEAR", dAr: "سنة",
     photos: [
-      { src: PH + "008-man-long-hair-dark-coat-chair.png", left: -20, top: 133, width: 441, lift: 1.15 },
+      { src: PH + "012-red-blue-spider-suit.png", left: 142, top: 156, width: 358 },
       { src: PH + "001-argentina-kit-10.png", left: -76, top: 134, width: 360 }
     ]
   },
   // 6. AZ TV Plus, 1 year, two devices
   "plus-12m-2dev": {
-    plus: true, bg: PLUS, title: "اشتراك بلس سنة", dEn: "1 YEAR", dAr: "سنة", sub: "AZ TV PLUS SUBSCRIPTION", badge: ["جهازين", "2 DEVICES"],
+    plus: true, bg: PLUS, title: "اشتراك بلس سنة", dEn: "1 YEAR", dAr: "سنة", badge: ["جهازين", "2 DEVICES"],
     photos: [
       { src: PH + "002-man-black-coat.png", left: 106, top: 171, width: 246, lift: 1.1 },
       { src: PH + "006-yellow-navy-kit-captain.png", left: -110, top: 167, width: 505 }
@@ -157,7 +161,7 @@ const CARDS = {
   },
   // 7. AZ TV Plus, 6 months
   "plus-6m": {
-    plus: true, bg: PLUS, title: "اشتراك بلس ٦ شهور", dEn: "6 MONTHS", dAr: "٦ شهور", sub: "AZ TV PLUS SUBSCRIPTION",
+    plus: true, bg: PLUS, title: "اشتراك بلس ٦ شهور", dEn: "6 MONTHS", dAr: "٦ شهور",
     photos: [
       { src: ST + "03-cillian-murphy-the-immortal-man.png", left: 182, top: 150, width: 230 },
       { src: PH + "004-barcelona-captain.png", left: -168, top: 127, width: 483 }
@@ -165,7 +169,7 @@ const CARDS = {
   },
   // 8. AZ TV Plus, 3 months
   "plus-3m": {
-    plus: true, bg: PLUS, title: "اشتراك بلس ٣ شهور", dEn: "3 MONTHS", dAr: "٣ شهور", sub: "AZ TV PLUS SUBSCRIPTION",
+    plus: true, bg: PLUS, title: "اشتراك بلس ٣ شهور", dEn: "3 MONTHS", dAr: "٣ شهور",
     photos: [
       { src: ST + "04-lee-jung-jae-squid-game-3.png", left: 99, top: 77, width: 366, lift: 1.15 },
       { src: PH + "011-light-blue-kit-hands-behind-back.png", left: -110, top: 172, width: 457 }
@@ -173,11 +177,11 @@ const CARDS = {
   },
   // 9. AZ TV (regular) renewal: no faces
   "renew-aztv": {
-    renew: true, bg: REG, title: "تجديد الاشتراك", dEn: "RENEWAL", dAr: "تجديد", sub: "SUBSCRIPTION RENEWAL", photos: []
+    renew: true, bg: REG, title: "تجديد الاشتراك", dEn: "RENEWAL", dAr: "تجديد", photos: []
   },
   // 10. AZ TV Plus renewal: no faces
   "renew-plus": {
-    plus: true, renew: true, bg: PLUS, title: "تجديد اشتراك بلس", dEn: "RENEWAL", dAr: "تجديد البلس", sub: "PLUS SUBSCRIPTION RENEWAL", photos: []
+    plus: true, renew: true, bg: PLUS, title: "تجديد اشتراك بلس", dEn: "RENEWAL", dAr: "تجديد البلس", photos: []
   }
 };
 const c = CARDS[new URLSearchParams(location.search).get("card") || "aztv-3m"];
@@ -203,7 +207,8 @@ if (c.renew) {
 }
 document.getElementById("bg").src = document.getElementById("tabs").src = c.bg;
 document.getElementById("title").textContent = c.title;
-document.getElementById("sub").textContent = c.sub || "AZ TV SUBSCRIPTION";
+document.getElementById("sub-name").textContent = c.plus ? "AZ TV PLUS" : "AZ TV";
+document.getElementById("sub").textContent = c.renew ? "RENEWAL" : "SUBSCRIPTION";
 document.getElementById("d-en").textContent = c.dEn;
 document.getElementById("d-ar").textContent = c.dAr;
 const photos = document.getElementById("photos");
