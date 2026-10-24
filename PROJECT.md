@@ -197,6 +197,7 @@ new store design/
 
 ## 10. Log
 
+- 2026-10-24: Card round with the client: Plus frame and shards flat gold without the inner line; AZTVSTORE letters centred in the side tabs (both styles); Plus 1 year rebuilt with photo 008 and Morte (two actors); two-device card polished (two-screens icon in the badge, faces matched in size and light). Plus 3 months rejected: waiting for two new photos (a player and a star).
 - 2026-10-24: Plus 3 months and Plus 6 months cards: faces relit (client: the light was poor). Shadows opened with a gamma lift on both photos of Plus 3 months and on the player of Plus 6 months.
 - 2026-10-24: AZ TV 1 month card: client found its photos weak; now photos 014 (front) and 015 (behind), two actors, instead of 007 and the latest-roles star `07`.
 - 2026-10-24: Cards, client edits: AZ TV 6 months now has photo 013 behind the player (was the dark star photo), AZ TV Plus 1 year has photo 012 behind the player (was 008). The «AZ TV SUBSCRIPTION» line under the title on every card is now a clear pill: the package name in a chip («AZ TV» white, «AZ TV PLUS» gold) and «SUBSCRIPTION» or «RENEWAL» beside it.

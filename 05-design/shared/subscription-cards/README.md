@@ -9,7 +9,7 @@ The card in the middle of every subscription product image. The background aroun
 What every card shares before its title, photos and duration go on. One per style, 760 x 1296, transparent rounded corners (radius 70) and a transparent hanger slot at the top, so they drop straight into the card area of the approved backgrounds.
 
 - **AZ TV** `bg/card-bg-aztv.png`: white card, bold black zigzag burst (the old cards' black and white pattern, redrawn clean with the same jagged ray as the product background), fading to a light floor for the duration and platform logos. Black side tabs with AZTVSTORE.
-- **AZ TV Plus** `bg/card-bg-aztv-plus.png`: black card with a warm gold glow, gold frame, two clean gold corner shards (top right, bottom left), faint gold burst and gold dust. Gold side tabs with AZTVSTORE.
+- **AZ TV Plus** `bg/card-bg-aztv-plus.png`: black card with a warm gold glow, flat gold frame (no gradient, no inner line), two flat gold corner shards (top right, bottom left), faint gold burst and gold dust. Gold side tabs with AZTVSTORE.
 - `bg/*-guide.png`: where the per-card content goes (title, photos, duration, platform logos). `bg/*.webp`: light copies for the workspace.
 - `bg/mockups/`: each card background, blank, on approved backgrounds B (`bg-*`) and E (`option-e-*`). `preview.webp`: all four.
 - Source `card-background.html` (`?tier=regular|plus`, `&guide=1`), export `node render-card-bg.cjs` (needs Playwright).
@@ -54,7 +54,8 @@ Built from `card.html` in the accepted look of card 3, with the card photos 001-
 - **Renewal cards** (`renew: true`): no faces; three renewal arrows in a black disc at the burst centre (white on AZ TV, gold on Plus).
 - **Package line** under the title (all cards, 2026-10-24): a black pill (no side lines) with the package name in a chip, «AZ TV» (white chip) or «AZ TV PLUS» (gold chip), then «SUBSCRIPTION», or «RENEWAL» on the renewal cards. Replaces the small spaced-out «AZ TV SUBSCRIPTION» line, which was hard to read.
 - **Light on dark photos:** a photo can take `gamma` (below 1 opens the shadows of a dark face without blowing out the highlights; it also trims 1 px off the cut-out edge so no light fringe shows) next to `lift` (overall brightness). Used on cards 7 and 8, where the client found the faces too dark.
-- **Two devices** (card 6): a «جهازين · 2 DEVICES» badge above the duration (`badge`).
+- **Two devices** (card 6): a «جهازين · 2 DEVICES» badge with a two-screens icon above the duration (`badge`); the white kit toned down and the man behind lit and enlarged so the two faces match.
+- **Card backgrounds** (2026-10-24): the AZTVSTORE letters are centred on the visible part of each side tab (the tabs run 6 px past the card edge); the Plus frame, corner shards and tabs are flat gold, with no inner line.
 
 | Card | Player (front) | Star (behind) |
 |---|---|---|
@@ -62,12 +63,12 @@ Built from `card.html` in the accepted look of card 3, with the card photos 001-
 | 2 `aztv-6m` | 010 | 013 |
 | 3 `aztv-3m` | 005 | 009 |
 | 4 `aztv-1m` | 014 | 015 |
-| 5 `plus-12m` | 001 | 012 |
+| 5 `plus-12m` | Álvaro Morte (`07`) | 008 |
 | 6 `plus-12m-2dev` | 006 | 002 |
 | 7 `plus-6m` | 004 | Cillian Murphy (`03`) |
-| 8 `plus-3m` | 011 | Lee Jung-jae (`04`) |
+| 8 `plus-3m` | 011 | Lee Jung-jae (`04`) (to be replaced: client rejected this pair, waiting for two new photos) |
 
-Numbers are the photos in `photos/` (cut-outs in `photos/transparent/`); stars are in `stars/latest-roles/vertical/transparent/`. Pairs follow `card-stars.json` where we have the photo; where we don't have that photo yet (Mbappé, Vinícius and Neymar among the players; Kit Harington, Bryan Cranston and others appear in the new photos instead), the closest photo we have stands in. Card 4 has two actors (014 in front, 015 behind) instead of a player and a star: the client found 007 and `07` weak and sent these two. 015 and `03` are the same actor (cards 4 and 7). Photos 012 and 05 are the same actor (cards 5 and 1), so card 1 needs another star. 012 and 013 replaced 008 (card 5) and the dark star `06` (card 2) at the client's request. Photo 011 was cut out with `--holes 5000` to clear the white gaps between the arms and the body.
+Numbers are the photos in `photos/` (cut-outs in `photos/transparent/`); stars are in `stars/latest-roles/vertical/transparent/`. Pairs follow `card-stars.json` where we have the photo; where we don't have that photo yet (Mbappé, Vinícius and Neymar among the players; Kit Harington, Bryan Cranston and others appear in the new photos instead), the closest photo we have stands in. Card 4 has two actors (014 in front, 015 behind) instead of a player and a star: the client found 007 and `07` weak and sent these two. 015 and `03` are the same actor (cards 4 and 7). Card 5 has two actors (client rejected its earlier photos 001 and 012); Morte's close-up fades out at the right edge and 008 fades out below the chest so his chair does not show. 012 and 013 replaced 008 (card 5) and the dark star `06` (card 2) at the client's request. Photo 011 was cut out with `--holes 5000` to clear the white gaps between the arms and the body.
 
 ## How we work
 
