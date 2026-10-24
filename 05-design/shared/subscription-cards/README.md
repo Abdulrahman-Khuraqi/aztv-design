@@ -50,7 +50,7 @@ Round 2 on both trials: portraits about 10% smaller, a small «AZ TV SUBSCRIPTIO
 Built from `card.html` in the accepted look of card 3, with the card photos 001-011 and the stars from `stars/latest-roles/`. Export all: `node render-cards.cjs` (or one: `node render-cards.cjs plus-6m`).
 
 - **AZ TV cards** (white): as card 3, unchanged.
-- **AZ TV Plus cards** (`plus: true`): the black and gold card background, gold title pill with black text, gold «AZ TV PLUS SUBSCRIPTION» line, warm gold-toned portraits, a gold light at the burst centre, a dark floor, black duration and logo pills with a gold edge.
+- **AZ TV Plus cards** (`plus: true`): the black and gold card background, gold title pill with black text, gold «AZ TV PLUS SUBSCRIPTION» line, warm gold-toned portraits, a bright warm light at the burst centre (hides where the rays meet behind the faces), a dark floor, black duration and logo pills with a gold edge.
 - **Renewal cards** (`renew: true`): no faces; three renewal arrows in a black disc at the burst centre (white on AZ TV, gold on Plus).
 - **Package line** under the title (all cards, 2026-10-24): a black pill (no side lines) with the package name in a chip, «AZ TV» (white chip) or «AZ TV PLUS» (gold chip), then «SUBSCRIPTION», or «RENEWAL» on the renewal cards. Replaces the small spaced-out «AZ TV SUBSCRIPTION» line, which was hard to read.
 - **Light on dark photos:** a photo can take `gamma` (below 1 opens the shadows of a dark face without blowing out the highlights; it also trims 1 px off the cut-out edge so no light fringe shows) next to `lift` (overall brightness). Used on cards 7 and 8, where the client found the faces too dark.
