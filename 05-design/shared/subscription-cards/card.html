@@ -7,7 +7,8 @@
   One subscription card: the card background (bg/) plus its title, two portraits, duration and platform logos.
   Size 380 x 648 here, exported at 2x = 760 x 1296 to new/<card>.png by render-cards.cjs.
   URL: ?card=aztv-6m   (cards are defined in CARDS below)
-  Photo placement: left, top, width in card px (lift brightens a dark photo); images are faded out at the bottom so no cut line shows.
+  Photo placement: left, top, width in card px (lift brightens a dark photo; gamma below 1 opens the shadows of a dark face without
+  blowing out the highlights); images are faded out at the bottom so no cut line shows.
   Tiers: the regular cards are white and black and white; plus: true switches to the black and gold card (gold pills, warm photos, dark floor).
   Renewal cards have no photos: renew: true draws the renewal arrows in the middle instead.
 -->
@@ -164,15 +165,15 @@ const CARDS = {
     plus: true, bg: PLUS, title: "اشتراك بلس ٦ شهور", dEn: "6 MONTHS", dAr: "٦ شهور",
     photos: [
       { src: ST + "03-cillian-murphy-the-immortal-man.png", left: 182, top: 150, width: 230 },
-      { src: PH + "004-barcelona-captain.png", left: -168, top: 127, width: 483 }
+      { src: PH + "004-barcelona-captain.png", left: -168, top: 127, width: 483, lift: 1.04, gamma: .6 }
     ]
   },
   // 8. AZ TV Plus, 3 months
   "plus-3m": {
     plus: true, bg: PLUS, title: "اشتراك بلس ٣ شهور", dEn: "3 MONTHS", dAr: "٣ شهور",
     photos: [
-      { src: ST + "04-lee-jung-jae-squid-game-3.png", left: 99, top: 77, width: 366, lift: 1.15 },
-      { src: PH + "011-light-blue-kit-hands-behind-back.png", left: -110, top: 172, width: 457 }
+      { src: ST + "04-lee-jung-jae-squid-game-3.png", left: 99, top: 77, width: 366, lift: 1.08, gamma: .62 },
+      { src: PH + "011-light-blue-kit-hands-behind-back.png", left: -110, top: 172, width: 457, gamma: .82 }
     ]
   },
   // 9. AZ TV (regular) renewal: no faces
@@ -211,13 +212,30 @@ document.getElementById("sub-name").textContent = c.plus ? "AZ TV PLUS" : "AZ TV
 document.getElementById("sub").textContent = c.renew ? "RENEWAL" : "SUBSCRIPTION";
 document.getElementById("d-en").textContent = c.dEn;
 document.getElementById("d-ar").textContent = c.dAr;
+// SVG gamma filter (one per value), for CSS filter: url(#id)
+function gammaFilter(g) {
+  const id = "gamma" + String(g).replace(".", "");
+  if (!document.getElementById(id)) {
+    const fn = ["R", "G", "B"].map(ch => `<feFunc${ch} type="gamma" amplitude="1" exponent="${g}" offset="0"/>`).join("");
+    document.body.insertAdjacentHTML("beforeend",
+      // also trims 1px off the cut-out edge, where lifting the shadows would show a light fringe
+      `<svg width="0" height="0" style="position:absolute"><filter id="${id}" color-interpolation-filters="sRGB">` +
+      `<feComponentTransfer result="lit">${fn}</feComponentTransfer>` +
+      `<feMorphology in="SourceAlpha" operator="erode" radius="1" result="edge"/>` +
+      `<feComposite in="lit" in2="edge" operator="in"/></filter></svg>`);
+  }
+  return id;
+}
 const photos = document.getElementById("photos");
 c.photos.forEach(p => {
   const im = new Image(); im.src = p.src;
   im.style.cssText = `left:${p.left}px;top:${p.top}px;width:${p.width}px`;
   // fadeTop: the photo is cut flat at its top edge (hair touching the frame), so fade that edge too
   if (p.fadeTop) im.style.webkitMaskImage = im.style.maskImage = "linear-gradient(to bottom, transparent 0, #000 9%, #000 72%, transparent 97%)";
-  if (p.lift) im.style.filter = c.plus ? `grayscale(1) sepia(.55) saturate(1.25) contrast(1.12) brightness(${p.lift})` : `grayscale(1) contrast(1.15) brightness(${p.lift})`;
+  if (p.lift || p.gamma) {
+    const tone = c.plus ? `grayscale(1) sepia(.55) saturate(1.25) contrast(1.12) brightness(${p.lift || .96})` : `grayscale(1) contrast(1.15) brightness(${p.lift || 1.02})`;
+    im.style.filter = (p.gamma ? `url(#${gammaFilter(p.gamma)}) ` : "") + tone;
+  }
   photos.appendChild(im);
 });
 const logos = document.getElementById("logos");

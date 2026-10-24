@@ -197,6 +197,7 @@ new store design/
 
 ## 10. Log
 
+- 2026-10-24: Plus 3 months and Plus 6 months cards: faces relit (client: the light was poor). Shadows opened with a gamma lift on both photos of Plus 3 months and on the player of Plus 6 months.
 - 2026-10-24: AZ TV 1 month card: client found its photos weak; now photos 014 (front) and 015 (behind), two actors, instead of 007 and the latest-roles star `07`.
 - 2026-10-24: Cards, client edits: AZ TV 6 months now has photo 013 behind the player (was the dark star photo), AZ TV Plus 1 year has photo 012 behind the player (was 008). The «AZ TV SUBSCRIPTION» line under the title on every card is now a clear pill: the package name in a chip («AZ TV» white, «AZ TV PLUS» gold) and «SUBSCRIPTION» or «RENEWAL» beside it.
 - 2026-10-24: All ten subscription cards built in the accepted look (`05-design/shared/subscription-cards/new/`, overview `new/all-cards.jpg`), using the card photos 001-011 and the latest-roles stars. Plus cards get a gold version of the look (gold title pill, warm portraits, dark floor); the two renewal cards show renewal arrows instead of faces; the two-device Plus card has a «جهازين» badge. Card 3 is unchanged. Waiting for review; who is on which card is in the folder README.
