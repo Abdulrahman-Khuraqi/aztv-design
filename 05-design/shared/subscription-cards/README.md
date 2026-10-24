@@ -15,7 +15,9 @@ Options on one card (card 5, بلس سنة), side by side in `new/options/plus-1
 - **C, split**: gold above with the black burst running up to the top behind the title pill (as on the AZ TV card; it used to fade out below the title), a black plane below a diagonal with a fine gold line (the split of approved product background E), the name in gold on a black pill, gold duration pills.
 - **F, the AZ TV card in gold**: the layout the client likes on the AZ TV card, recoloured: gold card, the black burst up to the top, the name in gold on a black pill, black pills with gold text, gold floor. No cap, no frame, no split.
 
-Source: `card-background.html?tier=plus&opt=c|f` (exported to `bg/options/`) and `card.html?card=plus-12m&opt=c|f`; export with `node render-card-bg.cjs`, then `node render-cards.cjs plus-12m@c plus-12m@f`. The five Plus cards keep the gold card (A) until the client picks one; it then becomes the Plus design for all five.
+Both options are rendered on all five Plus cards (2026-10-24): `new/options/<card>-c.png` and `<card>-f.png`, with an overview of each option on the five cards, `new/options/plus-all-c.jpg` and `plus-all-f.jpg` (`python3 options-sheet.py c|f`).
+
+Source: `card-background.html?tier=plus&opt=c|f` (exported to `bg/options/`) and `card.html?card=<card>&opt=c|f`; export with `node render-card-bg.cjs`, then e.g. `node render-cards.cjs plus-12m@c plus-12m@f plus-12m-2dev@c plus-12m-2dev@f plus-6m@c plus-6m@f plus-3m@c plus-3m@f renew-plus@c renew-plus@f`. The five Plus cards keep the gold card (A) until the client picks one; it then becomes the Plus design for all five.
 
 **beIN logo on the Plus cards:** the outline beIN SPORTS logo the client supplied («bein» with «SPORTS» under it, one colour) replaces the old beIN logo in the logo strip of every Plus card (`LOGOS_PLUS` in `card.html`). It is shown white like the other logos, so the strip stays black and white and the four logos have a similar weight (`05-design/new-design/assets/img/logos/bein-sports-outline.svg`; original in `05-design/sections/02-platform-logos/originals/`). The stacked logo tried before is no longer used. The AZ TV cards keep the old logo.
 
