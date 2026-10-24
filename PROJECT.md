@@ -161,6 +161,7 @@ new store design/
 
 ## 10. Log
 
+- 2026-10-24: Card images batch 2 (four more cut-outs, 006 to 009: yellow-and-navy kit, Argentina kit jumping, man in dark period coat seated, man in straw hat and pinstripe suit) added to `05-design/shared/card-images/originals/`. Nine images in total, still all on white backgrounds.
 - 2026-10-24: Place for the card images created: `05-design/shared/card-images/`. Batch 1 (five cut-outs: Argentina kit, man in black coat, Real Madrid, Barcelona, Man City) saved untouched in `originals/` with numbered names; more batches to follow, then we start on the cards. All five are on a white background (no transparency), so transparent versions are needed for the dark site; rights to be confirmed. Listed under shared elements in the workspace.
 
 - 2026-10-21: Section 03 main categories, first draft. Five cards after the logo strip: تجديد الاشتراك (c183760688 "جدد الان"), AZ TV (c971844871), AZ TV Plus (c921887589), beIN Sports (c899162953, official renewal; there is no single beIN category), AZ TV Box (product p1152326425). Five images generated in Gemini in one matching style and warm-graded to the brand; originals `cat-*-gemini.jpg` in `05-design/sections/03-main-categories/`, web versions `cat-*.webp` (600x800). Cards 2-5 are Gemini's 765x1024 previews (Chrome blocked the full-size downloads), enough for the card size. The AZ TV Box image is a generic device: replace with the real product photo before going live.
