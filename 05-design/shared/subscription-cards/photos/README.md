@@ -8,6 +8,10 @@ The photos for the subscription cards (football players and series/film stars; s
 - `transparent/`: cut-outs of `originals/` as PNG with a transparent background, made with `python3 cutout-white.py originals/<file>` (needs `pip install scipy`). Add `--holes 5000` when white shows through enclosed gaps (arms on hips, hands behind the back); used for 011.
 - `web/`: created when we start the cards. Web versions (WebP, one size per card slot, transparent background) made from `originals/`.
 
+## Rejected
+
+`rejected/` holds the photos the client marked as not usable (2026-10-24): 001, 007, 008, and the latest-roles stars S01, S02, S04, S06, S07, S08 (moved from `../stars/latest-roles/vertical/`, renamed with their S id). Same layout as here (`originals/`, `transparent/`). Never put them on a card.
+
 ## Naming
 
 `NNN-short-description.ext`, where `NNN` continues from the last number (001, 002, ...). Describe what is visible (kit, pose), not who it is.
@@ -16,14 +20,14 @@ The photos for the subscription cards (football players and series/film stars; s
 
 | # | File | Size | Notes |
 |---|---|---|---|
-| 001 | `001-argentina-kit-10.jpg` | 896×1194 | Looking up, light-blue and white kit, captain's armband |
+| 001 | ~~`001-argentina-kit-10.jpg`~~ rejected | 896×1194 | Looking up, light-blue and white kit, captain's armband |
 | 002 | `002-man-black-coat.jpg` | 1755×2000 | Bald, grey beard, black wool coat, looking over shoulder |
 | 003 | `003-real-madrid-white-kit.jpg` | 896×1200 | White kit, pointing up |
 | 004 | `004-barcelona-captain.jpg` | 896×1200 | Blue and garnet kit, captain's armband, arms crossed |
 | 005 | `005-man-city-sky-blue-kit.jpg` | 896×1200 | Sky-blue kit, fists clenched, smiling |
 | 006 | `006-yellow-navy-kit-captain.jpg` | 896×1200 | Smiling, yellow kit with navy trim, captain's armband, running |
-| 007 | `007-argentina-kit-10-jumping.jpg` | 896×1194 | Full body, mid-jump, light-blue kit and black shorts, captain's armband |
-| 008 | `008-man-long-hair-dark-coat-chair.jpg` | 896×1195 | Long hair, dark period coat, seated in a wooden chair |
+| 007 | ~~`007-argentina-kit-10-jumping.jpg`~~ rejected | 896×1194 | Full body, mid-jump, light-blue kit and black shorts, captain's armband |
+| 008 | ~~`008-man-long-hair-dark-coat-chair.jpg`~~ rejected | 896×1195 | Long hair, dark period coat, seated in a wooden chair |
 | 009 | `009-man-straw-hat-pinstripe-suit.jpg` | 928×1133 | Straw boater hat, glasses, moustache, pinstripe suit, holding a chocolate bar |
 | 010 | `010-barcelona-curly-hair-crossed-fingers.jpg` | 1500×2000 | Curly hair, Barcelona kit, tongue out, hands crossed on chest |
 | 011 | `011-light-blue-kit-hands-behind-back.jpg` | 2000×2000 | Square studio portrait, royal-blue kit with white collar, hands behind back, looking at camera; white background, not a tight cut-out |

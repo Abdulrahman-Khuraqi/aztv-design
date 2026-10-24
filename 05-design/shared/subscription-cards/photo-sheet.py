@@ -5,8 +5,8 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 
 # which card each photo is on (card numbers as in README.md); keep in step with CARDS in card.html
-USED = {"003": 1, "S05": 1, "010": 2, "013": 2, "005": 3, "009": 3, "014": 4, "015": 4,
-        "008": 5, "S07": 5, "006": 6, "002": 6, "004": 7, "S03": 7, "011": 8, "S04": 8}
+# rejected photos are in photos/rejected/ and are not shown
+USED = {"003": 1, "S05": 1, "010": 2, "013": 2, "005": 3, "009": 3, "014": 4, "015": 4, "006": 6, "002": 6}
 files = [(Path(f).stem[:3], f) for f in sorted(glob.glob("photos/transparent/*.png"))]
 files += [("S" + Path(f).stem[:2], f) for f in sorted(glob.glob("stars/latest-roles/vertical/transparent/0*.png"))]
 

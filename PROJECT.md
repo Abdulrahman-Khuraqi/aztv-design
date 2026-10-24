@@ -197,6 +197,7 @@ new store design/
 
 ## 10. Log
 
+- 2026-10-24: Client marked nine photos as not usable: 001, 007, 008 and the latest-roles stars S01, S02, S04, S06, S07, S08. Moved to `05-design/shared/subscription-cards/photos/rejected/`; never use them on a card. Cards 5, 7 and 8 are empty until new photos are chosen.
 - 2026-10-24: Client rejected cards 5, 7 and 8 (Plus 1 year, Plus 6 months, Plus 3 months). Sheet of all face photos with ids made for the client to pick which to drop: `05-design/shared/subscription-cards/photos/all-photos.jpg`.
 - 2026-10-24: Card round with the client: Plus frame and shards flat gold without the inner line; AZTVSTORE letters centred in the side tabs (both styles); Plus 1 year rebuilt with photo 008 and Morte (two actors); two-device card polished (two-screens icon in the badge, faces matched in size and light). Plus 3 months rejected: waiting for two new photos (a player and a star).
 - 2026-10-24: Plus 3 months and Plus 6 months cards: faces relit (client: the light was poor). Shadows opened with a gamma lift on both photos of Plus 3 months and on the player of Plus 6 months.
