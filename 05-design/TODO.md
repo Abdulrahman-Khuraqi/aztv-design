@@ -1,6 +1,6 @@
 # قائمة المهام: الصور التي تُعاد
 
-مولّدة من `05-design/todo.json` (لا تُعدَّل هنا). تم 4 من 21.
+مولّدة من `05-design/todo.json` (لا تُعدَّل هنا). تم 5 من 21.
 
 طريقة التوليد: أرفق مع كل نص صورة المرجع `05-design/new-design/assets/img/cat-aztv-3d.png` (أو `cat-aztv-plus-3d.png`)، واحفظ الناتج باسم «الملف الجديد».
 
@@ -12,7 +12,7 @@
 
 - [ ] **عز تي في سنة + ٣ شهور (العادية)** · أنت: توليد صورة · الآن: `05-design/shared/subscription-cards/old/aztv-15m.png` ← الجديد: `05-design/shared/subscription-cards/new/aztv-15m.png` · أبيض وأسود · «سنة + ٣ شهور» · 760×1296 · السعر اليوم: ٩٦ ر.س بدل ٢٣٨ (خصم ٦٠٪)
 - [ ] **اشتراك عز تي في 6 شهور (العادية)** · أنت: توليد صورة · الآن: `05-design/shared/subscription-cards/old/aztv-6m.png` ← الجديد: `05-design/shared/subscription-cards/new/aztv-6m.png` · أبيض وأسود · «٦ شهور» · 760×1296 · السعر اليوم: ٦٩ ر.س بدل ١٥٠ (خصم ٥٤٪)
-- [ ] **اشتراك عز تي في 3 شهور (العادية)** · أنت: توليد صورة · الآن: `05-design/shared/subscription-cards/old/aztv-3m.png` ← الجديد: `05-design/shared/subscription-cards/new/aztv-3m.png` · أبيض وأسود · «٣ شهور» · 760×1296 · السعر اليوم: ٣٩ ر.س بدل ١٠٠ (خصم ٦١٪)
+- [x] **اشتراك عز تي في 3 شهور (العادية)** · أنت: توليد صورة · الآن: `05-design/shared/subscription-cards/old/aztv-3m.png` ← الجديد: `05-design/shared/subscription-cards/new/aztv-3m.png` · أبيض وأسود · «٣ شهور» · 760×1296 · السعر اليوم: ٣٩ ر.س بدل ١٠٠ (خصم ٦١٪)
 - [ ] **اشتراك عز تي في شهر (العادية)** · أنت: توليد صورة · الآن: `05-design/shared/subscription-cards/old/aztv-1m.png` ← الجديد: `05-design/shared/subscription-cards/new/aztv-1m.png` · أبيض وأسود · «شهر» · 760×1296 · السعر اليوم: ٢٤ ر.س بدل ٥٠ (خصم ٥٢٪)
 - [ ] **اشتراك عز تي في بلس سنة (12 شهر)** · أنت: توليد صورة · الآن: `05-design/shared/subscription-cards/old/plus-12m.png` ← الجديد: `05-design/shared/subscription-cards/new/plus-12m.png` · ذهبي · «سنة» · 760×1296 · السعر اليوم: ١٩٦ ر.س بدل ٣٠٠ (خصم ٣٥٪)
 - [ ] **عز تي في بلس سنة (جهازين)** · أنت: توليد صورة · الآن: `05-design/shared/subscription-cards/old/plus-12m-2dev.png` ← الجديد: `05-design/shared/subscription-cards/new/plus-12m-2dev.png` · ذهبي · «سنة · جهازين» · 760×1296 · السعر اليوم: ٤٠٠ ر.س بدل ٥٠٠ (خصم ٢٠٪)

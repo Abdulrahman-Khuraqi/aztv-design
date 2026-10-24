@@ -27,7 +27,7 @@
           "new": "05-design/shared/subscription-cards/new/aztv-6m.png",
           "spec": "أبيض وأسود · «٦ شهور» · 760×1296 · السعر اليوم: ٦٩ ر.س بدل ١٥٠ (خصم ٥٤٪)",
           "who": "you",
-          "status": "todo"
+          "status": "doing"
         },
         {
           "id": "r-aztv-3m",
@@ -37,7 +37,7 @@
           "new": "05-design/shared/subscription-cards/new/aztv-3m.png",
           "spec": "أبيض وأسود · «٣ شهور» · 760×1296 · السعر اليوم: ٣٩ ر.س بدل ١٠٠ (خصم ٦١٪)",
           "who": "you",
-          "status": "todo"
+          "status": "done"
         },
         {
           "id": "r-aztv-1m",
