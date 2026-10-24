@@ -3,7 +3,7 @@
 Single source of truth for the redesign of [aztvstore.com](https://aztvstore.com/).
 The visual version of this file is **Our Workspace**: [our workspace.html](our%20workspace.html). Keep the two in sync. Its tab «قائمة المهام» is the image to-do list (`05-design/todo.json`), and «ملفات التسليم» embeds every deliverable (refresh with `python3 05-design/new-design/build/sync_workspace.py`).
 
-Last updated: 2026-10-23
+Last updated: 2026-10-24
 
 ## 1. Project in one paragraph
 
@@ -197,6 +197,7 @@ new store design/
 
 ## 10. Log
 
+- 2026-10-24: Cards 5 and 7 (Plus 1 year, Plus 6 months) built with four new photos, supplied already transparent: 017 (Argentina kit 10, fists out) in front of 019 (long hair, black period coat) on card 5, matching the planned Messi and Kit Harington pair; 020 (Barcelona kit, fist pump) in front of 018 (cowboy hat, blue suit, bolo tie) on card 7. The chairs and the cane are faded out. All eight face cards now have photos; overview `new/all-cards.jpg`. Note: 020 and 010 (card 2) look like the same player. Waiting for review.
 - 2026-10-24: Merged site-dev (the 6-month trial card was removed there as unapproved, and the star photos were cleaned up) into the card work. Kept the rebuilt card 2 (`new/aztv-6m.png`: photos 010 and 013, built after the client asked for new photos on it) and the rejected-photos folder (`photos/rejected/`, which also holds S02, S05, S06 and S08); remove card 2 again if it is not wanted.
 - 2026-10-24: Card 8 (Plus 3 months) rebuilt with the new photo 016 (the Squid Game actor in the tuxedo, supplied transparent) behind player 011. Waiting for review.
 - 2026-10-24: Card 1 (عز تي في سنة + ٣ شهور) removed: the client says there is no such card. Nine cards left, numbers unchanged (2-10). Photos 003 and 012 are free again.

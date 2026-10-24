@@ -47,7 +47,7 @@
           "new": "05-design/shared/subscription-cards/new/plus-12m.png",
           "spec": "ذهبي · «سنة» · 760×1296 · السعر اليوم: ١٩٦ ر.س بدل ٣٠٠ (خصم ٣٥٪)",
           "who": "me",
-          "status": "todo"
+          "status": "doing"
         },
         {
           "id": "r-plus-12m-2dev",
@@ -67,7 +67,7 @@
           "new": "05-design/shared/subscription-cards/new/plus-6m.png",
           "spec": "ذهبي · «٦ شهور» · 760×1296 · السعر اليوم: ١٥٠ ر.س (بدون خصم)",
           "who": "me",
-          "status": "todo"
+          "status": "doing"
         },
         {
           "id": "r-plus-3m",

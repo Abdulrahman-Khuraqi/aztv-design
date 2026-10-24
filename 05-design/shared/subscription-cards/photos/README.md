@@ -36,8 +36,12 @@ The photos for the subscription cards (football players and series/film stars; s
 | 014 | `014-bald-khaki-shirt-gloves.webp` | 1126×1397 | Bald, khaki short-sleeved shirt open at the neck, fingerless black gloves, cargo trousers; white background |
 | 015 | `015-flat-cap-long-coat-scar.webp` | 873×1802 | Flat cap, scar on the cheek, long dark wool coat, red tie, looking over the shoulder; white background |
 | 016 | `016-man-tuxedo-456-badge.webp` | 806×980 | Dark hair, black tuxedo with bow tie, red X and «456» badges, dishes at the bottom edge; already transparent (supplied with an alpha channel) |
+| 017 | `017-argentina-kit-10-fists-out.webp` | 2000×1605 | Light-blue and white kit, number 10, captain's armband, shouting, arms out with fists clenched, cut at the thighs; already transparent |
+| 018 | `018-cowboy-hat-blue-suit-bolo-tie.webp` | 1254×1254 | Cowboy hat, blue pinstripe western suit, turquoise bolo tie, longhorn belt buckle, seated, hand on a wooden cane; already transparent |
+| 019 | `019-long-hair-black-period-coat-chair.webp` | 1086×1448 | Long dark hair, black period coat and waistcoat, white cravat, seated in a wooden chair; already transparent |
+| 020 | `020-barcelona-curly-hair-fist-pump.webp` | 1122×1402 | Curly hair, Barcelona kit and shorts with number 10, shouting, fist pump, taped hand, full body; already transparent |
 
-Batches 1 (001-005), 2 (006-009), 3 (010-011), 4 (012-013, already transparent: copied to `transparent/` as PNG without cutting) and 5 (014-015) and 6 (016, already transparent). More images to come.
+Batches 1 (001-005), 2 (006-009), 3 (010-011), 4 (012-013, already transparent: copied to `transparent/` as PNG without cutting) 5 (014-015), 6 (016, already transparent) and 7 (017-020, already transparent, copied to `transparent/` as PNG without cutting). More images to come.
 
 ## To check before the cards are built
 
