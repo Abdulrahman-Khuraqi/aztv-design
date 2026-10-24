@@ -119,6 +119,7 @@ Have (paths from the client folder root):
 - Player and show photos: `02-assets/player-photos/`
 - Stock textures and effects: `02-assets/stock/`
 - Subscription cards (3 months, 12 months, Plus): `03-product-cards/subscription-cards/`
+- Card images (player and show cut-outs, arriving in batches): `05-design/shared/card-images/` (`originals/`, README with the list and checks)
 - Past campaigns for reference: `04-campaigns/`
 - Activation guide: `05-guides/device-activation-steps/`
 - Designs the client liked: `07-client/designs-client-liked/`
@@ -159,6 +160,8 @@ new store design/
 ```
 
 ## 10. Log
+
+- 2026-10-24: Place for the card images created: `05-design/shared/card-images/`. Batch 1 (five cut-outs: Argentina kit, man in black coat, Real Madrid, Barcelona, Man City) saved untouched in `originals/` with numbered names; more batches to follow, then we start on the cards. All five are on a white background (no transparency), so transparent versions are needed for the dark site; rights to be confirmed. Listed under shared elements in the workspace.
 
 - 2026-10-21: Section 03 main categories, first draft. Five cards after the logo strip: تجديد الاشتراك (c183760688 "جدد الان"), AZ TV (c971844871), AZ TV Plus (c921887589), beIN Sports (c899162953, official renewal; there is no single beIN category), AZ TV Box (product p1152326425). Five images generated in Gemini in one matching style and warm-graded to the brand; originals `cat-*-gemini.jpg` in `05-design/sections/03-main-categories/`, web versions `cat-*.webp` (600x800). Cards 2-5 are Gemini's 765x1024 previews (Chrome blocked the full-size downloads), enough for the card size. The AZ TV Box image is a generic device: replace with the real product photo before going live.
 
