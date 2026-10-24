@@ -2,7 +2,9 @@
 
 The card in the middle of every subscription product image. The background around it is in `../subscription-backgrounds/` (approved: B and E); the card changes per product, the background stays the same.
 
-**Status (2026-10-24): card 3 (`new/aztv-3m.png`, اشتراك ٣ شهور) accepted as the look for all cards. Cards 5, 7 and 8 (Plus 1 year, Plus 6 months, Plus 3 months) were rejected by the client and are now redone with new photos: 8 with 016, 5 with 017 and 018, 7 with 020 and 014. All wait for review (overview `new/all-cards.jpg`).**
+**Update 2026-10-24 (late): the client accepted all nine cards. They are now product images (card on the approved background) and are on the website preview: see «Product images» below.**
+
+**Status (2026-10-24, before that): card 3 (`new/aztv-3m.png`, اشتراك ٣ شهور) accepted as the look for all cards. Cards 5, 7 and 8 (Plus 1 year, Plus 6 months, Plus 3 months) were rejected by the client and are now redone with new photos: 8 with 016, 5 with 017 and 018, 7 with 020 and 014. All wait for review (overview `new/all-cards.jpg`).**
 
 Cards 2, 5, 7 and 8 were rebuilt (2026-10-24): card 5 with the new photos 023 and 024, card 7 with 020 and 014, card 8 with 021 and 016, card 2 with 022 and 013. The client marked ten photos as not usable: 001, 007, 008 and the stars S01, S02, S04, S05, S06, S07, S08. They are kept in `photos/rejected/` (`originals/` and `transparent/`, stars renamed with their S id) and must not be used on any card. Still free to use: 003, 010, 011, 017 (replaced by 023), 018 (replaced by 024) (hands behind his back), 012, 019 and S03 (003 and 012 were on the removed card 1).
 
@@ -24,6 +26,15 @@ The client asked to change the player on card 2 and to fix card 8, where the pla
 - **022** (red Bayern kit, looking up, one hand hanging; 895 x 1608) is now the player on **card 2** (`aztv-6m`), in front of the actor 013. The card is back to the normal layout (player front left, actor behind right).
 - Not used on any card now: 003, 010 (the same player as 020 on card 7, so he is no longer repeated), 011 (hands behind his back).
 - Seven cards, seven players: 022, 005, 004, 017, 006, 020, 021. No repeats.
+
+## Product images (2026-10-24, all nine cards accepted)
+
+Each accepted card is placed on the approved product background (white accent for AZ TV, gold for Plus): `product-images/b/<card>.jpg` (background B, the black spotlight burst, **the one used on the website**) and `product-images/e/<card>.jpg` (background E, the diagonal split, kept as an alternative). 2000 x 2000 JPG, ready to upload as the Salla product image of each product (card to product: see the table under «The nine cards»). Overviews: `product-images/overview-b.jpg`, `overview-e.jpg`.
+
+- Export: `node render-products.cjs` (both backgrounds; or `node render-products.cjs b`), then `python3 product-sheet.py b|e` for the overview.
+- B is the one on the website because the black stage keeps the site's dark look and the white AZ TV card stays high-contrast; on E the white AZ TV card blends into the light plane under it.
+- Website preview: `05-design/new-design/build/build_page.py` converts `product-images/b/*.jpg` to 1000 x 1000 WebP in `new-design/assets/img/products/` and puts them on the product cards of these nine products (sections 06 offers, 07 AZ TV packages, 11 Plus packages, 15 loyal customers). Run it again after any card change (`node render-cards.cjs`, `node render-products.cjs b`, `python3 .../build_page.py`).
+- Not changed: the old product «عز تي في سنة + ٣ شهور» (96 SAR, the national-day image), which is still in the offers and AZ TV packages. The client says there is no such card, so it is probably to be removed from the store; it is left as it is in the preview until decided.
 
 ## Plus design: the AZ TV card in gold (chosen 2026-10-24)
 

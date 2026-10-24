@@ -1,6 +1,6 @@
 # قائمة المهام: الصور التي تُعاد
 
-مولّدة من `05-design/todo.json` (لا تُعدَّل هنا). تم 5 من 20.
+مولّدة من `05-design/todo.json` (لا تُعدَّل هنا). تم 13 من 20.
 
 طريقة التوليد: أرفق مع كل نص صورة المرجع `05-design/new-design/assets/img/cat-aztv-3d.png` (أو `cat-aztv-plus-3d.png`)، واحفظ الناتج باسم «الملف الجديد».
 
@@ -10,15 +10,15 @@
 - **لماذا:** نعيد تصميم تسع بطاقات. الباقة العادية فيها ثلاث مدد (٦ شهور، ٣ شهور، شهر)، والبلس فيها أربع (سنة، سنة لجهازين، ٦ شهور، ٣ شهور)، وبطاقتا تجديد (العادية والبلس). ملاحظة: لا توجد بطاقة «سنة + ٣ شهور» (حذفها العميل)، ولا توجد بطاقة «١٢ شهر» في العادية؛ «سنة» هي ١٢ شهر في البلس. أرقام البطاقات كما في الملف README.md (البطاقة ١ محذوفة والأرقام الأخرى ثابتة).
 - **كيف:** الصورة في كل مهمة هي البطاقة الموجودة على المتجر اليوم، مقصوصة بدون الخلفية ومكبّرة. كل شيء في مجلد واحد 05-design/shared/subscription-cards/: القديمة في old/، والجديدة تُحفظ في new/ بالاسم المكتوب في «الملف الجديد». مقاس البطاقة الجديدة 760×1296 (مساحة البطاقة في الخلفيات المعتمدة B و E في subscription-backgrounds/)، PNG بزوايا مدورة شفافة. بعدها نضع البطاقة على الخلفية المعتمدة ونصدّر صورة المنتج لسلة. التفاصيل في README.md في نفس المجلد.
 
-- [ ] **اشتراك عز تي في 6 شهور (العادية)** · Claude يركّبها · الآن: `05-design/shared/subscription-cards/old/aztv-6m.png` ← الجديد: `05-design/shared/subscription-cards/new/aztv-6m.png` · أبيض وأسود · «٦ شهور» · 760×1296 · السعر اليوم: ٦٩ ر.س بدل ١٥٠ (خصم ٥٤٪)
+- [x] **اشتراك عز تي في 6 شهور (العادية)** · Claude يركّبها · الآن: `05-design/shared/subscription-cards/old/aztv-6m.png` ← الجديد: `05-design/shared/subscription-cards/new/aztv-6m.png` · أبيض وأسود · «٦ شهور» · 760×1296 · السعر اليوم: ٦٩ ر.س بدل ١٥٠ (خصم ٥٤٪)
 - [x] **اشتراك عز تي في 3 شهور (العادية)** · أنت: توليد صورة · الآن: `05-design/shared/subscription-cards/old/aztv-3m.png` ← الجديد: `05-design/shared/subscription-cards/new/aztv-3m.png` · أبيض وأسود · «٣ شهور» · 760×1296 · السعر اليوم: ٣٩ ر.س بدل ١٠٠ (خصم ٦١٪)
-- [ ] **اشتراك عز تي في شهر (العادية)** · Claude يركّبها · الآن: `05-design/shared/subscription-cards/old/aztv-1m.png` ← الجديد: `05-design/shared/subscription-cards/new/aztv-1m.png` · أبيض وأسود · «شهر» · 760×1296 · السعر اليوم: ٢٤ ر.س بدل ٥٠ (خصم ٥٢٪)
-- [ ] **اشتراك عز تي في بلس سنة (12 شهر)** · Claude يركّبها · الآن: `05-design/shared/subscription-cards/old/plus-12m.png` ← الجديد: `05-design/shared/subscription-cards/new/plus-12m.png` · ذهبي · «سنة» · 760×1296 · السعر اليوم: ١٩٦ ر.س بدل ٣٠٠ (خصم ٣٥٪)
-- [ ] **عز تي في بلس سنة (جهازين)** · Claude يركّبها · الآن: `05-design/shared/subscription-cards/old/plus-12m-2dev.png` ← الجديد: `05-design/shared/subscription-cards/new/plus-12m-2dev.png` · ذهبي · «سنة · جهازين» · 760×1296 · السعر اليوم: ٤٠٠ ر.س بدل ٥٠٠ (خصم ٢٠٪)
-- [ ] **اشتراك عز تي في بلس 6 شهور** · Claude يركّبها · الآن: `05-design/shared/subscription-cards/old/plus-6m.png` ← الجديد: `05-design/shared/subscription-cards/new/plus-6m.png` · ذهبي · «٦ شهور» · 760×1296 · السعر اليوم: ١٥٠ ر.س (بدون خصم)
-- [ ] **اشتراك عز تي في بلس 3 شهور** · Claude يركّبها · الآن: `05-design/shared/subscription-cards/old/plus-3m.png` ← الجديد: `05-design/shared/subscription-cards/new/plus-3m.png` · ذهبي · «٣ شهور» · 760×1296 · السعر اليوم: ١٠٠ ر.س بدل ١٥٠ (خصم ٣٣٪)
-- [ ] **تجديد اشتراك عز تي في العادي** · Claude يركّبها · الآن: `05-design/shared/subscription-cards/old/renew-aztv.png` ← الجديد: `05-design/shared/subscription-cards/new/renew-aztv.png` · أبيض وأسود مع سهم التجديد · «تجديد» · 760×1296 · السعر اليوم: بدون سعر ظاهر في الصفحة الرئيسية
-- [ ] **تجديد اشتراك عز تي في بلس** · Claude يركّبها · الآن: `05-design/shared/subscription-cards/old/renew-plus.png` ← الجديد: `05-design/shared/subscription-cards/new/renew-plus.png` · ذهبي مع سهم التجديد · «تجديد البلس» · 760×1296 · السعر اليوم: بدون سعر ظاهر في الصفحة الرئيسية
+- [x] **اشتراك عز تي في شهر (العادية)** · Claude يركّبها · الآن: `05-design/shared/subscription-cards/old/aztv-1m.png` ← الجديد: `05-design/shared/subscription-cards/new/aztv-1m.png` · أبيض وأسود · «شهر» · 760×1296 · السعر اليوم: ٢٤ ر.س بدل ٥٠ (خصم ٥٢٪)
+- [x] **اشتراك عز تي في بلس سنة (12 شهر)** · Claude يركّبها · الآن: `05-design/shared/subscription-cards/old/plus-12m.png` ← الجديد: `05-design/shared/subscription-cards/new/plus-12m.png` · ذهبي · «سنة» · 760×1296 · السعر اليوم: ١٩٦ ر.س بدل ٣٠٠ (خصم ٣٥٪)
+- [x] **عز تي في بلس سنة (جهازين)** · Claude يركّبها · الآن: `05-design/shared/subscription-cards/old/plus-12m-2dev.png` ← الجديد: `05-design/shared/subscription-cards/new/plus-12m-2dev.png` · ذهبي · «سنة · جهازين» · 760×1296 · السعر اليوم: ٤٠٠ ر.س بدل ٥٠٠ (خصم ٢٠٪)
+- [x] **اشتراك عز تي في بلس 6 شهور** · Claude يركّبها · الآن: `05-design/shared/subscription-cards/old/plus-6m.png` ← الجديد: `05-design/shared/subscription-cards/new/plus-6m.png` · ذهبي · «٦ شهور» · 760×1296 · السعر اليوم: ١٥٠ ر.س (بدون خصم)
+- [x] **اشتراك عز تي في بلس 3 شهور** · Claude يركّبها · الآن: `05-design/shared/subscription-cards/old/plus-3m.png` ← الجديد: `05-design/shared/subscription-cards/new/plus-3m.png` · ذهبي · «٣ شهور» · 760×1296 · السعر اليوم: ١٠٠ ر.س بدل ١٥٠ (خصم ٣٣٪)
+- [x] **تجديد اشتراك عز تي في العادي** · Claude يركّبها · الآن: `05-design/shared/subscription-cards/old/renew-aztv.png` ← الجديد: `05-design/shared/subscription-cards/new/renew-aztv.png` · أبيض وأسود مع سهم التجديد · «تجديد» · 760×1296 · السعر اليوم: بدون سعر ظاهر في الصفحة الرئيسية
+- [x] **تجديد اشتراك عز تي في بلس** · Claude يركّبها · الآن: `05-design/shared/subscription-cards/old/renew-plus.png` ← الجديد: `05-design/shared/subscription-cards/new/renew-plus.png` · ذهبي مع سهم التجديد · «تجديد البلس» · 760×1296 · السعر اليوم: بدون سعر ظاهر في الصفحة الرئيسية
 
 ## عالم beIN (القسم 04)
 

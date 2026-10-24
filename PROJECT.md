@@ -197,6 +197,7 @@ new store design/
 
 ## 10. Log
 
+- 2026-10-24: All nine subscription cards accepted by the client. Each card is now a product image on the approved background (B, the black spotlight burst, on the website; E, the diagonal split, as an alternative): `05-design/shared/subscription-cards/product-images/` (2000 x 2000 JPG). The website preview shows them on the nine product cards (offers, AZ TV packages, Plus packages, loyal customers): `build_page.py` now swaps the images. The old «سنة + ٣ شهور» product still shows its old image in the preview (the client says that card does not exist).
 - 2026-10-24: Card 5 (Plus 1 year): the actor behind also replaced with a black-and-white version with better lighting sent by the client (024, same framing as 018). 018 is unused now.
 - 2026-10-24: Card 5 (Plus 1 year): the player photo replaced with a black-and-white version with better lighting sent by the client (023, same framing as 017). 017 is unused now.
 - 2026-10-24: The actor behind no longer fades out early (client: the background showed through his body). Cards 2, 3, 5, 6 and 8: the actor stays solid down to the floor and the pills; the short photos 002 (card 6) and 016 (card 8) were enlarged a little to reach the bottom.
