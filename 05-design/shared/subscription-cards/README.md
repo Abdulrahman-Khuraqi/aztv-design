@@ -8,6 +8,18 @@ Cards 5 and 7 were rebuilt (2026-10-24): card 5 with the new photos 017 and 018,
 
 `photos/all-photos.jpg` (`python3 photo-sheet.py`) shows every usable face photo with its id (001-015 card photos, S01-S08 latest-roles stars) and the card it is on, so the client can say which photos to drop. Our first-round cards were rejected and removed (they remain in git history). The tasks are in the workspace tab «قائمة المهام», group «إعادة تصميم بطاقات الاشتراك», from `05-design/todo.json`.
 
+## Plus design options and the new beIN logo (2026-10-24, waiting for the client)
+
+Three options on one card (card 5, بلس سنة), side by side in `new/options/plus-12m-options.jpg`; each one alone in `new/options/plus-12m-a.png`, `-b.png`, `-c.png`. All three keep the name clear of the background.
+
+- **A, gold card** (the current Plus cards): gold card with the black zigzag burst, black header cap with the name in gold, black pills with gold text.
+- **B, black card**: black card with the burst in gold, gold header cap with the name in black, gold duration pills, dark logo pill.
+- **C, split**: gold above with the black burst (faded out below the title), a black plane below a diagonal with a fine gold line (the split of approved product background E), the name in gold on a black pill (no cap), gold duration pills.
+
+Source: `card-background.html?tier=plus&opt=b|c` (exported to `bg/options/`) and `card.html?card=plus-12m&opt=b|c`; export with `node render-card-bg.cjs`, then `node render-cards.cjs plus-12m@b plus-12m@c`. Once the client picks one, it becomes the Plus design for all five Plus cards.
+
+**beIN logo on the Plus cards:** the stacked beIN SPORTS logo the client supplied (purple box with «bein», «SPORTS» below) replaces the old white beIN logo in the logo strip of every Plus card (`LOGOS_PLUS` in `card.html`). Original in `05-design/sections/02-platform-logos/originals/bein-sports-stacked.svg`; the copy used, `05-design/new-design/assets/img/logos/bein-sports-stacked.svg`, fills the see-through top box white so the purple letters read on the dark strip. The AZ TV cards keep the old logo.
+
 ## AZ TV Plus, new design (2026-10-24)
 
 The client asked for a new Plus design, and then for the AZ TV cards to go back to their old design (black title pill, rays up to the top, white card with no frame; the header cap below was tried on them and dropped). So only Plus has the new look: the AZ TV burst in gold, with a black header cap:

@@ -16,6 +16,9 @@
   transparent corners and a transparent hanger slot at the top.
 
   URL options:  ?tier=regular|plus  &guide=1 (show where title, photos, duration and platform logos go)
+                &opt=b|c (Plus design options under review, 2026-10-24; none = option A, the gold card):
+                  b: black card, bold gold burst, gold header cap and frame
+                  c: gold above with the black burst, black plane below a diagonal (the split of approved product background E), black title pill, no cap
   Export:       node render-card-bg.cjs  (writes bg/ and bg/mockups/)
 -->
 <style>
@@ -48,11 +51,12 @@
 const q = new URLSearchParams(location.search);
 const tier = q.get("tier") === "plus" ? "plus" : "regular";
 const plus = tier === "plus";
+const opt = plus && ["b", "c"].includes(q.get("opt")) ? q.get("opt") : "a";
 const card = document.getElementById("card");
 card.dataset.tier = tier;
 if (q.get("guide")) card.classList.add("show-guide");
 // Plus: the title sits on the header cap and the photos start under it
-if (plus) {
+if (plus && opt !== "c") {
   Object.assign(card.querySelector('[data-label="TITLE"]').style, { top: "44px", height: "62px" });
   Object.assign(card.querySelector('[data-label="PHOTOS"]').style, { top: "150px", height: "370px" });
 }
@@ -95,7 +99,7 @@ const rr = (x, y, w, h, r) => `<rect x="${x}" y="${y}" width="${w}" height="${h}
 
 // side tabs with the store name, one letter under the other (left tab high, right tab low, as on the old cards);
 // on Plus the left tab sits lower, clear of the header cap
-const TAB = { w: 24, h: 168, l: [-6, plus ? 168 : 96], r: [W - 18, 406] };
+const TAB = { w: 24, h: 168, l: [-6, plus && opt !== "c" ? 168 : 96], r: [W - 18, 406] };
 function sideTabs(tabFill, textFill) {
   const letters = (x, y0) => [..."AZTVSTORE"].map((c, i) =>
     `<text x="${x}" y="${y0 + i * 15.5}" text-anchor="middle">${c}</text>`).join("");
@@ -170,8 +174,42 @@ if (!plus) {
       <rect x=".75" y=".75" width="${W - 1.5}" height="${H - 1.5}" rx="${R - .75}" fill="none" stroke="#000" stroke-opacity=".12" stroke-width="1.5"/>
       <rect x="148" y="17" width="84" height="15" rx="7.5" fill="none" stroke="#000" stroke-opacity=".35" stroke-width="2"/>
     </g>`;
+} else if (opt === "b") {
+  // Plus option B: black card with the bold burst in gold, gold header cap (black name), gold frame and side tabs
+  seed = 11;
+  const burst = rays(30, 14, 430, 330, 17, 10, 16, 11);
+  body = `
+    <linearGradient id="floorB" x1="0" y1="430" x2="0" y2="${H}" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0D0D0D" stop-opacity="0"/><stop offset=".55" stop-color="#0D0D0D" stop-opacity=".94"/>
+      <stop offset="1" stop-color="#0D0D0D"/>
+    </linearGradient>
+    <g mask="url(#cardShape)">
+      <rect width="${W}" height="${H}" fill="#0D0D0D"/>
+      <g mask="url(#rayMaskTop)"><g mask="url(#rayMaskDown)" fill="#EACF69">${burst}</g></g>
+      <rect y="430" width="${W}" height="${H - 430}" fill="url(#floorB)"/>
+      ${cap("#EACF69")}
+      <rect x="4" y="4" width="${W - 8}" height="${H - 8}" rx="${R - 4}" fill="none" stroke="#EACF69" stroke-width="8"/>
+      ${sideTabs("#EACF69", "#0D0D0D")}
+      <rect x="148" y="17" width="84" height="15" rx="7.5" fill="none" stroke="#0D0D0D" stroke-opacity=".5" stroke-width="2"/>
+    </g>`;
+} else if (opt === "c") {
+  // Plus option C: gold above with the bold black burst behind the heads (faded out below the title, so nothing runs into it), a flat black plane below a diagonal
+  // (with a fine gold line just under the edge), gold frame and black side tabs; the name goes in a black pill (no cap)
+  seed = 11;
+  const burst = rays(30, 14, 430, 330, 17, 10, 16, 11);
+  const SPLIT = [470, 385];   // y of the diagonal at the left and right edges
+  body = `
+    <g mask="url(#cardShape)">
+      <rect width="${W}" height="${H}" fill="#EACF69"/>
+      <g mask="url(#rayMaskTop)"><g mask="url(#rayMaskDown)" fill="#0D0D0D">${burst}</g></g>
+      <polygon points="0,${SPLIT[0]} ${W},${SPLIT[1]} ${W},${H} 0,${H}" fill="#0D0D0D"/>
+      <line x1="0" y1="${SPLIT[0] + 12}" x2="${W}" y2="${SPLIT[1] + 12}" stroke="#EACF69" stroke-width="2"/>
+      <rect x="4" y="4" width="${W - 8}" height="${H - 8}" rx="${R - 4}" fill="none" stroke="#EACF69" stroke-width="8"/>
+      ${sideTabs("#0D0D0D", "#EACF69")}
+      <rect x="148" y="17" width="84" height="15" rx="7.5" fill="none" stroke="#0D0D0D" stroke-opacity=".4" stroke-width="2"/>
+    </g>`;
 } else {
-  // AZ TV Plus: the regular card in gold. Flat gold card and frame, the same bold black zigzag burst, black header cap
+  // AZ TV Plus (option A): the regular card in gold. Flat gold card and frame, the same bold black zigzag burst, black header cap
   // (the name goes on it in gold), black side tabs with gold letters. Flat: no shards, no dust, no grain.
   seed = 11;
   const burst = rays(30, 14, 430, 330, 17, 10, 16, 11);

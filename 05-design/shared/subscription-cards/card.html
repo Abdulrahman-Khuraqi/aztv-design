@@ -91,6 +91,23 @@
   .plus .renew .ring { stroke: var(--gold); }
   .plus .renew .arrows { stroke: var(--gold); }
   .plus .renew .heads { fill: var(--gold); }
+  /* Plus option B: black card, gold burst, gold cap with the name in black; gold duration pills, dark logo pill */
+  .plus.opt-b .glow { background: radial-gradient(circle at 190px 300px, rgba(250,236,178,.95) 0, rgba(240,218,130,.75) 50px, rgba(234,207,105,.35) 110px, rgba(234,207,105,0) 200px); }
+  .plus.opt-b .floor { background: linear-gradient(to top, rgba(13,13,13,1) 0, rgba(13,13,13,.94) 80px, rgba(13,13,13,.6) 140px, rgba(13,13,13,0) 210px); }
+  .plus.opt-b .title { color: var(--ink); }
+  .plus.opt-b .sub > span { box-shadow: 0 0 0 3px var(--ink), 0 6px 16px rgba(0,0,0,.2); }
+  .plus.opt-b .duration span { background: var(--gold); color: var(--ink); box-shadow: none; }
+  .plus.opt-b .logos { background: #1C1B17; box-shadow: none; }
+  /* Plus option C: gold above with the black burst, black plane below; black title pill with the name in gold (no cap);
+     gold duration pills; the photos are not clipped */
+  .plus.opt-c .floor { background: linear-gradient(to top, rgba(13,13,13,1) 0, rgba(13,13,13,.94) 80px, rgba(13,13,13,.6) 140px, rgba(13,13,13,0) 210px); }
+  .plus.opt-c .title { left: 38px; right: 38px; top: 50px; height: 58px; border-radius: 22px; background: var(--ink); color: var(--gold); font-size: 29px; }
+  .plus.opt-c .sub { top: 114px; }
+  .plus.opt-c .sub > span { box-shadow: 0 6px 16px rgba(0,0,0,.25); }
+  .plus.opt-c .duration span { background: var(--gold); color: var(--ink); box-shadow: none; }
+  .plus.opt-c .logos { background: #1C1B17; box-shadow: none; }
+  .plus.opt-c .photos { clip-path: none; }
+  .card.plus.opt-c > img.tabs { clip-path: path("M0 97 H18 V262 H0 Z M362 408 H380 V572 H362 Z"); }
 </style>
 </head>
 <body>
@@ -113,6 +130,8 @@
 <script>
 const LOGO = "../../new-design/assets/img/logos/";
 const LOGOS = [["netflix.svg", 64], ["ssc.svg", 46], ["bein-white.svg", 58], ["shahid.svg", 52]];
+// Plus cards: the stacked beIN SPORTS logo in its own colours (supplied by the client 2026-10-24)
+const LOGOS_PLUS = [["netflix.svg", 64], ["ssc.svg", 46], ["bein-sports-stacked.svg", 40, "own"], ["shahid.svg", 52]];
 const PH = "photos/transparent/", ST = "stars/latest-roles/vertical/transparent/";
 const REG = "bg/card-bg-aztv.png", PLUS = "bg/card-bg-aztv-plus.png";
 // In every card with faces: first photo = the star (behind, right), last = the player (in front, left).
@@ -187,9 +206,12 @@ const CARDS = {
   }
 };
 const c = CARDS[new URLSearchParams(location.search).get("card") || "aztv-3m"];
+// Plus design options under review (2026-10-24): &opt=b or &opt=c (none = option A); see card-background.html
+const OPT = c.plus && ["b", "c"].includes(new URLSearchParams(location.search).get("opt")) ? new URLSearchParams(location.search).get("opt") : "";
 const card = document.getElementById("card");
 card.classList.toggle("plus", !!c.plus);
 card.classList.toggle("is-renew", !!c.renew);
+if (OPT) card.classList.add("opt-" + OPT);
 if (c.titleSize) document.getElementById("title").style.fontSize = c.titleSize + "px";
 const SCREENS = `<svg class="ico" viewBox="0 0 30 20" aria-hidden="true"><rect x="1.2" y="1.2" width="17" height="11.5" rx="2"/><rect x="11.8" y="6.3" width="17" height="11.5" rx="2"/></svg>`;
 if (c.badge) document.getElementById("badge").innerHTML = `<span>${SCREENS}${c.badge[0]} · <bdi dir="ltr">${c.badge[1]}</bdi></span>`;
@@ -208,7 +230,7 @@ if (c.renew) {
   document.getElementById("arrows").innerHTML = arcs;
   document.getElementById("heads").innerHTML = heads;
 }
-document.getElementById("bg").src = document.getElementById("tabs").src = c.bg;
+document.getElementById("bg").src = document.getElementById("tabs").src = OPT ? `bg/options/card-bg-aztv-plus-${OPT}.png` : c.bg;
 document.getElementById("title").textContent = c.title;
 document.getElementById("sub-name").textContent = c.plus ? "AZ TV PLUS" : "AZ TV";
 document.getElementById("sub").textContent = c.renew ? "RENEWAL" : "SUBSCRIPTION";
@@ -248,7 +270,7 @@ c.photos.forEach(p => {
   photos.appendChild(im);
 });
 const logos = document.getElementById("logos");
-LOGOS.forEach(([f, w]) => { const im = new Image(); im.src = LOGO + f; if (f.includes("white")) im.className = "own-white"; im.style.width = w + "px"; logos.appendChild(im); });
+(c.plus ? LOGOS_PLUS : LOGOS).forEach(([f, w, own]) => { const im = new Image(); im.src = LOGO + f; if (own || f.includes("white")) im.className = "own-white"; im.style.width = w + "px"; logos.appendChild(im); });
 Promise.all([...document.images].map(i => i.complete ? 0 : new Promise(r => { i.onload = i.onerror = r; })))
   .then(() => document.fonts.ready).then(() => document.body.dataset.ready = "1");
 </script>
