@@ -8,20 +8,25 @@ Cards 5 and 7 were rebuilt (2026-10-24): card 5 with the new photos 017 and 018,
 
 `photos/all-photos.jpg` (`python3 photo-sheet.py`) shows every usable face photo with its id (001-015 card photos, S01-S08 latest-roles stars) and the card it is on, so the client can say which photos to drop. Our first-round cards were rejected and removed (they remain in git history). The tasks are in the workspace tab «قائمة المهام», group «إعادة تصميم بطاقات الاشتراك», from `05-design/todo.json`.
 
-## Plus design options and the new beIN logo (2026-10-24, waiting for the client)
+## Plus design: the AZ TV card in gold (chosen 2026-10-24)
 
-Options on one card (card 5, بلس سنة), side by side in `new/options/plus-12m-options.jpg`; each one alone in `new/options/plus-12m-c.png` and `-f.png`. The client dropped options A (the current gold card), B (black card with a gold burst), D (black card with a gold disc) and E (gold card with a black screen); C stays, improved.
+The client chose **option F** from the Plus options and it is now the design of all five Plus cards (5, 6, 7, 8, 10). It is the layout of the AZ TV card, recoloured:
 
-- **C, split**: gold above with the black burst running up to the top behind the title pill (as on the AZ TV card; it used to fade out below the title), a black plane below a diagonal with a fine gold line (the split of approved product background E), the name in gold on a black pill, gold duration pills.
-- **F, the AZ TV card in gold**: the layout the client likes on the AZ TV card, recoloured: gold card, the black burst up to the top, the name in gold on a black pill, black pills with gold text, gold floor. No cap, no frame, no split.
+- Flat gold card, the bold black zigzag burst running up to the top behind the title, a gold floor for the pills (`bg/card-bg-aztv-plus.png`).
+- The card name in gold on a black title pill, the package line under it with a gold «AZ TV PLUS» chip.
+- Black and white photos, a light gold glow at the burst centre.
+- Black pills with gold text (duration, logos, the two-device badge); black side tabs with gold letters.
+- No header cap, no frame, no diagonal split.
 
-Both options are rendered on all five Plus cards (2026-10-24): `new/options/<card>-c.png` and `<card>-f.png`, with an overview of each option on the five cards, `new/options/plus-all-c.jpg` and `plus-all-f.jpg` (`python3 options-sheet.py c|f`).
+The other options (the gold card with a black header cap, the black-card options, the diagonal split, the gold disc, the screen) were dropped and their files removed; they are in the git history.
 
-Source: `card-background.html?tier=plus&opt=c|f` (exported to `bg/options/`) and `card.html?card=<card>&opt=c|f`; export with `node render-card-bg.cjs`, then e.g. `node render-cards.cjs plus-12m@c plus-12m@f plus-12m-2dev@c plus-12m-2dev@f plus-6m@c plus-6m@f plus-3m@c plus-3m@f renew-plus@c renew-plus@f`. The five Plus cards keep the gold card (A) until the client picks one; it then becomes the Plus design for all five.
+**beIN logo on the Plus cards:** the outline beIN SPORTS logo the client supplied («bein» with «SPORTS» under it, one colour) replaces the old beIN logo in the logo strip of every Plus card (`LOGOS_PLUS` in `card.html`). It is shown white like the other logos, so the strip stays black and white and the four logos have a similar weight (`05-design/new-design/assets/img/logos/bein-sports-outline.svg`; original in `05-design/sections/02-platform-logos/originals/`). The AZ TV cards keep the old logo.
 
-**beIN logo on the Plus cards:** the outline beIN SPORTS logo the client supplied («bein» with «SPORTS» under it, one colour) replaces the old beIN logo in the logo strip of every Plus card (`LOGOS_PLUS` in `card.html`). It is shown white like the other logos, so the strip stays black and white and the four logos have a similar weight (`05-design/new-design/assets/img/logos/bein-sports-outline.svg`; original in `05-design/sections/02-platform-logos/originals/`). The stacked logo tried before is no longer used. The AZ TV cards keep the old logo.
+## History: earlier Plus designs (2026-10-24)
 
-## AZ TV Plus, new design (2026-10-24)
+Everything from here to «How we work» describes earlier Plus looks (the gold card with a black header cap, the header cap itself, the black Plus card with gold dust and warm portraits). The design in use is the one above.
+
+### AZ TV Plus, gold card with a header cap
 
 The client asked for a new Plus design, and then for the AZ TV cards to go back to their old design (black title pill, rays up to the top, white card with no frame; the header cap below was tried on them and dropped). So only Plus has the new look: the AZ TV burst in gold, with a black header cap:
 
@@ -33,7 +38,7 @@ The client asked for a new Plus design, and then for the AZ TV cards to go back 
 
 The older Plus notes below (black card, gold dust, warm portraits) are history.
 
-## Header cap (2026-10-24, Plus only)
+### Header cap (Plus only, dropped)
 
 The client did not like the top of the card, where the background ran into the card name. The header cap below was made for all cards; the AZ TV cards went back to their old top afterwards, so it is now on the Plus cards only (black cap, gold name):
 

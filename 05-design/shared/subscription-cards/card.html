@@ -9,7 +9,7 @@
   URL: ?card=aztv-6m   (cards are defined in CARDS below)
   Photo placement: left, top, width in card px (lift brightens a dark photo; gamma below 1 opens the shadows of a dark face without
   blowing out the highlights); images are faded out at the bottom so no cut line shows.
-  Tiers: the regular cards are white and black and white; plus: true switches to the gold card (the same layout in gold: black burst, gold name on the black cap, black pills with gold text).
+  Tiers: the regular cards are white and black and white; plus: true switches to the gold card (the same layout in gold: black burst, gold name on the black title pill, black pills with gold text).
   Renewal cards have no photos: renew: true draws the renewal arrows in the middle instead.
 -->
 <style>
@@ -70,18 +70,12 @@
   .renew .arrows { fill: none; stroke: var(--white); stroke-width: 20; stroke-linecap: round; }
   .renew .heads { fill: var(--white); }
 
-  /* AZ TV Plus: the regular card in gold. Black and white photos on a gold card with a black burst; the name in gold on the black cap;
-     black pills with gold text. Kept flat: solid colours, no outlines. */
+  /* AZ TV Plus (design F, chosen by the client 2026-10-24): the AZ TV card in gold. Black and white photos on a gold card with the black
+     burst running up to the top; the name in gold on a black title pill; black pills with gold text. */
   .plus .glow { background: radial-gradient(circle at 190px 300px, rgba(250,236,178,1) 0, rgba(246,228,160,.94) 46px, rgba(240,218,130,.65) 92px, rgba(234,207,105,.2) 150px, rgba(234,207,105,0) 210px); }
   .plus .floor { background: linear-gradient(to top, rgba(234,207,105,1) 0, rgba(234,207,105,.94) 80px, rgba(234,207,105,.6) 140px, rgba(234,207,105,0) 210px); }
   .plus .photos img { filter: grayscale(1) contrast(1.15) brightness(1.02); }
-  /* Plus top: the card name is plain gold text on the black header cap of the card background, and the package line sits on
-     the cap's lower edge as a badge; the photos are clipped under the cap (same curve) and the left side tab sits lower */
-  .plus .title { left: 30px; right: 30px; top: 40px; height: 66px; border-radius: 0; background: none; box-shadow: none; color: var(--gold); font-size: 31px; }
-  .plus .sub { top: 117px; }
-  .plus .sub > span { box-shadow: 0 0 0 3px var(--gold), 0 6px 16px rgba(0,0,0,.2); }
-  .plus .photos { clip-path: path("M0 118 Q190 146 380 118 V648 H0 Z"); }
-  .card.plus > img.tabs { clip-path: path("M0 168 H18 V336 H0 Z M362 406 H380 V574 H362 Z"); }
+  .plus .title { color: var(--gold); }
   .plus .sub b { background: var(--gold); }
   .plus .duration span { color: var(--gold); }
   .plus .badge span { background: var(--ink); color: var(--gold); border-color: var(--gold); }
@@ -91,24 +85,6 @@
   .plus .renew .ring { stroke: var(--gold); }
   .plus .renew .arrows { stroke: var(--gold); }
   .plus .renew .heads { fill: var(--gold); }
-  /* Plus option C: gold above with the black burst, black plane below; black title pill with the name in gold (no cap);
-     gold duration pills; the photos are not clipped */
-  .plus.opt-c .floor { background: linear-gradient(to top, rgba(13,13,13,1) 0, rgba(13,13,13,.94) 80px, rgba(13,13,13,.6) 140px, rgba(13,13,13,0) 210px); }
-  .plus.opt-c .title { left: 38px; right: 38px; top: 50px; height: 58px; border-radius: 22px; background: var(--ink); color: var(--gold); font-size: 29px; }
-  .plus.opt-c .sub { top: 114px; }
-  .plus.opt-c .sub > span { box-shadow: 0 6px 16px rgba(0,0,0,.25); }
-  .plus.opt-c .duration span { background: var(--gold); color: var(--ink); box-shadow: none; }
-  .plus.opt-c .logos { background: #1C1B17; box-shadow: none; }
-  .plus.opt-c .photos { clip-path: none; }
-  .card.plus.opt-c > img.tabs { clip-path: path("M0 97 H18 V262 H0 Z M362 408 H380 V572 H362 Z"); }
-  /* Plus option F: the AZ TV card in gold: black title pill with the name in gold, package line under it, black pills with gold text,
-     gold glow and floor (the .plus defaults); the photos are not clipped */
-  .plus.opt-f .title { left: 38px; right: 38px; top: 50px; height: 58px; border-radius: 22px; background: var(--ink); color: var(--gold); font-size: 29px;
-    box-shadow: 0 8px 22px rgba(0,0,0,.28); }
-  .plus.opt-f .sub { top: 114px; }
-  .plus.opt-f .sub > span { box-shadow: 0 6px 16px rgba(0,0,0,.25); }
-  .plus.opt-f .photos { clip-path: none; }
-  .card.plus.opt-f > img.tabs { clip-path: path("M0 97 H18 V262 H0 Z M362 408 H380 V572 H362 Z"); }
 </style>
 </head>
 <body>
@@ -207,12 +183,9 @@ const CARDS = {
   }
 };
 const c = CARDS[new URLSearchParams(location.search).get("card") || "aztv-3m"];
-// Plus design options under review (2026-10-24): &opt=c or f (none = the current gold card); see card-background.html
-const OPT = c.plus && ["c", "f"].includes(new URLSearchParams(location.search).get("opt")) ? new URLSearchParams(location.search).get("opt") : "";
 const card = document.getElementById("card");
 card.classList.toggle("plus", !!c.plus);
 card.classList.toggle("is-renew", !!c.renew);
-if (OPT) card.classList.add("opt-" + OPT);
 if (c.titleSize) document.getElementById("title").style.fontSize = c.titleSize + "px";
 const SCREENS = `<svg class="ico" viewBox="0 0 30 20" aria-hidden="true"><rect x="1.2" y="1.2" width="17" height="11.5" rx="2"/><rect x="11.8" y="6.3" width="17" height="11.5" rx="2"/></svg>`;
 if (c.badge) document.getElementById("badge").innerHTML = `<span>${SCREENS}${c.badge[0]} · <bdi dir="ltr">${c.badge[1]}</bdi></span>`;
@@ -231,7 +204,7 @@ if (c.renew) {
   document.getElementById("arrows").innerHTML = arcs;
   document.getElementById("heads").innerHTML = heads;
 }
-document.getElementById("bg").src = document.getElementById("tabs").src = OPT ? `bg/options/card-bg-aztv-plus-${OPT}.png` : c.bg;
+document.getElementById("bg").src = document.getElementById("tabs").src = c.bg;
 document.getElementById("title").textContent = c.title;
 document.getElementById("sub-name").textContent = c.plus ? "AZ TV PLUS" : "AZ TV";
 document.getElementById("sub").textContent = c.renew ? "RENEWAL" : "SUBSCRIPTION";
