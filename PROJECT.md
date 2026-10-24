@@ -197,6 +197,7 @@ new store design/
 
 ## 10. Log
 
+- 2026-10-24: Plus cards simplified at the client's request (too much going on): flat gold instead of gradients, no outlines or shadows, plain package line (gold chip, white text, no box), dark grey duration and logo pills, flat black background with faint gold rays.
 - 2026-10-24: Client also rejected star S05 (Tom Holland, card 1); card 1 now has photo 012 (same actor) behind the player as a stand-in until another star is chosen.
 - 2026-10-24: Client marked ten photos as not usable: 001, 007, 008 and the latest-roles stars S01, S02, S04, S05, S06, S07, S08. Moved to `05-design/shared/subscription-cards/photos/rejected/`; never use them on a card. Cards 5, 7 and 8 are empty until new photos are chosen.
 - 2026-10-24: Client rejected cards 5, 7 and 8 (Plus 1 year, Plus 6 months, Plus 3 months). Sheet of all face photos with ids made for the client to pick which to drop: `05-design/shared/subscription-cards/photos/all-photos.jpg`.

@@ -72,14 +72,15 @@
 
   /* AZ TV Plus: black card, gold accents, warm photos */
   /* warm light at the burst centre: bright enough to hide where the rays meet behind the faces */
-  .plus .glow { background: radial-gradient(circle at 190px 300px, rgba(255,240,190,1) 0, rgba(250,226,150,.95) 44px, rgba(238,210,110,.75) 90px, rgba(234,207,105,.38) 145px, rgba(234,207,105,.12) 200px, rgba(234,207,105,0) 250px); }
+  .plus .glow { background: radial-gradient(circle at 190px 300px, rgba(244,226,150,.95) 0, rgba(238,214,120,.7) 70px, rgba(234,207,105,.25) 140px, rgba(234,207,105,0) 210px); }
   .plus .floor { background: linear-gradient(to top, rgba(13,13,13,1) 0, rgba(13,13,13,.92) 80px, rgba(13,13,13,.55) 140px, rgba(13,13,13,0) 210px); }
-  .plus .photos img { filter: grayscale(1) sepia(.55) saturate(1.25) contrast(1.12) brightness(.96); }
-  .plus .title { background: linear-gradient(180deg, #F4DE85, var(--gold) 55%, #C9A94A); color: var(--ink); box-shadow: 0 8px 22px rgba(0,0,0,.5); }
-  .plus .sub > span { border: 1.5px solid var(--gold); color: var(--white); box-shadow: 0 6px 16px rgba(0,0,0,.5); }
-  .plus .sub b { background: linear-gradient(180deg, #F4DE85, var(--gold) 55%, #C9A94A); }
-  .plus .duration span { background: var(--ink); color: var(--gold); border: 1.5px solid var(--gold); box-shadow: 0 6px 16px rgba(0,0,0,.5); }
-  .plus .logos { border: 1.5px solid var(--gold); box-shadow: 0 8px 22px rgba(0,0,0,.5); }
+  .plus .photos img { filter: grayscale(1) sepia(.4) saturate(1.1) contrast(1.1) brightness(.98); }
+  /* Plus is kept flat and quiet: solid gold, no gradients, no outlines, no shadows */
+  .plus .title { background: var(--gold); color: var(--ink); box-shadow: none; }
+  .plus .sub > span { background: none; box-shadow: none; padding: 0; gap: 12px; color: var(--white); font-size: 12px; letter-spacing: .26em; }
+  .plus .sub b { height: 26px; padding: 0 12px; background: var(--gold); font-size: 12.5px; }
+  .plus .duration span { background: #1C1B17; color: var(--gold); box-shadow: none; }
+  .plus .logos { background: #1C1B17; box-shadow: none; }
   .plus .badge span { background: var(--gold); border-color: var(--ink); }
   .plus.is-renew .glow { background: radial-gradient(circle at 190px 310px, rgba(234,207,105,.45) 0, rgba(234,207,105,.25) 130px, rgba(234,207,105,0) 220px); }
   .plus .renew .disc { fill: var(--ink); }
@@ -237,7 +238,7 @@ c.photos.forEach(p => {
     im.style.webkitMaskComposite = "source-in"; im.style.maskComposite = "intersect";
   }
   if (p.lift || p.gamma) {
-    const tone = c.plus ? `grayscale(1) sepia(.55) saturate(1.25) contrast(1.12) brightness(${p.lift || .96})` : `grayscale(1) contrast(1.15) brightness(${p.lift || 1.02})`;
+    const tone = c.plus ? `grayscale(1) sepia(.4) saturate(1.1) contrast(1.1) brightness(${p.lift || .98})` : `grayscale(1) contrast(1.15) brightness(${p.lift || 1.02})`;
     im.style.filter = (p.gamma ? `url(#${gammaFilter(p.gamma)}) ` : "") + tone;
   }
   photos.appendChild(im);
