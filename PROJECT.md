@@ -197,6 +197,8 @@ new store design/
 
 ## 10. Log
 
+- 2026-10-24: Logo strip balanced on all nine cards: Netflix, SSC, beIN and Shahid are sized for the same visual weight (widths 56, 50, 50, 56 px on the 380 px card) with even gaps.
+- 2026-10-24: Card 2: player changed to 003 (Real Madrid kit), the card mirrored (player front right, actor behind left) so his raised arm does not cross the actor. Card 8: player 011 (no visible hands) replaced by 010 (crossed hands); 010 and 020 (card 7) are the same player, so he is on cards 7 and 8: there are only six usable players for seven cards. The outline beIN SPORTS logo is now on all nine cards, regular and Plus.
 - 2026-10-24: Plus design F chosen by the client and applied to all five Plus cards (5, 6, 7, 8, 10): the AZ TV card in gold (gold card, black burst up to the top, gold name on a black title pill, black pills with gold text), with the outline beIN SPORTS logo. The other options and their code are removed. Overview `new/all-cards.jpg`.
 - 2026-10-24: Plus options C and F rendered on all five Plus cards (card 5 was the only one before), with an overview of each option on the five cards: `05-design/shared/subscription-cards/new/options/plus-all-c.jpg` and `plus-all-f.jpg`. The Plus cards in `new/` keep the old gold design until the client picks C or F.
 - 2026-10-24: Plus options: D and E dropped. C improved (the black burst now runs up to the top behind the title pill, as on the AZ TV card) and a new option F added: the AZ TV card in gold (gold card, black burst up to the top, gold name on a black pill). The Plus cards now use the outline beIN SPORTS logo the client supplied, shown white like the other logos. Overview `05-design/shared/subscription-cards/new/options/plus-12m-options.jpg`.

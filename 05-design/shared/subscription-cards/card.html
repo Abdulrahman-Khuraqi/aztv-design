@@ -106,9 +106,8 @@
 </div>
 <script>
 const LOGO = "../../new-design/assets/img/logos/";
-const LOGOS = [["netflix.svg", 64], ["ssc.svg", 46], ["bein-white.svg", 58], ["shahid.svg", 52]];
-// Plus cards: the outline beIN SPORTS logo supplied by the client (2026-10-24), shown white like the other logos
-const LOGOS_PLUS = [["netflix.svg", 64], ["ssc.svg", 46], ["bein-sports-outline.svg", 56], ["shahid.svg", 52]];
+// the outline beIN SPORTS logo supplied by the client (2026-10-24), shown white like the other logos, on every card
+const LOGOS = [["netflix.svg", 56], ["ssc.svg", 50], ["bein-sports-outline.svg", 50], ["shahid.svg", 56]];
 const PH = "photos/transparent/", ST = "stars/latest-roles/vertical/transparent/";
 const REG = "bg/card-bg-aztv.png", PLUS = "bg/card-bg-aztv-plus.png";
 // In every card with faces: first photo = the star (behind, right), last = the player (in front, left).
@@ -119,8 +118,9 @@ const CARDS = {
   "aztv-6m": {
     bg: REG, title: "اشتراك ٦ شهور", dEn: "6 MONTHS", dAr: "٦ شهور",
     photos: [
-      { src: PH + "013-blue-suit-eagle-shoulder-cape.png", left: 88, top: 133, width: 455 },
-      { src: PH + "010-barcelona-curly-hair-crossed-fingers.png", left: -38, top: 160, width: 330 }
+      // mirrored layout (player front right, actor behind left): the player's raised arm (003) leaves through the card edge
+      { src: PH + "013-blue-suit-eagle-shoulder-cape.png", left: -49, top: 133, width: 455 },
+      { src: PH + "003-real-madrid-white-kit.png", left: 79, top: 137, width: 435 }
     ]
   },
   // 3. AZ TV (regular), 3 months. Accepted look (2026-10-24).
@@ -170,7 +170,7 @@ const CARDS = {
     plus: true, bg: PLUS, title: "اشتراك بلس ٣ شهور", dEn: "3 MONTHS", dAr: "٣ شهور",
     photos: [
       { src: PH + "016-man-tuxedo-456-badge.png", left: 129, top: 140, width: 290, lift: 1.05, gamma: .8, fadeBottom: [58, 90] },
-      { src: PH + "011-light-blue-kit-hands-behind-back.png", left: -110, top: 172, width: 457, gamma: .82 }
+      { src: PH + "010-barcelona-curly-hair-crossed-fingers.png", left: -8, top: 142, width: 335 }
     ]
   },
   // 9. AZ TV (regular) renewal: no faces
@@ -244,7 +244,7 @@ c.photos.forEach(p => {
   photos.appendChild(im);
 });
 const logos = document.getElementById("logos");
-(c.plus ? LOGOS_PLUS : LOGOS).forEach(([f, w, own]) => { const im = new Image(); im.src = LOGO + f; if (own || f.includes("white")) im.className = "own-white"; im.style.width = w + "px"; logos.appendChild(im); });
+LOGOS.forEach(([f, w, own]) => { const im = new Image(); im.src = LOGO + f; if (own || f.includes("white")) im.className = "own-white"; im.style.width = w + "px"; logos.appendChild(im); });
 Promise.all([...document.images].map(i => i.complete ? 0 : new Promise(r => { i.onload = i.onerror = r; })))
   .then(() => document.fonts.ready).then(() => document.body.dataset.ready = "1");
 </script>

@@ -4,9 +4,17 @@ The card in the middle of every subscription product image. The background aroun
 
 **Status (2026-10-24): card 3 (`new/aztv-3m.png`, اشتراك ٣ شهور) accepted as the look for all cards. Cards 5, 7 and 8 (Plus 1 year, Plus 6 months, Plus 3 months) were rejected by the client and are now redone with new photos: 8 with 016, 5 with 017 and 018, 7 with 020 and 014. All wait for review (overview `new/all-cards.jpg`).**
 
-Cards 5 and 7 were rebuilt (2026-10-24): card 5 with the new photos 017 and 018, card 7 with the new photo 020 and 014; card 8 with 016. The client marked ten photos as not usable: 001, 007, 008 and the stars S01, S02, S04, S05, S06, S07, S08. They are kept in `photos/rejected/` (`originals/` and `transparent/`, stars renamed with their S id) and must not be used on any card. Still free to use: 003, 012, 019 and S03 (003 and 012 were on the removed card 1).
+Cards 5 and 7 were rebuilt (2026-10-24): card 5 with the new photos 017 and 018, card 7 with the new photo 020 and 014; card 8 with 016. The client marked ten photos as not usable: 001, 007, 008 and the stars S01, S02, S04, S05, S06, S07, S08. They are kept in `photos/rejected/` (`originals/` and `transparent/`, stars renamed with their S id) and must not be used on any card. Still free to use: 011 (hands behind his back), 012, 019 and S03 (003 and 012 were on the removed card 1).
 
 `photos/all-photos.jpg` (`python3 photo-sheet.py`) shows every usable face photo with its id (001-015 card photos, S01-S08 latest-roles stars) and the card it is on, so the client can say which photos to drop. Our first-round cards were rejected and removed (they remain in git history). The tasks are in the workspace tab «قائمة المهام», group «إعادة تصميم بطاقات الاشتراك», from `05-design/todo.json`.
+
+## Players changed on cards 2 and 8 (2026-10-24)
+
+The client asked to change the player on card 2 and to fix card 8, where the player had no visible hands.
+
+- **Card 2** (`aztv-6m`): the player is now 003 (white Real Madrid kit, raised arm) instead of 010. Because his raised arm would cross the actor's face, this card is mirrored: the player stands in front at the right, his arm leaving through the card edge, and the actor (013) is behind at the left.
+- **Card 8** (`plus-3m`): the player is now 010 (crossed hands) instead of 011, whose hands were behind his back so his arms ended without hands. The actor stays (016). 011 is not used on any card now.
+- **Same player twice:** 010 and 020 (card 7) are the same player in two photos, so he is on cards 7 and 8. There are seven cards and only six usable players (003, 004, 005, 006, 010/020, 017; 011 is out), so one repeat cannot be avoided without one more player photo.
 
 ## Plus design: the AZ TV card in gold (chosen 2026-10-24)
 
@@ -20,7 +28,9 @@ The client chose **option F** from the Plus options and it is now the design of 
 
 The other options (the gold card with a black header cap, the black-card options, the diagonal split, the gold disc, the screen) were dropped and their files removed; they are in the git history.
 
-**beIN logo on the Plus cards:** the outline beIN SPORTS logo the client supplied («bein» with «SPORTS» under it, one colour) replaces the old beIN logo in the logo strip of every Plus card (`LOGOS_PLUS` in `card.html`). It is shown white like the other logos, so the strip stays black and white and the four logos have a similar weight (`05-design/new-design/assets/img/logos/bein-sports-outline.svg`; original in `05-design/sections/02-platform-logos/originals/`). The AZ TV cards keep the old logo.
+**beIN logo on every card (2026-10-24):** the outline beIN SPORTS logo the client supplied («bein» with «SPORTS» under it, one colour) replaces the old beIN logo in the logo strip of all nine cards, regular and Plus (`LOGOS` in `card.html`). It is shown white like the other logos, so the strip stays black and white (`05-design/new-design/assets/img/logos/bein-sports-outline.svg`; original in `05-design/sections/02-platform-logos/originals/`).
+
+**Logo balance (2026-10-24):** the four logos are sized for the same visual weight, not the same height: Netflix 56 px wide, SSC 50, beIN 50 (it has two lines, so it is taller), Shahid 56 (`LOGOS` in `card.html`), with equal gaps. Before, Netflix was the biggest and SSC the smallest, and beIN stood out.
 
 ## History: earlier Plus designs (2026-10-24)
 
@@ -104,13 +114,13 @@ Built from `card.html` in the accepted look of card 3, with the card photos 001-
 
 | Card | Player (front) | Star (behind) |
 |---|---|---|
-| 2 `aztv-6m` | 010 | 013 |
+| 2 `aztv-6m` | 003 (2026-10-24) | 013 |
 | 3 `aztv-3m` | 005 | 009 |
 | 4 `aztv-1m` | 004 | 015 |
 | 5 `plus-12m` | 017 | 018 (new, 2026-10-24) |
 | 6 `plus-12m-2dev` | 006 | 002 |
 | 7 `plus-6m` | 020 (new, 2026-10-24) | 014 |
-| 8 `plus-3m` | 011 | 016 (new, 2026-10-24) |
+| 8 `plus-3m` | 010 (2026-10-24) | 016 (new, 2026-10-24) |
 
 Numbers are the photos in `photos/` (cut-outs in `photos/transparent/`); stars are in `stars/latest-roles/vertical/transparent/`. Pairs follow `card-stars.json` where we have the photo; where we don't have that photo yet (Mbappé, Vinícius and Neymar among the players; Kit Harington, Bryan Cranston and others appear in the new photos instead), the closest photo we have stands in. Card 4 is a player (004) in front and an actor (015) behind; 014 was tried in front but the client wants one player and one actor on every card. Cards 5 and 7 follow the proportions of card 3 (pairs swapped on 2026-10-24 after the client's review): card 5 is player 017 in front of the cowboy-hat actor 018, the same pairing as card 3 (fists-clenched player, actor in a hat); the hat limits the actor's face to about 98 px so the brim stays inside the card and below the package line, and 017 fades out at the bottom because the photo ends at the thighs. Card 7 is player 020 in front of the bald actor 014 in the khaki shirt (the client asked to change the actor; 019 is now unused): he stands upright, his light shirt balances the player's dark kit, and the photo runs to the knees, so it reaches the bottom of the card with no fade. 020 looks like the same player as 010 on card 2: swap one if the client wants no repeats. 012 and 013 replaced 008 (card 5) and the dark star `06` (card 2) at the client's request. Photo 011 was cut out with `--holes 5000` to clear the white gaps between the arms and the body.
 
