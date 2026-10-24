@@ -2,7 +2,7 @@
 
 The card in the middle of every subscription product image. The background around it is in `../subscription-backgrounds/` (approved: B and E); the card changes per product, the background stays the same.
 
-**Status (2026-10-24): card 3 (`new/aztv-3m.png`, اشتراك ٣ شهور) accepted as the look for all cards; card 2 (`new/aztv-6m.png`) is a trial in the same look; the other eight are not started.** Our first-round cards were rejected and removed (they remain in git history). The tasks are in the workspace tab «قائمة المهام», group «إعادة تصميم بطاقات الاشتراك», from `05-design/todo.json`.
+**Status (2026-10-24): card 3 (`new/aztv-3m.png`, اشتراك ٣ شهور) accepted as the look for all cards. The other nine are built in that look (`new/`, overview `new/all-cards.jpg`) and wait for review.** Our first-round cards were rejected and removed (they remain in git history). The tasks are in the workspace tab «قائمة المهام», group «إعادة تصميم بطاقات الاشتراك», from `05-design/todo.json`.
 
 ## Card backgrounds (2026-10-23)
 
@@ -37,13 +37,35 @@ The face photos for the cards (cut-outs on white, delivered in batches) are in `
 
 ## Trial card (2026-10-24)
 
-`new/aztv-6m.png` is the trial for the look of all ten cards: card 2 (اشتراك ٦ شهور, regular, black and white). A first trial on the Plus 1-year card was rejected and removed (it stays in git history). What changed: big close-up faces that fill the card from under the title to the bottom (player in front, star behind), the title in a black pill, real black and white instead of a warm tint, and the duration and logo pills sitting on the photos, as on the old cards.
+(History.) `new/aztv-6m.png` was the trial for the look of all ten cards: card 2 (اشتراك ٦ شهور, regular, black and white). A first trial on the Plus 1-year card was rejected and removed (it stays in git history). What changed: big close-up faces that fill the card from under the title to the bottom (player in front, star behind), the title in a black pill, real black and white instead of a warm tint, and the duration and logo pills sitting on the photos, as on the old cards.
 
 Built from `card.html` (`?card=aztv-6m`; each card is one entry in `CARDS`) and exported with `node render-cards.cjs aztv-6m`. The portraits are stand-ins: star `stars/latest-roles/vertical/transparent/06-antony-starr-g20.png` and player photo 010 from `photos/originals/`, cut out with `photos/cutout-white.py` (output in `photos/transparent/`, needs `pip install scipy`). Who goes on which card is not decided yet.
 
 `new/aztv-3m.png` (card 3, اشتراك ٣ شهور) is a second trial in the same layout with photo 009 as the star (behind, right) and player photo 005 in front: `node render-cards.cjs aztv-3m`.
 
 Round 2 on both trials: portraits about 10% smaller, a small «AZ TV SUBSCRIPTION» line under the title, a soft white light at the burst centre (hides the knot of rays between the faces) and a light floor under the duration and logo pills.
+
+## All ten cards (2026-10-24)
+
+Built from `card.html` in the accepted look of card 3, with the card photos 001-011 and the stars from `stars/latest-roles/`. Export all: `node render-cards.cjs` (or one: `node render-cards.cjs plus-6m`).
+
+- **AZ TV cards** (white): as card 3, unchanged.
+- **AZ TV Plus cards** (`plus: true`): the black and gold card background, gold title pill with black text, gold «AZ TV PLUS SUBSCRIPTION» line, warm gold-toned portraits, a gold light at the burst centre, a dark floor, black duration and logo pills with a gold edge.
+- **Renewal cards** (`renew: true`): no faces; three renewal arrows in a black disc at the burst centre (white on AZ TV, gold on Plus).
+- **Two devices** (card 6): a «جهازين · 2 DEVICES» badge above the duration (`badge`).
+
+| Card | Player (front) | Star (behind) |
+|---|---|---|
+| 1 `aztv-15m` | 003 | Tom Holland (`05`) |
+| 2 `aztv-6m` | 010 | Antony Starr (`06`) |
+| 3 `aztv-3m` | 005 | 009 |
+| 4 `aztv-1m` | 007 | Álvaro Morte (`07`) |
+| 5 `plus-12m` | 001 | 008 |
+| 6 `plus-12m-2dev` | 006 | 002 |
+| 7 `plus-6m` | 004 | Cillian Murphy (`03`) |
+| 8 `plus-3m` | 011 | Lee Jung-jae (`04`) |
+
+Numbers are the photos in `photos/` (cut-outs in `photos/transparent/`); stars are in `stars/latest-roles/vertical/transparent/`. Pairs follow `card-stars.json` where we have the photo; where we don't have that photo yet (Mbappé, Vinícius and Neymar among the players; Kit Harington, Bryan Cranston and others appear in the new photos instead), the closest photo we have stands in. Photos 001 and 007 are the same player, so he is on two cards (5 and 4): replace 007 on card 4 when a new player photo arrives. Photo 011 was cut out with `--holes 5000` to clear the white gaps between the arms and the body.
 
 ## How we work
 

@@ -16,8 +16,8 @@
           "now": "05-design/shared/subscription-cards/old/aztv-15m.png",
           "new": "05-design/shared/subscription-cards/new/aztv-15m.png",
           "spec": "أبيض وأسود · «سنة + ٣ شهور» · 760×1296 · السعر اليوم: ٩٦ ر.س بدل ٢٣٨ (خصم ٦٠٪)",
-          "who": "you",
-          "status": "todo"
+          "who": "me",
+          "status": "doing"
         },
         {
           "id": "r-aztv-6m",
@@ -26,7 +26,7 @@
           "now": "05-design/shared/subscription-cards/old/aztv-6m.png",
           "new": "05-design/shared/subscription-cards/new/aztv-6m.png",
           "spec": "أبيض وأسود · «٦ شهور» · 760×1296 · السعر اليوم: ٦٩ ر.س بدل ١٥٠ (خصم ٥٤٪)",
-          "who": "you",
+          "who": "me",
           "status": "doing"
         },
         {
@@ -46,8 +46,8 @@
           "now": "05-design/shared/subscription-cards/old/aztv-1m.png",
           "new": "05-design/shared/subscription-cards/new/aztv-1m.png",
           "spec": "أبيض وأسود · «شهر» · 760×1296 · السعر اليوم: ٢٤ ر.س بدل ٥٠ (خصم ٥٢٪)",
-          "who": "you",
-          "status": "todo"
+          "who": "me",
+          "status": "doing"
         },
         {
           "id": "r-plus-12m",
@@ -56,8 +56,8 @@
           "now": "05-design/shared/subscription-cards/old/plus-12m.png",
           "new": "05-design/shared/subscription-cards/new/plus-12m.png",
           "spec": "ذهبي · «سنة» · 760×1296 · السعر اليوم: ١٩٦ ر.س بدل ٣٠٠ (خصم ٣٥٪)",
-          "who": "you",
-          "status": "todo"
+          "who": "me",
+          "status": "doing"
         },
         {
           "id": "r-plus-12m-2dev",
@@ -66,8 +66,8 @@
           "now": "05-design/shared/subscription-cards/old/plus-12m-2dev.png",
           "new": "05-design/shared/subscription-cards/new/plus-12m-2dev.png",
           "spec": "ذهبي · «سنة · جهازين» · 760×1296 · السعر اليوم: ٤٠٠ ر.س بدل ٥٠٠ (خصم ٢٠٪)",
-          "who": "you",
-          "status": "todo"
+          "who": "me",
+          "status": "doing"
         },
         {
           "id": "r-plus-6m",
@@ -76,8 +76,8 @@
           "now": "05-design/shared/subscription-cards/old/plus-6m.png",
           "new": "05-design/shared/subscription-cards/new/plus-6m.png",
           "spec": "ذهبي · «٦ شهور» · 760×1296 · السعر اليوم: ١٥٠ ر.س (بدون خصم)",
-          "who": "you",
-          "status": "todo"
+          "who": "me",
+          "status": "doing"
         },
         {
           "id": "r-plus-3m",
@@ -86,8 +86,8 @@
           "now": "05-design/shared/subscription-cards/old/plus-3m.png",
           "new": "05-design/shared/subscription-cards/new/plus-3m.png",
           "spec": "ذهبي · «٣ شهور» · 760×1296 · السعر اليوم: ١٠٠ ر.س بدل ١٥٠ (خصم ٣٣٪)",
-          "who": "you",
-          "status": "todo"
+          "who": "me",
+          "status": "doing"
         },
         {
           "id": "r-renew-aztv",
@@ -96,8 +96,8 @@
           "now": "05-design/shared/subscription-cards/old/renew-aztv.png",
           "new": "05-design/shared/subscription-cards/new/renew-aztv.png",
           "spec": "أبيض وأسود مع سهم التجديد · «تجديد» · 760×1296 · السعر اليوم: بدون سعر ظاهر في الصفحة الرئيسية",
-          "who": "you",
-          "status": "todo"
+          "who": "me",
+          "status": "doing"
         },
         {
           "id": "r-renew-plus",
@@ -106,8 +106,8 @@
           "now": "05-design/shared/subscription-cards/old/renew-plus.png",
           "new": "05-design/shared/subscription-cards/new/renew-plus.png",
           "spec": "ذهبي مع سهم التجديد · «تجديد البلس» · 760×1296 · السعر اليوم: بدون سعر ظاهر في الصفحة الرئيسية",
-          "who": "you",
-          "status": "todo"
+          "who": "me",
+          "status": "doing"
         }
       ],
       "closeup": true

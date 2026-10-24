@@ -5,6 +5,7 @@ The photos for the subscription cards (football players and series/film stars; s
 ## Folders
 
 - `originals/`: files exactly as supplied. Never edit them.
+- `transparent/`: cut-outs of `originals/` as PNG with a transparent background, made with `python3 cutout-white.py originals/<file>` (needs `pip install scipy`). Add `--holes 5000` when white shows through enclosed gaps (arms on hips, hands behind the back); used for 011.
 - `web/`: created when we start the cards. Web versions (WebP, one size per card slot, transparent background) made from `originals/`.
 
 ## Naming
