@@ -6,32 +6,33 @@
 <!--
   One subscription card: the card background (bg/) plus its title, two portraits, duration and platform logos.
   Size 380 x 648 here, exported at 2x = 760 x 1296 to new/<card>.png by render-cards.cjs.
-  URL: ?card=plus-12m   (cards are defined in CARDS below)
+  URL: ?card=aztv-6m   (cards are defined in CARDS below)
+  Photo placement: left, top, width in card px (lift brightens a dark photo); images are faded out at the bottom so no cut line shows.
 -->
 <style>
   @font-face { font-family: "PingARLT"; src: url("../subscription-backgrounds/src/PingARLT-Bold.woff2") format("woff2"); font-weight: 700; }
   :root { --gold: #EACF69; --ink: #0D0D0D; --white: #F4F4F2; }
   html, body { margin: 0; background: transparent; }
   body { display: grid; place-items: center; min-height: 100vh; }
-  .card { position: relative; width: 380px; height: 648px; font-family: "PingARLT", system-ui, sans-serif; color: var(--white); overflow: hidden; border-radius: 35px; }
+  .card { position: relative; width: 380px; height: 648px; font-family: "PingARLT", system-ui, sans-serif; overflow: hidden; border-radius: 35px; }
   .card > img.bg { position: absolute; inset: 0; width: 100%; height: 100%; }
 
-  .title { position: absolute; left: 40px; top: 46px; width: 300px; height: 70px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
-  .title b { font-size: 31px; line-height: 1.25; font-weight: 700; letter-spacing: 0; text-shadow: 0 2px 10px rgba(0,0,0,.6); }
-  .title small { margin-top: 3px; font-size: 11.5px; letter-spacing: .09em; direction: ltr; color: var(--white); opacity: .92; font-weight: 700; }
-  .tier { position: absolute; left: 140px; top: 122px; width: 100px; height: 22px; z-index: 5; display: grid; place-items: center; border-radius: 99px; background: var(--gold); color: var(--ink); font: 700 12px/1 "PingARLT", sans-serif; letter-spacing: .12em; }
+  /* portraits: full card width, from under the title to the bottom; the side tabs are redrawn on top */
+  .photos { position: absolute; inset: 0; overflow: hidden; }
+  .card > img.tabs { z-index: 9; clip-path: path("M0 97 H18 V262 H0 Z M362 408 H380 V572 H362 Z"); }
+  .photos img { position: absolute; height: auto; filter: grayscale(1) contrast(1.15) brightness(1.02);
+    -webkit-mask-image: linear-gradient(to bottom, #000 72%, transparent 97%); mask-image: linear-gradient(to bottom, #000 72%, transparent 97%); }
 
-  .photos { position: absolute; left: 18px; top: 100px; width: 344px; height: 440px; overflow: hidden;
-    -webkit-mask-image: linear-gradient(to bottom, #000 76%, transparent 100%), linear-gradient(to right, transparent 0, #000 22px);
-    -webkit-mask-composite: source-in; mask-image: linear-gradient(to bottom, #000 76%, transparent 100%), linear-gradient(to right, transparent 0, #000 22px); mask-composite: intersect; }
-  .photos img { position: absolute; height: auto; filter: grayscale(1) sepia(.28) contrast(1.06) brightness(1.02); }
+  .title { position: absolute; left: 38px; right: 38px; top: 50px; height: 58px; z-index: 10; display: grid; place-items: center;
+    border-radius: 22px; background: var(--ink); color: var(--white); font-size: 29px; font-weight: 700; line-height: 1;
+    box-shadow: 0 8px 22px rgba(0,0,0,.28); }
 
-  .duration { position: absolute; left: 80px; top: 528px; width: 220px; height: 32px; display: flex; gap: 8px; justify-content: center; }
-  .duration span { flex: 1; display: grid; place-items: center; border-radius: 99px; font-weight: 700; font-size: 14px; letter-spacing: .06em; }
-  .duration .en { background: rgba(13,13,13,.9); border: 1px solid rgba(234,207,105,.55); color: var(--white); direction: ltr; }
-  .duration .ar { background: var(--gold); color: var(--ink); font-size: 16px; letter-spacing: 0; }
+  .duration { position: absolute; left: 62px; right: 62px; top: 524px; height: 34px; z-index: 10; display: flex; gap: 10px; }
+  .duration span { flex: 1; display: grid; place-items: center; border-radius: 99px; background: var(--ink); color: var(--white); font-weight: 700; font-size: 15px; box-shadow: 0 6px 16px rgba(0,0,0,.25); }
+  .duration .en { direction: ltr; letter-spacing: .04em; }
 
-  .logos { position: absolute; left: 40px; top: 568px; width: 300px; height: 50px; border-radius: 99px; background: var(--ink); display: flex; align-items: center; justify-content: space-evenly; padding: 0 16px; box-sizing: border-box; direction: ltr; box-shadow: inset 0 0 0 1px rgba(255,255,255,.06); }
+  .logos { position: absolute; left: 34px; right: 34px; top: 568px; height: 50px; z-index: 10; border-radius: 99px; background: var(--ink);
+    display: flex; align-items: center; justify-content: space-evenly; padding: 0 14px; direction: ltr; box-shadow: 0 8px 22px rgba(0,0,0,.28); }
   .logos img { display: block; width: auto; filter: brightness(0) invert(1); }
   .logos img.own-white { filter: none; }
 </style>
@@ -39,41 +40,40 @@
 <body>
 <div class="card" id="card">
   <img class="bg" id="bg" alt="">
-  <div class="title"><b id="t-ar"></b><small id="t-en"></small></div>
-  <div class="tier" id="tier"></div>
   <div class="photos" id="photos"></div>
-  <div class="duration"><span class="en" id="d-en"></span><span class="ar" id="d-ar"></span></div>
+  <img class="bg tabs" id="tabs" alt="">
+  <div class="title" id="title"></div>
+  <div class="duration"><span class="ar" id="d-ar"></span><span class="en" id="d-en"></span></div>
   <div class="logos" id="logos"></div>
 </div>
 <script>
 const LOGO = "../../new-design/assets/img/logos/";
+const LOGOS = [["netflix.svg", 64], ["ssc.svg", 46], ["bein-white.svg", 58], ["shahid.svg", 52]];
 const CARDS = {
-  // Plus, 1 year. Portraits are stand-ins until the name list is matched to the photos.
-  "plus-12m": {
-    bg: "bg/card-bg-aztv-plus.png", tier: "PLUS",
-    ar: "اشتراك بلس سنة", en: "PLUS SUBSCRIPTION FOR 1 YEAR", dEn: "1 YEAR", dAr: "سنة",
-    // left portrait sits behind the right one; x, width in card px (left is the card's left edge of the photo area)
+  // AZ TV (regular), 6 months. Trial: the portraits are stand-ins until photos are matched to the name list.
+  "aztv-6m": {
+    bg: "bg/card-bg-aztv.png", title: "اشتراك ٦ شهور", dEn: "6 MONTHS", dAr: "٦ شهور",
+    // first = behind, last = in front
     photos: [
-      { src: "photos/transparent/008-man-long-hair-dark-coat-chair.png", left: -215, width: 430, top: 52 },
-      { src: "photos/transparent/006-yellow-navy-kit-captain.png", left: 62, width: 300, top: 76 }
-    ],
-    logos: [["netflix.svg", 66], ["ssc.svg", 46], ["bein-white.svg", 58], ["shahid.svg", 52]]
+      { src: "stars/latest-roles/vertical/transparent/06-antony-starr-g20.png", left: 150, top: 104, width: 300, lift: 1.22 },
+      { src: "photos/transparent/010-barcelona-curly-hair-crossed-fingers.png", left: -32, top: 104, width: 410 }
+    ]
   }
 };
-const c = CARDS[new URLSearchParams(location.search).get("card") || "plus-12m"];
-document.getElementById("bg").src = c.bg;
-document.getElementById("t-ar").textContent = c.ar;
-document.getElementById("t-en").textContent = c.en;
-document.getElementById("tier").textContent = c.tier;
+const c = CARDS[new URLSearchParams(location.search).get("card") || "aztv-6m"];
+document.getElementById("bg").src = document.getElementById("tabs").src = c.bg;
+document.getElementById("title").textContent = c.title;
 document.getElementById("d-en").textContent = c.dEn;
 document.getElementById("d-ar").textContent = c.dAr;
 const photos = document.getElementById("photos");
-c.photos.forEach((p, i) => {
-  const im = new Image(); im.src = p.src; im.style.cssText = `left:${p.left}px;width:${p.width}px;top:${p.top}px;z-index:${i + 1}`;
+c.photos.forEach(p => {
+  const im = new Image(); im.src = p.src;
+  im.style.cssText = `left:${p.left}px;top:${p.top}px;width:${p.width}px`;
+  if (p.lift) im.style.filter = `grayscale(1) contrast(1.15) brightness(${p.lift})`;
   photos.appendChild(im);
 });
 const logos = document.getElementById("logos");
-c.logos.forEach(([f, w]) => { const im = new Image(); im.src = LOGO + f; if (f.includes('white')) im.className = 'own-white'; im.style.width = w + "px"; logos.appendChild(im); });
+LOGOS.forEach(([f, w]) => { const im = new Image(); im.src = LOGO + f; if (f.includes("white")) im.className = "own-white"; im.style.width = w + "px"; logos.appendChild(im); });
 Promise.all([...document.images].map(i => i.complete ? 0 : new Promise(r => { i.onload = i.onerror = r; })))
   .then(() => document.fonts.ready).then(() => document.body.dataset.ready = "1");
 </script>

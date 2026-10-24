@@ -37,7 +37,9 @@ The face photos for the cards (cut-outs on white, delivered in batches) are in `
 
 ## Trial card (2026-10-24)
 
-`new/plus-12m.png` is a first trial of card 5 (بلس سنة), to settle the look before the other nine. Built from `card.html` (`?card=plus-12m`, title, two portraits, duration, platform logos on `bg/card-bg-aztv-plus.png`) and exported with `node render-cards.cjs plus-12m`. The portraits are photos 008 (left) and 006 (right) from `photos/originals/`, cut out with `photos/cutout-white.py` (output in `photos/transparent/`, needs `pip install scipy`); who goes on which card is not decided yet. Both are shown black and white with a warm tint, as on the old Plus card.
+`new/aztv-6m.png` is the trial for the look of all ten cards: card 2 (اشتراك ٦ شهور, regular, black and white). A first trial on the Plus 1-year card was rejected and removed (it stays in git history). What changed: big close-up faces that fill the card from under the title to the bottom (player in front, star behind), the title in a black pill, real black and white instead of a warm tint, and the duration and logo pills sitting on the photos, as on the old cards.
+
+Built from `card.html` (`?card=aztv-6m`; each card is one entry in `CARDS`) and exported with `node render-cards.cjs aztv-6m`. The portraits are stand-ins: star `stars/latest-roles/vertical/transparent/06-antony-starr-g20.png` and player photo 010 from `photos/originals/`, cut out with `photos/cutout-white.py` (output in `photos/transparent/`, needs `pip install scipy`). Who goes on which card is not decided yet.
 
 ## How we work
 
