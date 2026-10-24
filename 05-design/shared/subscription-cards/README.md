@@ -37,7 +37,7 @@ The face photos for the cards (cut-outs on white, delivered in batches) are in `
 
 ## Trial card (2026-10-24)
 
-`new/plus-12m.png` is a first trial of card 5 (بلس سنة), to settle the look before the other nine. Built from `card.html` (`?card=plus-12m`, title, two portraits, duration, platform logos on `bg/card-bg-aztv-plus.png`) and exported with `node render-cards.cjs plus-12m`. The portraits are stand-ins: one star from `stars/latest-roles/vertical/transparent/`, one player cut out of `photos/originals/` with `photos/cutout-white.py` (output in `photos/transparent/`, needs `pip install scipy`). Both are shown black and white with a warm tint, as on the old Plus card.
+`new/plus-12m.png` is a first trial of card 5 (بلس سنة), to settle the look before the other nine. Built from `card.html` (`?card=plus-12m`, title, two portraits, duration, platform logos on `bg/card-bg-aztv-plus.png`) and exported with `node render-cards.cjs plus-12m`. The portraits are photos 008 (left) and 006 (right) from `photos/originals/`, cut out with `photos/cutout-white.py` (output in `photos/transparent/`, needs `pip install scipy`); who goes on which card is not decided yet. Both are shown black and white with a warm tint, as on the old Plus card.
 
 ## How we work
 
