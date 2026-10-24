@@ -77,8 +77,9 @@
   .plus .photos img { filter: grayscale(1) sepia(.4) saturate(1.1) contrast(1.1) brightness(.98); }
   /* Plus is kept flat and quiet: solid gold, no gradients, no outlines, no shadows */
   .plus .title { background: var(--gold); color: var(--ink); box-shadow: none; }
-  .plus .sub > span { background: none; box-shadow: none; padding: 0; gap: 12px; color: var(--white); font-size: 12px; letter-spacing: .26em; }
-  .plus .sub b { height: 26px; padding: 0 12px; background: var(--gold); font-size: 12.5px; }
+  /* the package line is the same pill as on the regular cards: dark pill, light chip, no outline */
+  .plus .sub > span { background: #1C1B17; box-shadow: none; color: #D6D6D2; }
+  .plus .sub b { background: var(--gold); }
   .plus .duration span { background: #1C1B17; color: var(--gold); box-shadow: none; }
   .plus .logos { background: #1C1B17; box-shadow: none; }
   .plus .badge span { background: var(--gold); border-color: var(--ink); }
