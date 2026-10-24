@@ -47,7 +47,7 @@ Round 2 on both trials: portraits about 10% smaller, a small «AZ TV SUBSCRIPTIO
 
 ## All ten cards (2026-10-24)
 
-Built from `card.html` in the accepted look of card 3, with the card photos 001-011 and the stars from `stars/latest-roles/`. Export all: `node render-cards.cjs` (or one: `node render-cards.cjs plus-6m`).
+Built from `card.html` in the accepted look of card 3, with the card photos 001-011 and the stars from `stars/latest-roles/`. Export all: `node render-cards.cjs` (or one: `node render-cards.cjs plus-6m`). Then `python3 contact-sheet.py` rebuilds the overview `new/all-cards.jpg`, each card with its number from the table above and its name, for review with the client.
 
 - **AZ TV cards** (white): as card 3, unchanged.
 - **AZ TV Plus cards** (`plus: true`): the black and gold card background, gold title pill with black text, gold «AZ TV PLUS SUBSCRIPTION» line, warm gold-toned portraits, a bright warm light at the burst centre (hides where the rays meet behind the faces), a dark floor, black duration and logo pills with a gold edge.
