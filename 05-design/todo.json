@@ -204,10 +204,14 @@
           "link": "azshirtsstore.com",
           "now": "0a8a5712-7a85-471d-8604-e56d580e020e-86d3f5bf.webp",
           "new": "second-store-dark.png",
-          "spec": "1600×900، نسخة جوال 800×1000",
+          "spec": "سطح المكتب 16:9 (1600×900) ونسخة جوال 4:5 (800×1000). بدون نص: العنوان والزر في بلوك العنوان فوق البنر.",
           "who": "you",
-          "prompt": "Three football jerseys floating and slightly overlapping, centred, in dark studio light: one light blue, one deep red, one yellow. Generic jerseys with no club crests, no sponsor logos, no letters or numbers. Black background (#0D0D0D) with warm gold rim light (#EACF69), a few gold confetti flecks, one jersey coming out of an open black gift box with a gold ribbon. Photorealistic, premium, no text, no logos. 16:9, 1600x900.",
-          "status": "todo"
+          "prompt": "I attached 2 reference images.\nImage 1 is the lighting and mood I want: black background, soft warm gold rim light, haze and a few gold dust particles, glossy dark floor.\nImage 2 is the old banner. Use it ONLY for the idea (football shirts and a gift box). Ignore its white background, its text, and every club crest, sponsor logo and brand mark on the shirts.\n\nCreate a premium banner for a football-shirt store offer \"buy 2, get the third free\":\n- Three football shirts: one light blue, one deep red, one yellow. Generic plain shirts with no club crests, no sponsor logos, no brand marks, no letters and no numbers.\n- Composition: the light-blue shirt on the left and the deep-red shirt on the right, floating slightly and angled towards the centre. In the centre, an open black gift box with a thin gold ribbon, and the yellow shirt rising out of it (the free one).\n- Background: near-black #0D0D0D fading to darkness at the edges, with soft haze like image 1. A warm gold rim light (#EACF69) from behind traces the shirts and the box. A few gold confetti flecks and fine gold dust in the air. A soft reflection on a dark glossy floor.\n- Keep the left and right 12% of the frame calm and dark, because the page crops the edges.\n- Photorealistic, sharp fabric detail, shallow depth of field in the background.\n- No text, no letters, no numbers, no logos, no watermark, no people.\nWide 16:9 (1600 x 900).\n\n--- Phone version (send as a second request in the same chat) ---\nSame image, same elements and mood, but composed for a phone: portrait 4:5 (800 x 1000). The open gift box with the yellow shirt rising out of it in the centre, the light-blue shirt upper left and the deep-red shirt upper right, all kept inside the middle 80% of the frame. Same rules: no text, no logos, no crests.",
+          "status": "doing",
+          "refs": [
+            "05-design/sections/05-aztv-box/aztv-box-dark-gemini.jpg",
+            "05-design/new-design/assets/img/0a8a5712-7a85-471d-8604-e56d580e020e-86d3f5bf.webp"
+          ]
         }
       ]
     },
