@@ -9,10 +9,10 @@
     centre left:  the 1-year card in front, tilted -5 degrees; the 3-month card behind it to the right, tilted 8 degrees
     across both:  a black satin ribbon with thin white edges, tied in a bow where the cards overlap (the 3 months are the gift)
     top:          «OFFER OF THE WEEK» in small spaced letters between two thin lines, «عرض الأسبوع» under it
-    right:        the price «96» large and white, «ريال فقط», the old price struck through, a thin line, «+ ٣ شهور مجانًا»
-    seal:         a white «خصم ٦٠٪» seal on the front card's top corner
+    right:        the discount «خصم 60%» large and white, a thin line, «+ ٣ شهور مجانًا». No price on the image (client, 2026-10-25):
+                  the product card on the store already shows it.
   Canvas 1000 x 1000, exported at 2x = 2000 x 2000, on the approved regular stage without a card (backgrounds.html).
-  URL: ?stage=<empty stage jpg>&big=<card png>&small=<card png>  (&price=96 &old=٢٣٨ &free=٣ شهور مجانًا &save=٦٠٪)
+  URL: ?stage=<empty stage jpg>&big=<card png>&small=<card png>  (&save=60% &free=٣ شهور مجانًا)
   The stage carries the logo top centre, vertical AZTVSTORE letters (left from y 640, right up to y 460) and the contact pills at the bottom.
 -->
 <style>
@@ -33,26 +33,16 @@
 
   /* the gift set */
   .card { position: absolute; display: block; height: auto; filter: drop-shadow(0 26px 34px rgba(0,0,0,.65)); }
-  .small { left: 474px; top: 404px; width: 236px; transform: rotate(8deg); }
-  .big { left: 190px; top: 334px; width: 300px; transform: rotate(-5deg); }
-  .ribbon { position: absolute; left: 178px; top: 612px; width: 556px; height: 110px; overflow: visible; filter: drop-shadow(0 8px 12px rgba(0,0,0,.55)); }
+  .small { left: 456px; top: 404px; width: 236px; transform: rotate(8deg); }
+  .big { left: 172px; top: 334px; width: 300px; transform: rotate(-5deg); }
+  .ribbon { position: absolute; left: 160px; top: 612px; width: 556px; height: 110px; overflow: visible; filter: drop-shadow(0 8px 12px rgba(0,0,0,.55)); }
 
-  /* seal */
-  .seal { position: absolute; left: 130px; top: 262px; width: 112px; height: 112px; border-radius: 50%; background: var(--white); color: var(--ink);
-    display: flex; flex-direction: column; align-items: center; justify-content: center; transform: rotate(-12deg);
-    box-shadow: 0 14px 26px rgba(0,0,0,.55); }
-  .seal::before { content: ""; position: absolute; inset: 6px; border-radius: 50%; border: 1.5px dashed rgba(13,13,13,.45); }
-  .seal small { font-size: 20px; line-height: 1; }
-  .seal b { font-size: 38px; line-height: 1.05; }
-
-  /* price column */
-  .col { position: absolute; left: 738px; top: 318px; width: 206px; display: flex; flex-direction: column; align-items: center; text-align: center; }
-  .col .n { font-size: 158px; line-height: .92; font-weight: 700; letter-spacing: -.03em;
+  /* discount column */
+  .col { position: absolute; left: 742px; top: 360px; width: 212px; display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .col .k { font-size: 40px; line-height: 1.1; }
+  .col .n { font-size: 104px; line-height: .95; font-weight: 700; letter-spacing: -.03em; direction: ltr;
     background: linear-gradient(#FFFFFF 10%, #DADAD6 100%); -webkit-background-clip: text; background-clip: text; color: transparent;
     filter: drop-shadow(0 12px 18px rgba(0,0,0,.6)); }
-  .col .u { font-size: 30px; line-height: 1.2; margin-top: 6px; }
-  .col .was { font-size: 20px; line-height: 1.4; color: var(--grey); }
-  .col .was s { text-decoration-thickness: 2px; text-decoration-color: #D6D6D2; }
   .col .rule { width: 120px; height: 1px; background: rgba(244,244,242,.5); margin: 18px 0 16px; }
   .col .gift { display: flex; align-items: center; gap: 8px; height: 52px; padding: 0 18px; border-radius: 99px; border: 1.5px solid rgba(244,244,242,.85);
     font-size: 25px; white-space: nowrap; background: rgba(13,13,13,.55); }
@@ -89,11 +79,9 @@
       <rect x="-14" y="-16" width="28" height="32" rx="8" fill="url(#sat)"/>
     </g>
   </svg>
-  <div class="seal"><small>خصم</small><b id="save">٦٠٪</b></div>
   <div class="col">
-    <span class="n" id="price">96</span>
-    <span class="u">ريال فقط</span>
-    <span class="was">بدل <s id="old">٢٣٨</s> ريال</span>
+    <span class="k">خصم</span>
+    <span class="n" id="save">60%</span>
     <span class="rule"></span>
     <span class="gift"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="9" width="18" height="12" rx="1.5"/><path d="M2 9h20M12 9v12M12 9c-2-4-7-4-6 0M12 9c2-4 7-4 6 0"/></svg><span id="free">+ ٣ شهور مجانًا</span></span>
   </div>
@@ -103,8 +91,6 @@ const q = new URLSearchParams(location.search);
 document.getElementById("stageBg").src = q.get("stage");
 document.getElementById("big").src = q.get("big");
 document.getElementById("small").src = q.get("small");
-if (q.get("price")) document.getElementById("price").textContent = q.get("price");
-if (q.get("old")) document.getElementById("old").textContent = q.get("old");
 if (q.get("free")) document.getElementById("free").textContent = "+ " + q.get("free");
 if (q.get("save")) document.getElementById("save").textContent = q.get("save");
 Promise.all([...document.images].map(i => i.complete ? 0 : new Promise(r => { i.onload = i.onerror = r; })))
