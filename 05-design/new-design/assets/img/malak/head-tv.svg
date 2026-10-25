@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="AZ TV">
+  <!-- Section 07 title icon: a TV whose antennas wiggle and send signal waves, a pulsing gold play button, a shine across the screen.
+       Made by build/make_head_icons.py (edit there). One 3 s loop; still for reduced motion. -->
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FBEBA8"/><stop offset=".45" stop-color="#ECD169"/><stop offset="1" stop-color="#B38D36"/>
+    </linearGradient>
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2E2E2E"/><stop offset="1" stop-color="#101010"/>
+    </linearGradient>
+    <radialGradient id="glow">
+      <stop offset="0" stop-color="#EACF69" stop-opacity=".42"/><stop offset="1" stop-color="#EACF69" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="shine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FFF" stop-opacity="0"/><stop offset=".5" stop-color="#FFF8DC" stop-opacity=".55"/><stop offset="1" stop-color="#FFF" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="screen" cx=".5" cy=".3" r=".85">
+      <stop offset="0" stop-color="#3A3016"/><stop offset=".55" stop-color="#151410"/><stop offset="1" stop-color="#0A0A0A"/>
+    </radialGradient>
+    <clipPath id="screen-clip"><rect x="28" y="50" width="72" height="44" rx="8"/></clipPath>
+  </defs>
+  <style>
+    #glow { animation: breathe 3s ease-in-out infinite; transform-box: view-box; transform-origin: 64px 68px; }
+    #float { animation: float 3s ease-in-out infinite; }
+    .shine { animation: shine 3s cubic-bezier(.45, 0, .2, 1) infinite; }
+    @keyframes breathe { 0%, 100% { opacity: .55; transform: scale(.92); } 50% { opacity: 1; transform: scale(1.04); } }
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+    @keyframes shine { 0%, 15% { transform: translateX(-70px) skewX(-20deg); } 55%, 100% { transform: translateX(150px) skewX(-20deg); } }
+    #ant { animation: wiggle 3s ease-in-out infinite; transform-box: view-box; transform-origin: 64px 42px; }
+    #waves { transform: translate(84px, 22px); }
+    .wave { fill: none; stroke: #ECD169; stroke-width: 3; stroke-linecap: round; opacity: 0;
+            transform-box: view-box; transform-origin: 0 0; animation: wave 1.5s ease-out infinite; }
+    .wave.w2 { animation-delay: .35s; }
+    #play { transform-box: fill-box; transform-origin: 40% 50%; animation: pulse 1.5s ease-in-out infinite; }
+    #led { animation: blink 1.5s steps(1, end) infinite; }
+    @keyframes wiggle { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(-7deg); } 75% { transform: rotate(7deg); } }
+    @keyframes wave { 0% { opacity: 0; transform: scale(.7); } 30% { opacity: 1; } 100% { opacity: 0; transform: scale(1.12); } }
+    @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.14); } }
+    @keyframes blink { 0% { fill: #ECD169; } 50% { fill: #3A3016; } }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+  </style>
+  <circle id="glow" cx="64" cy="68" r="58" fill="url(#glow)"/>
+  <g id="float">
+    <g id="ant" fill="none" stroke="url(#gold)" stroke-width="3.5" stroke-linecap="round">
+      <path d="M64 42 48 25"/><path d="M64 42 84 22"/>
+      <circle cx="48" cy="25" r="3.8" fill="url(#gold)" stroke="none"/><circle cx="84" cy="22" r="3.8" fill="url(#gold)" stroke="none"/>
+      <g id="waves"><path class="wave" d="M1.4 -7.9A8 8 0 0 1 8.0 0.7"/><path class="wave w2" d="M2.4 -13.8A14 14 0 0 1 13.9 1.2"/></g>
+    </g>
+    <path d="M40 103 34 114M88 103 94 114" stroke="url(#gold)" stroke-width="4" stroke-linecap="round"/>
+    <rect x="16" y="40" width="96" height="64" rx="16" fill="url(#body)" stroke="url(#gold)" stroke-width="3.5"/>
+    <rect x="28" y="50" width="72" height="44" rx="8" fill="url(#screen)" stroke="#ECD169" stroke-opacity=".35" stroke-width="1.5"/>
+    <g clip-path="url(#screen-clip)"><rect class="shine" x="10" y="40" width="26" height="64" fill="url(#shine)"/></g>
+    <path id="play" d="M58 63.5v17a2 2 0 0 0 3 1.7l14.5-8.5a2 2 0 0 0 0-3.4L61 61.8a2 2 0 0 0-3 1.7z" fill="url(#gold)"/>
+    <path d="M30 99h14" stroke="#ECD169" stroke-opacity=".35" stroke-width="2" stroke-linecap="round"/>
+    <circle id="led" cx="98" cy="99" r="2" fill="#ECD169"/>
+  </g>
+</svg>

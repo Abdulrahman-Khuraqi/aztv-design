@@ -216,14 +216,14 @@
       "title": "أيقونات عناوين الأقسام (GIF قديمة)",
       "where": "فوق عناوين الأقسام 07 (تلفزيون) و 11 (تاج) و 15 (سهم تجديد)",
       "why": "صور GIF متحركة قديمة بألوان لا تطابق الهوية.",
-      "how": "تم: أيقونات ذهبية مسطحة بخلفية شفافة بنفس أسلوب أيقونات الأقسام 08 و 09 و 12 (Hugeicons، make_images.js)، بدل صور GIF. وتطفو ببطء بدل الدوران المستمر. نسخة 3D اختيارية في المجموعة التالية.",
+      "how": "تم: أيقونات ذهبية متحركة بنفس لغة الشعار المتحرك (SVG، الحركة داخل الملف): تلفاز بهوائيات تتحرك وموجات بث وزر تشغيل ينبض، تاج يتمايل مع لمعة ونجوم، وسهما تجديد يدوران حول بطاقة ثم تظهر علامة صح. make_head_icons.py يصنعها، ومعها نسخ WebP متحركة احتياطية لسلة.",
       "items": [
         {
           "id": "i-tv",
           "title": "أيقونة القسم 07 (تلفزيون)",
           "now": "f8caHf.IMG-0029-8a6a9e6c.gif",
-          "new": "malak/icon-tv.webp",
-          "spec": "أيقونة ذهبية مسطحة 400×400، شفافة",
+          "new": "malak/head-tv.svg",
+          "spec": "SVG متحرك 128×128 (حوالي 4 كيلوبايت)، واحتياطي WebP متحرك 160×160",
           "who": "me",
           "status": "done"
         },
@@ -231,8 +231,8 @@
           "id": "i-crown",
           "title": "أيقونة القسم 11 (تاج)",
           "now": "f8tYaY.IMG-0027-728c1743.gif",
-          "new": "malak/icon-crown.webp",
-          "spec": "أيقونة ذهبية مسطحة 400×400، شفافة",
+          "new": "malak/head-crown.svg",
+          "spec": "SVG متحرك 128×128 (حوالي 4 كيلوبايت)، واحتياطي WebP متحرك 160×160",
           "who": "me",
           "status": "done"
         },
@@ -240,8 +240,8 @@
           "id": "i-loop",
           "title": "أيقونة القسم 15 (تجديد)",
           "now": "wired-lineal-213-arrow-2-rounded-loop-cycle-1532a874.gif",
-          "new": "malak/icon-renew.webp",
-          "spec": "أيقونة ذهبية مسطحة 400×400، شفافة",
+          "new": "malak/head-renew.svg",
+          "spec": "SVG متحرك 128×128 (حوالي 4 كيلوبايت)، واحتياطي WebP متحرك 160×160",
           "who": "me",
           "status": "done"
         }
@@ -279,7 +279,7 @@
         {
           "id": "i-tv-3d",
           "title": "أيقونة 3D القسم 07 (تلفزيون)",
-          "now": "malak/icon-tv.webp",
+          "now": "malak/head-tv.webp",
           "new": "icon-3d-tv.png",
           "spec": "512×512، شفافة",
           "who": "you",
@@ -290,7 +290,7 @@
         {
           "id": "i-crown-3d",
           "title": "أيقونة 3D القسم 11 (تاج)",
-          "now": "malak/icon-crown.webp",
+          "now": "malak/head-crown.webp",
           "new": "icon-3d-crown.png",
           "spec": "512×512، شفافة",
           "who": "you",
@@ -301,7 +301,7 @@
         {
           "id": "i-loop-3d",
           "title": "أيقونة 3D القسم 15 (تجديد)",
-          "now": "malak/icon-renew.webp",
+          "now": "malak/head-renew.webp",
           "new": "icon-3d-renew.png",
           "spec": "512×512، شفافة",
           "who": "you",

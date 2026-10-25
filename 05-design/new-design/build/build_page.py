@@ -108,7 +108,7 @@ def divider(cid, title, sub=None, button=None, icon=None, countdown=False, xl=Fa
     else: a.decompose()
     return d
 
-# the old GIF above a kept title block → one of our flat gold icons (same field: the block's icon image)
+# the old GIF above a kept title block → our animated gold icon (same field: the block's icon image; made by make_head_icons.py)
 def head_icon(d, src):
     img = d.select_one('.divider-icon img'); img['src'] = img['data-src'] = src
 
@@ -226,7 +226,7 @@ B += [b5]
 B += [divider('43834166', 'عروض بداية الموسم', 'خصم حتى 60٪ على باقات عز تي في وعز تي في بلس', ('كل العروض', c(1510593888)), countdown=True), block('817347637')]
 # 07 AZ TV packages
 d7 = block('427126746'); d7.select_one('.divider-title h2').string = 'اشتراكات AZ TV'; d7.select_one('.divider-title p').string = 'الباقة العادية: نقلة نوعية لجهازك'
-head_icon(d7, M + 'icon-tv.webp')
+head_icon(d7, M + 'head-tv.svg')
 B += [d7, block('353140267')]
 # 08 AZ TV apps
 B += [divider('1336426713', 'تطبيقات وأجهزة AZ TV', 'اختر جهازك واتبع خطوات التفعيل', ('تفعيل AZ TV', page(1920849311))),
@@ -246,7 +246,7 @@ B += [block('1444537310')]
 # 11 Plus packages
 d11 = block('1161342244'); d11.attrs.pop('style', None)  # its «المسافة العلوية» was 0 (inline margin-top: 0 !important), which glued it to the testimonials
 d11.select_one('.divider-title h2').string = 'اشتراكات AZ TV Plus'; d11.select_one('.divider-title p').string = 'أعلى جودة مشاهدة، مع خيار اشتراك لجهازين'
-head_icon(d11, M + 'icon-crown.webp')
+head_icon(d11, M + 'head-crown.svg')
 B += [d11, block('1726651700')]
 # 12 Plus apps
 B += [divider('852429351', 'تطبيقات وأجهزة AZ TV Plus', 'بعد الشراء، اختر جهازك وفعّل البلس في دقائق', ('تفعيل AZ TV Plus', page(389705163))),
@@ -262,17 +262,17 @@ B += [d14, block('1409389868')]
 d15 = block('1584482337'); h = d15.select_one('.divider-title h2'); h.string = 'لعملائنا الأوفياء'
 if not d15.select_one('.divider-title p'):
     h.insert_after(frag('<p class="w-full mt-1 px-1 !p-0 !m-0 text-gray-400 da-ts whitespace-nowrap">جدّد اشتراكك بسعر أقل</p>'))
-head_icon(d15, M + 'icon-renew.webp')
+head_icon(d15, M + 'head-renew.svg')
 B += [d15, block('677271330')]
 # 16 FAQ
 B += [FAQS]
 # 17 Final CTA
 B += [divider('new-17-cta', 'جاهز تبدأ المشاهدة؟', 'اختر باقتك اليوم، أو جدّد اشتراكك وكمّل من حيث وقفت.', ('تصفح الباقات', c(1765121197)), xl=True)]
 
-# section titles carry no icon (block setting «الأيقونة» left empty), except 07, 11 and 15: their old GIFs became our flat gold icons (head_icon)
+# section titles carry no icon (block setting «الأيقونة» left empty), except 07, 11 and 15: their old GIFs became our animated gold icons (head_icon)
 for blk in B:
     for el in blk.select('.divider-icon'):
-        if 'malak/icon-' not in (el.img or {}).get('src', ''): el.decompose()
+        if 'malak/head-' not in (el.img or {}).get('src', ''): el.decompose()
 
 # products blocks: the dividers already title them, so the blocks' own titles are left empty (block setting)
 for blk in B:

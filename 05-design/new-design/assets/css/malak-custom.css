@@ -47,13 +47,11 @@
 .s-angel--divider .vertical-lines { display: none !important; }
 .s-angel--divider .divider-title .flex-center > div.flex-center { width: 100%; padding-inline: 0 !important; }
 .s-angel--divider .divider-container { padding-block: 0 !important; }
-/* title icons (07, 11, 15 only): flat gold icons from malak/, which have wide margins in the image, so a 64px box (54px on phones).
-   The theme spins the icon nonstop (spinning-obj); a TV or a crown should not spin, so a slow float instead. */
-.s-angel--divider .divider-icon img { width: 64px; height: 64px; max-height: none !important; }
-.s-angel--divider .divider-icon .img-container { animation: az-icon-float 4s ease-in-out infinite; }
-@keyframes az-icon-float { 50% { transform: translateY(-4px); } }
-@media (max-width: 767px) { .s-angel--divider .divider-icon img { width: 54px; height: 54px; } }
-@media (prefers-reduced-motion: reduce) { .s-angel--divider .divider-icon .img-container { animation: none; } }
+/* title icons (07, 11, 15 only): animated gold icons from malak/head-*.svg, motion inside the file (antennas and signal, crown and
+   sparkles, renew arrows and check). The theme also spins and bobs the icon box (spinning-obj, flying-obj): off, the icon moves itself. */
+.s-angel--divider .divider-icon img { width: 84px; height: 84px; max-height: none !important; }
+.s-angel--divider .divider-icon .img-container { animation: none !important; }
+@media (max-width: 767px) { .s-angel--divider .divider-icon img { width: 68px; height: 68px; } }
 /* a title block set to «full width» in the theme (14) still sits in the column */
 .s-angel--divider .divider-container:not(.container) { max-width: calc(var(--az-page) + 2 * var(--az-gutter)); margin-inline: auto; padding-inline: var(--az-gutter); }
 .s-angel--divider a.divider-url {
@@ -135,8 +133,8 @@
 
 /* ---------- 08 and 12 Apps and devices (2nd and 3rd categories blocks): icon + name side by side ----------
    Four square tiles of 285px would be heavy for an icon; a low card keeps them on the page grid without the height.
-   Tablets keep the square tile with the name under it (the names do not fit beside the icon there). */
-@media (min-width: 1024px) {
+   Tablets keep the square tile with the name under it (the names do not fit beside the icon there). Phones use the low card too, two by two. */
+@media (min-width: 1024px), (max-width: 767px) {
   .app-inner > section:nth-child(n+2 of .s-block--categories) .slide--cat-entry {
     flex-direction: row; justify-content: flex-start; gap: 16px; padding: 16px 18px; border-radius: 18px;
     background: var(--az-surface) !important; border: 1px solid var(--az-line); transition: border-color .25s;
@@ -148,6 +146,11 @@
   }
   .app-inner > section:nth-child(n+2 of .s-block--categories) .slide--cat-entry:hover .lazy__bg { transform: none !important; }
   .app-inner > section:nth-child(n+2 of .s-block--categories) .slide--cat-entry span { font-size: 16px; font-weight: 700; text-align: start; }
+}
+@media (max-width: 767px) {
+  .app-inner > section:nth-child(n+2 of .s-block--categories) .slide--cat-entry { gap: 10px; padding: 10px 12px; border-radius: 14px; }
+  .app-inner > section:nth-child(n+2 of .s-block--categories) .slide--cat-entry .lazy__bg { width: 44px !important; height: 44px !important; border-radius: 12px !important; }
+  .app-inner > section:nth-child(n+2 of .s-block--categories) .slide--cat-entry span { font-size: 14px; }
 }
 
 /* ---------- 03 Main categories: 3D artwork that rises out of its card ----------
@@ -188,13 +191,10 @@
 
 /* ---------- Banners (04 beIN devices) ---------- */
 .s-block--banners .square-grid { gap: var(--az-gap) !important; }
-/* phones: a row of three cards (04 beIN world) swipes sideways instead of shrinking to thumbnails */
+/* phones: a row of three cards (04 beIN world) stays one centred row of three, like on desktop */
 @media (max-width: 767px) {
-  .s-block--banners .square-grid:has(> :nth-child(3)) {
-    display: flex !important; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-inline: 4px;
-  }
-  .s-block--banners .square-grid:has(> :nth-child(3))::-webkit-scrollbar { display: none; }
-  .s-block--banners .square-grid:has(> :nth-child(3)) > * { flex: 0 0 72%; scroll-snap-align: center; }
+  .s-block--banners .square-grid:has(> :nth-child(3)) { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .s-block--banners .square-grid:has(> :nth-child(3)) .box-img { border-radius: 14px !important; }
 }
 .s-block--banners .box-img { border-radius: 20px !important; overflow: hidden; border: 1px solid var(--az-line); }
 .s-block--banners .grayscaled-img img { filter: none !important; }
@@ -226,6 +226,20 @@
 @media (min-width: 768px) {
   .s-block--best-offers .s-slider-container { margin-inline: calc(var(--az-gap) / -2) !important; padding-inline: 0 !important; }
   .s-block--best-offers .s-products-slider-card { width: 25% !important; padding-inline: calc(var(--az-gap) / 2) !important; margin: 0 !important; }
+}
+/* phones: the theme swipes products (07, 11) and categories (03, 08, 12), starting at the right edge with a cut card on the left.
+   Four or five items need no swiping, so they wrap into a centred grid instead: products two by two, 03 three then two
+   (the short row centred), apps and devices two by two as low cards. */
+@media (max-width: 767px) {
+  .s-block--best-offers .s-slider-container, .s-block--categories .swiper { margin: 0 !important; padding: 0 !important; overflow: visible !important; }
+  .s-block--best-offers .swiper-wrapper, .s-block--categories .swiper-wrapper {
+    display: flex !important; flex-wrap: wrap; justify-content: center; gap: var(--az-gap); transform: none !important; height: auto !important;
+  }
+  .s-block--best-offers .swiper-slide-duplicate, .s-block--categories .swiper-slide-duplicate { display: none !important; }
+  .s-block--best-offers .s-products-slider-card { flex: none; width: calc((100% - var(--az-gap)) / 2) !important; margin: 0 !important; padding: 0 !important; }
+  .s-block--categories .swiper-slide { flex: none; width: calc((100% - 2 * var(--az-gap)) / 3) !important; max-width: none !important; height: auto !important; margin: 0 !important; padding: 0 !important; }
+  .app-inner > section:nth-child(n+2 of .s-block--categories) .swiper-slide { width: calc((100% - var(--az-gap)) / 2) !important; }
+  .s-block--categories .slide--cat-entry { padding-inline: 0; }
 }
 /* a row of only two products (06 offers, 15 renewals): two wide cards, picture beside the details, across the full column,
    instead of two tall cards in the middle of the page */
