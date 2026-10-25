@@ -23,6 +23,15 @@
 .az-btn--ghost { background: rgba(13, 13, 13, .35); color: var(--az-text); border-color: rgba(243, 240, 230, .45); backdrop-filter: blur(4px); }
 .az-btn--ghost:hover { border-color: var(--az-gold); color: var(--az-gold); }
 
+/* shared section heading icons: replace the theme's old animated GIFs above each section title.
+   One set of gold line icons on a dark badge (SVG, masters in 05-design/shared/section-icons/), so they hold on light and dark bands.
+   A slow float stands in for the GIF motion; the theme's spin/fly classes are no longer on these. */
+.az-head-icon { display: inline-flex; width: 56px; height: 56px; animation: az-head-float 4s ease-in-out infinite; }
+.az-head-icon img { width: 100%; height: 100%; display: block; }
+@keyframes az-head-float { 50% { transform: translateY(-4px); } }
+@media (max-width: 767px) { .az-head-icon { width: 46px; height: 46px; } }
+@media (prefers-reduced-motion: reduce) { .az-head-icon { animation: none; } }
+
 /* ---------- 01 Hero ----------
    Black-and-white poster now; the media slot takes a muted looping <video> with the same poster once footage arrives. */
 .az-hero {

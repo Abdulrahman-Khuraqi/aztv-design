@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="تلفاز">
+  <!-- AZ TV section heading icon: dark badge, gold ring, gold line glyph (24px grid, scaled into the badge) -->
+  <circle cx="32" cy="32" r="30.5" fill="#1A1A1A" stroke="#EACF69" stroke-opacity=".5" stroke-width="1.5"/>
+  <g transform="translate(16 16) scale(1.3333)" fill="none" stroke="#EACF69" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="2" y="7" width="20" height="13" rx="2"/><path d="M8 3l4 4 4-4"/><path d="M10.5 11v5l4-2.5z"/>
+  </g>
+</svg>

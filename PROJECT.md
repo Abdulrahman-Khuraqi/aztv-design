@@ -3,7 +3,7 @@
 Single source of truth for the redesign of [aztvstore.com](https://aztvstore.com/).
 The visual version of this file is **Our Workspace**: [our workspace.html](our%20workspace.html). Keep the two in sync.
 
-Last updated: 2026-10-21
+Last updated: 2026-10-25
 
 ## 1. Project in one paragraph
 
@@ -159,6 +159,8 @@ new store design/
 ```
 
 ## 10. Log
+
+- 2026-10-25: Shared element, section heading icons (old GIFs). The six animated GIFs above section titles (about 2.2 MB, each in a different style) replaced by five SVG icons in one style: gold line glyph on a dark badge, under 1 KB each, readable on light and dark bands. Masters and mapping in `05-design/shared/section-icons/` (README), copies in new-design `assets/img/icons/`, styles `.az-head-icon` in `new-design.css` (slow float, still with reduced motion). Applied to لعملائنا الأوفياء, both apps sections, Az TV, قالوا عن عز تي في, Az TV Plus. The unused GIFs were removed from the new design (the old design keeps them). The beIN section keeps its logo image.
 
 - 2026-10-21: Section 03 main categories, first draft. Five cards after the logo strip: تجديد الاشتراك (c183760688 "جدد الان"), AZ TV (c971844871), AZ TV Plus (c921887589), beIN Sports (c899162953, official renewal; there is no single beIN category), AZ TV Box (product p1152326425). Five images generated in Gemini in one matching style and warm-graded to the brand; originals `cat-*-gemini.jpg` in `05-design/sections/03-main-categories/`, web versions `cat-*.webp` (600x800). Cards 2-5 are Gemini's 765x1024 previews (Chrome blocked the full-size downloads), enough for the card size. The AZ TV Box image is a generic device: replace with the real product photo before going live.
 
