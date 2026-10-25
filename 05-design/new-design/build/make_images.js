@@ -18,7 +18,8 @@ const HEAD = `<base href="${B}"><link rel="stylesheet" href="css/pingarlt-2194a8
   }
   // gold line icons on transparent ground (the tile colour comes from the theme)
   const icons = { 'icon-apple': 'apple', 'icon-android-phone': 'smart-phone-01', 'icon-android-tv': 'tv-smart', 'icon-smart-tv': 'tv-01',
-    'icon-fast': 'zap', 'icon-support': 'customer-support', 'icon-payment': 'credit-card', 'icon-devices': 'laptop-phone-sync', 'icon-renew': 'refresh' };
+    'icon-fast': 'zap', 'icon-support': 'customer-support', 'icon-payment': 'credit-card', 'icon-devices': 'laptop-phone-sync', 'icon-renew': 'refresh',
+    'icon-tv': 'tv-02', 'icon-crown': 'crown' };
   for (const [f, ic] of Object.entries(icons))
     await shot(`<div style="width:400px;height:400px;display:grid;place-items:center"><i class="hgi-stroke hgi-${ic}" style="font-size:190px;color:#EACF69"></i></div>`, 400, 400, f + '.png', true);
   // beIN package tiles

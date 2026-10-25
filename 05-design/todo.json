@@ -212,9 +212,45 @@
       ]
     },
     {
+      "id": "icons",
+      "title": "أيقونات عناوين الأقسام (GIF قديمة)",
+      "where": "فوق عناوين الأقسام 07 (تلفزيون) و 11 (تاج) و 15 (سهم تجديد)",
+      "why": "صور GIF متحركة قديمة بألوان لا تطابق الهوية.",
+      "how": "تم: أيقونات ذهبية مسطحة بخلفية شفافة بنفس أسلوب أيقونات الأقسام 08 و 09 و 12 (Hugeicons، make_images.js)، بدل صور GIF. وتطفو ببطء بدل الدوران المستمر. نسخة 3D اختيارية في المجموعة التالية.",
+      "items": [
+        {
+          "id": "i-tv",
+          "title": "أيقونة القسم 07 (تلفزيون)",
+          "now": "f8caHf.IMG-0029-8a6a9e6c.gif",
+          "new": "malak/icon-tv.webp",
+          "spec": "أيقونة ذهبية مسطحة 400×400، شفافة",
+          "who": "me",
+          "status": "done"
+        },
+        {
+          "id": "i-crown",
+          "title": "أيقونة القسم 11 (تاج)",
+          "now": "f8tYaY.IMG-0027-728c1743.gif",
+          "new": "malak/icon-crown.webp",
+          "spec": "أيقونة ذهبية مسطحة 400×400، شفافة",
+          "who": "me",
+          "status": "done"
+        },
+        {
+          "id": "i-loop",
+          "title": "أيقونة القسم 15 (تجديد)",
+          "now": "wired-lineal-213-arrow-2-rounded-loop-cycle-1532a874.gif",
+          "new": "malak/icon-renew.webp",
+          "spec": "أيقونة ذهبية مسطحة 400×400، شفافة",
+          "who": "me",
+          "status": "done"
+        }
+      ]
+    },
+    {
       "id": "flat",
       "title": "ترقية اختيارية: أيقونات مسطحة إلى 3D",
-      "where": "القسمان 08 و 12 (الأجهزة) والقسم 09 (المميزات)",
+      "where": "القسمان 08 و 12 (الأجهزة)، القسم 09 (المميزات)، وأيقونات عناوين الأقسام 07 و 11 و 15",
       "why": "ليست قديمة، صنعناها مؤقتًا بخطوط ذهبية مسطحة. نسخ ثلاثية الأبعاد تجعل الصفحة كلها بأسلوب القسم 03.",
       "how": "أيقونات 3D صغيرة بخلفية شفافة. بعد قسمي beIN والبوكس.",
       "items": [
@@ -238,6 +274,39 @@
           "who": "you",
           "edge": "gold",
           "prompt": "Set of four small premium 3D icons in the style of the attached reference, one per image: (1) a polished gold lightning bolt, (2) a glossy black headset with gold ear cups, (3) a glossy black payment card with a gold chip, (4) a phone, tablet and TV grouped together in glossy black with gold edges. TRANSPARENT background, no text, square 512x512 each.",
+          "status": "todo"
+        },
+        {
+          "id": "i-tv-3d",
+          "title": "أيقونة 3D القسم 07 (تلفزيون)",
+          "now": "malak/icon-tv.webp",
+          "new": "icon-3d-tv.png",
+          "spec": "512×512، شفافة",
+          "who": "you",
+          "edge": "silver",
+          "prompt": "Small premium 3D icon in the style of the attached reference: a compact glossy black retro TV with two antennas and polished silver edges. TRANSPARENT background, no text, square 512x512.",
+          "status": "todo"
+        },
+        {
+          "id": "i-crown-3d",
+          "title": "أيقونة 3D القسم 11 (تاج)",
+          "now": "malak/icon-crown.webp",
+          "new": "icon-3d-crown.png",
+          "spec": "512×512، شفافة",
+          "who": "you",
+          "edge": "gold",
+          "prompt": "Small premium 3D icon in the style of the attached reference: a polished gold crown with three points and a black enamel band. TRANSPARENT background, no text, square 512x512.",
+          "status": "todo"
+        },
+        {
+          "id": "i-loop-3d",
+          "title": "أيقونة 3D القسم 15 (تجديد)",
+          "now": "malak/icon-renew.webp",
+          "new": "icon-3d-renew.png",
+          "spec": "512×512، شفافة",
+          "who": "you",
+          "edge": "gold",
+          "prompt": "Small premium 3D icon in the style of the attached reference: a polished gold circular renewal arrow around a small glossy black card. TRANSPARENT background, no text, square 512x512.",
           "status": "todo"
         }
       ]
