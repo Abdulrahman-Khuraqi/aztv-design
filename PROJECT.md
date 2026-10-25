@@ -197,6 +197,7 @@ new store design/
 
 ## 10. Log
 
+- 2026-10-25: Background F (straight split) chosen by the client for the website: all ten product images on the website now use it (`build_page.py` default `PRODUCT_BG=f`).
 - 2026-10-25: New product background option F, «تقسيم مستقيم» (straight split): option E with a straight horizontal line instead of the diagonal (`subscription-backgrounds/export/option-f-*.png`). All ten product images rendered on it for review (`subscription-cards/product-images/f/`, overview `overview-f.jpg`). The website still uses B; `PRODUCT_BG=f` on `build_page.py` previews F.
 - 2026-10-25: Offer of the week reorganised (client: the discount column took too much space): the right column removed; the gift set centred and a little larger; the discount is one white circle «خصم 60%» on the 3-month card's corner.
 - 2026-10-25: Offer of the week: the price taken off the image (the store's product card already shows it) and the discount «خصم 60%» made the highlight on the right, above «+ ٣ شهور مجانًا»; the small «خصم ٦٠٪» seal on the card removed as redundant.

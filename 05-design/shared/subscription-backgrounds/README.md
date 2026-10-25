@@ -17,7 +17,7 @@ The old images' look, redrawn clean: black top, one light plane under a sharp di
 - Files: `export/option-e-aztv.png`, `export/option-e-aztv-plus.png`, mock-ups `mockups/option-e-*-6m.jpg`
 - Source: `backgrounds.html?opt=e&tier=regular|plus`
 
-## Option F "straight split" (2026-10-25, to try)
+## Option F "straight split" (2026-10-25, chosen for the website)
 
 Option E with a straight horizontal split instead of the diagonal: black top, the light plane (white for AZ TV, gold for Plus) below a straight line at y 560 of 1000, the zigzag rays tone on tone, one clean edge line. Files: `export/option-f-aztv.png`, `export/option-f-aztv-plus.png` (and `.webp`, `-guide.jpg`). Source: `backgrounds.html?opt=f&tier=regular|plus`. All the product images on it: `../subscription-cards/product-images/f/`, overview `product-images/overview-f.jpg`.
 
