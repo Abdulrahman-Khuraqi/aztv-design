@@ -88,9 +88,9 @@ The finished banner carries its own Arabic text: «٢ والثالث مجانً�
 - The third shirt (in the gift box) is a plain white one; to use a real third shirt, attach it as image 4 and replace that line.
 - Full prompt (desktop and phone): the to-do item «بنر 2 والثالث مجانًا» in `05-design/todo.json`, also in the workspace to-do tab.
 
-## 6. Final call to action background (section 17, جاهز تبدأ المشاهدة؟)
+## 6. Final call to action background (section 17, جاهز تبدأ المشاهدة؟) · done 2026-10-25
 
-Optional. The section works without it (gold glow on black); an image would make the last screen feel like the hero.
+Done: the client's image (dark living room, match on the TV) in `17-final-cta/final-cta-bg-gemini.jpg`, on the site as `new-design/assets/img/malak/final-cta-bg.webp` (2000 × 661, 61 KB), set as the box background in `malak-custom.css` (`--az-cta-bg`).
 
 - File: `17-final-cta/final-cta-bg.png`
 - Size: 2400 × 800 (wide)
