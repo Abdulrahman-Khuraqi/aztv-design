@@ -5,8 +5,7 @@
 /* sliders: lay the slides out in a row instead of the positions Swiper had when the page was saved */
 .swiper-wrapper { transform: none !important; display: flex; }
 .s-block--categories .swiper-slide { width: calc(100% / 6) !important; flex: none; }
-.s-products-slider-card.swiper-slide { width: calc((100% - 3 * 16px) / 4) !important; margin-inline-end: 16px; flex: none; }
-.s-products-slider-card.swiper-slide:last-child { margin-inline-end: 0; }
+.s-products-slider-card.swiper-slide { flex: none; } /* widths: malak-custom.css (25%), as Swiper reads them live */
 .s-block--testimonials .swiper-slide { width: calc(100% / 3) !important; flex: none; }
 .s-block--hero-slider .swiper-slide { width: 100% !important; opacity: 1 !important; transform: none !important; }
 @media (max-width: 767px) {

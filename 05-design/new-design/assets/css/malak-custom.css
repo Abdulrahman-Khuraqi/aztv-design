@@ -14,23 +14,43 @@
   --az-muted: #B9B4A6;
   --az-line: rgba(243, 240, 230, .1);
   --az-gold-wash: rgba(234, 207, 105, .1);
+  /* page grid: one content width, one gutter, one card gap and one section rhythm for the whole page */
+  --az-page: 1200px;
+  --az-gutter: clamp(16px, 3vw, 32px);
+  --az-gap: 20px;
+  --az-section: clamp(56px, 6.5vw, 96px);
+  --az-title-gap: clamp(22px, 2.4vw, 34px);
 }
+@media (max-width: 767px) { :root { --az-gap: 12px; } }
+
+/* ---------- Page grid ----------
+   The theme container runs to 1480px with a 10px edge, so every block ended up with its own width. One column for all of them
+   (header and footer too), so every section starts and ends on the same two lines. */
+.container { max-width: calc(var(--az-page) + 2 * var(--az-gutter)) !important; padding-inline: var(--az-gutter) !important; }
+/* homepage (body.index): one vertical rhythm, the same space before every section and a shorter one between a title block and
+   the block it introduces (the theme already merges them: .merge-bottom + .s-block). Other pages keep the theme spacing. */
+.index .app-inner > section.s-block { padding-top: 0 !important; padding-bottom: 0 !important; margin-top: var(--az-section) !important; }
+.index .app-inner > section.s-block:first-of-type { margin-top: 0 !important; }
+.index .app-inner > .s-angel--divider.merge-bottom + section.s-block { margin-top: var(--az-title-gap) !important; }
 
 /* ---------- Section titles (block «عنوان القسم» / s-angel--divider) ----------
-   Long Arabic titles wrap instead of running off the screen; the side lines turn into a short gold rule; the button becomes a pill. */
-.s-angel--divider .divider-title h2 { white-space: normal !important; font-size: clamp(22px, 2.6vw, 32px); line-height: 1.45; color: var(--az-text) !important; text-wrap: balance; }
-.s-angel--divider .divider-title p { white-space: normal !important; font-size: 15.5px; line-height: 1.8; color: var(--az-muted) !important; max-width: 56ch; margin-inline: auto !important; }
-.s-angel--divider.xl-title .divider-title h2 { font-size: clamp(26px, 3.4vw, 44px); }
-.s-angel--divider .vertical-lines { background: linear-gradient(to var(--az-line-dir, left), transparent, rgba(234, 207, 105, .35)) !important; height: 1px; max-width: 220px; }
-.s-angel--divider .vertical-lines:last-child { --az-line-dir: right; }
-.s-angel--divider .divider-icon img { max-height: 40px; }
-/* phones: drop the side rules so the title gets the full width instead of a narrow column */
-@media (max-width: 767px) {
-  .s-angel--divider .vertical-lines { display: none; }
-  .s-angel--divider .divider-title .flex-center > .flex-center { width: 100%; padding-inline: 16px; }
+   Long Arabic titles wrap instead of running off the screen; the button becomes a pill.
+   Every section title has the same size, colour and spacing, whichever block prints it (title block, store features, FAQ, testimonials).
+   «xl» titles are the same size too: only the hero (01) and the final call to action (17) are larger. The side lines are off. */
+.s-angel--divider .divider-title h2, .s-block--features .s-block__title h2, .s-block--faqs .s-block__title h2, .s-block--testimonials .s-slider-block__title h2 {
+  white-space: normal !important; margin: 0; font-size: clamp(24px, 2.5vw, 34px) !important; font-weight: 700; line-height: 1.4; color: var(--az-text) !important; text-align: center; text-wrap: balance;
 }
+.s-angel--divider .divider-title p, .s-block--features .s-block__title p, .s-block--faqs .s-block__title p {
+  white-space: normal !important; margin: 8px auto 0 !important; font-size: 16px; line-height: 1.8; color: var(--az-muted) !important; max-width: 56ch; text-align: center;
+}
+.s-block--features .s-block__title, .s-block--faqs .s-block__title { margin: 0 0 var(--az-title-gap) !important; }
+.s-angel--divider .vertical-lines { display: none !important; }
+.s-angel--divider .divider-title .flex-center > div.flex-center { width: 100%; padding-inline: 0 !important; }
+.s-angel--divider .divider-container { padding-block: 0 !important; }
+/* a title block set to «full width» in the theme (14) still sits in the column */
+.s-angel--divider .divider-container:not(.container) { max-width: calc(var(--az-page) + 2 * var(--az-gutter)); margin-inline: auto; padding-inline: var(--az-gutter); }
 .s-angel--divider a.divider-url {
-  margin-top: 10px; min-height: 44px; padding: 0 24px; border-radius: 999px;
+  margin-top: 16px; min-height: 44px; padding: 0 24px; border-radius: 999px;
   border: 1.5px solid var(--az-gold); color: var(--az-gold) !important; background: transparent;
   font-weight: 700; text-decoration: none; transition: background-color .2s, color .2s;
 }
@@ -54,8 +74,8 @@
 @media (max-width: 767px) { .app-inner > section.s-block--hero-slider:first-of-type video { height: 82svh !important; } }
 .app-inner > section.s-block--hero-slider:first-of-type + .s-angel--divider { position: relative; z-index: 2; margin-top: clamp(-260px, -16vw, -120px) !important; }
 .app-inner > section.s-block--hero-slider:first-of-type + .s-angel--divider .vertical-lines { display: none; }
-.app-inner > section.s-block--hero-slider:first-of-type + .s-angel--divider .divider-title h2 { font-size: clamp(30px, 4.6vw, 60px); line-height: 1.25; }
-.app-inner > section.s-block--hero-slider:first-of-type + .s-angel--divider .divider-title p { font-size: clamp(15px, 1.4vw, 19px); color: var(--az-text) !important; opacity: .85; }
+.app-inner > section.s-block--hero-slider:first-of-type + .s-angel--divider .divider-title h2 { font-size: clamp(30px, 4.6vw, 60px) !important; line-height: 1.25; }
+.app-inner > section.s-block--hero-slider:first-of-type + .s-angel--divider .divider-title p { font-size: clamp(15px, 1.4vw, 19px); color: var(--az-text) !important; opacity: .85; max-width: 60ch; }
 .app-inner > section.s-block--hero-slider:first-of-type + .s-angel--divider a.divider-url {
   min-height: 54px; padding: 0 34px; font-size: 17px; background: var(--az-gold); color: var(--az-ink) !important;
 }
@@ -63,12 +83,12 @@
 
 /* ---------- Other full-width sliders (13 comparison, 14 second store): framed to the page width ---------- */
 .app-inner > section.s-block--hero-slider:not(:first-of-type) .s-slider-container {
-  max-width: 1100px; margin-inline: auto; border-radius: 24px; overflow: hidden; border: 1px solid var(--az-line);
+  width: calc(100% - 2 * var(--az-gutter)); max-width: var(--az-page); margin-inline: auto; border-radius: 24px; overflow: hidden; border: 1px solid var(--az-line);
 }
-@media (max-width: 1140px) { .app-inner > section.s-block--hero-slider:not(:first-of-type) .s-slider-container { margin-inline: 16px; } }
 
 /* ---------- 02 Moving strip (angel-ad): platform logos, all in white, on dark tiles ---------- */
 .angel-ad__container {
+  width: calc(100% - 2 * var(--az-gutter)); max-width: var(--az-page); margin-inline: auto; overflow: hidden;
   -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
           mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
 }
@@ -85,9 +105,15 @@
 
 /* ---------- Categories (block «روابط / تصنيفات»): one tile style for 03, 04, 08 and 12 ----------
    The round avatar becomes a square tile; photos fill it, transparent icons sit on the dark surface. */
-.s-block--categories .container { max-width: 1240px; margin-inline: auto; }
-/* desktop rows are shorter than the six slots the slider has, so centre them (phones keep the swipe) */
-@media (min-width: 1024px) { .s-block--categories .swiper-wrapper { justify-content: center; } }
+/* tablet and desktop: the theme's slider has six slots, so a row of four or five sat in the middle at its own width. All items share the
+   column instead, in equal columns on the page grid (no sliding is needed when they all fit). Phones keep the theme's swipe. */
+@media (min-width: 768px) {
+  .s-block--categories .swiper-wrapper { display: grid !important; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: var(--az-gap); transform: none !important; }
+  .s-block--categories .swiper { margin: 0 !important; padding: 0 !important; } /* the theme's swipe peek (48px) and -10px edges */
+  .s-block--categories .swiper-slide { width: auto !important; max-width: none !important; margin: 0 !important; padding: 0 !important; }
+  .s-block--categories .slide--cat-entry { padding-inline: 0; }
+  .s-block--categories .swiper-slide-duplicate { display: none !important; }
+}
 /* the theme gives the link a fixed 144px height with overflow hidden, which cuts the square tile and its label */
 .s-block--categories .slide--cat-entry { height: auto !important; overflow: visible !important; background: transparent !important; display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 4px; text-decoration: none; }
 .s-block--categories .slide--cat-entry .lazy__bg {
@@ -100,13 +126,30 @@
 .s-block--categories .slide--cat-entry:hover span { color: var(--az-gold); }
 @media (max-width: 767px) { .s-block--categories .slide--cat-entry span { font-size: 13.5px; } }
 
+/* ---------- 08 and 12 Apps and devices (2nd and 3rd categories blocks): icon + name side by side ----------
+   Four square tiles of 285px would be heavy for an icon; a low card keeps them on the page grid without the height.
+   Tablets keep the square tile with the name under it (the names do not fit beside the icon there). */
+@media (min-width: 1024px) {
+  .app-inner > section:nth-child(n+2 of .s-block--categories) .slide--cat-entry {
+    flex-direction: row; justify-content: flex-start; gap: 16px; padding: 16px 18px; border-radius: 18px;
+    background: var(--az-surface) !important; border: 1px solid var(--az-line); transition: border-color .25s;
+  }
+  .app-inner > section:nth-child(n+2 of .s-block--categories) .slide--cat-entry:hover { border-color: rgba(234, 207, 105, .55); }
+  .app-inner > section:nth-child(n+2 of .s-block--categories) .slide--cat-entry .lazy__bg {
+    flex: none; width: 56px !important; height: 56px !important; border-radius: 14px !important; border: 0;
+    background-color: var(--az-gold-wash) !important; background-size: 100% !important; background-repeat: no-repeat; background-position: center;
+  }
+  .app-inner > section:nth-child(n+2 of .s-block--categories) .slide--cat-entry:hover .lazy__bg { transform: none !important; }
+  .app-inner > section:nth-child(n+2 of .s-block--categories) .slide--cat-entry span { font-size: 16px; font-weight: 700; text-align: start; }
+}
+
 /* ---------- 03 Main categories: 3D artwork that rises out of its card ----------
    Only the first categories block of the page (03). Upload the transparent 3D renders (cat-*-3d) as the category images:
    the card is drawn behind the lower part of the tile, so the object stands taller than the card. */
 .app-inner > section:nth-child(1 of .s-block--categories) .swiper { padding-top: 14px; }
-.app-inner > section:nth-child(1 of .s-block--categories) .slide--cat-entry { position: relative; padding: 0 6px 18px; gap: 4px; }
+.app-inner > section:nth-child(1 of .s-block--categories) .slide--cat-entry { position: relative; padding: 0 0 18px; gap: 4px; }
 .app-inner > section:nth-child(1 of .s-block--categories) .slide--cat-entry::before {
-  content: ""; position: absolute; inset: 34% 6px 0; z-index: 0; border-radius: 22px;
+  content: ""; position: absolute; inset: 34% 0 0; z-index: 0; border-radius: 22px;
   background: radial-gradient(90% 60% at 50% 0%, rgba(234, 207, 105, .16), transparent 70%), var(--az-surface);
   border: 1px solid var(--az-line); transition: border-color .3s, box-shadow .3s;
 }
@@ -137,7 +180,7 @@
 }
 
 /* ---------- Banners (04 beIN devices) ---------- */
-.s-block--banners .square-grid { max-width: 1100px; margin-inline: auto; }
+.s-block--banners .square-grid { gap: var(--az-gap) !important; }
 /* phones: a row of three cards (04 beIN world) swipes sideways instead of shrinking to thumbnails */
 @media (max-width: 767px) {
   .s-block--banners .square-grid:has(> :nth-child(3)) {
@@ -170,8 +213,22 @@
   border-radius: 12px !important; min-height: 46px; font-weight: 700;
 }
 .s-product-card-content-footer .s-button-element:hover { background: var(--az-text) !important; border-color: var(--az-text) !important; }
-/* a row of only two products (06 offers, 15 renewals) sits centred instead of filling half a four-column grid */
-.s-products-list-wrapper:has(> custom-salla-product-card:nth-child(2):last-child) { max-width: 720px; margin-inline: auto; grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+/* product sliders (07, 11): four cards to the row on the page grid. The theme slider has six slots (16.66%), so four products
+   filled two thirds of the row and left a hole on one side; its «large cards» option is 25% too. Swiper still slides a fifth product in. */
+.s-products-list-wrapper { gap: var(--az-gap) !important; }
+@media (min-width: 768px) {
+  .s-block--best-offers .s-slider-container { margin-inline: calc(var(--az-gap) / -2) !important; padding-inline: 0 !important; }
+  .s-block--best-offers .s-products-slider-card { width: 25% !important; padding-inline: calc(var(--az-gap) / 2) !important; margin: 0 !important; }
+}
+/* a row of only two products (06 offers, 15 renewals): two wide cards, picture beside the details, across the full column,
+   instead of two tall cards in the middle of the page */
+.s-products-list-wrapper:has(> custom-salla-product-card:nth-child(2):last-child) { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+@media (min-width: 768px) {
+  .s-products-list-wrapper:has(> custom-salla-product-card:nth-child(2):last-child) .s-product-card-entry { flex-direction: row !important; }
+  .s-products-list-wrapper:has(> custom-salla-product-card:nth-child(2):last-child) .s-product-card-image { flex: 0 0 46%; width: 46% !important; max-width: 46%; }
+  .s-products-list-wrapper:has(> custom-salla-product-card:nth-child(2):last-child) .s-product-card-content { display: flex; flex-direction: column; justify-content: center; padding: 20px 24px !important; }
+  .s-products-list-wrapper:has(> custom-salla-product-card:nth-child(2):last-child) .s-product-card-content-footer { margin-top: 18px !important; }
+}
 
 /* ---------- 05 AZ TV Box (featured product) ----------
    Block image: the box on black, product on the left, right half empty (assets/img/aztv-box-dark.webp).
@@ -230,19 +287,21 @@
 .s-count-down-item-value { color: var(--az-text) !important; }
 
 /* ---------- 09 Store features ---------- */
+.s-block--features .grid { gap: var(--az-gap) !important; align-items: stretch !important; }
 .s-block--features .angel-feature { padding: 22px 14px; border-radius: 18px; background: var(--az-surface); border: 1px solid var(--az-line); height: 100%; }
 .s-block--features .angel-feature .lazy__bg { background-size: 78% !important; background-repeat: no-repeat; background-position: center; }
-.s-block--features .s-block__title h2 { font-size: clamp(22px, 2.6vw, 32px); }
-.s-block--features .s-block__title p { color: var(--az-muted) !important; }
 .s-block--features .angel-feature p:first-child { color: var(--az-text) !important; }
 
 /* ---------- 10 Testimonials ---------- */
+.s-block--testimonials .s-slider-block__title { position: relative; justify-content: center; margin-bottom: var(--az-title-gap) !important; }
+.s-block--testimonials .s-slider-block__title-right { flex: 1 1 auto; justify-content: center; }
+.s-block--testimonials .s-slider-block__title-left { position: absolute; inset-inline-end: 0; top: 50%; transform: translateY(-50%); }
 .s-block--testimonials .swiper-slide > div { background: var(--az-surface) !important; border: 1px solid var(--az-line); border-radius: 18px !important; }
 .s-block--testimonials .testimonial__avatar { box-shadow: 0 0 0 3px rgba(234, 207, 105, .35); }
 .s-block--testimonials .s-rating-stars-selected svg { fill: var(--az-gold) !important; }
 
 /* ---------- 16 FAQ (s-block--faqs) ---------- */
-.s-block--faqs .faqs-list { max-width: 860px; margin-inline: auto; }
+@media (min-width: 1024px) { .s-block--faqs .faqs-list { display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 12px var(--az-gap) !important; } }
 .s-block--faqs .faq-box { background: var(--az-surface); border-color: var(--az-line) !important; border-radius: 14px !important; transition: border-color .25s; }
 .s-block--faqs .faq-question { padding: 18px 20px; font-size: 16.5px; color: var(--az-text); }
 .s-block--faqs .open-badge {
@@ -256,11 +315,11 @@
 
 /* ---------- 17 Final call to action: the title block right after the FAQ, as a framed gold-lit box ---------- */
 .s-block--faqs + .s-angel--divider .divider-container {
-  max-width: 1100px; margin: 0 16px; padding: clamp(40px, 6vw, 72px) 20px; border-radius: 28px;
+  width: calc(100% - 2 * var(--az-gutter)); max-width: var(--az-page) !important; margin-inline: auto; padding: clamp(40px, 6vw, 72px) 20px !important; border-radius: 28px;
   background: radial-gradient(60% 120% at 50% 120%, rgba(234, 207, 105, .28), transparent 70%), var(--az-surface);
   border: 1px solid rgba(234, 207, 105, .28);
 }
-@media (min-width: 1132px) { .s-block--faqs + .s-angel--divider .divider-container { margin-inline: auto; } }
+.s-block--faqs + .s-angel--divider .divider-title h2 { font-size: clamp(28px, 3.4vw, 44px) !important; }
 .s-block--faqs + .s-angel--divider .vertical-lines { display: none; }
 .s-block--faqs + .s-angel--divider a.divider-url { background: var(--az-gold); color: var(--az-ink) !important; min-height: 52px; padding: 0 32px; font-size: 17px; }
 

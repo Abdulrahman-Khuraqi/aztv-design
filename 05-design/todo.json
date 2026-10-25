@@ -212,48 +212,6 @@
       ]
     },
     {
-      "id": "icons",
-      "title": "أيقونات عناوين الأقسام (GIF قديمة)",
-      "where": "فوق عناوين الأقسام 07 (تلفزيون) و 11 (تاج) و 15 (سهم تجديد)",
-      "why": "صور GIF متحركة قديمة بألوان لا تطابق الهوية.",
-      "how": "أيقونات صغيرة ثلاثية الأبعاد ذهبية بخلفية شفافة، أو حذفها والاكتفاء بالعنوان.",
-      "items": [
-        {
-          "id": "i-tv",
-          "title": "أيقونة القسم 07 (تلفزيون)",
-          "now": "f8caHf.IMG-0029-8a6a9e6c.gif",
-          "new": "icon-3d-tv.png",
-          "spec": "512×512، شفافة",
-          "who": "you",
-          "edge": "silver",
-          "prompt": "Small premium 3D icon in the style of the attached reference: a compact glossy black retro TV with two antennas and polished silver edges. TRANSPARENT background, no text, square 512x512.",
-          "status": "todo"
-        },
-        {
-          "id": "i-crown",
-          "title": "أيقونة القسم 11 (تاج)",
-          "now": "f8tYaY.IMG-0027-728c1743.gif",
-          "new": "icon-3d-crown.png",
-          "spec": "512×512، شفافة",
-          "who": "you",
-          "edge": "gold",
-          "prompt": "Small premium 3D icon in the style of the attached reference: a polished gold crown with three points and a black enamel band. TRANSPARENT background, no text, square 512x512.",
-          "status": "todo"
-        },
-        {
-          "id": "i-loop",
-          "title": "أيقونة القسم 15 (تجديد)",
-          "now": "wired-lineal-213-arrow-2-rounded-loop-cycle-1532a874.gif",
-          "new": "icon-3d-renew.png",
-          "spec": "512×512، شفافة",
-          "who": "you",
-          "edge": "gold",
-          "prompt": "Small premium 3D icon in the style of the attached reference: a polished gold circular renewal arrow around a small glossy black card. TRANSPARENT background, no text, square 512x512.",
-          "status": "todo"
-        }
-      ]
-    },
-    {
       "id": "flat",
       "title": "ترقية اختيارية: أيقونات مسطحة إلى 3D",
       "where": "القسمان 08 و 12 (الأجهزة) والقسم 09 (المميزات)",

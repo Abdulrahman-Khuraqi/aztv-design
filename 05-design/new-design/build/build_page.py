@@ -239,7 +239,8 @@ B += [f9]
 # 10 Testimonials (the block prints its own title)
 B += [block('1444537310')]
 # 11 Plus packages
-d11 = block('1161342244'); d11.select_one('.divider-title h2').string = 'اشتراكات AZ TV Plus'; d11.select_one('.divider-title p').string = 'أعلى جودة مشاهدة، مع خيار اشتراك لجهازين'
+d11 = block('1161342244'); d11.attrs.pop('style', None)  # its «المسافة العلوية» was 0 (inline margin-top: 0 !important), which glued it to the testimonials
+d11.select_one('.divider-title h2').string = 'اشتراكات AZ TV Plus'; d11.select_one('.divider-title p').string = 'أعلى جودة مشاهدة، مع خيار اشتراك لجهازين'
 B += [d11, block('1726651700')]
 # 12 Plus apps
 B += [divider('852429351', 'تطبيقات وأجهزة AZ TV Plus', 'بعد الشراء، اختر جهازك وفعّل البلس في دقائق', ('تفعيل AZ TV Plus', page(389705163))),
@@ -260,6 +261,10 @@ B += [d15, block('677271330')]
 B += [FAQS]
 # 17 Final CTA
 B += [divider('new-17-cta', 'جاهز تبدأ المشاهدة؟', 'اختر باقتك اليوم، أو جدّد اشتراكك وكمّل من حيث وقفت.', ('تصفح الباقات', c(1765121197)), xl=True)]
+
+# section titles carry no icon (block setting «الأيقونة» left empty): only 07, 11 and 15 had one, old GIFs, which made three titles unlike the rest
+for blk in B:
+    for el in blk.select('.divider-icon'): el.decompose()
 
 # products blocks: the dividers already title them, so the blocks' own titles are left empty (block setting)
 for blk in B:
