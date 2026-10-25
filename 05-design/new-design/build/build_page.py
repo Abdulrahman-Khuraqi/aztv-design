@@ -255,9 +255,10 @@ B += [divider('852429351', 'تطبيقات وأجهزة AZ TV Plus', 'بعد ا�
 # 13 Comparison: no ملاك block, so a designed image in a hero slider (desktop + phone image)
 B += [divider('new-13-title', 'AZ TV أو AZ TV Plus؟', 'مقارنة سريعة تساعدك تختار الباقة الأنسب', ('تصفح الباقات', c(1765121197))),
       hero('new-13-compare', c(1765121197), M + 'compare-desktop.webp', M + 'compare-phone.webp', alt='مقارنة بين AZ TV و AZ TV Plus')]
-# 14 Second store
-d14 = divider('569291821', '2 والثالث مجانًا', 'أضف ثلاث تيشرتات للسلة ويتفعّل العرض', ('تسوّق التيشرتات', 'https://azshirtsstore.com/'), xl=True, base='569291821')
-B += [d14, block('1409389868')]
+# 14 Second store: one finished banner (title, line, button and the AZ Shirts logo are in the image, made by build/make_second_store.js
+# from the Gemini artwork), linking to the shirts store. No title block above it, so the offer is not written twice.
+B += [hero('1409389868', 'https://azshirtsstore.com/', IMG + 'second-store/second-store-desktop.webp', IMG + 'second-store/second-store-phone.webp',
+           alt='2 والثالث مجانًا: أضف ثلاث تيشرتات للسلة ويتفعّل العرض. تسوّق التيشرتات من متجر عز شيرتس')]
 # 15 Loyal customers
 d15 = block('1584482337'); h = d15.select_one('.divider-title h2'); h.string = 'لعملائنا الأوفياء'
 if not d15.select_one('.divider-title p'):

@@ -196,18 +196,18 @@
       "title": "البنرات",
       "where": "القسم 14 (عرض المتجر الثاني)",
       "why": "بنر حملة التيشرتات فاتح ويكسر الهوية الداكنة، والنص داخله يكرر عنوان القسم.",
-      "how": "بنر داكن بدون نص؛ العنوان والزر في بلوك العنوان فوقه.",
+      "how": "تم: صورة Gemini (التيشرتان الحقيقيان والثالث في صندوق الهدية) وفوقها النص العربي والزر وشعار عز شيرتس بخط الموقع، في بنر واحد بلا بلوك عنوان فوقه. النص يُضاف بالكود (build/make_second_store.js) لا بالذكاء الاصطناعي، فيبقى صحيحًا.",
       "items": [
         {
           "id": "n-second",
           "title": "بنر «2 والثالث مجانًا» داكن",
           "link": "azshirtsstore.com",
           "now": "0a8a5712-7a85-471d-8604-e56d580e020e-86d3f5bf.webp",
-          "new": "second-store-dark.png",
-          "spec": "سطح المكتب 16:9 (1600×900) والمنتجات في اليسار والنصف الأيمن فارغ، ونسخة جوال 4:5 (800×1000) والمنتجات في الأعلى والأسفل فارغ. النص العربي (٢ والثالث مجانًا، الوصف، الزر) وشعار «عز شيرتس» (05-design/sections/14-second-store/logo-az-shirts.png) يضيفها Claude فوق الصورة بعد التوليد، لأن Gemini يخطئ في الحروف العربية.",
+          "new": "second-store/second-store-desktop.webp · second-store-phone.webp",
+          "spec": "كمبيوتر 1600×1064، جوال 800×1080. الأصل من Gemini: 05-design/sections/14-second-store/second-store-gemini.jpg (2000×1116).",
           "who": "you",
           "prompt": "I attached 3 reference images.\nImage 1 is the lighting and mood I want: black background, soft warm gold rim light, haze and a few gold dust particles, glossy dark floor.\nImage 2 is a real green football shirt (Saudi national team). Image 3 is a real yellow football shirt (Brazil national team). These are the exact products of the store.\n\nKeep both shirts EXACTLY as in images 2 and 3: same colours, same patterns, same collars and sleeves, and the same crests and brand marks in the same places. Do not redesign them, do not redraw or invent any crest, logo or text on them.\n\nCreate a premium banner for a football-shirt store offer \"buy 2, get the third free\":\n- All the products sit together in the LEFT 55% of the frame: the green shirt behind on the left and the yellow shirt behind on the right, floating slightly, angled towards each other, front view. In front of them, in the centre of that group, an open black gift box with a thin gold ribbon, and a third shirt rising out of it: a plain white football shirt with no crest, no logo and no text (the free one).\n- The RIGHT 45% of the frame must be completely empty: only near-black background with very soft haze. No objects, no confetti, no light spots there, because Arabic text and a logo will be placed on it.\n- Background: near-black #0D0D0D fading to darkness at the edges, with soft haze like image 1. A warm gold rim light (#EACF69) from behind traces the shirts and the box. A few gold confetti flecks and fine gold dust in the air. A soft reflection on a dark glossy floor.\n- Keep the far-left edge calm and dark, because the page crops the edges.\n- Photorealistic, sharp fabric detail, shallow depth of field in the background.\n- Do not add any text, letters, numbers, logos or watermark anywhere except what is already printed on the two attached shirts. No people.\nWide 16:9 (1600 x 900).\n\n--- Phone version (send as a second request in the same chat) ---\nSame image, same elements and mood, but composed for a phone: portrait 4:5 (800 x 1000). The open gift box with the white shirt rising out of it in the centre, the green shirt upper left and the yellow shirt upper right, all kept inside the TOP 60% of the frame. The BOTTOM 40% must be completely empty near-black space with only very soft haze, because Arabic text, a button and a logo will be placed there. Same rules: the two attached shirts exactly as they are, no other text or logos.",
-          "status": "doing",
+          "status": "done",
           "refs": [
             "05-design/sections/05-aztv-box/aztv-box-dark-gemini.jpg",
             "05-design/sections/14-second-store/shirt-saudi-green.png",

@@ -79,11 +79,11 @@ AZ TV Plus:
 Same layout, but the angular pattern and diagonal band in warm gold (#EACF69) on black, with a subtle metallic sheen and a few gold dust particles. Lower third plain black for text. No text, no logos, no people.
 ```
 
-## 5. Second store banner (section 14, ٢ والثالث مجانًا)
+## 5. Second store banner (section 14, ٢ والثالث مجانًا) · done 2026-10-25
 
 The finished banner carries its own Arabic text: «٢ والثالث مجانًا», a short line, a «تسوّق التيشرتات» button and the store logo (`14-second-store/logo-az-shirts.png`). Gemini makes the artwork **without any text** and leaves the right half (phone: the bottom 40%) empty; we add the text and logo over it, because AI models misspell Arabic.
 
-- Files: `14-second-store/second-store-dark.png` (16:9, 1600 × 900) and a phone version (4:5, 800 × 1000)
+- Result: Gemini spread the three shirts across the whole frame (`14-second-store/second-store-gemini.jpg`, 2000 × 1116), so the text went above it and the button under the gift box, centred. Composed by `new-design/build/make_second_store.js` into `new-design/assets/img/second-store/second-store-desktop.webp` and `-phone.webp`.
 - Attach, in this order: `05-design/sections/05-aztv-box/aztv-box-dark-gemini.jpg` (mood), `05-design/sections/14-second-store/shirt-saudi-green.png`, `05-design/sections/14-second-store/shirt-brazil-yellow.png`
 - The third shirt (in the gift box) is a plain white one; to use a real third shirt, attach it as image 4 and replace that line.
 - Full prompt (desktop and phone): the to-do item «بنر 2 والثالث مجانًا» in `05-design/todo.json`, also in the workspace to-do tab.
