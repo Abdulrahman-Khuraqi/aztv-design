@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>Offer product image</title>
+<!--
+  The «عرض الشهر» (offer of the month) product image: a finished card on the approved background (the base image, made by
+  render-products.cjs) plus the offer elements on the empty sides of the stage:
+    left, top:    gold banner «عرض الشهر» (OFFER OF THE MONTH)
+    right, middle: gold price badge «96 ريال فقط» with the old price under it, and the pill «٣ شهور مجانًا» on its lower edge
+  1000 x 1000, exported at 2x = 2000 x 2000. URL: ?base=product-images/b/_base-aztv-15m.jpg  (&price=96 &old=٢٣٨ &free=٣ شهور مجانًا)
+  The sides of the stage carry the vertical AZTVSTORE letters (left from y 640, right up to y 460), so nothing is placed there.
+-->
+<style>
+  @font-face { font-family: "PingARLT"; src: url("../subscription-backgrounds/src/PingARLT-Bold.woff2") format("woff2"); font-weight: 700; }
+  :root { --gold: #EACF69; --ink: #0D0D0D; --white: #F4F4F2; }
+  html, body { margin: 0; background: #000; }
+  body { display: grid; place-items: center; min-height: 100vh; }
+  #stage { position: relative; width: 1000px; height: 1000px; overflow: hidden; font-family: "PingARLT", system-ui, sans-serif; }
+  #stage > img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+
+  /* banner: gold plate with a notch on the inner side, pointing at the card */
+  .banner { position: absolute; left: 22px; top: 232px; width: 270px; height: 112px; background: var(--gold); color: var(--ink);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 24px 50%); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+    padding-left: 34px; box-sizing: border-box; filter: drop-shadow(0 10px 18px rgba(0,0,0,.45)); }
+  .banner b { font-size: 46px; line-height: 1.05; font-weight: 700; }
+  .banner small { font-size: 14px; letter-spacing: .24em; font-weight: 700; direction: ltr; }
+  .banner-wrap { position: absolute; inset: 0; filter: drop-shadow(0 10px 18px rgba(0,0,0,.45)); pointer-events: none; }
+  .banner-wrap .banner { filter: none; }
+
+  /* price badge */
+  .price { position: absolute; left: 716px; top: 468px; width: 260px; height: 260px; border-radius: 50%; background: var(--gold); color: var(--ink);
+    display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+    box-shadow: 0 0 0 8px var(--ink), 0 0 0 11px var(--gold), 0 18px 34px rgba(0,0,0,.5); }
+  .price .n { font-size: 128px; line-height: .95; font-weight: 700; letter-spacing: -.02em; margin-top: 16px; }
+  .price .u { font-size: 38px; line-height: 1; font-weight: 700; margin-top: 2px; }
+  .price .o { position: absolute; top: 40px; font-size: 21px; font-weight: 700; opacity: .75; text-decoration: line-through; text-decoration-thickness: 2px; }
+  .free { position: absolute; left: 704px; top: 700px; width: 276px; height: 62px; border-radius: 99px; background: var(--ink); color: var(--gold);
+    border: 3px solid var(--gold); display: grid; place-items: center; font-size: 32px; font-weight: 700; box-shadow: 0 12px 24px rgba(0,0,0,.45); }
+</style>
+</head>
+<body>
+<div id="stage">
+  <img id="base" alt="">
+  <div class="banner-wrap"><div class="banner"><b>عرض الشهر</b><small>OFFER OF THE MONTH</small></div></div>
+  <div class="price"><span class="o" id="old"></span><span class="n" id="price"></span><span class="u">ريال فقط</span></div>
+  <div class="free" id="free"></div>
+</div>
+<script>
+const q = new URLSearchParams(location.search);
+document.getElementById("base").src = q.get("base") || "product-images/b/_base-aztv-15m.jpg";
+document.getElementById("price").textContent = q.get("price") || "96";
+document.getElementById("old").textContent = q.get("old") ? "بدل " + q.get("old") : "";
+document.getElementById("free").textContent = q.get("free") || "٣ شهور مجانًا";
+Promise.all([...document.images].map(i => i.complete ? 0 : new Promise(r => { i.onload = i.onerror = r; })))
+  .then(() => document.fonts.ready).then(() => { document.body.dataset.ready = "1"; });
+</script>
+</body>
+</html>

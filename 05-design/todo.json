@@ -98,6 +98,16 @@
           "spec": "ذهبي مع سهم التجديد · «تجديد البلس» · 760×1296 · السعر اليوم: بدون سعر ظاهر في الصفحة الرئيسية",
           "who": "me",
           "status": "done"
+        },
+        {
+          "id": "r-aztv-15m-offer",
+          "title": "عرض الشهر: عز تي في سنة + ٣ شهور",
+          "link": "p930436127",
+          "now": "05-design/shared/subscription-cards/old/aztv-15m.png",
+          "new": "05-design/shared/subscription-cards/new/aztv-15m.png",
+          "spec": "أبيض وأسود · «سنة + ٣ شهور» · لافتة «عرض الشهر» · ٩٦ ريال فقط، ٣ شهور مجانًا · السعر اليوم: ٩٦ ر.س بدل ٢٣٨ (خصم ٦٠٪)",
+          "who": "me",
+          "status": "doing"
         }
       ],
       "closeup": true

@@ -1,6 +1,6 @@
 # قائمة المهام: الصور التي تُعاد
 
-مولّدة من `05-design/todo.json` (لا تُعدَّل هنا). تم 13 من 20.
+مولّدة من `05-design/todo.json` (لا تُعدَّل هنا). تم 13 من 21.
 
 طريقة التوليد: أرفق مع كل نص صورة المرجع `05-design/new-design/assets/img/cat-aztv-3d.png` (أو `cat-aztv-plus-3d.png`)، واحفظ الناتج باسم «الملف الجديد».
 
@@ -19,6 +19,7 @@
 - [x] **اشتراك عز تي في بلس 3 شهور** · Claude يركّبها · الآن: `05-design/shared/subscription-cards/old/plus-3m.png` ← الجديد: `05-design/shared/subscription-cards/new/plus-3m.png` · ذهبي · «٣ شهور» · 760×1296 · السعر اليوم: ١٠٠ ر.س بدل ١٥٠ (خصم ٣٣٪)
 - [x] **تجديد اشتراك عز تي في العادي** · Claude يركّبها · الآن: `05-design/shared/subscription-cards/old/renew-aztv.png` ← الجديد: `05-design/shared/subscription-cards/new/renew-aztv.png` · أبيض وأسود مع سهم التجديد · «تجديد» · 760×1296 · السعر اليوم: بدون سعر ظاهر في الصفحة الرئيسية
 - [x] **تجديد اشتراك عز تي في بلس** · Claude يركّبها · الآن: `05-design/shared/subscription-cards/old/renew-plus.png` ← الجديد: `05-design/shared/subscription-cards/new/renew-plus.png` · ذهبي مع سهم التجديد · «تجديد البلس» · 760×1296 · السعر اليوم: بدون سعر ظاهر في الصفحة الرئيسية
+- [ ] **عرض الشهر: عز تي في سنة + ٣ شهور** · Claude يركّبها · الآن: `05-design/shared/subscription-cards/old/aztv-15m.png` ← الجديد: `05-design/shared/subscription-cards/new/aztv-15m.png` · أبيض وأسود · «سنة + ٣ شهور» · لافتة «عرض الشهر» · ٩٦ ريال فقط، ٣ شهور مجانًا · السعر اليوم: ٩٦ ر.س بدل ٢٣٨ (خصم ٦٠٪)
 
 ## عالم beIN (القسم 04)
 

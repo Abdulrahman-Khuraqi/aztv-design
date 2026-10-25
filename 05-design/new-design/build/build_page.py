@@ -278,12 +278,13 @@ marker.decompose()
 
 # ---------- product images: the finished subscription cards on the approved background ----------
 # 05-design/shared/subscription-cards/product-images/b/<card>.jpg (2000 x 2000, made by render-products.cjs) -> assets/img/products/<card>.webp (1000 x 1000)
-# and every product card of these nine products shows it instead of the store's old image (needs Pillow)
+# and every product card of these ten products shows it instead of the store's old image (needs Pillow)
 from PIL import Image
 PRODUCT_CARDS = {  # Salla product id -> card file
     '1133679038': 'aztv-6m', '527896233': 'aztv-3m', '264351896': 'aztv-1m',
     '331255752': 'plus-12m', '1669484767': 'plus-12m-2dev', '1879371242': 'plus-6m', '1024479901': 'plus-3m',
-    '777133688': 'renew-aztv', '287657453': 'renew-plus'}
+    '777133688': 'renew-aztv', '287657453': 'renew-plus',
+    '930436127': 'aztv-15m'}  # the offer of the month (سنة + ٣ شهور, 96 SAR)
 PRODUCT_SRC = ROOT + '05-design/shared/subscription-cards/product-images/b/'
 PRODUCT_OUT = ROOT + '05-design/new-design/assets/img/products/'
 os.makedirs(PRODUCT_OUT, exist_ok=True)
