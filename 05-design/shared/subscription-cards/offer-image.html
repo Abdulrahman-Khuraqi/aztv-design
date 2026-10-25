@@ -6,13 +6,13 @@
 <!--
   «عرض الأسبوع» (offer of the week) for the regular product «عز تي في سنة + ٣ شهور» (96 SAR instead of 238, 3 months free).
   Elegant version (2026-10-25), black and white only, no gold (client): the two finished regular cards as a gift set on the dark stage:
-    centre left:  the 1-year card in front, tilted -5 degrees; the 3-month card behind it to the right, tilted 8 degrees
+    centre:       the 1-year card in front, tilted -5 degrees; the 3-month card behind it to the right, tilted 8 degrees; the set centred
     across both:  a black satin ribbon with thin white edges, tied in a bow where the cards overlap (the 3 months are the gift)
     top:          «OFFER OF THE WEEK» in small spaced letters between two thin lines, «عرض الأسبوع» under it
-    right:        the discount «خصم 60%» large and white, a thin line, «+ ٣ شهور مجانًا». No price on the image (client, 2026-10-25):
-                  the product card on the store already shows it.
+    seal:         one white circle «خصم 60%» on the 3-month card's top corner, the only text besides the heading (client, 2026-10-25:
+                  no price, the store's product card shows it; no side column)
   Canvas 1000 x 1000, exported at 2x = 2000 x 2000, on the approved regular stage without a card (backgrounds.html).
-  URL: ?stage=<empty stage jpg>&big=<card png>&small=<card png>  (&save=60% &free=٣ شهور مجانًا)
+  URL: ?stage=<empty stage jpg>&big=<card png>&small=<card png>  (&save=60%)
   The stage carries the logo top centre, vertical AZTVSTORE letters (left from y 640, right up to y 460) and the contact pills at the bottom.
 -->
 <style>
@@ -23,7 +23,7 @@
   #stage { position: relative; width: 1000px; height: 1000px; overflow: hidden; font-family: "PingARLT", system-ui, sans-serif; color: var(--white); }
   #stage > img.bg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
   /* soft light behind the gift set */
-  .light { position: absolute; inset: 0; background: radial-gradient(circle at 440px 600px, rgba(255,255,255,.16) 0, rgba(255,255,255,.06) 200px, rgba(255,255,255,0) 360px); }
+  .light { position: absolute; inset: 0; background: radial-gradient(circle at 500px 610px, rgba(255,255,255,.16) 0, rgba(255,255,255,.06) 200px, rgba(255,255,255,0) 360px); }
 
   /* heading */
   .eyebrow { position: absolute; left: 0; right: 0; top: 152px; display: flex; align-items: center; justify-content: center; gap: 18px;
@@ -33,20 +33,17 @@
 
   /* the gift set */
   .card { position: absolute; display: block; height: auto; filter: drop-shadow(0 26px 34px rgba(0,0,0,.65)); }
-  .small { left: 456px; top: 404px; width: 236px; transform: rotate(8deg); }
-  .big { left: 172px; top: 334px; width: 300px; transform: rotate(-5deg); }
-  .ribbon { position: absolute; left: 160px; top: 612px; width: 556px; height: 110px; overflow: visible; filter: drop-shadow(0 8px 12px rgba(0,0,0,.55)); }
+  .small { left: 508px; top: 392px; width: 258px; transform: rotate(8deg); }
+  .big { left: 210px; top: 318px; width: 330px; transform: rotate(-5deg); }
+  .ribbon { position: absolute; left: 192px; top: 620px; width: 612px; height: 110px; overflow: visible; filter: drop-shadow(0 8px 12px rgba(0,0,0,.55)); }
 
-  /* discount column */
-  .col { position: absolute; left: 742px; top: 360px; width: 212px; display: flex; flex-direction: column; align-items: center; text-align: center; }
-  .col .k { font-size: 40px; line-height: 1.1; }
-  .col .n { font-size: 104px; line-height: .95; font-weight: 700; letter-spacing: -.03em; direction: ltr;
-    background: linear-gradient(#FFFFFF 10%, #DADAD6 100%); -webkit-background-clip: text; background-clip: text; color: transparent;
-    filter: drop-shadow(0 12px 18px rgba(0,0,0,.6)); }
-  .col .rule { width: 120px; height: 1px; background: rgba(244,244,242,.5); margin: 18px 0 16px; }
-  .col .gift { display: flex; align-items: center; gap: 8px; height: 52px; padding: 0 18px; border-radius: 99px; border: 1.5px solid rgba(244,244,242,.85);
-    font-size: 25px; white-space: nowrap; background: rgba(13,13,13,.55); }
-  .col .gift svg { width: 24px; height: 24px; fill: none; stroke: var(--white); stroke-width: 1.8; stroke-linejoin: round; }
+  /* discount seal on the 3-month card's corner */
+  .seal { position: absolute; left: 726px; top: 286px; width: 150px; height: 150px; border-radius: 50%; background: var(--white); color: var(--ink);
+    display: flex; flex-direction: column; align-items: center; justify-content: center; transform: rotate(-10deg);
+    box-shadow: 0 0 0 5px rgba(13,13,13,.9), 0 0 0 6.5px rgba(244,244,242,.6), 0 18px 32px rgba(0,0,0,.6); }
+  .seal::before { content: ""; position: absolute; inset: 9px; border-radius: 50%; border: 1.5px dashed rgba(13,13,13,.5); }
+  .seal small { font-size: 26px; line-height: 1; margin-bottom: 2px; }
+  .seal b { font-size: 54px; line-height: 1; letter-spacing: -.02em; direction: ltr; }
 </style>
 </head>
 <body>
@@ -57,19 +54,19 @@
   <div class="heading">عرض الأسبوع</div>
   <img class="card small" id="small" alt="">
   <img class="card big" id="big" alt="">
-  <svg class="ribbon" viewBox="0 0 556 110" aria-hidden="true">
+  <svg class="ribbon" viewBox="0 0 612 110" aria-hidden="true">
     <defs>
       <linearGradient id="sat" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3C3C3A"/><stop offset=".45" stop-color="#141413"/><stop offset="1" stop-color="#000"/></linearGradient>
       <linearGradient id="sat2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4A4A47"/><stop offset="1" stop-color="#0A0A0A"/></linearGradient>
     </defs>
     <!-- band across both cards, slightly tilted, with thin white edges -->
-    <g transform="rotate(-2 278 40)">
-      <rect x="0" y="28" width="556" height="24" fill="url(#sat)"/>
-      <rect x="0" y="29.5" width="556" height="1.4" fill="#F4F4F2" opacity=".85"/>
-      <rect x="0" y="49" width="556" height="1.4" fill="#F4F4F2" opacity=".85"/>
+    <g transform="rotate(-2 306 40)">
+      <rect x="0" y="28" width="612" height="24" fill="url(#sat)"/>
+      <rect x="0" y="29.5" width="612" height="1.4" fill="#F4F4F2" opacity=".85"/>
+      <rect x="0" y="49" width="612" height="1.4" fill="#F4F4F2" opacity=".85"/>
     </g>
     <!-- bow where the cards meet -->
-    <g transform="translate(298 38) scale(.82)" stroke="#F4F4F2" stroke-width="1.4" stroke-linejoin="round">
+    <g transform="translate(334 38) scale(.86)" stroke="#F4F4F2" stroke-width="1.4" stroke-linejoin="round">
       <path d="M-10 4 L-30 50 L-18 44 L-12 58 L3 10Z" fill="url(#sat2)"/>
       <path d="M10 4 L30 50 L18 44 L12 58 L-3 10Z" fill="url(#sat2)"/>
       <path d="M0 0 C-22 -42 -74 -46 -78 -12 C-82 20 -30 22 0 0Z" fill="url(#sat)"/>
@@ -79,19 +76,13 @@
       <rect x="-14" y="-16" width="28" height="32" rx="8" fill="url(#sat)"/>
     </g>
   </svg>
-  <div class="col">
-    <span class="k">خصم</span>
-    <span class="n" id="save">60%</span>
-    <span class="rule"></span>
-    <span class="gift"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="9" width="18" height="12" rx="1.5"/><path d="M2 9h20M12 9v12M12 9c-2-4-7-4-6 0M12 9c2-4 7-4 6 0"/></svg><span id="free">+ ٣ شهور مجانًا</span></span>
-  </div>
+  <div class="seal"><small>خصم</small><b id="save">60%</b></div>
 </div>
 <script>
 const q = new URLSearchParams(location.search);
 document.getElementById("stageBg").src = q.get("stage");
 document.getElementById("big").src = q.get("big");
 document.getElementById("small").src = q.get("small");
-if (q.get("free")) document.getElementById("free").textContent = "+ " + q.get("free");
 if (q.get("save")) document.getElementById("save").textContent = q.get("save");
 Promise.all([...document.images].map(i => i.complete ? 0 : new Promise(r => { i.onload = i.onerror = r; })))
   .then(() => document.fonts.ready).then(() => { document.body.dataset.ready = "1"; });

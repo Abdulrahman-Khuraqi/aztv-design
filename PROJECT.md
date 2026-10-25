@@ -197,6 +197,7 @@ new store design/
 
 ## 10. Log
 
+- 2026-10-25: Offer of the week reorganised (client: the discount column took too much space): the right column removed; the gift set centred and a little larger; the discount is one white circle «خصم 60%» on the 3-month card's corner.
 - 2026-10-25: Offer of the week: the price taken off the image (the store's product card already shows it) and the discount «خصم 60%» made the highlight on the right, above «+ ٣ شهور مجانًا»; the small «خصم ٦٠٪» seal on the card removed as redundant.
 - 2026-10-25: Offer of the week redesigned to be more elegant (client): black and white, the two regular cards as a gift set (1-year card in front, 3-month card behind, both tilted) wrapped in a black satin ribbon with thin white edges and a bow; «OFFER OF THE WEEK» / «عرض الأسبوع» heading; a white «خصم ٦٠٪» seal; «96 ريال فقط», «بدل ٢٣٨ ريال» struck through and «+ ٣ شهور مجانًا» on the right; on the dark stage (background B), which the website now uses for the offer too.
 - 2026-10-25: Offer of the week redone in black and white only (client: no gold): white title plate, white 3D «96» with the old price «٢٣٨» struck through, white coupon and arrow, black satin ribbon and bow, the small 3-month card tilted 5 degrees.

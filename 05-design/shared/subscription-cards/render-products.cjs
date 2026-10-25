@@ -17,7 +17,7 @@ const CARDS = [
 // «عرض الأسبوع» (offer of the week, product p930436127, سنة + ٣ شهور): composed from two finished cards on the empty stage (offer-image.html)
 // -> product-images/<opt>/offer-week.jpg (big 1-year card + small 3-month card) and offer-week-b.jpg (small card is the AZ TV 3 months)
 const OFFERS = [
-  ["offer-week", "regular", "aztv-12m", "aztv-3m", { save: "60%", free: "٣ شهور مجانًا" }],
+  ["offer-week", "regular", "aztv-12m", "aztv-3m", { save: "60%" }],
 ];
 (async () => {
   const opts = process.argv[2] ? [process.argv[2]] : ["b", "e"];
