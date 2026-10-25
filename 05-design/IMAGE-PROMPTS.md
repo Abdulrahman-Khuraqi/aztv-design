@@ -81,7 +81,7 @@ Same layout, but the angular pattern and diagonal band in warm gold (#EACF69) on
 
 ## 5. Second store banner (section 14, ٢ والثالث مجانًا)
 
-The title and button sit in the block above the banner, so the image has **no text**. The store logo (`14-second-store/logo-az-shirts.png`) is added over the finished image by us, because AI models misspell Arabic.
+The finished banner carries its own Arabic text: «٢ والثالث مجانًا», a short line, a «تسوّق التيشرتات» button and the store logo (`14-second-store/logo-az-shirts.png`). Gemini makes the artwork **without any text** and leaves the right half (phone: the bottom 40%) empty; we add the text and logo over it, because AI models misspell Arabic.
 
 - Files: `14-second-store/second-store-dark.png` (16:9, 1600 × 900) and a phone version (4:5, 800 × 1000)
 - Attach, in this order: `05-design/sections/05-aztv-box/aztv-box-dark-gemini.jpg` (mood), `05-design/sections/14-second-store/shirt-saudi-green.png`, `05-design/sections/14-second-store/shirt-brazil-yellow.png`
