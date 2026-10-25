@@ -4,83 +4,98 @@
 <meta charset="utf-8">
 <title>Offer product image</title>
 <!--
-  «عرض الأسبوع» (offer of the week): the product image of the offer «سنة + ٣ شهور», built like the old offer image
-  (03-current-site/old-design/assets/img/3749112-500x500-jALOT8PWhFqMydBaPXNuQ0Q93IRepaG523qElILR-ad8ae7f8.jpg) from the finished cards we already
-  have, no new card:
-    top centre:   big title banner «عرض الأسبوع» (the word «عرض» on a white plate, «الأسبوع» in white beside it)
-    left:         the 1-year card, smaller than the stage's own card area
-    right, top:   the price as a big white 3D number with «ريال فقط» and the old price struck through under it
-    right, middle: white dashed coupon pill «٣ شهور مجانًا» with a dashed arrow curving down to the small card
-    right, bottom: the 3-month card, smaller and tilted 5 degrees, with a black satin gift ribbon and bow across it (the old one was green, for National Day)
-  Canvas 1000 x 1000, exported at 2x = 2000 x 2000, on the approved stage without a card (backgrounds.html, option E has the old image's split).
-  URL: ?stage=<empty stage jpg>&big=<card png>&small=<card png>  (&price=96 &old=٢٣٨ &free=٣ شهور مجانًا &w1=عرض &w2=الأسبوع)
-  Colours (2026-10-25): black and white only, like the regular cards (client: no gold on this offer).
-  Stage sides carry the vertical AZTVSTORE letters (left from y 640, right up to y 460), the logo top centre and the 4K badge top right on Plus.
+  «عرض الأسبوع» (offer of the week) for the regular product «عز تي في سنة + ٣ شهور» (96 SAR instead of 238, 3 months free).
+  Elegant version (2026-10-25), black and white only, no gold (client): the two finished regular cards as a gift set on the dark stage:
+    centre left:  the 1-year card in front, tilted -5 degrees; the 3-month card behind it to the right, tilted 8 degrees
+    across both:  a black satin ribbon with thin white edges, tied in a bow where the cards overlap (the 3 months are the gift)
+    top:          «OFFER OF THE WEEK» in small spaced letters between two thin lines, «عرض الأسبوع» under it
+    right:        the price «96» large and white, «ريال فقط», the old price struck through, a thin line, «+ ٣ شهور مجانًا»
+    seal:         a white «خصم ٦٠٪» seal on the front card's top corner
+  Canvas 1000 x 1000, exported at 2x = 2000 x 2000, on the approved regular stage without a card (backgrounds.html).
+  URL: ?stage=<empty stage jpg>&big=<card png>&small=<card png>  (&price=96 &old=٢٣٨ &free=٣ شهور مجانًا &save=٦٠٪)
+  The stage carries the logo top centre, vertical AZTVSTORE letters (left from y 640, right up to y 460) and the contact pills at the bottom.
 -->
 <style>
   @font-face { font-family: "PingARLT"; src: url("../subscription-backgrounds/src/PingARLT-Bold.woff2") format("woff2"); font-weight: 700; }
-  :root { --gold: #EACF69; --ink: #0D0D0D; --white: #F4F4F2; }
+  :root { --ink: #0D0D0D; --white: #F4F4F2; --grey: #A9A9A4; }
   html, body { margin: 0; background: #000; }
   body { display: grid; place-items: center; min-height: 100vh; }
   #stage { position: relative; width: 1000px; height: 1000px; overflow: hidden; font-family: "PingARLT", system-ui, sans-serif; color: var(--white); }
   #stage > img.bg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
-  .card { position: absolute; display: block; height: auto; filter: drop-shadow(0 18px 28px rgba(0,0,0,.55)); }
-  .big { left: 214px; top: 300px; width: 322px; }
-  .small { left: 578px; top: 502px; width: 203px; }
+  /* soft light behind the gift set */
+  .light { position: absolute; inset: 0; background: radial-gradient(circle at 440px 600px, rgba(255,255,255,.16) 0, rgba(255,255,255,.06) 200px, rgba(255,255,255,0) 360px); }
 
-  /* title banner: «عرض» on a white plate (right), «الأسبوع» in white (left) */
-  .title { position: absolute; left: 0; right: 0; top: 140px; height: 96px; display: flex; justify-content: center; direction: rtl; font-size: 74px; font-weight: 700; line-height: 96px; }
-  .title .w1 { background: var(--white); color: var(--ink); padding: 0 34px; clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 0); box-shadow: 0 10px 24px rgba(0,0,0,.45); }
-  .title .w2 { color: var(--white); padding: 0 30px 0 12px; text-shadow: 0 6px 20px rgba(0,0,0,.6); }
+  /* heading */
+  .eyebrow { position: absolute; left: 0; right: 0; top: 152px; display: flex; align-items: center; justify-content: center; gap: 18px;
+    direction: ltr; font-size: 15px; letter-spacing: .42em; color: #CFCFCA; }
+  .eyebrow::before, .eyebrow::after { content: ""; width: 70px; height: 1px; background: rgba(244,244,242,.55); }
+  .heading { position: absolute; left: 0; right: 0; top: 176px; text-align: center; font-size: 66px; line-height: 1.25; font-weight: 700; text-shadow: 0 8px 28px rgba(0,0,0,.6); }
 
-  /* price: big white 3D number, «ريال فقط» and the struck old price under it */
-  .price { position: absolute; left: 556px; top: 238px; width: 360px; text-align: center; }
-  .price .n { display: block; font-size: 150px; line-height: 1; font-weight: 700; letter-spacing: -.02em;
-    background: linear-gradient(#FFFFFF 5%, #ECECE9 52%, #A9A9A4 100%); -webkit-background-clip: text; background-clip: text; color: transparent;
-    filter: drop-shadow(0 3px 0 #6E6E6A) drop-shadow(0 6px 0 #474745) drop-shadow(0 14px 14px rgba(0,0,0,.6)); }
-  .price .u s { font-size: 26px; color: #9A9A95; margin-inline-start: 12px; text-decoration-thickness: 3px; text-decoration-color: #D9D9D5; }
-  .price .u { display: block; font-size: 38px; line-height: 1; font-weight: 700; margin-top: 4px; text-shadow: 0 4px 14px rgba(0,0,0,.7); }
+  /* the gift set */
+  .card { position: absolute; display: block; height: auto; filter: drop-shadow(0 26px 34px rgba(0,0,0,.65)); }
+  .small { left: 474px; top: 404px; width: 236px; transform: rotate(8deg); }
+  .big { left: 190px; top: 334px; width: 300px; transform: rotate(-5deg); }
+  .ribbon { position: absolute; left: 178px; top: 612px; width: 556px; height: 110px; overflow: visible; filter: drop-shadow(0 8px 12px rgba(0,0,0,.55)); }
 
-  /* coupon pill with a stitched inner line */
-  .free { position: absolute; left: 574px; top: 440px; width: 270px; height: 52px; border-radius: 12px; background: var(--white); color: var(--ink);
-    display: grid; place-items: center; font-size: 30px; font-weight: 700; box-shadow: 0 10px 20px rgba(0,0,0,.45); }
-  .free::before { content: ""; position: absolute; inset: 5px; border: 2px dashed rgba(13,13,13,.55); border-radius: 8px; }
-  .arrow { position: absolute; left: 780px; top: 440px; width: 130px; height: 90px; overflow: visible; }
+  /* seal */
+  .seal { position: absolute; left: 130px; top: 262px; width: 112px; height: 112px; border-radius: 50%; background: var(--white); color: var(--ink);
+    display: flex; flex-direction: column; align-items: center; justify-content: center; transform: rotate(-12deg);
+    box-shadow: 0 14px 26px rgba(0,0,0,.55); }
+  .seal::before { content: ""; position: absolute; inset: 6px; border-radius: 50%; border: 1.5px dashed rgba(13,13,13,.45); }
+  .seal small { font-size: 20px; line-height: 1; }
+  .seal b { font-size: 38px; line-height: 1.05; }
 
-  .smallgrp { position: absolute; inset: 0; transform: rotate(5deg); transform-origin: 680px 675px; pointer-events: none; }
-  /* gift ribbon across the small card, bow left of centre (as on the old image) */
-  .ribbon { position: absolute; left: 564px; top: 718px; width: 232px; height: 130px; overflow: visible; filter: drop-shadow(0 7px 10px rgba(0,0,0,.5)); }
+  /* price column */
+  .col { position: absolute; left: 738px; top: 318px; width: 206px; display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .col .n { font-size: 158px; line-height: .92; font-weight: 700; letter-spacing: -.03em;
+    background: linear-gradient(#FFFFFF 10%, #DADAD6 100%); -webkit-background-clip: text; background-clip: text; color: transparent;
+    filter: drop-shadow(0 12px 18px rgba(0,0,0,.6)); }
+  .col .u { font-size: 30px; line-height: 1.2; margin-top: 6px; }
+  .col .was { font-size: 20px; line-height: 1.4; color: var(--grey); }
+  .col .was s { text-decoration-thickness: 2px; text-decoration-color: #D6D6D2; }
+  .col .rule { width: 120px; height: 1px; background: rgba(244,244,242,.5); margin: 18px 0 16px; }
+  .col .gift { display: flex; align-items: center; gap: 8px; height: 52px; padding: 0 18px; border-radius: 99px; border: 1.5px solid rgba(244,244,242,.85);
+    font-size: 25px; white-space: nowrap; background: rgba(13,13,13,.55); }
+  .col .gift svg { width: 24px; height: 24px; fill: none; stroke: var(--white); stroke-width: 1.8; stroke-linejoin: round; }
 </style>
 </head>
 <body>
 <div id="stage">
   <img class="bg" id="stageBg" alt="">
-  <div class="title"><span class="w1" id="w1">عرض</span><span class="w2" id="w2">الأسبوع</span></div>
-  <img class="card big" id="big" alt="">
-  <div class="price"><span class="n" id="price">96</span><span class="u">ريال فقط<s id="old"></s></span></div>
-  <div class="free" id="free">٣ شهور مجانًا</div>
-  <svg class="arrow" viewBox="0 0 130 90" aria-hidden="true">
-    <path d="M66 28 C 122 26, 126 66, 26 66" fill="none" stroke="#F4F4F2" stroke-width="3" stroke-dasharray="7 7" stroke-linecap="round"/>
-    <path d="M20 66 L36 55 M20 66 L37 77" fill="none" stroke="#F4F4F2" stroke-width="3.4" stroke-linecap="round"/>
-  </svg>
-  <div class="smallgrp">
+  <div class="light"></div>
+  <div class="eyebrow">OFFER OF THE WEEK</div>
+  <div class="heading">عرض الأسبوع</div>
   <img class="card small" id="small" alt="">
-  <svg class="ribbon" viewBox="0 0 232 130" aria-hidden="true">
+  <img class="card big" id="big" alt="">
+  <svg class="ribbon" viewBox="0 0 556 110" aria-hidden="true">
     <defs>
-      <linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4A4A47"/><stop offset=".45" stop-color="#151514"/><stop offset="1" stop-color="#000"/></linearGradient>
-      <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#55554F"/><stop offset="1" stop-color="#0D0D0D"/></linearGradient>
+      <linearGradient id="sat" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3C3C3A"/><stop offset=".45" stop-color="#141413"/><stop offset="1" stop-color="#000"/></linearGradient>
+      <linearGradient id="sat2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4A4A47"/><stop offset="1" stop-color="#0A0A0A"/></linearGradient>
     </defs>
-    <rect x="0" y="20" width="232" height="26" fill="url(#g)"/>
-    <rect x="0" y="20" width="232" height="3" fill="#fff" opacity=".3"/>
-    <rect x="0" y="43" width="232" height="3" fill="#000" opacity=".6"/>
-    <g transform="translate(80 33) scale(.68)" stroke="#000" stroke-width="1.6" stroke-linejoin="round">
-      <path d="M-10 4 L-30 44 L-18 38 L-12 52 L3 10Z" fill="url(#g2)"/>
-      <path d="M10 4 L30 44 L18 38 L12 52 L-3 10Z" fill="url(#g2)"/>
-      <path d="M0 0 C-22 -42 -74 -46 -78 -12 C-82 20 -30 22 0 0Z" fill="url(#g)"/>
-      <path d="M0 0 C22 -42 74 -46 78 -12 C82 20 30 22 0 0Z" fill="url(#g)"/>
-      <rect x="-15" y="-17" width="30" height="34" rx="9" fill="url(#g)"/>
+    <!-- band across both cards, slightly tilted, with thin white edges -->
+    <g transform="rotate(-2 278 40)">
+      <rect x="0" y="28" width="556" height="24" fill="url(#sat)"/>
+      <rect x="0" y="29.5" width="556" height="1.4" fill="#F4F4F2" opacity=".85"/>
+      <rect x="0" y="49" width="556" height="1.4" fill="#F4F4F2" opacity=".85"/>
+    </g>
+    <!-- bow where the cards meet -->
+    <g transform="translate(298 38) scale(.82)" stroke="#F4F4F2" stroke-width="1.4" stroke-linejoin="round">
+      <path d="M-10 4 L-30 50 L-18 44 L-12 58 L3 10Z" fill="url(#sat2)"/>
+      <path d="M10 4 L30 50 L18 44 L12 58 L-3 10Z" fill="url(#sat2)"/>
+      <path d="M0 0 C-22 -42 -74 -46 -78 -12 C-82 20 -30 22 0 0Z" fill="url(#sat)"/>
+      <path d="M0 0 C22 -42 74 -46 78 -12 C82 20 30 22 0 0Z" fill="url(#sat)"/>
+      <path d="M-30 -14 C-46 -26 -60 -22 -64 -12" fill="none" stroke-opacity=".45"/>
+      <path d="M30 -14 C46 -26 60 -22 64 -12" fill="none" stroke-opacity=".45"/>
+      <rect x="-14" y="-16" width="28" height="32" rx="8" fill="url(#sat)"/>
     </g>
   </svg>
+  <div class="seal"><small>خصم</small><b id="save">٦٠٪</b></div>
+  <div class="col">
+    <span class="n" id="price">96</span>
+    <span class="u">ريال فقط</span>
+    <span class="was">بدل <s id="old">٢٣٨</s> ريال</span>
+    <span class="rule"></span>
+    <span class="gift"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="9" width="18" height="12" rx="1.5"/><path d="M2 9h20M12 9v12M12 9c-2-4-7-4-6 0M12 9c2-4 7-4 6 0"/></svg><span id="free">+ ٣ شهور مجانًا</span></span>
   </div>
 </div>
 <script>
@@ -88,7 +103,10 @@ const q = new URLSearchParams(location.search);
 document.getElementById("stageBg").src = q.get("stage");
 document.getElementById("big").src = q.get("big");
 document.getElementById("small").src = q.get("small");
-for (const [k, id] of [["price", "price"], ["old", "old"], ["free", "free"], ["w1", "w1"], ["w2", "w2"]]) if (q.get(k)) document.getElementById(id).textContent = q.get(k);
+if (q.get("price")) document.getElementById("price").textContent = q.get("price");
+if (q.get("old")) document.getElementById("old").textContent = q.get("old");
+if (q.get("free")) document.getElementById("free").textContent = "+ " + q.get("free");
+if (q.get("save")) document.getElementById("save").textContent = q.get("save");
 Promise.all([...document.images].map(i => i.complete ? 0 : new Promise(r => { i.onload = i.onerror = r; })))
   .then(() => document.fonts.ready).then(() => { document.body.dataset.ready = "1"; });
 </script>
