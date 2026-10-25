@@ -81,16 +81,12 @@ Same layout, but the angular pattern and diagonal band in warm gold (#EACF69) on
 
 ## 5. Second store banner (section 14, ٢ والثالث مجانًا)
 
-Today the section uses the shirt store's light campaign image, faded into the dark card.
+The title and button sit in the block above the banner, so the image has **no text**. The store logo (`14-second-store/logo-az-shirts.png`) is added over the finished image by us, because AI models misspell Arabic.
 
-- File: `14-second-store/second-store-dark.png`
-- Size: 1600 × 900
-- Text sits on the **right**; the image fills the left part of the card
-
-```
-Three football jerseys floating and slightly overlapping on the left side of the frame, in dark studio light: one light blue, one deep red, one yellow. Generic jerseys with no club crests, no sponsor logos and no letters or numbers. Black background (#0D0D0D) with warm gold rim light (#EACF69), a few gold confetti flecks, and one jersey coming out of an open black gift box with a gold ribbon. The right 45% of the frame is near-black and empty.
-Photorealistic, premium, no text, no logos.
-```
+- Files: `14-second-store/second-store-dark.png` (16:9, 1600 × 900) and a phone version (4:5, 800 × 1000)
+- Attach, in this order: `05-design/sections/05-aztv-box/aztv-box-dark-gemini.jpg` (mood), `05-design/sections/14-second-store/shirt-saudi-green.png`, `05-design/sections/14-second-store/shirt-brazil-yellow.png`
+- The third shirt (in the gift box) is a plain white one; to use a real third shirt, attach it as image 4 and replace that line.
+- Full prompt (desktop and phone): the to-do item «بنر 2 والثالث مجانًا» in `05-design/todo.json`, also in the workspace to-do tab.
 
 ## 6. Final call to action background (section 17, جاهز تبدأ المشاهدة؟)
 
