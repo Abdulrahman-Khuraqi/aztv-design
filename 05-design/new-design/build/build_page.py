@@ -212,8 +212,12 @@ B += [divider('new-03-title', 'تسوّق حسب القسم', 'وصول سريع
 B += [divider('1319788990', 'عالم beIN', 'أجهزة واشتراكات وتجديدات beIN الرسمية', ('تصفح عروض beIN', c(1461115041))),
       banners('668296755', [(c(757128774), IMG + 'bein/bein-card-4k.webp'), (c(1398521669), IMG + 'bein/bein-card-pvr.webp'),
                             (c(899162953), IMG + 'bein/bein-card-renew.webp')], 3)]
-# 05 AZ TV Box: featured product, as on the store
-B += [block('1551497783')]
+# 05 AZ TV Box: featured product. Block image = the box on dark (wide, product on the left, empty right half for the text; the CSS lays the text over it).
+# Subtitle (block field) leads with the free Plus year, the strongest reason to buy, instead of leaving it in the fifth tab.
+b5 = block('1551497783')
+im5 = b5.select_one('.p_image img'); im5['src'] = im5['data-src'] = IMG + 'aztv-box-dark.webp'; im5['width'] = '1600'; im5['height'] = '893'
+b5.select_one('h2 + p').string = 'جهاز أندرويد بدقة 4K، ومعه اشتراك AZ TV Plus سنة كاملة مجانًا'
+B += [b5]
 # 06 Season offers: title with countdown and button + products grid
 B += [divider('43834166', 'عروض بداية الموسم', 'خصم حتى 60٪ على باقات عز تي في وعز تي في بلس', ('كل العروض', c(1510593888)), countdown=True), block('817347637')]
 # 07 AZ TV packages

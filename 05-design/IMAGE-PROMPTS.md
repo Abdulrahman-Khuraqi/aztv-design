@@ -27,19 +27,28 @@ Restage it as a premium studio product shot: the receiver at a slight three-quar
 Square 1:1, product centred and filling about 60% of the frame. Photorealistic, sharp, no text, no logos added, no props.
 ```
 
-## 2. AZ TV Box on dark (sections 03 and 05)
+## 2. AZ TV Box on dark (section 05) · done 2026-10-25
 
-Replaces the promo square in section 05 and the generic device in the AZ TV Box category card (section 03).
+Replaces the promo square in section 05 (the block's own image, uploaded in the theme editor). The category card in section 03 keeps `cat-aztv-box-3d.png`.
 
-- Files: `05-aztv-box/aztv-box-dark.png` (square) and `05-aztv-box/aztv-box-dark-portrait.png` (portrait, for the category card)
-- Size: 1200 × 1200, and 900 × 1200
-- Attach: `05-design/new-design/assets/img/44b0d971-d7aa-45ab-9db8-5de0b83e7c8d-2324b29c.webp` (or, better, a real phone photo of the box and remote)
+- Result: `05-aztv-box/aztv-box-dark-gemini.jpg` (Gemini, 2000 × 1116), on the site as `new-design/assets/img/aztv-box-dark.webp` (1600 × 893)
+- Size asked: wide 16:9, product on the left third, right half empty for the text
+- Attach, in this order: `05-design/new-design/assets/img/cat-aztv-box-3d.png` (exact device), `05-design/new-design/assets/img/44b0d971-d7aa-45ab-9db8-5de0b83e7c8d-2324b29c.webp` (the store's photo of the real device), `05-design/sections/03-main-categories/cat-aztv-box-gemini.jpg` (mood)
+- If the device comes out changed, regenerate with: «The logo and ports must match image 1 exactly.»
 
 ```
-Use the attached image as the exact product reference: the black AZ TV Box with the gold AZ TV logo and its remote. Keep the device and remote exactly as they look. Remove the price, the balloons, the gift box, the subscription card and all text.
-Restage as a luxury product shot: box and remote on a black glossy plinth with a thin gold edge, black background (#0D0D0D), warm gold light (#EACF69) sweeping from the upper right, faint gold dust particles in the air, soft reflection under the box.
-Photorealistic, no text, no added logos.
-Square version: product centred. Portrait 3:4 version: product in the upper half, the lower 40% dark and empty (a title sits there).
+I attached 3 reference images.
+Image 1 is the exact product: the black AZ TV Box with the gold AZ TV logo on top, and its remote with the Netflix and YouTube buttons. Image 2 is the real store photo of the same device. Image 3 is the lighting and mood I want.
+
+Keep the box and the remote exactly as in images 1 and 2: same shape, same proportions, same gold AZ TV logo, same buttons. Do not redesign or invent any part of the device. Remove everything else from the references: the price, the balloons, the gift box, the subscription card, the gem, the text and the stage.
+
+Create a premium product photo for a dark website section:
+- The box stands at a slight three-quarter angle with the remote leaning next to it, on a matte black surface with a soft reflection under it.
+- Background: near-black #0D0D0D, fading into darkness at the edges. A little fog or haze low behind the product, like image 3.
+- Light: one soft warm gold rim light (#EACF69) from behind and above that traces the edges of the box and the remote. A few very faint gold dust particles in the air. No other colours.
+- Composition: wide 16:9 (2400 x 1350). Put the product on the LEFT third of the frame, about 55% of the frame height. The right 50% of the image must be completely empty dark space, because Arabic text will be placed there.
+- Photorealistic, sharp focus on the logo, shallow depth of field in the background.
+- No text, no letters, no numbers, no logos other than the AZ TV logo on the device, no watermark, no people, no hands, no props.
 ```
 
 ## 3. Season offers artwork (section 06, عروض بداية الموسم)

@@ -169,21 +169,25 @@
     {
       "id": "box",
       "title": "بطاقة AZ TV Box (القسم 05)",
-      "where": "القسم 05 (المنتج المميز) وصورة منتج الجهاز في سلة p1152326425",
+      "where": "القسم 05 (المنتج المميز): صورة البلوك نفسه في محرر القالب (ليست صورة المنتج p1152326425، فهي تُرفع إلى homepage/ في سلة)",
       "why": "الصورة الحالية بنر حملة بأسفل أبيض ونص «299 / توصيل مجاني» يكرر السعر الظاهر بجانبه.",
-      "how": "الأسرع: أستخدم صورة الجهاز الثلاثية الأبعاد من القسم 03 على خلفية سوداء بتوهج ذهبي. والأفضل: لقطة جديدة بزاوية أوسع تُظهر الجهاز والريموت معًا.",
+      "how": "لقطة عريضة للجهاز والريموت على الأسود بتوهج ذهبي، الجهاز يسار والنصف الأيمن فارغ. الـ CSS يضع النص فوق النصف الداكن على الكمبيوتر، والصورة فوق النص على الجوال.",
       "items": [
         {
           "id": "x-box",
           "title": "صورة AZ TV Box للمنتج المميز",
           "link": "p1152326425",
           "now": "44b0d971-d7aa-45ab-9db8-5de0b83e7c8d-2324b29c.webp",
-          "new": "box-3d-hero.png",
-          "spec": "مربعة 2048×2048، خلفية شفافة أو سوداء",
+          "new": "aztv-box-dark.webp",
+          "spec": "عريضة 16:9 (الأصل 2000×1116 من Gemini في 05-design/sections/05-aztv-box/aztv-box-dark-gemini.jpg، للموقع 1600×893 WebP)، الجهاز في الثلث الأيسر، النصف الأيمن فارغ",
           "who": "you",
-          "edge": "gold",
-          "prompt": "Use the attached cat-aztv-box-3d.png as the exact product and style: the black AZ TV Box with the gold AZ TV logo and its black remote. Wider hero composition: box in front at a three-quarter angle, remote standing to its right, a thin black glossy plinth with a polished gold edge, soft gold light from behind, faint gold dust in the air. TRANSPARENT background, no text, no price, square 2048x2048.",
-          "status": "todo"
+          "prompt": "I attached 3 reference images.\nImage 1 is the exact product: the black AZ TV Box with the gold AZ TV logo on top, and its remote with the Netflix and YouTube buttons. Image 2 is the real store photo of the same device. Image 3 is the lighting and mood I want.\n\nKeep the box and the remote exactly as in images 1 and 2: same shape, same proportions, same gold AZ TV logo, same buttons. Do not redesign or invent any part of the device. Remove everything else from the references: the price, the balloons, the gift box, the subscription card, the gem, the text and the stage.\n\nCreate a premium product photo for a dark website section:\n- The box stands at a slight three-quarter angle with the remote leaning next to it, on a matte black surface with a soft reflection under it.\n- Background: near-black #0D0D0D, fading into darkness at the edges. A little fog or haze low behind the product, like image 3.\n- Light: one soft warm gold rim light (#EACF69) from behind and above that traces the edges of the box and the remote. A few very faint gold dust particles in the air. No other colours.\n- Composition: wide 16:9 (2400 x 1350). Put the product on the LEFT third of the frame, about 55% of the frame height. The right 50% of the image must be completely empty dark space, because Arabic text will be placed there.\n- Photorealistic, sharp focus on the logo, shallow depth of field in the background.\n- No text, no letters, no numbers, no logos other than the AZ TV logo on the device, no watermark, no people, no hands, no props.",
+          "status": "done",
+          "refs": [
+            "05-design/new-design/assets/img/cat-aztv-box-3d.png",
+            "05-design/new-design/assets/img/44b0d971-d7aa-45ab-9db8-5de0b83e7c8d-2324b29c.webp",
+            "05-design/sections/03-main-categories/cat-aztv-box-gemini.jpg"
+          ]
         }
       ]
     },

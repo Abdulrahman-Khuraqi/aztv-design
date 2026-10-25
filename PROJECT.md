@@ -3,7 +3,7 @@
 Single source of truth for the redesign of [aztvstore.com](https://aztvstore.com/).
 The visual version of this file is **Our Workspace**: [our workspace.html](our%20workspace.html). Keep the two in sync. Its tab «قائمة المهام» is the image to-do list (`05-design/todo.json`), and «ملفات التسليم» embeds every deliverable (refresh with `python3 05-design/new-design/build/sync_workspace.py`).
 
-Last updated: 2026-10-24
+Last updated: 2026-10-25
 
 ## 1. Project in one paragraph
 
@@ -107,7 +107,7 @@ ANGEL blocks **in the theme CSS but not used yet**: FAQ (`s-block--faqs`), movin
 | 02 | Logos strip | Moving strip `angel-ad` (images) | CSS only (bigger logos, dark tiles) |
 | 03 | Main categories | Categories block (image + title + link) | CSS only. The second line under each name is not a field; drop it. |
 | 04 | beIN world | Divider (title + "تصفح العروض") + banners (two devices) + categories (packages and renewal) | CSS only. The three-column layout in the draft becomes three stacked blocks. |
-| 05 | AZ TV Box | Featured product | CSS only |
+| 05 | AZ TV Box | Featured product (block image: the box on dark, wide) | CSS only (text laid over the image from 1024 px) |
 | 06 | Season offers | Divider with countdown and button + products grid | CSS only. Banner and cards stack instead of sitting side by side. |
 | 07 / 11 | Packages | Divider + products slider | CSS only (product card restyled once) |
 | 08 / 12 | Apps and devices | Divider with "تفعيل" button + categories block with icon images | CSS only. Icons uploaded as images. |
@@ -197,6 +197,7 @@ new store design/
 
 ## 10. Log
 
+- 2026-10-25: Section 05 AZ TV Box redesigned. New block image from Gemini (prompt and references in `05-design/IMAGE-PROMPTS.md` section 2): the box and remote on black with a gold rim light, product on the left, right half empty. Original `05-design/sections/05-aztv-box/aztv-box-dark-gemini.jpg`, web `assets/img/aztv-box-dark.webp` (1600 × 893, 49 KB). The old campaign square (white bottom, «299», gift card, «توصيل مجاني») is gone. CSS (`malak-custom.css`, all on the theme's own `special-product` classes): from 1024 px the image fills the card and the text sits on its dark half; tablet keeps the theme's two columns, phone stacks image over text. Old price readable (Arabic zeros are dots that the strike line hid; now a thin slanted line). Bigger feature icons, the grey panel behind the feature text removed, «أضف للسلة» gold and «اطلب الآن» gold outline so there is one main action. An expired countdown is hidden instead of showing its label alone. The subtitle now leads with the free Plus year (block field, `SALLA-SETUP.md`). The block image is a theme field (it is stored under `homepage/` on Salla's CDN), so the product's own photos are not touched. Screenshots `box-malak-*` in the section folder.
 - 2026-10-25: Background F (straight split) chosen by the client for the website: all ten product images on the website now use it (`build_page.py` default `PRODUCT_BG=f`).
 - 2026-10-25: New product background option F, «تقسيم مستقيم» (straight split): option E with a straight horizontal line instead of the diagonal (`subscription-backgrounds/export/option-f-*.png`). All ten product images rendered on it for review (`subscription-cards/product-images/f/`, overview `overview-f.jpg`). The website still uses B; `PRODUCT_BG=f` on `build_page.py` previews F.
 - 2026-10-25: Offer of the week reorganised (client: the discount column took too much space): the right column removed; the gift set centred and a little larger; the discount is one white circle «خصم 60%» on the 3-month card's corner.
