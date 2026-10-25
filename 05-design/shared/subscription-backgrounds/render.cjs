@@ -11,7 +11,7 @@ const page = await browser.newPage({ viewport: { width: 1100, height: 1100 }, de
 
 const jobs = [];
 // opt b = approved (bg-*), other opts are options being tried (option-<x>-*)
-for (const opt of ["b", "e"]) for (const [tier, name] of [["regular", "aztv"], ["plus", "aztv-plus"]]) {
+for (const opt of ["b", "e", "f"]) for (const [tier, name] of [["regular", "aztv"], ["plus", "aztv-plus"]]) {
   const base = opt === "b" ? `bg-${name}` : `option-${opt}-${name}`;
   jobs.push({ q: `opt=${opt}&tier=${tier}`, out: `export/${base}.png` });
   jobs.push({ q: `opt=${opt}&tier=${tier}&guide=1`, out: `export/${base}-guide.jpg` });

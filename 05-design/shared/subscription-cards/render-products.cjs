@@ -1,6 +1,6 @@
 // Product images: every finished card placed on the approved background (white for AZ TV, gold for Plus), 2000 x 2000 JPG.
 // Run from this folder: node render-products.cjs        (all cards, backgrounds B and E)
-//                       node render-products.cjs b      (only background B; or e)
+//                       node render-products.cjs b      (only background B; or e, f)
 // Output: product-images/b/<card>.jpg and product-images/e/<card>.jpg  (needs the playwright package)
 // The offer of the week (offer-week.jpg, offer-week-b.jpg) is composed from two finished cards by offer-image.html; the empty stage it sits on is kept as _stage-regular.jpg.
 const { chromium } = require("playwright");
@@ -20,7 +20,7 @@ const OFFERS = [
   ["offer-week", "regular", "aztv-12m", "aztv-3m", { save: "60%" }],
 ];
 (async () => {
-  const opts = process.argv[2] ? [process.argv[2]] : ["b", "e"];
+  const opts = process.argv[2] ? [process.argv[2]] : ["b", "e", "f"];
   const stage = pathToFileURL(resolve("../subscription-backgrounds/backgrounds.html")).href;
   const browser = await chromium.launch();
   const page = await browser.newPage({ viewport: { width: 1100, height: 1100 }, deviceScaleFactor: 2 });

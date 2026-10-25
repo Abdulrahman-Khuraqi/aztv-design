@@ -40,7 +40,7 @@ The client asked for an offer image for the old «عز تي في سنة + ٣ ش�
 
 ## Product images (2026-10-24, all nine cards accepted)
 
-Each accepted card is placed on the approved product background (white accent for AZ TV, gold for Plus): `product-images/b/<card>.jpg` (background B, the black spotlight burst, **the one used on the website**) and `product-images/e/<card>.jpg` (background E, the diagonal split, kept as an alternative). 2000 x 2000 JPG, ready to upload as the Salla product image of each product (card to product: see the table under «The nine cards»). Overviews of the ten images (nine cards and the offer of the week): `product-images/overview-b.jpg`, `overview-e.jpg`.
+Each accepted card is placed on the approved product background (white accent for AZ TV, gold for Plus): `product-images/b/<card>.jpg` (background B, the black spotlight burst, **the one used on the website**) and `product-images/e/<card>.jpg` (background E, the diagonal split, kept as an alternative). 2000 x 2000 JPG, ready to upload as the Salla product image of each product (card to product: see the table under «The nine cards»). Overviews of the ten images (nine cards and the offer of the week): `product-images/overview-b.jpg`, `overview-e.jpg`, and `overview-f.jpg` on the new background F (straight split, 2026-10-25, to try; images in `product-images/f/`). The website uses B; `PRODUCT_BG=f python3 .../build_page.py` previews it with F.
 
 - Export: `node render-products.cjs` (both backgrounds; or `node render-products.cjs b`), then `python3 product-sheet.py b|e` for the overview.
 - B is the one on the website because the black stage keeps the site's dark look and the white AZ TV card stays high-contrast; on E the white AZ TV card blends into the light plane under it.

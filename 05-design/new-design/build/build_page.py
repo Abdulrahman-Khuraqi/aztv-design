@@ -285,11 +285,11 @@ PRODUCT_CARDS = {  # Salla product id -> card file
     '331255752': 'plus-12m', '1669484767': 'plus-12m-2dev', '1879371242': 'plus-6m', '1024479901': 'plus-3m',
     '777133688': 'renew-aztv', '287657453': 'renew-plus',
     '930436127': 'offer-week'}  # the offer of the week (سنة + ٣ شهور, 96 SAR): two finished cards on the stage
-PRODUCT_SRC = ROOT + '05-design/shared/subscription-cards/product-images/'   # background B (b/) for all, the offer of the week included
+PRODUCT_SRC = ROOT + '05-design/shared/subscription-cards/product-images/'   # background B (b/) for all; PRODUCT_BG=e or f picks another approved background
 PRODUCT_OUT = ROOT + '05-design/new-design/assets/img/products/'
 os.makedirs(PRODUCT_OUT, exist_ok=True)
 for card in PRODUCT_CARDS.values():
-    Image.open(PRODUCT_SRC + 'b/' + card + '.jpg').convert('RGB').resize((1000, 1000), Image.LANCZOS).save(PRODUCT_OUT + card + '.webp', quality=88, method=6)
+    Image.open(PRODUCT_SRC + os.environ.get('PRODUCT_BG', 'b') + '/' + card + '.jpg').convert('RGB').resize((1000, 1000), Image.LANCZOS).save(PRODUCT_OUT + card + '.webp', quality=88, method=6)
 swapped = 0
 for a in soup.select('a[href]'):
     m = re.search(r'/p(\d+)$', a['href'])

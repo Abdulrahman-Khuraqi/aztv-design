@@ -11,7 +11,7 @@
   The card sits in the reserved area (x 310-690, y 204-852 on the 1000 x 1000 canvas): same proportions as the old cards,
   a little smaller than in the old images, so the existing card files still drop straight in.
 
-  URL options:  ?opt=b|e  &tier=regular|plus  &guide=1 (show the card area)  &card=path/to/card.png (mock-up)
+  URL options:  ?opt=b|e|f (f: like e with a straight horizontal split, 2026-10-25)  &tier=regular|plus  &guide=1 (show the card area)  &card=path/to/card.png (mock-up)
   Export:       node render.cjs  (writes export/ and mockups/)
 -->
 <style>
@@ -135,6 +135,8 @@ function zigRay(cx, cy, ang, r0, r1, w0, amp, steps) {
   return [...L, tip, ...R.reverse()].map(p => p.map(v => v.toFixed(1)).join(",")).join(" ");
 }
 
+// split line of options E (diagonal) and F (straight, 2026-10-25): y at the left and right edge
+const SPLIT = opt === "f" ? [560, 560] : [612, 476];
 const defs = `
   <defs>
     <filter id="grain" x="0" y="0" width="100%" height="100%">
@@ -156,20 +158,21 @@ const defs = `
     <radialGradient id="vignette" cx="500" cy="480" r="760" gradientUnits="userSpaceOnUse">
       <stop offset=".55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".75"/>
     </radialGradient>
-    <linearGradient id="planeE" x1="0" y1="476" x2="0" y2="1000" gradientUnits="userSpaceOnUse">
+    <linearGradient id="planeE" x1="0" y1="${Math.min(...SPLIT)}" x2="0" y2="1000" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="${C.hi}"/><stop offset=".45" stop-color="${C.mid}"/><stop offset="1" stop-color="${C.lo}"/>
     </linearGradient>
     <radialGradient id="planeShade" cx="500" cy="700" r="620" gradientUnits="userSpaceOnUse">
       <stop offset=".35" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="${plus ? .35 : .28}"/>
     </radialGradient>
-    <clipPath id="planeClip"><polygon points="0,612 1000,476 1000,1000 0,1000"/></clipPath>
+    <clipPath id="planeClip"><polygon points="0,${SPLIT[0]} 1000,${SPLIT[1]} 1000,1000 0,1000"/></clipPath>
   </defs>`;
 
 let body = "";
-if (opt === "e") {
+if (opt === "e" || opt === "f") {
+  // F is E with a straight horizontal split instead of the diagonal
   // Split: the old images' look redrawn clean. Black top, one light plane (white / gold) under a sharp diagonal,
   // the cards' zigzag rays pressed into the plane tone on tone, one clean edge line. No loose shards.
-  const plane = "0,612 1000,476 1000,1000 0,1000";
+  const plane = `0,${SPLIT[0]} 1000,${SPLIT[1]} 1000,1000 0,1000`;
   let rays = "";
   seed = 3;
   const N = 34;
@@ -184,7 +187,7 @@ if (opt === "e") {
     <polygon points="${plane}" fill="url(#planeE)"/>
     <g clip-path="url(#planeClip)"><g fill="${plus ? "#6b5418" : "#000"}" opacity="${plus ? .11 : .05}">${rays}</g>
       <rect width="1000" height="1000" fill="url(#planeShade)"/></g>
-    <path d="M0 612 L1000 476" stroke="${C.hi}" stroke-width="2.5"/>
+    <path d="M0 ${SPLIT[0]} L1000 ${SPLIT[1]}" stroke="${C.hi}" stroke-width="2.5"/>
     <rect width="1000" height="1000" fill="url(#vignette)" opacity=".6"/>
     <rect width="1000" height="1000" filter="url(#grain)" opacity=".06"/>`;
 } else {
