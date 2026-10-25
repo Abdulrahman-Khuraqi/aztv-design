@@ -2,7 +2,7 @@
 // Run from this folder: node render-products.cjs        (all cards, backgrounds B and E)
 //                       node render-products.cjs b      (only background B; or e)
 // Output: product-images/b/<card>.jpg and product-images/e/<card>.jpg  (needs the playwright package)
-// The offer of the week (offer-week.jpg, offer-week-b.jpg) is composed from two finished cards by offer-image.html; the empty stage it sits on is kept as _stage-plus.jpg.
+// The offer of the week (offer-week.jpg, offer-week-b.jpg) is composed from two finished cards by offer-image.html; the empty stage it sits on is kept as _stage-regular.jpg.
 const { chromium } = require("playwright");
 const { pathToFileURL } = require("node:url");
 const { resolve } = require("node:path");
@@ -17,8 +17,7 @@ const CARDS = [
 // «عرض الأسبوع» (offer of the week, product p930436127, سنة + ٣ شهور): composed from two finished cards on the empty stage (offer-image.html)
 // -> product-images/<opt>/offer-week.jpg (big 1-year card + small 3-month card) and offer-week-b.jpg (small card is the AZ TV 3 months)
 const OFFERS = [
-  ["offer-week", "plus", "plus-12m", "plus-3m", { price: "96", free: "٣ شهور مجانًا", w1: "عرض", w2: "الأسبوع" }],
-  ["offer-week-b", "plus", "plus-12m", "aztv-3m", { price: "96", free: "٣ شهور مجانًا", w1: "عرض", w2: "الأسبوع" }],
+  ["offer-week", "regular", "aztv-12m", "aztv-3m", { price: "96", free: "٣ شهور مجانًا", w1: "عرض", w2: "الأسبوع" }],
 ];
 (async () => {
   const opts = process.argv[2] ? [process.argv[2]] : ["b", "e"];

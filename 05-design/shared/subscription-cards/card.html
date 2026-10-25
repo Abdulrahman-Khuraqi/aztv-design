@@ -172,6 +172,16 @@ const CARDS = {
       { src: PH + "021-real-madrid-white-kit-arms-crossed.png", left: -60, top: 138, width: 339, lift: .9 }
     ]
   },
+  // AZ TV (regular), 1 year (2026-10-25): the regular line had no 12-month card; made for the offer of the week (year + 3 months free) at the
+  // client's request, in the accepted look. Photos not used on any other card: actor 012 behind (left), player 003 in front (right);
+  // mirrored layout because 003's raised arm leaves through the card edge.
+  "aztv-12m": {
+    bg: REG, title: "اشتراك سنة", dEn: "1 YEAR", dAr: "سنة",
+    photos: [
+      { src: PH + "012-red-blue-spider-suit.png", left: -32, top: 168, width: 395, fadeBottom: [88, 100] },
+      { src: PH + "003-real-madrid-white-kit.png", left: 106, top: 150, width: 400 }
+    ]
+  },
   // 9. AZ TV (regular) renewal: no faces
   "renew-aztv": {
     renew: true, bg: REG, title: "تجديد الاشتراك", dEn: "RENEWAL", dAr: "تجديد", photos: []
