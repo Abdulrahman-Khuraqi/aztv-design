@@ -4,54 +4,85 @@
 <meta charset="utf-8">
 <title>Offer product image</title>
 <!--
-  The «عرض الشهر» (offer of the month) product image: a finished card on the approved background (the base image, made by
-  render-products.cjs) plus the offer elements on the empty sides of the stage:
-    left, top:    gold banner «عرض الشهر» (OFFER OF THE MONTH)
-    right, middle: gold price badge «96 ريال فقط» with the old price under it, and the pill «٣ شهور مجانًا» on its lower edge
-  1000 x 1000, exported at 2x = 2000 x 2000. URL: ?base=product-images/b/_base-aztv-15m.jpg  (&price=96 &old=٢٣٨ &free=٣ شهور مجانًا)
-  The sides of the stage carry the vertical AZTVSTORE letters (left from y 640, right up to y 460), so nothing is placed there.
+  «عرض الأسبوع» (offer of the week): the product image of the offer «سنة + ٣ شهور», composed like the old offer image from the
+  finished cards we already have (no new card): the 1-year card big on the left, the 3-month card small on the right wrapped in a
+  gold gift ribbon (the 3 free months), the price and «٣ شهور مجانًا» above it. The old image's green ribbon was for National Day.
+  Canvas 1000 x 1000, exported at 2x = 2000 x 2000, on the empty approved stage (backgrounds.html without a card).
+  URL: ?stage=<empty stage jpg>&big=<card png>&small=<card png>  (&price=96 &free=٣ شهور مجانًا &label=عرض الأسبوع &en=OFFER OF THE WEEK)
+  Stage sides carry the vertical AZTVSTORE letters (left from y 640, right up to y 460) and the 4K badge top right on Plus: keep clear.
 -->
 <style>
   @font-face { font-family: "PingARLT"; src: url("../subscription-backgrounds/src/PingARLT-Bold.woff2") format("woff2"); font-weight: 700; }
   :root { --gold: #EACF69; --ink: #0D0D0D; --white: #F4F4F2; }
   html, body { margin: 0; background: #000; }
   body { display: grid; place-items: center; min-height: 100vh; }
-  #stage { position: relative; width: 1000px; height: 1000px; overflow: hidden; font-family: "PingARLT", system-ui, sans-serif; }
-  #stage > img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  #stage { position: relative; width: 1000px; height: 1000px; overflow: hidden; font-family: "PingARLT", system-ui, sans-serif; color: var(--white); }
+  #stage > img.bg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  .card { position: absolute; display: block; height: auto; filter: drop-shadow(0 22px 34px rgba(0,0,0,.6)); }
+  .big { left: 92px; top: 206px; width: 380px; }
+  .small { left: 574px; top: 462px; width: 232px; }
 
-  /* banner: gold plate with a notch on the inner side, pointing at the card */
-  .banner { position: absolute; left: 22px; top: 232px; width: 270px; height: 112px; background: var(--gold); color: var(--ink);
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 24px 50%); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
-    padding-left: 34px; box-sizing: border-box; filter: drop-shadow(0 10px 18px rgba(0,0,0,.45)); }
-  .banner b { font-size: 46px; line-height: 1.05; font-weight: 700; }
-  .banner small { font-size: 14px; letter-spacing: .24em; font-weight: 700; direction: ltr; }
-  .banner-wrap { position: absolute; inset: 0; filter: drop-shadow(0 10px 18px rgba(0,0,0,.45)); pointer-events: none; }
-  .banner-wrap .banner { filter: none; }
+  /* the "+" between the cards: year + 3 months */
+  .plus-sign { position: absolute; left: 480px; top: 590px; width: 78px; height: 78px; border-radius: 50%; background: var(--gold); color: var(--ink);
+    display: grid; place-items: center; font-size: 66px; line-height: 1; font-weight: 700; box-shadow: 0 0 0 6px var(--ink), 0 10px 24px rgba(0,0,0,.5); padding-bottom: 6px; box-sizing: border-box; }
 
-  /* price badge */
-  .price { position: absolute; left: 716px; top: 468px; width: 260px; height: 260px; border-radius: 50%; background: var(--gold); color: var(--ink);
-    display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
-    box-shadow: 0 0 0 8px var(--ink), 0 0 0 11px var(--gold), 0 18px 34px rgba(0,0,0,.5); }
-  .price .n { font-size: 128px; line-height: .95; font-weight: 700; letter-spacing: -.02em; margin-top: 16px; }
-  .price .u { font-size: 38px; line-height: 1; font-weight: 700; margin-top: 2px; }
-  .price .o { position: absolute; top: 40px; font-size: 21px; font-weight: 700; opacity: .75; text-decoration: line-through; text-decoration-thickness: 2px; }
-  .free { position: absolute; left: 704px; top: 700px; width: 276px; height: 62px; border-radius: 99px; background: var(--ink); color: var(--gold);
-    border: 3px solid var(--gold); display: grid; place-items: center; font-size: 32px; font-weight: 700; box-shadow: 0 12px 24px rgba(0,0,0,.45); }
+  /* label banner (gold plate with a notch on the right, towards the logo side) */
+  .banner { position: absolute; left: 536px; top: 150px; width: 380px; height: 84px; background: var(--gold); color: var(--ink);
+    clip-path: polygon(0 0, 100% 0, calc(100% - 22px) 50%, 100% 100%, 0 100%, 22px 50%); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; box-sizing: border-box; }
+  .banner b { font-size: 44px; line-height: 1.05; font-weight: 700; }
+  .banner small { font-size: 13px; letter-spacing: .26em; font-weight: 700; direction: ltr; }
+  .banner-wrap { position: absolute; inset: 0; filter: drop-shadow(0 10px 18px rgba(0,0,0,.5)); pointer-events: none; }
+
+  /* price: big gold number with «ريال فقط» beside it */
+  .price { position: absolute; left: 536px; top: 246px; width: 380px; height: 140px; display: flex; align-items: center; justify-content: center; gap: 18px; direction: rtl; }
+  .price .n { font-size: 150px; line-height: .9; font-weight: 700; color: var(--gold); letter-spacing: -.02em; text-shadow: 0 6px 22px rgba(0,0,0,.55); }
+  .price .u { font-size: 44px; line-height: 1.12; font-weight: 700; text-align: right; text-shadow: 0 4px 14px rgba(0,0,0,.6); }
+  .free { position: absolute; left: 562px; top: 392px; width: 328px; height: 58px; border-radius: 99px; background: var(--ink); color: var(--gold);
+    border: 3px dashed var(--gold); display: grid; place-items: center; font-size: 32px; font-weight: 700; box-shadow: 0 12px 24px rgba(0,0,0,.45); box-sizing: border-box; }
+
+  /* gold gift ribbon across the small card, with a bow */
+  .ribbon { position: absolute; left: 556px; top: 640px; width: 268px; height: 150px; overflow: visible; filter: drop-shadow(0 8px 12px rgba(0,0,0,.5)); }
 </style>
 </head>
 <body>
 <div id="stage">
-  <img id="base" alt="">
-  <div class="banner-wrap"><div class="banner"><b>عرض الشهر</b><small>OFFER OF THE MONTH</small></div></div>
-  <div class="price"><span class="o" id="old"></span><span class="n" id="price"></span><span class="u">ريال فقط</span></div>
-  <div class="free" id="free"></div>
+  <img class="bg" id="stageBg" alt="">
+  <img class="card big" id="big" alt="">
+  <div class="plus-sign">+</div>
+  <img class="card small" id="small" alt="">
+  <svg class="ribbon" viewBox="0 0 268 150" aria-hidden="true">
+    <defs>
+      <linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F8E59A"/><stop offset=".5" stop-color="#EACF69"/><stop offset="1" stop-color="#B8963A"/></linearGradient>
+      <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F8E59A"/><stop offset="1" stop-color="#C9A84A"/></linearGradient>
+    </defs>
+    <!-- band across the card, running a little past both edges -->
+    <rect x="0" y="22" width="268" height="36" fill="url(#g)"/>
+    <rect x="0" y="22" width="268" height="4" fill="#fff" opacity=".35"/>
+    <rect x="0" y="54" width="268" height="4" fill="#8A6D25" opacity=".45"/>
+    <!-- bow at the centre of the band: two loops, two tails, knot -->
+    <g transform="translate(134 40)" stroke="#8A6D25" stroke-width="1.6" stroke-linejoin="round">
+      <path d="M-10 4 L-36 66 L-20 58 L-12 74 L4 12Z" fill="url(#g2)"/>
+      <path d="M10 4 L36 66 L20 58 L12 74 L-4 12Z" fill="url(#g2)"/>
+      <path d="M0 0 C-22 -42 -74 -46 -78 -12 C-82 20 -30 22 0 0Z" fill="url(#g)"/>
+      <path d="M0 0 C22 -42 74 -46 78 -12 C82 20 30 22 0 0Z" fill="url(#g)"/>
+      <path d="M-34 -14 C-50 -24 -62 -20 -64 -12" fill="none" opacity=".5"/>
+      <path d="M34 -14 C50 -24 62 -20 64 -12" fill="none" opacity=".5"/>
+      <rect x="-15" y="-17" width="30" height="34" rx="9" fill="url(#g)"/>
+    </g>
+  </svg>
+  <div class="banner-wrap"><div class="banner" style="position:absolute;left:536px;top:150px"><b id="label">عرض الأسبوع</b><small id="en">OFFER OF THE WEEK</small></div></div>
+  <div class="price"><span class="n" id="price">96</span><span class="u">ريال<br>فقط</span></div>
+  <div class="free" id="free">٣ شهور مجانًا</div>
 </div>
 <script>
 const q = new URLSearchParams(location.search);
-document.getElementById("base").src = q.get("base") || "product-images/b/_base-aztv-15m.jpg";
-document.getElementById("price").textContent = q.get("price") || "96";
-document.getElementById("old").textContent = q.get("old") ? "بدل " + q.get("old") : "";
-document.getElementById("free").textContent = q.get("free") || "٣ شهور مجانًا";
+document.getElementById("stageBg").src = q.get("stage");
+document.getElementById("big").src = q.get("big");
+document.getElementById("small").src = q.get("small");
+if (q.get("price")) document.getElementById("price").textContent = q.get("price");
+if (q.get("free")) document.getElementById("free").textContent = q.get("free");
+if (q.get("label")) document.getElementById("label").textContent = q.get("label");
+if (q.get("en")) document.getElementById("en").textContent = q.get("en");
 Promise.all([...document.images].map(i => i.complete ? 0 : new Promise(r => { i.onload = i.onerror = r; })))
   .then(() => document.fonts.ready).then(() => { document.body.dataset.ready = "1"; });
 </script>

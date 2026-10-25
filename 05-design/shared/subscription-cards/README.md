@@ -27,22 +27,24 @@ The client asked to change the player on card 2 and to fix card 8, where the pla
 - Not used on any card now: 003, 010 (the same player as 020 on card 7, so he is no longer repeated), 011 (hands behind his back).
 - Seven cards, seven players: 022, 005, 004, 017, 006, 020, 021. No repeats.
 
-## Offer of the month: سنة + ٣ شهور (2026-10-25)
+## Offer of the week: سنة + ٣ شهور (2026-10-25)
 
-The client asked for an offer image for the old «عز تي في سنة + ٣ شهور» product (96 SAR instead of 238, 3 months free), under the name **«عرض الشهر»** (offer of the month). Not one of the nine cards: an extra card, `new/aztv-15m.png`, and an extra product image.
+The client asked for an offer image for the old «عز تي في سنة + ٣ شهور» product (96 SAR, 3 months free), composed like the old offer image from the cards we already have, under the name **«عرض الأسبوع»** (offer of the week). **No new card**: a first try made a new card and an «offer of the month» image; the client rejected it («don't touch the card, only the image») and it was removed (it is in git history).
 
-- **Card** (`aztv-15m` in `card.html`): the accepted AZ TV look, title «اشتراك سنة + ٣ شهور», duration pills «12 + 3 MONTHS» and «سنة + ٣ شهور», and a white badge with a black star above them, «عرض الشهر · OFFER» (`badge` with `badgeIcon: "star"`). Photos: the free player 003 (Real Madrid kit) in front on the right and the free actor 012 (spider suit) behind on the left; mirrored layout so the player's raised arm leaves through the card edge. 012 is a small file (540 x 740), used at card size.
-- **Product image** (`product-images/b/aztv-15m.jpg`, `product-images/e/aztv-15m.jpg`): the card on the approved background plus, from `offer-image.html`, a gold «عرض الشهر / OFFER OF THE MONTH» banner at the top left of the stage, a gold price badge «96 ريال فقط» with the old price «بدل ٢٣٨» above the number, and a black pill with gold text «٣ شهور مجانًا» on its lower edge. Price, old price and free-months text are parameters (`price`, `old`, `free` in `render-products.cjs`); change them there if the offer changes. The plain base image (card on background, no offer elements) is kept as `_base-aztv-15m.jpg`.
-- On the website preview it replaces the national-day image of product `p930436127` in the offers section and in the AZ TV packages.
+- **Image** (`product-images/b/offer-week.jpg`, and `product-images/e/` on background E), composed by `offer-image.html` on the empty approved stage (Plus, gold): the finished **1-year card** (`new/plus-12m.png`) big on the left, a gold «+», the finished **3-month card** (`new/plus-3m.png`) small on the right wrapped in a **gold gift ribbon with a bow** (the free months; the old image's green ribbon was for National Day), a gold banner «عرض الأسبوع / OFFER OF THE WEEK», the price «96 ريال فقط» and a dashed pill «٣ شهور مجانًا».
+- **Second version** `offer-week-b.jpg`: the same with the AZ TV 3-month card (`new/aztv-3m.png`, white) as the small card.
+- Which pair is right depends on the product: it is in the AZ TV (regular) category, but there is no 1-year AZ TV card, only the Plus one; and **96 SAR is the old AZ TV price, while Plus 1 year is 196 SAR on the store**. Price and texts are parameters (`OFFERS` in `render-products.cjs`; `price`, `free`, `label`, `en`): change them there. To be confirmed by the client.
+- On the website preview it replaces the national-day image of product `p930436127` in the offers section and in the AZ TV packages (version A on background B).
+- Export: `node render-products.cjs` (the offer is made with the nine cards), then `python3 product-sheet.py b|e`.
 
 ## Product images (2026-10-24, all nine cards accepted)
 
-Each accepted card is placed on the approved product background (white accent for AZ TV, gold for Plus): `product-images/b/<card>.jpg` (background B, the black spotlight burst, **the one used on the website**) and `product-images/e/<card>.jpg` (background E, the diagonal split, kept as an alternative). 2000 x 2000 JPG, ready to upload as the Salla product image of each product (card to product: see the table under «The nine cards»). Overviews of the ten images (nine cards and the offer): `product-images/overview-b.jpg`, `overview-e.jpg`.
+Each accepted card is placed on the approved product background (white accent for AZ TV, gold for Plus): `product-images/b/<card>.jpg` (background B, the black spotlight burst, **the one used on the website**) and `product-images/e/<card>.jpg` (background E, the diagonal split, kept as an alternative). 2000 x 2000 JPG, ready to upload as the Salla product image of each product (card to product: see the table under «The nine cards»). Overviews of the ten images (nine cards and the offer of the week): `product-images/overview-b.jpg`, `overview-e.jpg`.
 
 - Export: `node render-products.cjs` (both backgrounds; or `node render-products.cjs b`), then `python3 product-sheet.py b|e` for the overview.
 - B is the one on the website because the black stage keeps the site's dark look and the white AZ TV card stays high-contrast; on E the white AZ TV card blends into the light plane under it.
 - Website preview: `05-design/new-design/build/build_page.py` converts `product-images/b/*.jpg` to 1000 x 1000 WebP in `new-design/assets/img/products/` and puts them on the product cards of these nine products (sections 06 offers, 07 AZ TV packages, 11 Plus packages, 15 loyal customers). Run it again after any card change (`node render-cards.cjs`, `node render-products.cjs b`, `python3 .../build_page.py`).
-- The old product «عز تي في سنة + ٣ شهور» (96 SAR) now has the offer-of-the-month image: see «Offer of the month» above.
+- The old product «عز تي في سنة + ٣ شهور» (96 SAR) now has the offer-of-the-week image: see «Offer of the week» above.
 
 ## Plus design: the AZ TV card in gold (chosen 2026-10-24)
 

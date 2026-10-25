@@ -100,12 +100,12 @@
           "status": "done"
         },
         {
-          "id": "r-aztv-15m-offer",
-          "title": "عرض الشهر: عز تي في سنة + ٣ شهور",
+          "id": "r-offer-week",
+          "title": "عرض الأسبوع: عز تي في سنة + ٣ شهور (صورة فقط، بدون بطاقة جديدة)",
           "link": "p930436127",
           "now": "05-design/shared/subscription-cards/old/aztv-15m.png",
-          "new": "05-design/shared/subscription-cards/new/aztv-15m.png",
-          "spec": "أبيض وأسود · «سنة + ٣ شهور» · لافتة «عرض الشهر» · ٩٦ ريال فقط، ٣ شهور مجانًا · السعر اليوم: ٩٦ ر.س بدل ٢٣٨ (خصم ٦٠٪)",
+          "new": "05-design/shared/subscription-cards/product-images/b/offer-week.jpg",
+          "spec": "بطاقة السنة الكبيرة + بطاقة ٣ شهور الصغيرة بشريط هدية ذهبي · لافتة «عرض الأسبوع» · ٩٦ ريال فقط، ٣ شهور مجانًا · السعر اليوم: ٩٦ ر.س بدل ٢٣٨ (خصم ٦٠٪)",
           "who": "me",
           "status": "doing"
         }

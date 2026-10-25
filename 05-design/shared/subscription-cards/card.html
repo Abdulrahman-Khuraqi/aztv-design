@@ -172,16 +172,6 @@ const CARDS = {
       { src: PH + "021-real-madrid-white-kit-arms-crossed.png", left: -60, top: 138, width: 339, lift: .9 }
     ]
   },
-  // Offer of the month (2026-10-24): 12 months + 3 months free, the old «سنة + ٣ شهور» product. Same look as the accepted AZ TV card, with a
-  // star badge above the duration pills; the price and the free months go on the product image (offer-image.html).
-  // Mirrored layout (player front right, actor behind left) because the player's raised arm (003) leaves through the card edge.
-  "aztv-15m": {
-    bg: REG, title: "اشتراك سنة + ٣ شهور", dEn: "12 + 3 MONTHS", dAr: "سنة + ٣ شهور", badge: ["عرض الشهر", "OFFER"], badgeIcon: "star",
-    photos: [
-      { src: PH + "012-red-blue-spider-suit.png", left: -32, top: 168, width: 395, fadeBottom: [88, 100] },
-      { src: PH + "003-real-madrid-white-kit.png", left: 106, top: 150, width: 400 }
-    ]
-  },
   // 9. AZ TV (regular) renewal: no faces
   "renew-aztv": {
     renew: true, bg: REG, title: "تجديد الاشتراك", dEn: "RENEWAL", dAr: "تجديد", photos: []
@@ -196,9 +186,8 @@ const card = document.getElementById("card");
 card.classList.toggle("plus", !!c.plus);
 card.classList.toggle("is-renew", !!c.renew);
 if (c.titleSize) document.getElementById("title").style.fontSize = c.titleSize + "px";
-const STAR = `<svg class="ico" viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px;fill:var(--ink);stroke:none"><path d="M12 1.8l3 6.5 7.1.8-5.3 4.8 1.5 7-6.3-3.6-6.3 3.6 1.5-7L1.9 9.1l7.1-.8z"/></svg>`;
 const SCREENS = `<svg class="ico" viewBox="0 0 30 20" aria-hidden="true"><rect x="1.2" y="1.2" width="17" height="11.5" rx="2"/><rect x="11.8" y="6.3" width="17" height="11.5" rx="2"/></svg>`;
-if (c.badge) document.getElementById("badge").innerHTML = `<span>${c.badgeIcon === "star" ? STAR : SCREENS}${c.badge[0]} · <bdi dir="ltr">${c.badge[1]}</bdi></span>`;
+if (c.badge) document.getElementById("badge").innerHTML = `<span>${SCREENS}${c.badge[0]} · <bdi dir="ltr">${c.badge[1]}</bdi></span>`;
 // renewal arrows: three arcs going clockwise, each ending in an arrow head
 if (c.renew) {
   const R = 66, rad = d => (d - 90) * Math.PI / 180, pt = d => [R * Math.cos(rad(d)), R * Math.sin(rad(d))];

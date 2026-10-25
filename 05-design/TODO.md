@@ -19,7 +19,7 @@
 - [x] **اشتراك عز تي في بلس 3 شهور** · Claude يركّبها · الآن: `05-design/shared/subscription-cards/old/plus-3m.png` ← الجديد: `05-design/shared/subscription-cards/new/plus-3m.png` · ذهبي · «٣ شهور» · 760×1296 · السعر اليوم: ١٠٠ ر.س بدل ١٥٠ (خصم ٣٣٪)
 - [x] **تجديد اشتراك عز تي في العادي** · Claude يركّبها · الآن: `05-design/shared/subscription-cards/old/renew-aztv.png` ← الجديد: `05-design/shared/subscription-cards/new/renew-aztv.png` · أبيض وأسود مع سهم التجديد · «تجديد» · 760×1296 · السعر اليوم: بدون سعر ظاهر في الصفحة الرئيسية
 - [x] **تجديد اشتراك عز تي في بلس** · Claude يركّبها · الآن: `05-design/shared/subscription-cards/old/renew-plus.png` ← الجديد: `05-design/shared/subscription-cards/new/renew-plus.png` · ذهبي مع سهم التجديد · «تجديد البلس» · 760×1296 · السعر اليوم: بدون سعر ظاهر في الصفحة الرئيسية
-- [ ] **عرض الشهر: عز تي في سنة + ٣ شهور** · Claude يركّبها · الآن: `05-design/shared/subscription-cards/old/aztv-15m.png` ← الجديد: `05-design/shared/subscription-cards/new/aztv-15m.png` · أبيض وأسود · «سنة + ٣ شهور» · لافتة «عرض الشهر» · ٩٦ ريال فقط، ٣ شهور مجانًا · السعر اليوم: ٩٦ ر.س بدل ٢٣٨ (خصم ٦٠٪)
+- [ ] **عرض الأسبوع: عز تي في سنة + ٣ شهور (صورة فقط، بدون بطاقة جديدة)** · Claude يركّبها · الآن: `05-design/shared/subscription-cards/old/aztv-15m.png` ← الجديد: `05-design/shared/subscription-cards/product-images/b/offer-week.jpg` · بطاقة السنة الكبيرة + بطاقة ٣ شهور الصغيرة بشريط هدية ذهبي · لافتة «عرض الأسبوع» · ٩٦ ريال فقط، ٣ شهور مجانًا · السعر اليوم: ٩٦ ر.س بدل ٢٣٨ (خصم ٦٠٪)
 
 ## عالم beIN (القسم 04)
 
