@@ -38,11 +38,11 @@ The client asked for an offer image for the old «عز تي في سنة + ٣ ش�
 - On the website preview it replaces the national-day image of product `p930436127` in the offers section and in the AZ TV packages.
 - Export: `node render-cards.cjs aztv-12m`, `node render-products.cjs`, then `python3 product-sheet.py b|e`.
 
-## Shine version (2026-10-27, for the client to approve)
+## Shine on the card edges (2026-10-27, trial on two images)
 
-The client asked for the product images to be "more shining". `product-images/f-shine/` has every product image on background F with the shine effects (`&shine=1` in `../subscription-backgrounds/backgrounds.html`): a glow halo behind the card and a glow around its edge, a diagonal gloss sweep and a bright rim on the card, a soft reflection of the card on the floor, four-point glints on the card's corners and around it, a glowing logo and a gradient 4K badge. Overview: `product-images/overview-f-shine.jpg`. The offer of the week only gets the logo glow so far (its two cards are composed later by `offer-image.html`). The website still uses `product-images/f/`; switch once the client approves.
+The client asked for the product images to be "more shining". A first try (glow behind the card, gloss across it, reflection, sparkles) was rejected: the shine should be on the card's edges. Now (`&shine=1` in `../subscription-backgrounds/backgrounds.html`): a thin lit rim around the card in the tier colour, with two bright light streaks running along the border (top right and bottom left) that glow outwards; nothing on the card itself. Trial on two images only: `product-images/f-shine/aztv-3m.jpg` and `product-images/f-shine/plus-12m.jpg`. The website still uses `product-images/f/`.
 
-- Export: `node render-products.cjs f shine` (writes `product-images/f-shine/`), then `python3 product-sheet.py f-shine`.
+- Export: `node render-products.cjs f shine aztv-3m plus-12m` (only these cards); all cards once approved: `node render-products.cjs f shine`.
 
 ## Product images (2026-10-24, all nine cards accepted)
 
