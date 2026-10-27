@@ -420,7 +420,46 @@
 .s-block--faqs + .s-angel--divider .divider-title h2, .s-block--faqs + .s-angel--divider .divider-title p { text-shadow: 0 2px 22px rgba(0, 0, 0, .75); }
 .s-block--faqs + .s-angel--divider .divider-title p { color: var(--az-text) !important; opacity: .88; text-wrap: balance; }
 .s-block--faqs + .s-angel--divider .vertical-lines { display: none; }
-.s-block--faqs + .s-angel--divider a.divider-url { background: var(--az-gold); color: var(--az-ink) !important; min-height: 52px; padding: 0 32px; font-size: 17px; }
+/* the page's last button, the one that moves (client 2026-10-27): a rich gold gradient, a soft light that sweeps across it,
+   a thin light that runs round its outline, a gentle breathing glow and an arrow that nudges forward. Still for reduced motion. */
+@property --az-cta-angle { syntax: "<angle>"; initial-value: 0deg; inherits: false; }
+.s-block--faqs + .s-angel--divider a.divider-url {
+  position: relative; isolation: isolate; display: inline-flex !important; flex-direction: row !important; align-items: center; justify-content: center;
+  gap: 12px; min-height: 58px; padding: 0 30px 0 34px; margin-top: 24px; white-space: nowrap;
+  border: 0 !important; font-size: 18px; font-weight: 800; letter-spacing: .2px; color: var(--az-ink) !important;
+  background:
+    linear-gradient(110deg, rgba(255, 255, 255, 0) 38%, rgba(255, 255, 255, .6) 50%, rgba(255, 255, 255, 0) 62%) -160% 0 / 220% 100% no-repeat,
+    linear-gradient(135deg, #FFF1B8 0%, #EACF69 42%, #C9A548 100%) !important;
+  box-shadow: 0 10px 30px rgba(234, 207, 105, .22), inset 0 1px 0 rgba(255, 255, 255, .65), inset 0 -2px 0 rgba(120, 90, 20, .25);
+  animation: az-cta-sweep 3.6s ease-in-out infinite, az-cta-breathe 3.6s ease-in-out infinite;
+  transition: transform .25s ease;
+}
+/* the light that runs round the outline: a ring just outside the button, faint gold all round with one bright moving spot */
+.s-block--faqs + .s-angel--divider a.divider-url::before {
+  content: ""; position: absolute; inset: -5px; z-index: -1; border-radius: 999px; padding: 1.5px; pointer-events: none;
+  background: conic-gradient(from var(--az-cta-angle), rgba(234, 207, 105, .3) 0deg, rgba(234, 207, 105, .3) 250deg, #FFF4CF 320deg, #fff 335deg, rgba(234, 207, 105, .3) 360deg);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  animation: az-cta-orbit 4.5s linear infinite;
+}
+/* the arrow: points the way in Arabic (left) and nudges forward */
+.s-block--faqs + .s-angel--divider a.divider-url::after {
+  content: "←"; display: block; width: auto; height: auto; background: none; border-radius: 0; color: var(--az-ink);
+  font-size: 20px; line-height: 1; animation: az-cta-nudge 1.8s ease-in-out infinite;
+}
+.s-block--faqs + .s-angel--divider a.divider-url:hover { transform: translateY(-2px); }
+.s-block--faqs + .s-angel--divider a.divider-url:hover::after { animation-duration: .9s; }
+@keyframes az-cta-sweep { 0%, 30% { background-position: -160% 0, 0 0; } 70%, 100% { background-position: 260% 0, 0 0; } }
+@keyframes az-cta-breathe {
+  0%, 100% { box-shadow: 0 10px 30px rgba(234, 207, 105, .18), inset 0 1px 0 rgba(255, 255, 255, .65), inset 0 -2px 0 rgba(120, 90, 20, .25); }
+  50% { box-shadow: 0 10px 44px rgba(234, 207, 105, .42), inset 0 1px 0 rgba(255, 255, 255, .65), inset 0 -2px 0 rgba(120, 90, 20, .25); }
+}
+@keyframes az-cta-orbit { to { --az-cta-angle: 360deg; } }
+@keyframes az-cta-nudge { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(-5px); } }
+@media (prefers-reduced-motion: reduce) {
+  .s-block--faqs + .s-angel--divider a.divider-url, .s-block--faqs + .s-angel--divider a.divider-url::before,
+  .s-block--faqs + .s-angel--divider a.divider-url::after { animation: none !important; }
+}
 
 /* ---------- Main menu (side drawer) ---------- */
 .mm-spn a:hover .menu_title, .mm-spn a:hover .font-primary { color: var(--az-gold); }
