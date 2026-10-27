@@ -293,7 +293,7 @@ bg.style.setProperty("--glow", C.glow);
       <radialGradient id="spotMid"><stop offset="0" stop-color="#fff" stop-opacity=".9"/><stop offset=".35" stop-color="rgb(${g})" stop-opacity=".6"/><stop offset="1" stop-color="rgb(${g})" stop-opacity="0"/></radialGradient>
       <radialGradient id="spotHot"><stop offset="0" stop-color="#fff"/><stop offset=".7" stop-color="#fff" stop-opacity=".6"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>`;
     // two lights at different places (client): the main one high on the right edge, a softer, warmer one low on the left edge
-    const RIGHT = 40, LEFT = 262;   // right head y ~300, left head y ~555 (just above the stage split, so it stays visible)
+    const RIGHT = 58, LEFT = 262;   // right head y ~410 (lowered so the light stays on the card edge, client 2026-10-27), left head y ~555 (just above the stage split, so it stays visible)
     const outer = `<rect x="296" y="190" width="408" height="676" rx="47" fill="none" stroke="rgba(${g},.28)" stroke-width="1.2"/>
       <rect x="288" y="182" width="424" height="692" rx="54" fill="none" stroke="rgba(${g},.12)" stroke-width="1"/>`;
     document.getElementById("fx").innerHTML = defs + spotDefs + outer + spot(onEdge(RIGHT), 1, false) + spot(onEdge(LEFT), .85, true);
