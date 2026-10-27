@@ -17,7 +17,7 @@ const CARDS = [
   ["plus-12m", "plus", "p331255752"], ["plus-12m-2dev", "plus", "p1669484767"], ["plus-6m", "plus", "p1879371242"], ["plus-3m", "plus", "p1024479901"],
   ["renew-aztv", "regular", "p777133688"], ["renew-plus", "plus", "p287657453"],
 ];
-// «عرض الأسبوع» (offer of the week, product p930436127, سنة + ٣ شهور): composed from two finished cards on the empty stage (offer-image.html)
+// «عرض الشهر» (offer of the month, «عرض الأسبوع» until 2026-10-27; files keep the name offer-week; product p930436127, سنة + ٣ شهور): composed from two finished cards on the empty stage (offer-image.html)
 // -> product-images/<opt>/offer-week.jpg (big 1-year card + small 3-month card) and offer-week-b.jpg (small card is the AZ TV 3 months)
 const OFFERS = [
   ["offer-week", "regular", "aztv-12m", "aztv-3m", { save: "60%" }],
