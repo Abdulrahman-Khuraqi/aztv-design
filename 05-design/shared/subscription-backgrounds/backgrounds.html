@@ -281,24 +281,26 @@ bg.style.setProperty("--glow", C.glow);
     <linearGradient id="streakH"><stop offset="0" stop-color="rgb(${g})" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".95"/><stop offset="1" stop-color="rgb(${g})" stop-opacity="0"/></linearGradient>
   </defs>`;
   if (mode === "a") {
-    // upright flare that hugs the side edge: a bright hairline running up and down the edge, a wide soft glow, a hot core
-    const edgeFlare = ([x, y]) => `<g transform="translate(${x.toFixed(1)} ${y.toFixed(1)})" style="mix-blend-mode:screen">
-      <ellipse rx="34" ry="230" fill="url(#halo)" opacity=".55"/>
-      <ellipse rx="7" ry="260" fill="url(#streakV)"/>
-      <ellipse rx="2.2" ry="170" fill="#fff"/>
-      <circle r="58" fill="url(#halo)"/><circle r="20" fill="url(#core)"/>
-      <circle cy="-120" r="8" fill="rgb(${g})" opacity=".35"/><circle cy="150" r="12" fill="rgb(${g})" opacity=".2"/></g>`;
-    // two comets mirrored left and right: both heads on the dark upper half, at the same height (60deg and 300deg, 0 = up)
-    const HEAD = 60;
+    // vertical spotlight on the side edge, like a studio light caught on the card's rim: no round blobs, only tall soft
+    // shapes that are brightest in the middle and fade out up and down. k = strength; warm = more tier colour, less white
+    const spot = ([x, y], k, warm) => `<g transform="translate(${x.toFixed(1)} ${y.toFixed(1)})" style="mix-blend-mode:screen">
+      <ellipse rx="${46 * k}" ry="${250 * k}" fill="url(#spotWide)" opacity="${.8 * k}"/>
+      <ellipse rx="${14 * k}" ry="${190 * k}" fill="url(#spotMid)" opacity="${warm ? .8 : .95}"/>
+      <ellipse rx="${2.6 * k}" ry="${150 * k}" fill="url(#streakV)"/>
+      <ellipse rx="${5 * k}" ry="${46 * k}" fill="url(#spotHot)" opacity="${warm ? .75 : 1}"/></g>`;
+    const spotDefs = `<defs>
+      <radialGradient id="spotWide"><stop offset="0" stop-color="rgb(${g})" stop-opacity=".55"/><stop offset=".5" stop-color="rgb(${g})" stop-opacity=".16"/><stop offset="1" stop-color="rgb(${g})" stop-opacity="0"/></radialGradient>
+      <radialGradient id="spotMid"><stop offset="0" stop-color="#fff" stop-opacity=".9"/><stop offset=".35" stop-color="rgb(${g})" stop-opacity=".6"/><stop offset="1" stop-color="rgb(${g})" stop-opacity="0"/></radialGradient>
+      <radialGradient id="spotHot"><stop offset="0" stop-color="#fff"/><stop offset=".7" stop-color="#fff" stop-opacity=".6"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>`;
+    // two lights at different places (client): the main one high on the right edge, a softer, warmer one low on the left edge
+    const RIGHT = 40, LEFT = 262;   // right head y ~300, left head y ~555 (just above the stage split, so it stays visible)
     const outer = `<rect x="296" y="190" width="408" height="676" rx="47" fill="none" stroke="rgba(${g},.28)" stroke-width="1.2"/>
       <rect x="288" y="182" width="424" height="692" rx="54" fill="none" stroke="rgba(${g},.12)" stroke-width="1"/>`;
-    // the flares stand upright and run along the card's side edges (client: horizontal was not realistic)
-    document.getElementById("fx").innerHTML = defs + outer + edgeFlare(onEdge(HEAD)) + edgeFlare(onEdge(360 - HEAD));
+    document.getElementById("fx").innerHTML = defs + spotDefs + outer + spot(onEdge(RIGHT), 1, false) + spot(onEdge(LEFT), .85, true);
     document.querySelectorAll(".shine-a .edge").forEach(e => {
-      // right comet runs clockwise, its tail behind it (anticlockwise); left comet is its mirror image
-      const right = `conic-gradient(from ${HEAD - 150}deg at 50% 50%, transparent 0deg, rgba(${g}, .08) 40deg, rgba(${g}, .35) 100deg, rgba(${g}, .9) 140deg, #fff 147deg, #fff 150deg, transparent 151deg)`;
-      const left = `conic-gradient(from ${360 - HEAD - 1}deg at 50% 50%, transparent 0deg, #fff 1deg, #fff 4deg, rgba(${g}, .9) 11deg, rgba(${g}, .35) 51deg, rgba(${g}, .08) 111deg, transparent 151deg)`;
-      e.style.background = `${right}, ${left}, rgba(${g}, ${e.closest(".glow-wrap") ? 0 : .3})`;
+      // both lights run clockwise round the rim, each trailing a fading tail; the second one is weaker
+      const tail = (head, k) => `conic-gradient(from ${head - 150}deg at 50% 50%, transparent 0deg, rgba(${g}, ${.08 * k}) 40deg, rgba(${g}, ${.35 * k}) 100deg, rgba(${g}, ${.9 * k}) 140deg, rgba(255,255,255,${k}) 147deg, rgba(255,255,255,${k}) 150deg, transparent 151deg)`;
+      e.style.background = `${tail(RIGHT, 1)}, ${tail(LEFT, .7)}, rgba(${g}, ${e.closest(".glow-wrap") ? 0 : .3})`;
     });
   }
   if (mode === "b") {
