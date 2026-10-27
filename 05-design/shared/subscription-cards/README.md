@@ -46,6 +46,8 @@ The client asked for the product images to be "more shining". A first try (glow 
 
 ## Shine, round 3: two bolder options (2026-10-27)
 
+**Approved (2026-10-27): option A on all nine cards, `product-images/f-shine-a/` (overview `product-images/overview-f-shine-a.jpg`), now the images on the website preview (`build_page.py` reads `f-shine-a/` by default). The offer of the week has only the stage (its two tilted cards get no edge light).**
+
 The client liked the edge light and asked for two more epic options built on it, on the same two images:
 
 - **Option A «comet»** (`product-images/f-shine-a/`, `&shine=a`), **the chosen direction**: two vertical spotlights on the card's side edges, like a studio light caught on the rim (tall soft shapes, brightest in the middle, no round blobs): the main one bright and white, on the upper half of the right edge (lowered so it stays on the card edge and does not spill above the card); a second, softer and warmer one lower on the left edge, just above the stage split so it stays visible. Each trails a fading light tail round the rim (clockwise). Two faint outer frame lines around the card. More glow on both spotlights and round the rim (client, 2026-10-27), then toned down a step (too much). History: first horizontal flares (not realistic), then vertical flares at the same height on both sides with round cores (client: not realistic, too similar).

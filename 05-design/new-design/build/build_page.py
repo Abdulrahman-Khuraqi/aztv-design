@@ -295,7 +295,7 @@ for blk in B:
 marker.decompose()
 
 # ---------- product images: the finished subscription cards on the approved background ----------
-# 05-design/shared/subscription-cards/product-images/b/<name>.jpg (2000 x 2000, made by render-products.cjs) -> assets/img/products/<name>.webp (1000 x 1000)
+# 05-design/shared/subscription-cards/product-images/f-shine-a/<name>.jpg (2000 x 2000, made by render-products.cjs) -> assets/img/products/<name>.webp (1000 x 1000)
 # and every product card of these ten products shows it instead of the store's old image (needs Pillow)
 from PIL import Image
 PRODUCT_CARDS = {  # Salla product id -> card file
@@ -303,11 +303,11 @@ PRODUCT_CARDS = {  # Salla product id -> card file
     '331255752': 'plus-12m', '1669484767': 'plus-12m-2dev', '1879371242': 'plus-6m', '1024479901': 'plus-3m',
     '777133688': 'renew-aztv', '287657453': 'renew-plus',
     '930436127': 'offer-week'}  # the offer of the week (سنة + ٣ شهور, 96 SAR): two finished cards on the stage
-PRODUCT_SRC = ROOT + '05-design/shared/subscription-cards/product-images/'   # background F (f/, straight split, chosen by the client 2026-10-25) for all; PRODUCT_BG=b or e picks another
+PRODUCT_SRC = ROOT + '05-design/shared/subscription-cards/product-images/'   # background F with the approved edge light (f-shine-a/, client 2026-10-27; F itself chosen 2026-10-25); PRODUCT_BG=f, b or e picks another
 PRODUCT_OUT = ROOT + '05-design/new-design/assets/img/products/'
 os.makedirs(PRODUCT_OUT, exist_ok=True)
 for card in PRODUCT_CARDS.values():
-    Image.open(PRODUCT_SRC + os.environ.get('PRODUCT_BG', 'f') + '/' + card + '.jpg').convert('RGB').resize((1000, 1000), Image.LANCZOS).save(PRODUCT_OUT + card + '.webp', quality=88, method=6)
+    Image.open(PRODUCT_SRC + os.environ.get('PRODUCT_BG', 'f-shine-a') + '/' + card + '.jpg').convert('RGB').resize((1000, 1000), Image.LANCZOS).save(PRODUCT_OUT + card + '.webp', quality=88, method=6)
 swapped = 0
 for a in soup.select('a[href]'):
     m = re.search(r'/p(\d+)$', a['href'])
