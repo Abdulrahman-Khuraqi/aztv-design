@@ -102,6 +102,27 @@
   .glow-wrap .edge { --base: rgba(var(--glow), 0); padding: 8px; }
   .glow-wrap.blur2 .edge { padding: 16px; left: 297px; top: 191px; width: 406px; height: 674px; border-radius: 48px; }
   .shine.has-card .edge { display: block; }
+
+  /* &shine=a "comet" and &shine=b "power-up" (2026-10-27, round 3: two bolder options built on the edge light) */
+  .fx, .rays { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; display: none; }
+  .shine-a.has-card .fx, .shine-b.has-card .fx, .shine-b.has-card .rays { display: block; }
+  .shine-a.has-card .edge, .shine-b.has-card .edge { display: block; }
+  /* A: two comets with long tails running round the rim */
+  .shine-a .edge { --streak: conic-gradient(from 0deg at 50% 50%,
+      transparent 0deg, rgba(var(--glow), .08) 300deg, rgba(var(--glow), .35) 330deg, rgba(var(--glow), .85) 352deg, #fff 357deg, #fff 359deg, transparent 360deg);
+    background: var(--streak), conic-gradient(from 180deg at 50% 50%,
+      transparent 0deg, rgba(var(--glow), .08) 300deg, rgba(var(--glow), .35) 330deg, rgba(var(--glow), .85) 352deg, #fff 357deg, #fff 359deg, transparent 360deg),
+      rgba(var(--glow), .3); }
+  .shine-a > .edge { padding: 5px; }
+  .shine-a .glow-wrap .edge { padding: 11px; }
+  .shine-a .edge { background-position: center; }
+  /* B: the whole rim burns, brightest on the four corners */
+  .shine-b .edge { background: conic-gradient(from 0deg at 50% 50%,
+      rgba(var(--glow), .75) 0deg, #fff 31deg, rgba(var(--glow), .75) 60deg, rgba(var(--glow), .75) 120deg, #fff 149deg, rgba(var(--glow), .75) 180deg,
+      rgba(var(--glow), .75) 180deg, #fff 211deg, rgba(var(--glow), .75) 240deg, rgba(var(--glow), .75) 300deg, #fff 329deg, rgba(var(--glow), .75) 360deg); }
+  .shine-b .glow-wrap.blur2 { filter: blur(30px); }
+  .shine-b .glow-wrap .edge { padding: 12px; }
+  .shine-b .glow-wrap.blur2 .edge { padding: 26px; left: 287px; top: 181px; width: 426px; height: 694px; border-radius: 58px; }
 </style>
 </head>
 <body>
@@ -112,9 +133,11 @@
   <div class="side side--l">AZTVSTORE</div>
   <div class="badge">4K</div>
   <div class="guide"></div>
+  <svg class="rays" id="rays" viewBox="0 0 1000 1000" aria-hidden="true"></svg>
   <div class="glow-wrap blur2"><div class="edge"></div></div><div class="glow-wrap blur"><div class="edge"></div></div>
   <div class="card"><img id="cardImg" alt=""></div>
   <div class="edge"></div>
+  <svg class="fx" id="fx" viewBox="0 0 1000 1000" aria-hidden="true"></svg>
   <div class="contact">
     <span><i><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg></i>966509130883</span>
     <span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></i>AZTVSTORE.COM</span>
@@ -133,6 +156,7 @@ document.getElementById("logo").src = tier === "plus" ? "src/logo-gold.png" : "s
 if (q.get("guide")) bg.classList.add("show-guide");
 if (q.get("card")) { bg.classList.add("has-card"); document.getElementById("cardImg").src = q.get("card"); }
 if (q.get("shine")) bg.classList.add("shine");
+if (q.get("shine") === "a" || q.get("shine") === "b") bg.classList.add("shine-" + q.get("shine"));
 
 const plus = tier === "plus";
 const C = plus
@@ -232,6 +256,61 @@ if (opt === "e" || opt === "f") {
 
 art.innerHTML = defs + body;
 bg.style.setProperty("--glow", C.glow);
+
+// effects for shine=a / shine=b, drawn around the card (x 310-690, y 204-852, centre 500,528)
+{
+  const mode = q.get("shine");
+  const g = C.glow;
+  // point where a ray from the card centre at angle a (0 = up, clockwise) leaves the card's border
+  const onEdge = a => {
+    const r = a * Math.PI / 180, dx = Math.sin(r), dy = -Math.cos(r);
+    const t = Math.min(190 / Math.abs(dx || 1e-9), 324 / Math.abs(dy || 1e-9));
+    return [500 + dx * t, 528 + dy * t];
+  };
+  // cinematic flare: a long thin horizontal streak, a soft halo and a hot core
+  const flare = ([x, y], k = 1) => `<g transform="translate(${x.toFixed(1)} ${y.toFixed(1)})" style="mix-blend-mode:screen">
+    <ellipse rx="${300 * k}" ry="${5 * k}" fill="url(#streakH)"/>
+    <ellipse rx="${120 * k}" ry="${2 * k}" fill="#fff" opacity=".9"/>
+    <circle r="${46 * k}" fill="url(#halo)"/><circle r="${16 * k}" fill="url(#core)"/>
+    <circle cx="${-90 * k}" r="${7 * k}" fill="rgb(${g})" opacity=".35"/><circle cx="${140 * k}" r="${11 * k}" fill="rgb(${g})" opacity=".18"/></g>`;
+  const defs = `<defs>
+    <radialGradient id="halo"><stop offset="0" stop-color="#fff" stop-opacity=".9"/><stop offset=".25" stop-color="rgb(${g})" stop-opacity=".55"/><stop offset="1" stop-color="rgb(${g})" stop-opacity="0"/></radialGradient>
+    <radialGradient id="core"><stop offset="0" stop-color="#fff"/><stop offset=".6" stop-color="#fff" stop-opacity=".8"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+    <linearGradient id="streakH"><stop offset="0" stop-color="rgb(${g})" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".95"/><stop offset="1" stop-color="rgb(${g})" stop-opacity="0"/></linearGradient>
+  </defs>`;
+  if (mode === "a") {
+    // comet heads sit at the end of each tail (conic 0deg = up, heads at ~359deg and ~179deg, turned by --rot)
+    const rot = 52;
+    const outer = `<rect x="296" y="190" width="408" height="676" rx="47" fill="none" stroke="rgba(${g},.28)" stroke-width="1.2"/>
+      <rect x="288" y="182" width="424" height="692" rx="54" fill="none" stroke="rgba(${g},.12)" stroke-width="1"/>`;
+    document.getElementById("fx").innerHTML = defs + outer + flare(onEdge(rot - 1)) + flare(onEdge(rot + 179), .8);
+    document.querySelectorAll(".edge").forEach(e => e.style.transform = "none");
+    // turn the comet gradients: conic "from" angle
+    document.querySelectorAll(".shine-a .edge").forEach(e => {
+      const tail = from => `conic-gradient(from ${from}deg at 50% 50%, transparent 0deg, rgba(${g}, .06) 250deg, rgba(${g}, .3) 310deg, rgba(${g}, .85) 350deg, #fff 357deg, #fff 359deg, transparent 360deg)`;
+      e.style.background = `${tail(rot)}, ${tail(rot + 180)}, rgba(${g}, ${e.closest(".glow-wrap") ? 0 : .3})`;
+    });
+  }
+  if (mode === "b") {
+    // light beams shooting out from behind the card, longer and brighter near the corners
+    let beams = "";
+    seed = 21;
+    for (let i = 0; i < 64; i++) {
+      const a = i * 360 / 64 + (rnd() - .5) * 3;
+      const r = a * Math.PI / 180, len = 330 + rnd() * 260, w = .8 + rnd() * 2.4;
+      const x2 = 500 + Math.sin(r) * len * 1.6, y2 = 528 - Math.cos(r) * len * 1.6;
+      const nx = Math.cos(r) * w * 12, ny = Math.sin(r) * w * 12;
+      beams += `<polygon points="500,528 ${(x2 + nx).toFixed(1)},${(y2 + ny).toFixed(1)} ${(x2 - nx).toFixed(1)},${(y2 - ny).toFixed(1)}" opacity="${(.25 + rnd() * .55).toFixed(2)}"/>`;
+    }
+    document.getElementById("rays").innerHTML = `<defs>
+      <radialGradient id="beamFade" cx="500" cy="528" r="560" gradientUnits="userSpaceOnUse">
+        <stop offset=".3" stop-color="#fff"/><stop offset=".55" stop-color="#fff" stop-opacity=".5"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+      <mask id="beamMask"><rect width="1000" height="1000" fill="url(#beamFade)"/></mask>
+      <filter id="soft"><feGaussianBlur stdDeviation="2.2"/></filter></defs>
+      <g mask="url(#beamMask)" filter="url(#soft)" fill="rgb(${g})" style="mix-blend-mode:screen">${beams}</g>`;
+    document.getElementById("fx").innerHTML = defs + [onEdge(30), onEdge(150), onEdge(210), onEdge(330)].map((p, i) => flare(p, i % 2 ? .55 : .75)).join("");
+  }
+}
 
 document.fonts.ready.then(() => { document.body.dataset.ready = "1"; });
 </script>

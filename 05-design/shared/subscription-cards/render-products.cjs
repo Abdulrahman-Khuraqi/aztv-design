@@ -3,6 +3,7 @@
 //                       node render-products.cjs b      (only background B; or e, f)
 //                       node render-products.cjs f shine  (with the shine effects -> product-images/f-shine/)
 //                       node render-products.cjs f shine aztv-3m plus-12m  (only these cards, no offer image)
+//                       node render-products.cjs f shine-a aztv-3m plus-12m  (option A "comet"; shine-b "power-up") -> product-images/f-shine-a/
 // Output: product-images/b/<card>.jpg and product-images/e/<card>.jpg  (needs the playwright package)
 // The offer of the week (offer-week.jpg, offer-week-b.jpg) is composed from two finished cards by offer-image.html; the empty stage it sits on is kept as _stage-regular.jpg.
 const { chromium } = require("playwright");
@@ -23,23 +24,25 @@ const OFFERS = [
 ];
 (async () => {
   const opts = process.argv[2] ? [process.argv[2]] : ["b", "e", "f"];
-  const shine = process.argv[3] === "shine";
+  // shine: the edge light (round 2); shine-a / shine-b: the two bolder options (round 3)
+  const shine = /^shine(-[ab])?$/.test(process.argv[3] || "") ? process.argv[3] : "";
+  const shineParam = shine === "shine" ? "1" : shine.slice(6);
   const only = process.argv.slice(4);
   const stage = pathToFileURL(resolve("../subscription-backgrounds/backgrounds.html")).href;
   const browser = await chromium.launch();
   const page = await browser.newPage({ viewport: { width: 1100, height: 1100 }, deviceScaleFactor: 2 });
   for (const opt of opts) {
-    const out = shine ? `${opt}-shine` : opt;
+    const out = shine ? `${opt}-${shine}` : opt;
     mkdirSync(`product-images/${out}`, { recursive: true });
     for (const [card, tier] of CARDS.filter(([c]) => !only.length || only.includes(c))) {
-      await page.goto(`${stage}?opt=${opt}&tier=${tier}&card=${encodeURIComponent(`../subscription-cards/new/${card}.png`)}${shine ? "&shine=1" : ""}`);
+      await page.goto(`${stage}?opt=${opt}&tier=${tier}&card=${encodeURIComponent(`../subscription-cards/new/${card}.png`)}${shine ? `&shine=${shineParam}` : ""}`);
       await page.waitForSelector("body[data-ready]");
       await page.waitForFunction(() => [...document.images].every(i => !i.src || i.complete));
       await page.locator("#bg").screenshot({ path: `product-images/${out}/${card}.jpg`, type: "jpeg", quality: 92 });
       console.log(`product-images/${out}/${card}.jpg`);
     }
     for (const [name, tier, big, small, texts] of only.length ? [] : OFFERS) {
-      await page.goto(`${stage}?opt=${opt}&tier=${tier}${shine ? "&shine=1" : ""}`);   // the empty stage, no card
+      await page.goto(`${stage}?opt=${opt}&tier=${tier}${shine ? `&shine=${shineParam}` : ""}`);   // the empty stage, no card
       await page.waitForSelector("body[data-ready]");
       await page.waitForFunction(() => [...document.images].every(i => !i.src || i.complete));
       const base = `product-images/${out}/_stage-${tier}.jpg`;

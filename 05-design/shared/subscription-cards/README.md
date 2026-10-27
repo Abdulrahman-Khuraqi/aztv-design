@@ -44,6 +44,14 @@ The client asked for the product images to be "more shining". A first try (glow 
 
 - Export: `node render-products.cjs f shine aztv-3m plus-12m` (only these cards); all cards once approved: `node render-products.cjs f shine`.
 
+## Shine, round 3: two bolder options (2026-10-27)
+
+The client liked the edge light and asked for two more epic options built on it, on the same two images:
+
+- **Option A «comet»** (`product-images/f-shine-a/`, `&shine=a`): two light trails run round the card's rim with long fading tails; each head ends in a cinematic flare (a long thin horizontal light streak with a hot core); two faint outer frame lines around the card.
+- **Option B «power-up»** (`product-images/f-shine-b/`, `&shine=b`): the whole rim burns, brightest on the four corners, each corner with a flare, and light beams shoot out from behind the card across the stage.
+- Export: `node render-products.cjs f shine-a aztv-3m plus-12m` (or `shine-b`); all cards once one is chosen: `node render-products.cjs f shine-a`.
+
 ## Product images (2026-10-24, all nine cards accepted)
 
 Each accepted card is placed on the approved product background (white accent for AZ TV, gold for Plus): `product-images/b/<card>.jpg` (background B, the black spotlight burst, **the one used on the website**) and `product-images/e/<card>.jpg` (background E, the diagonal split, kept as an alternative). 2000 x 2000 JPG, ready to upload as the Salla product image of each product (card to product: see the table under «The nine cards»). Overviews of the ten images (nine cards and the offer of the week): `product-images/overview-b.jpg`, `overview-e.jpg`, and `overview-f.jpg` on the new background F (straight split, 2026-10-25, to try; images in `product-images/f/`). **The website uses F** (chosen by the client 2026-10-25); `PRODUCT_BG=b python3 .../build_page.py` previews it with B.
