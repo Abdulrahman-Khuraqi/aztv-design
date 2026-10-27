@@ -114,10 +114,10 @@
       transparent 0deg, rgba(var(--glow), .08) 300deg, rgba(var(--glow), .35) 330deg, rgba(var(--glow), .85) 352deg, #fff 357deg, #fff 359deg, transparent 360deg),
       rgba(var(--glow), .3); }
   .shine-a > .edge { padding: 5px; }
-  /* more glow round the lit rim (client 2026-10-27) */
+  /* more glow round the lit rim (client 2026-10-27), then toned down a step (too much) */
   .shine-a .glow-wrap.blur { filter: blur(9px); }
-  .shine-a .glow-wrap.blur2 { filter: blur(30px); opacity: 1; }
-  .shine-a .glow-wrap.blur2 .edge { padding: 22px; left: 290px; top: 184px; width: 420px; height: 688px; border-radius: 55px; }
+  .shine-a .glow-wrap.blur2 { filter: blur(26px); opacity: .8; }
+  .shine-a .glow-wrap.blur2 .edge { padding: 18px; left: 294px; top: 188px; width: 412px; height: 680px; border-radius: 51px; }
   .shine-a .glow-wrap .edge { padding: 11px; }
   .shine-a .edge { background-position: center; }
   /* B: the whole rim burns, brightest on the four corners */
@@ -288,13 +288,13 @@ bg.style.setProperty("--glow", C.glow);
     // vertical spotlight on the side edge, like a studio light caught on the card's rim: no round blobs, only tall soft
     // shapes that are brightest in the middle and fade out up and down. k = strength; warm = more tier colour, less white
     const spot = ([x, y], k, warm) => `<g transform="translate(${x.toFixed(1)} ${y.toFixed(1)})" style="mix-blend-mode:screen">
-      <ellipse rx="${120 * k}" ry="${330 * k}" fill="url(#spotWide)" opacity="${.55 * k}"/>
-      <ellipse rx="${60 * k}" ry="${260 * k}" fill="url(#spotWide)" opacity="${k}"/>
+      <ellipse rx="${90 * k}" ry="${290 * k}" fill="url(#spotWide)" opacity="${.3 * k}"/>
+      <ellipse rx="${52 * k}" ry="${250 * k}" fill="url(#spotWide)" opacity="${.85 * k}"/>
       <ellipse rx="${14 * k}" ry="${190 * k}" fill="url(#spotMid)" opacity="${warm ? .8 : .95}"/>
       <ellipse rx="${2.6 * k}" ry="${150 * k}" fill="url(#streakV)"/>
       <ellipse rx="${5 * k}" ry="${46 * k}" fill="url(#spotHot)" opacity="${warm ? .75 : 1}"/></g>`;
     const spotDefs = `<defs>
-      <radialGradient id="spotWide"><stop offset="0" stop-color="rgb(${g})" stop-opacity=".8"/><stop offset=".45" stop-color="rgb(${g})" stop-opacity=".28"/><stop offset="1" stop-color="rgb(${g})" stop-opacity="0"/></radialGradient>
+      <radialGradient id="spotWide"><stop offset="0" stop-color="rgb(${g})" stop-opacity=".66"/><stop offset=".45" stop-color="rgb(${g})" stop-opacity=".2"/><stop offset="1" stop-color="rgb(${g})" stop-opacity="0"/></radialGradient>
       <radialGradient id="spotMid"><stop offset="0" stop-color="#fff" stop-opacity=".9"/><stop offset=".35" stop-color="rgb(${g})" stop-opacity=".6"/><stop offset="1" stop-color="rgb(${g})" stop-opacity="0"/></radialGradient>
       <radialGradient id="spotHot"><stop offset="0" stop-color="#fff"/><stop offset=".7" stop-color="#fff" stop-opacity=".6"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>`;
     // two lights at different places (client): the main one high on the right edge, a softer, warmer one low on the left edge
