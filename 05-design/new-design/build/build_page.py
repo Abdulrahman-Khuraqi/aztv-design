@@ -222,11 +222,11 @@ b5 = block('1551497783')
 im5 = b5.select_one('.p_image img'); im5['src'] = im5['data-src'] = IMG + 'aztv-box-dark.webp'; im5['width'] = '1600'; im5['height'] = '893'
 b5.select_one('h2 + p').string = 'جهاز أندرويد بدقة 4K، ومعه اشتراك AZ TV Plus سنة كاملة مجانًا'
 B += [b5]
-# 06 Season offers: title with countdown and button + products grid. Made the page's one special section (2026-10-27): the
+# 06 Offer of the month (was «عروض بداية الموسم», renamed 2026-10-27): title with countdown and button + products grid. Made the page's one special section (2026-10-27): the
 # title block's icon field takes the gold «خصم حتى 60٪» seal (build/make_offer_badge.js) and its countdown gets the offer's end
 # date (both normal fields of the theme's title block); the stage, frame and edge light around both blocks are in malak-custom.css.
 OFFER_END = '2026-11-30'   # placeholder until the client gives the real end date of the season offer (block setting «تاريخ الانتهاء»)
-d06 = divider('43834166', 'عروض بداية الموسم', 'خصم حتى 60٪ على باقات عز تي في وعز تي في بلس', ('كل العروض', c(1510593888)),
+d06 = divider('43834166', 'عرض الشهر', 'خصم حتى 60٪ على باقات عز تي في وعز تي في بلس', ('كل العروض', c(1510593888)),
               countdown=True, icon=M + 'offer-badge.png')
 def countdown_to(d, end):
     # the saved page has no scripts, so the preview prints the time left at build time; on Salla the theme's own counter runs
