@@ -222,8 +222,25 @@ b5 = block('1551497783')
 im5 = b5.select_one('.p_image img'); im5['src'] = im5['data-src'] = IMG + 'aztv-box-dark.webp'; im5['width'] = '1600'; im5['height'] = '893'
 b5.select_one('h2 + p').string = 'جهاز أندرويد بدقة 4K، ومعه اشتراك AZ TV Plus سنة كاملة مجانًا'
 B += [b5]
-# 06 Season offers: title with countdown and button + products grid
-B += [divider('43834166', 'عروض بداية الموسم', 'خصم حتى 60٪ على باقات عز تي في وعز تي في بلس', ('كل العروض', c(1510593888)), countdown=True), block('817347637')]
+# 06 Season offers: title with countdown and button + products grid. Made the page's one special section (2026-10-27): the
+# title block's icon field takes the gold «خصم حتى 60٪» seal (build/make_offer_badge.js) and its countdown gets the offer's end
+# date (both normal fields of the theme's title block); the stage, frame and edge light around both blocks are in malak-custom.css.
+OFFER_END = '2026-11-30'   # placeholder until the client gives the real end date of the season offer (block setting «تاريخ الانتهاء»)
+d06 = divider('43834166', 'عروض بداية الموسم', 'خصم حتى 60٪ على باقات عز تي في وعز تي في بلس', ('كل العروض', c(1510593888)),
+              countdown=True, icon=M + 'offer-badge.png')
+def countdown_to(d, end):
+    # the saved page has no scripts, so the preview prints the time left at build time; on Salla the theme's own counter runs
+    import datetime
+    cd = d.select_one('salla-count-down'); cd['date'] = end
+    for el in [cd] + cd.select('.s-count-down-ended'):
+        el['class'] = [k for k in el.get('class', []) if k != 's-count-down-ended']
+    left = datetime.datetime.fromisoformat(end) - datetime.datetime.now()
+    secs = max(0, int(left.total_seconds()))
+    vals = {'ثانية': secs % 60, 'دقيقة': secs // 60 % 60, 'ساعة': secs // 3600 % 24, 'يوم': secs // 86400}
+    for li in cd.select('.s-count-down-item'):
+        li.select_one('.s-count-down-item-value').string = f"{vals[li.select_one('.s-count-down-item-label').get_text(strip=True)]:02d}"
+countdown_to(d06, OFFER_END)
+B += [d06, block('817347637')]
 # 07 AZ TV packages
 d7 = block('427126746'); d7.select_one('.divider-title h2').string = 'اشتراكات AZ TV'; d7.select_one('.divider-title p').string = 'الباقة العادية: نقلة نوعية لجهازك'
 head_icon(d7, M + 'head-tv.svg')
@@ -270,10 +287,12 @@ B += [FAQS]
 # 17 Final CTA
 B += [divider('new-17-cta', 'جاهز تبدأ المشاهدة؟', 'اختر باقتك اليوم، أو جدّد اشتراكك وكمّل من حيث وقفت.', ('تصفح الباقات', c(1765121197)), xl=True)]
 
-# section titles carry no icon (block setting «الأيقونة» left empty), except 07, 11 and 15: their old GIFs became our animated gold icons (head_icon)
+# section titles carry no icon (block setting «الأيقونة» left empty), except 07, 11 and 15: their old GIFs became our animated gold icons (head_icon),
+# and 06: the gold «خصم حتى 60٪» seal
 for blk in B:
     for el in blk.select('.divider-icon'):
-        if 'malak/head-' not in (el.img or {}).get('src', ''): el.decompose()
+        src = (el.img or {}).get('src', '')
+        if 'malak/head-' not in src and 'malak/offer-badge' not in src: el.decompose()
 
 # products blocks: the dividers already title them, so the blocks' own titles are left empty (block setting)
 for blk in B:
