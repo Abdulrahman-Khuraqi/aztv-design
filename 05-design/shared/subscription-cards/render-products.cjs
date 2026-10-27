@@ -1,6 +1,7 @@
 // Product images: every finished card placed on the approved background (white for AZ TV, gold for Plus), 2000 x 2000 JPG.
 // Run from this folder: node render-products.cjs        (all cards, backgrounds B and E)
 //                       node render-products.cjs b      (only background B; or e, f)
+//                       node render-products.cjs f shine  (with the shine effects -> product-images/f-shine/)
 // Output: product-images/b/<card>.jpg and product-images/e/<card>.jpg  (needs the playwright package)
 // The offer of the week (offer-week.jpg, offer-week-b.jpg) is composed from two finished cards by offer-image.html; the empty stage it sits on is kept as _stage-regular.jpg.
 const { chromium } = require("playwright");
@@ -21,29 +22,31 @@ const OFFERS = [
 ];
 (async () => {
   const opts = process.argv[2] ? [process.argv[2]] : ["b", "e", "f"];
+  const shine = process.argv[3] === "shine";
   const stage = pathToFileURL(resolve("../subscription-backgrounds/backgrounds.html")).href;
   const browser = await chromium.launch();
   const page = await browser.newPage({ viewport: { width: 1100, height: 1100 }, deviceScaleFactor: 2 });
   for (const opt of opts) {
-    mkdirSync(`product-images/${opt}`, { recursive: true });
+    const out = shine ? `${opt}-shine` : opt;
+    mkdirSync(`product-images/${out}`, { recursive: true });
     for (const [card, tier] of CARDS) {
-      await page.goto(`${stage}?opt=${opt}&tier=${tier}&card=${encodeURIComponent(`../subscription-cards/new/${card}.png`)}`);
+      await page.goto(`${stage}?opt=${opt}&tier=${tier}&card=${encodeURIComponent(`../subscription-cards/new/${card}.png`)}${shine ? "&shine=1" : ""}`);
       await page.waitForSelector("body[data-ready]");
       await page.waitForFunction(() => [...document.images].every(i => !i.src || i.complete));
-      await page.locator("#bg").screenshot({ path: `product-images/${opt}/${card}.jpg`, type: "jpeg", quality: 92 });
-      console.log(`product-images/${opt}/${card}.jpg`);
+      await page.locator("#bg").screenshot({ path: `product-images/${out}/${card}.jpg`, type: "jpeg", quality: 92 });
+      console.log(`product-images/${out}/${card}.jpg`);
     }
     for (const [name, tier, big, small, texts] of OFFERS) {
-      await page.goto(`${stage}?opt=${opt}&tier=${tier}`);   // the empty stage, no card
+      await page.goto(`${stage}?opt=${opt}&tier=${tier}${shine ? "&shine=1" : ""}`);   // the empty stage, no card
       await page.waitForSelector("body[data-ready]");
       await page.waitForFunction(() => [...document.images].every(i => !i.src || i.complete));
-      const base = `product-images/${opt}/_stage-${tier}.jpg`;
+      const base = `product-images/${out}/_stage-${tier}.jpg`;
       await page.locator("#bg").screenshot({ path: base, type: "jpeg", quality: 95 });
       const qs = new URLSearchParams({ stage: base, big: `new/${big}.png`, small: `new/${small}.png`, ...texts });
       await page.goto(`${pathToFileURL(resolve("offer-image.html")).href}?${qs}`);
       await page.waitForSelector("body[data-ready]");
-      await page.locator("#stage").screenshot({ path: `product-images/${opt}/${name}.jpg`, type: "jpeg", quality: 92 });
-      console.log(`product-images/${opt}/${name}.jpg`);
+      await page.locator("#stage").screenshot({ path: `product-images/${out}/${name}.jpg`, type: "jpeg", quality: 92 });
+      console.log(`product-images/${out}/${name}.jpg`);
     }
   }
   await browser.close();

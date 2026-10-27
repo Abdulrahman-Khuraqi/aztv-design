@@ -38,6 +38,12 @@ The client asked for an offer image for the old «عز تي في سنة + ٣ ش�
 - On the website preview it replaces the national-day image of product `p930436127` in the offers section and in the AZ TV packages.
 - Export: `node render-cards.cjs aztv-12m`, `node render-products.cjs`, then `python3 product-sheet.py b|e`.
 
+## Shine version (2026-10-27, for the client to approve)
+
+The client asked for the product images to be "more shining". `product-images/f-shine/` has every product image on background F with the shine effects (`&shine=1` in `../subscription-backgrounds/backgrounds.html`): a glow halo behind the card and a glow around its edge, a diagonal gloss sweep and a bright rim on the card, a soft reflection of the card on the floor, four-point glints on the card's corners and around it, a glowing logo and a gradient 4K badge. Overview: `product-images/overview-f-shine.jpg`. The offer of the week only gets the logo glow so far (its two cards are composed later by `offer-image.html`). The website still uses `product-images/f/`; switch once the client approves.
+
+- Export: `node render-products.cjs f shine` (writes `product-images/f-shine/`), then `python3 product-sheet.py f-shine`.
+
 ## Product images (2026-10-24, all nine cards accepted)
 
 Each accepted card is placed on the approved product background (white accent for AZ TV, gold for Plus): `product-images/b/<card>.jpg` (background B, the black spotlight burst, **the one used on the website**) and `product-images/e/<card>.jpg` (background E, the diagonal split, kept as an alternative). 2000 x 2000 JPG, ready to upload as the Salla product image of each product (card to product: see the table under «The nine cards»). Overviews of the ten images (nine cards and the offer of the week): `product-images/overview-b.jpg`, `overview-e.jpg`, and `overview-f.jpg` on the new background F (straight split, 2026-10-25, to try; images in `product-images/f/`). **The website uses F** (chosen by the client 2026-10-25); `PRODUCT_BG=b python3 .../build_page.py` previews it with B.
