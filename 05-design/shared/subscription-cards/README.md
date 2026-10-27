@@ -48,8 +48,8 @@ The client asked for the product images to be "more shining". A first try (glow 
 
 The client liked the edge light and asked for two more epic options built on it, on the same two images:
 
-- **Option A «comet»** (`product-images/f-shine-a/`, `&shine=a`): two light trails run round the card's rim with long fading tails; each head ends in a cinematic flare (a long thin horizontal light streak with a hot core); two faint outer frame lines around the card.
-- **Option B «power-up»** (`product-images/f-shine-b/`, `&shine=b`): the whole rim burns, brightest on the four corners, each corner with a flare, and light beams shoot out from behind the card across the stage.
+- **Option A «comet»** (`product-images/f-shine-a/`, `&shine=a`), **the chosen direction**: two light trails run round the card's rim with fading tails, mirrored left and right; their heads sit on the card's side edges on the dark half of the stage, each with an **upright** flare that hugs the edge (a bright hairline running up and down the edge, a soft glow and a hot core). The client said the first, horizontal flares were not realistic, so they are now vertical. Two faint outer frame lines around the card.
+- Option B «power-up» (burning rim and light beams across the stage) was rejected; its images were removed (git history), the code stays behind `&shine=b`.
 - Export: `node render-products.cjs f shine-a aztv-3m plus-12m` (or `shine-b`); all cards once one is chosen: `node render-products.cjs f shine-a`.
 
 ## Product images (2026-10-24, all nine cards accepted)

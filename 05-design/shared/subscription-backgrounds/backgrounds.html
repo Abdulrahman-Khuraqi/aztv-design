@@ -268,27 +268,37 @@ bg.style.setProperty("--glow", C.glow);
     return [500 + dx * t, 528 + dy * t];
   };
   // cinematic flare: a long thin horizontal streak, a soft halo and a hot core
-  const flare = ([x, y], k = 1) => `<g transform="translate(${x.toFixed(1)} ${y.toFixed(1)})" style="mix-blend-mode:screen">
+  const flare = ([x, y], k = 1, rot = 0) => `<g transform="translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${rot})" style="mix-blend-mode:screen">
     <ellipse rx="${300 * k}" ry="${5 * k}" fill="url(#streakH)"/>
     <ellipse rx="${120 * k}" ry="${2 * k}" fill="#fff" opacity=".9"/>
+    <ellipse rx="${170 * k}" ry="${16 * k}" fill="url(#halo)" opacity=".75"/>
     <circle r="${46 * k}" fill="url(#halo)"/><circle r="${16 * k}" fill="url(#core)"/>
     <circle cx="${-90 * k}" r="${7 * k}" fill="rgb(${g})" opacity=".35"/><circle cx="${140 * k}" r="${11 * k}" fill="rgb(${g})" opacity=".18"/></g>`;
   const defs = `<defs>
     <radialGradient id="halo"><stop offset="0" stop-color="#fff" stop-opacity=".9"/><stop offset=".25" stop-color="rgb(${g})" stop-opacity=".55"/><stop offset="1" stop-color="rgb(${g})" stop-opacity="0"/></radialGradient>
     <radialGradient id="core"><stop offset="0" stop-color="#fff"/><stop offset=".6" stop-color="#fff" stop-opacity=".8"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+    <linearGradient id="streakV" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="rgb(${g})" stop-opacity="0"/><stop offset=".5" stop-color="#fff"/><stop offset="1" stop-color="rgb(${g})" stop-opacity="0"/></linearGradient>
     <linearGradient id="streakH"><stop offset="0" stop-color="rgb(${g})" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".95"/><stop offset="1" stop-color="rgb(${g})" stop-opacity="0"/></linearGradient>
   </defs>`;
   if (mode === "a") {
-    // comet heads sit at the end of each tail (conic 0deg = up, heads at ~359deg and ~179deg, turned by --rot)
-    const rot = 52;
+    // upright flare that hugs the side edge: a bright hairline running up and down the edge, a wide soft glow, a hot core
+    const edgeFlare = ([x, y]) => `<g transform="translate(${x.toFixed(1)} ${y.toFixed(1)})" style="mix-blend-mode:screen">
+      <ellipse rx="34" ry="230" fill="url(#halo)" opacity=".55"/>
+      <ellipse rx="7" ry="260" fill="url(#streakV)"/>
+      <ellipse rx="2.2" ry="170" fill="#fff"/>
+      <circle r="58" fill="url(#halo)"/><circle r="20" fill="url(#core)"/>
+      <circle cy="-120" r="8" fill="rgb(${g})" opacity=".35"/><circle cy="150" r="12" fill="rgb(${g})" opacity=".2"/></g>`;
+    // two comets mirrored left and right: both heads on the dark upper half, at the same height (60deg and 300deg, 0 = up)
+    const HEAD = 60;
     const outer = `<rect x="296" y="190" width="408" height="676" rx="47" fill="none" stroke="rgba(${g},.28)" stroke-width="1.2"/>
       <rect x="288" y="182" width="424" height="692" rx="54" fill="none" stroke="rgba(${g},.12)" stroke-width="1"/>`;
-    document.getElementById("fx").innerHTML = defs + outer + flare(onEdge(rot - 1)) + flare(onEdge(rot + 179), .8);
-    document.querySelectorAll(".edge").forEach(e => e.style.transform = "none");
-    // turn the comet gradients: conic "from" angle
+    // the flares stand upright and run along the card's side edges (client: horizontal was not realistic)
+    document.getElementById("fx").innerHTML = defs + outer + edgeFlare(onEdge(HEAD)) + edgeFlare(onEdge(360 - HEAD));
     document.querySelectorAll(".shine-a .edge").forEach(e => {
-      const tail = from => `conic-gradient(from ${from}deg at 50% 50%, transparent 0deg, rgba(${g}, .06) 250deg, rgba(${g}, .3) 310deg, rgba(${g}, .85) 350deg, #fff 357deg, #fff 359deg, transparent 360deg)`;
-      e.style.background = `${tail(rot)}, ${tail(rot + 180)}, rgba(${g}, ${e.closest(".glow-wrap") ? 0 : .3})`;
+      // right comet runs clockwise, its tail behind it (anticlockwise); left comet is its mirror image
+      const right = `conic-gradient(from ${HEAD - 150}deg at 50% 50%, transparent 0deg, rgba(${g}, .08) 40deg, rgba(${g}, .35) 100deg, rgba(${g}, .9) 140deg, #fff 147deg, #fff 150deg, transparent 151deg)`;
+      const left = `conic-gradient(from ${360 - HEAD - 1}deg at 50% 50%, transparent 0deg, #fff 1deg, #fff 4deg, rgba(${g}, .9) 11deg, rgba(${g}, .35) 51deg, rgba(${g}, .08) 111deg, transparent 151deg)`;
+      e.style.background = `${right}, ${left}, rgba(${g}, ${e.closest(".glow-wrap") ? 0 : .3})`;
     });
   }
   if (mode === "b") {
